@@ -15,6 +15,8 @@ const loginRouter = require("./routes/login");
 const adminRouter = require("./routes/admin");
 const productRouter = require("./routes/product");
 const cartRouter = require("./routes/cart");
+const commentRouter = require("./routes/comment");
+
 
 app.use("/role", rolesRouter);
 app.use("/permission", permissionsRouter);
@@ -23,6 +25,7 @@ app.use("/login", loginRouter);
 app.use("/admin", adminRouter);
 app.use("/product", productRouter);
 app.use("/cart", cartRouter);
+app.use("/comment",commentRouter)
 
 const PORT = process.env.PORT || 5000;
 
