@@ -43,7 +43,33 @@ const getAllProduct= (req, res) => {
       });
     });
   };
+ 
+  const  getProductByCategory=()=>{
+    const category_id = req.params.id;
+
+    const query = `SELECT * FROM products WHERE category_id=? AND is_deleted=0;`;
+    const data = [category_id];
+  
+    connection.query(query, data, (err, result) => {
+      if (err) {
+        res.status(500).json({ err });
+      }
+      if (result.length) {
+        res.status(200).json({
+          success: true,
+          massage: `All the products for the category: ${author_id}`,
+          result: result,
+        });
+      } else {
+        res.status(404).json({
+          success: false,
+          massage: `The category: ${data} has no category `,
+        });
+      }
+    });
+  }
 module.exports = {
   getOneProductById,
-  getAllProduct
+  getAllProduct,
+  getProductByCategory
 };
