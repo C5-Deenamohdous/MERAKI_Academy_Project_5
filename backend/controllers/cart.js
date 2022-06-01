@@ -83,8 +83,46 @@ const removeProductFromCart = (req, res) => {
   });
 };
 
+const updateQuantity = (req, res) => {
+  const product_id = req.params.id;
+  const { quantity } = req.body;
+
+  const query = `SELECT title,id,quantity FROM products WHERE id=?`;
+  const data = [product_id];
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        err: err,
+      });
+    }
+    if (result.length) {
+      if (result[0].quantity - quantity < 0) {
+        return res.json({
+          message: `There's Only ${result[0].quantity} in Stock`,
+        });
+      } else {
+        const query = `UPDATE products SET quantity=? WHERE id=?`;
+        const remainingQuantity = result[0].quantity - quantity;
+        const data = [remainingQuantity, product_id];
+        connection.query(query, data, (err, result) => {
+          if (err) {
+            return res.status(500).json({
+              message: `Server Error`,
+            });
+          }
+          res.status(201).json({
+            message: `Order Done , and The New quantity is ${remainingQuantity}`,
+            result: result,
+          });
+        });
+      }
+    }
+  });
+};
+
 module.exports = {
   addToCart,
   getUserCart,
   removeProductFromCart,
+  updateQuantity,
 };
