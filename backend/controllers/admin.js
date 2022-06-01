@@ -194,7 +194,7 @@ updateProductById = (req, res) => {
     quantity=IF(${isquantity},?,quantity),
     category_id=IF(${iscategory_id},?,category_id),
     brand_id=IF(${isbrand_id},?,brand_id) 
-    WHERE id=?;`;
+    WHERE id=? AND is_deleted=0  ;`;
     const data = [
         title,
         description,
@@ -213,6 +213,7 @@ updateProductById = (req, res) => {
                 err: err,
             });
         }
+        console.log(result);
         if (!result) {
             return res.status(404).json({
                 success: false,

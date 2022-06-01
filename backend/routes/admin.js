@@ -12,7 +12,7 @@ const {
     deleteProductById,
     updateProductById 
         } = require("../controllers/admin")
-        
+
 /* A post request that is used to create a new category. */
 adminRouter.post("/create_category", createNewCategory);//!done
 //http://localhost:5000/admin/create_category
