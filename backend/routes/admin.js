@@ -1,7 +1,7 @@
 const express = require("express");
 
 const adminRouter = express.Router();
-const {createNewCategory,createNewBrand,addProduct,getAllusers,deleteUserById,deleteProductById} = require("../controllers/admin")
+const {createNewCategory,createNewBrand,addProduct,getAllusers,deleteUserById,deleteProductById,updateProductById} = require("../controllers/admin")
 
 
 
@@ -32,6 +32,9 @@ adminRouter.get("/users",getAllusers);//!done
 adminRouter.delete("/deleteUserById/:id",deleteUserById);//!done
 
 adminRouter.delete("/deleteProductById/:id",deleteProductById);//!done
+
+
+adminRouter.put("/updateProductById/:id",updateProductById);//!done
 
 
 
