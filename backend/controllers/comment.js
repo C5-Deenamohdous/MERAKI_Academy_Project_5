@@ -52,31 +52,59 @@ const createNewComment = (req, res) => {
 };
 
 const updatCommentById = (req, res) => {
-    const { comment } = req.body;
-    const comment_id = req.params.id;
-    const query = `UPDATE comments SET comment=? WHERE id=? AND is_deleted=0;`;
-    const data = [comment, comment_id];
-    connection.query(query, data, (err, result) => {
-      if (err) {
-        res.status(404).json({
-          success: false,
-          massage: `The comment of id number : ${comment_id} is not found`,
-          err: err,
-        });
-      }
-  
-      if (result.affectedRows != 0) {
-        res.status(201).json({
-          success: true,
-          massage: `comment updated`,
-          result: result,
-        });
-      } else {
-        res.status(201).json({
-          success: false,
-          massage: `The comment is Not Found`,
-        });
-      }
+  const { comment } = req.body;
+  const comment_id = req.params.id;
+  const query = `UPDATE comments SET comment=? WHERE id=? AND is_deleted=0;`;
+  const data = [comment, comment_id];
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      res.status(404).json({
+        success: false,
+        massage: `The comment of id number : ${comment_id} is not found`,
+        err: err,
+      });
+    }
+
+    if (result.affectedRows != 0) {
+      res.status(201).json({
+        success: true,
+        massage: `comment updated`,
+        result: result,
+      });
+    } else {
+      res.status(201).json({
+        success: false,
+        massage: `The comment is Not Found`,
+      });
+    }
+  });
+};
+
+const deleteComment = (req, res) => {
+  const comment_id = req.params.id;
+  const query = `UPDATE comments SET is_deleted=1 WHERE id=? AND is_deleted=0;`;
+  const data = [comment_id];
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      res.status(404).json({ err });
+    }
+    if (!result.changedRows) {
+      return res.status(404).json({
+        success: false,
+        massage: `No comment for this product `,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      massage: `Deleted comment for the id number : ${comment_id} `,
+      result: result,
     });
-}
-module.exports = { getAllCommentsById, createNewComment,updatCommentById };
+  });
+};
+
+module.exports = {
+  getAllCommentsById,
+  createNewComment,
+  updatCommentById,
+  deleteComment,
+};
