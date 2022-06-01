@@ -2,7 +2,9 @@ const connection = require("../models/db");
 const getOneProductById = (req, res) => {
   const id = req.params.id;
 
-  const query = `SELECT * FROM products INNER JOIN categories ON products.category_id=categories.id WHERE products.id=? AND products.is_deleted=0;`;
+  const query = `SELECT * FROM products
+  INNER JOIN categories ON products.category_id=categories.id 
+INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0`;
   const data = [id];
 
   connection.query(query, data, (err, result) => {
@@ -21,13 +23,16 @@ const getOneProductById = (req, res) => {
     }
     res.status(200).json({
       success: true,
-      massage: `The product  ${data}`,
+      massage: `The product of this  ${id}`,
       result: result,
     });
   });
 };
 const getAllProduct= (req, res) => {
-    const query = `SELECT * FROM products WHERE is_deleted=0;`;
+  const query = `SELECT * FROM products
+  INNER JOIN categories ON products.category_id=categories.id 
+INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0`
+;
     connection.query(query, (err, result) => {
       if (err) {
         res.status(500).json({
@@ -44,10 +49,12 @@ const getAllProduct= (req, res) => {
     });
   };
  
-  const  getProductByCategory=()=>{
+  const  getProductByCategory=(req,res)=>{
     const category_id = req.params.id;
 
-    const query = `SELECT * FROM products WHERE category_id=? AND is_deleted=0;`;
+    const query = `SELECT * FROM products
+    INNER JOIN categories ON products.category_id=categories.id 
+  INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0`;
     const data = [category_id];
   
     connection.query(query, data, (err, result) => {
@@ -57,13 +64,13 @@ const getAllProduct= (req, res) => {
       if (result.length) {
         res.status(200).json({
           success: true,
-          massage: `All the products for the category: ${author_id}`,
+          massage: `All the products for the category: ${category_id}`,
           result: result,
         });
       } else {
         res.status(404).json({
           success: false,
-          massage: `The category: ${data} has no category `,
+          massage: `The category: ${category_id} has no category `,
         });
       }
     });
