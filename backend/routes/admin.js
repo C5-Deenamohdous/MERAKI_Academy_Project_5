@@ -3,14 +3,6 @@ const express = require("express");
 
 const adminRouter = express.Router();
 
-const {
-  createNewCategory,
-  createNewBrand,
-  addProduct,
-} = require("../controllers/admin");
-const authentication = require("../middlewares/authentication");
-const authorization = require("../middlewares/authorization");
-
 /* Importing the functions from the admin.js file. */
 const { 
     createNewCategory,
