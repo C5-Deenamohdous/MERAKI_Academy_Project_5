@@ -1,4 +1,4 @@
-DROP DATABASE Store_P5 ; 
+-- DROP DATABASE Store_P5 ; 
 CREATE DATABASE Store_P5 ; 
 
 USE Store_P5;
