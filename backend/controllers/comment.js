@@ -51,4 +51,32 @@ const createNewComment = (req, res) => {
   });
 };
 
-module.exports = { getAllCommentsById, createNewComment };
+const updatCommentById = (req, res) => {
+    const { comment } = req.body;
+    const comment_id = req.params.id;
+    const query = `UPDATE comments SET comment=? WHERE id=? AND is_deleted=0;`;
+    const data = [comment, comment_id];
+    connection.query(query, data, (err, result) => {
+      if (err) {
+        res.status(404).json({
+          success: false,
+          massage: `The comment of id number : ${comment_id} is not found`,
+          err: err,
+        });
+      }
+  
+      if (result.affectedRows != 0) {
+        res.status(201).json({
+          success: true,
+          massage: `comment updated`,
+          result: result,
+        });
+      } else {
+        res.status(201).json({
+          success: false,
+          massage: `The comment is Not Found`,
+        });
+      }
+    });
+}
+module.exports = { getAllCommentsById, createNewComment,updatCommentById };
