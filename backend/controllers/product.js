@@ -75,8 +75,35 @@ INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0`
       }
     });
   }
+  const  getProductByBrand=(req,res)=>{
+    const brand_id = req.params.id;
+
+    const query = `SELECT * FROM products
+    INNER JOIN categories ON products.category_id=categories.id 
+  INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0`;
+    const data = [brand_id];
+  
+    connection.query(query, data, (err, result) => {
+      if (err) {
+        res.status(500).json({ err });
+      }
+      if (result.length) {
+        res.status(200).json({
+          success: true,
+          massage: `All the products for the brandName: ${brand_id}`,
+          result: result,
+        });
+      } else {
+        res.status(404).json({
+          success: false,
+          massage: `The category: ${brand_id} has no brandName `,
+        });
+      }
+    });
+  }
 module.exports = {
   getOneProductById,
   getAllProduct,
-  getProductByCategory
+  getProductByCategory,
+  getProductByBrand
 };
