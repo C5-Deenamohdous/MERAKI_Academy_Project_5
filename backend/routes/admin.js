@@ -1,7 +1,7 @@
 const express = require("express");
 
 const adminRouter = express.Router();
-const {createNewCategory,createNewBrand,addProduct} = require("../controllers/admin")
+const {createNewCategory,createNewBrand,addProduct,getAllusers} = require("../controllers/admin")
 
 
 adminRouter.post("/create_category",createNewCategory);//!done
@@ -25,5 +25,6 @@ adminRouter.post("/add_product",addProduct);//!done
 // {"title":"mac1","description":"macBook pro","productImage":"sss","price":"750JD",
 // "quantity":"23","category_id":"1","brand_id":"1"}
 
+adminRouter.get("/users",getAllusers);//!done
 
 module.exports = adminRouter;
