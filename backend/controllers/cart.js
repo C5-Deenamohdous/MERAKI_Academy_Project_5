@@ -27,7 +27,7 @@ const addToCart = (req, res) => {
 const getUserCart = (req, res) => {
   const user_id = req.token.userId;
 
-  const query = `SELECT * FROM cart INNER JOIN products ON products.id = cart.product_id INNER JOIN WHERE cart.user_id=? AND cart.is_deleted=0 `;
+  const query = `SELECT * FROM cart INNER JOIN products ON products.id = cart.product_id INNER JOIN categories ON categories.id = products.category_id INNER JOIN brands ON brands.id = products.brand_id  WHERE cart.user_id=? AND cart.is_deleted=0 `;
 
   const data = [user_id];
 
@@ -56,5 +56,5 @@ const getUserCart = (req, res) => {
 
 module.exports = {
   addToCart,
-  getUserCart
+  getUserCart,
 };
