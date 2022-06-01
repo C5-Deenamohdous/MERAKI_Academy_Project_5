@@ -80,7 +80,7 @@ CREATE TABLE products(
 CREATE TABLE comments(
     id INT AUTO_INCREMENT NOT NULL,
     comment VARCHAR(255),
-     INT,
+    product_id INT,
     FOREIGN KEY (product_id) REFERENCES products(id),
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES users(id),
