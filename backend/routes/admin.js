@@ -2,6 +2,15 @@
 const express = require("express");
 
 const adminRouter = express.Router();
+
+const {
+  createNewCategory,
+  createNewBrand,
+  addProduct,
+} = require("../controllers/admin");
+const authentication = require("../middlewares/authentication");
+const authorization = require("../middlewares/authorization");
+
 /* Importing the functions from the admin.js file. */
 const { 
     createNewCategory,
@@ -20,6 +29,7 @@ adminRouter.post("/create_category", createNewCategory);//!done
 //     "categoryName": "404 STORE"
 // }
 
+
 /* A post request that is used to create a new brand. */
 adminRouter.post("/create_brand/:id", createNewBrand);//!done
 // http://localhost:5000/admin//create_brand/2
@@ -27,8 +37,10 @@ adminRouter.post("/create_brand/:id", createNewBrand);//!done
 //     "brandName": "ahmad brand"
 // }
 
+
 /* A post request that is used to add a new product to the database. */
 adminRouter.post("/add_product", addProduct);//!done
+
 //http://localhost:5000/admin/add_product
 // {"title":"mac1","description":"macBook pro","productImage":"sss","price":"750JD",
 // "quantity":"23","category_id":"1","brand_id":"1"}
@@ -43,4 +55,5 @@ adminRouter.delete("/deleteProductById/:id", deleteProductById);//!done
 adminRouter.put("/updateProductById/:id", updateProductById);//!done
 
 /* Exporting the adminRouter to be used in the app.js file. */
+
 module.exports = adminRouter;

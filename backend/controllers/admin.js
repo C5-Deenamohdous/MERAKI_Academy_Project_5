@@ -2,26 +2,31 @@
 const connection = require("../models/db");
 
 const /* A function that creates a new category. */
-    createNewCategory = (req, res) => {
-        const { categoryName } = req.body;
-        const query = `INSERT INTO categories (categoryName) VALUES (?);`;
-        const data = [categoryName];
 
-        connection.query(query, data, (err, result) => {
-            if (err) {
-                res.status(500).json({
-                    success: false,
-                    massage: "Server error",
-                    err: err,
-                });
-            }
-            res.status(201).json({
-                success: true,
-                massage: `${categoryName} created`,
-                result: result,
-            });
+  createNewCategory = (req, res) => {
+    const { categoryName } = req.body;
+    const query = `INSERT INTO categories (categoryName) VALUES (?);`;
+    const data = [categoryName];
+
+
+    connection.query(query, data, (err, result) => {
+      if (err) {
+        res.status(500).json({
+          success: false,
+          massage: "Server error",
+          err: err,
         });
-    };
+      }
+      res.status(201).json({
+        success: true,
+        massage: `${categoryName} created`,
+        result: result,
+      });
+    });
+  };
+
+
+    
 
 /* A function that creates a new brand. */
 const createNewBrand = (req, res) => {
@@ -30,21 +35,26 @@ const createNewBrand = (req, res) => {
     const query = `INSERT INTO brands (brandName,category_id) VALUES (?,?);`;
     const data = [brandName, id];
 
-    connection.query(query, data, (err, result) => {
-        if (err) {
-            res.status(500).json({
-                success: false,
-                massage: "Server error",
-                err: err,
-            });
-        }
-        res.status(200).json({
-            success: true,
-            massage: `${brandName} created`,
-            result: result,
-        });
+
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      res.status(500).json({
+        success: false,
+        massage: "Server error",
+        err: err,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      massage: `${brandName} created`,
+      result: result,
     });
+
+  });
 };
+
+
+
 
 const /* A function that creates a new product. */
     addProduct = (req, res) => {
@@ -233,9 +243,18 @@ updateProductById = (req, res) => {
             success: true,
             massage: `Succeeded to update product with id: ${id}`,
             result: result,
+
         });
+      }
+      res.status(200).json({
+        success: true,
+        massage: "product created",
+        result: result,
+      });
     });
-};
+  };
+
+
 
 /* Exporting the functions to be used in other files. */
 module.exports = {
@@ -247,3 +266,4 @@ module.exports = {
     deleteProductById,
     updateProductById,
 };
+
