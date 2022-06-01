@@ -1,3 +1,4 @@
+/* Importing the connection to the database. */
 const connection = require("../models/db");
 
 const /* A function that creates a new category. */
@@ -56,7 +57,15 @@ const /* A function that creates a new product. */
             category_id,
             brand_id,
         } = req.body;
-        const query = `INSERT INTO products (title,description,productImage,price,quantity,category_id,brand_id) VALUES (?,?,?,?,?,?,?);`;
+        const query = `INSERT INTO products (
+            title,
+            description,
+            productImage,
+            price,
+            quantity,
+            category_id,
+            brand_id)
+             VALUES (?,?,?,?,?,?,?);`;
         const data = [
             title,
             description,
@@ -104,11 +113,8 @@ const /* Getting all the users from the database. */
 const /* Deleting the user with the given id. */
     deleteUserById = (req, res) => {
         const id = req.params.id;
-
         const query = `UPDATE users SET is_deleted=1 WHERE id=?;`;
-
         const data = [id];
-
         connection.query(query, data, (err, result) => {
             if (err) {
                 return res.status(500).json({
@@ -135,11 +141,8 @@ const /* Deleting the user with the given id. */
 const /* Deleting the product with the given id. */
     deleteProductById = (req, res) => {
         const id = req.params.id;
-
         const query = `UPDATE products SET is_deleted=1 WHERE id=?;`;
-
         const data = [id];
-
         connection.query(query, data, (err, result) => {
             if (err) {
                 return res.status(500).json({
@@ -163,7 +166,8 @@ const /* Deleting the product with the given id. */
         });
     };
 
-const updateProductById = (req, res) => {
+const /* Updating the product with the given id. */
+updateProductById = (req, res) => {
     const {
         title,
         description,
@@ -181,10 +185,7 @@ const updateProductById = (req, res) => {
     const isquantity = quantity ? true : false;
     const iscategory_id = category_id ? true : false;
     const isbrand_id = brand_id ? true : false;
-console.log( istitle,
-    isdescription,
-    isproductImage,
-    isprice);
+
     const query = `UPDATE products SET 
     title=IF(${istitle},?,title),
     description=IF(${isdescription},?,description),
@@ -235,6 +236,7 @@ console.log( istitle,
     });
 };
 
+/* Exporting the functions to be used in other files. */
 module.exports = {
     createNewCategory,
     createNewBrand,
