@@ -6,5 +6,5 @@ const {  getOneProductById,getAllProduct, getProductByCategory} = require("../co
 
 productRouter.get("/:id", getOneProductById);
 productRouter.get("/",getAllProduct);
-productRouter.get("./category/:id",getProductByCategory)
+productRouter.get("/category/:id",getProductByCategory)
 module.exports = productRouter;
