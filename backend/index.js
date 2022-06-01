@@ -9,8 +9,10 @@ app.use(cors());
 
 //Routers
 const rolesRouter = require("./routes/roles");
+const permissionsRouter = require("./routes/permissions");
 
 app.use("/role", rolesRouter);
+app.use("/permission", permissionsRouter);
 
 const PORT = process.env.PORT || 5000;
 
