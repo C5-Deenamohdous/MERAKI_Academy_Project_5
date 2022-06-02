@@ -3,13 +3,14 @@ const productSlice = createSlice({
   name: "products",
   initialState: {
     products: [],
+    oneProduct:[]
   },
   reducers: {
     setProducts: (state, action) => {
       state.products = action.payload;
     },
     setOneProduct: (state, action) => {
-      state.products = action.payload;
+      state.oneProduct = action.payload;
     },
   },
 });
