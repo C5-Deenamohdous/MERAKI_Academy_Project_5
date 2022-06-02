@@ -8,9 +8,11 @@ const NavBar = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="NavBar">
-      NavBar
-      <Category />
+    
+  
+
+    <div>NavBar
+      <Category/>
     </div>
   );
 };
