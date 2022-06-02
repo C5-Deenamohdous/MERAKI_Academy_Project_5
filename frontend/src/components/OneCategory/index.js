@@ -15,7 +15,8 @@ const OneCategory=()=>{
         };
       });
       const getOneCategory = () => {
-axios.get(`http://localhost:5000/category/${id}`)
+          console.log();
+axios.get(`http://localhost:5000/product/category/${id}`)
 .then((result) => {
   console.log(result, "******one category by id ");
   dispatch(setOneCategory(result.data.result));
