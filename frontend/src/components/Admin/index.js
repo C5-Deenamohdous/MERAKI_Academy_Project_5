@@ -8,14 +8,14 @@ import { setAllUsers } from "../../redux/reducers/admin";
 const AdminPanel = () => {
   const dispatch = useDispatch();
 
-  const { admin } = useSelector((state) => {
+  const { allUsers } = useSelector((state) => {
     return {
-      admin: state.admin.allUsers,
+      allUsers: state.admin.allUsers,
     };
   });
 
   useEffect(() => {
-    getAllUsers()
+    getAllUsers();
   }, []);
 
   const getAllUsers = () => {
@@ -23,14 +23,25 @@ const AdminPanel = () => {
       .get("http://localhost:5000/admin/users")
       .then((result) => {
         console.log(result);
-        // dispatch(setAllUsers())
+        dispatch(setAllUsers(result.data.result));
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
-  return <div></div>;
+  return (
+    <div>
+      {allUsers &&
+        allUsers.map((element) => {
+          return (
+            <div>
+              <div> {element.lastName}</div>
+            </div>
+          );
+        })}
+    </div>
+  );
 };
 
 export default AdminPanel;

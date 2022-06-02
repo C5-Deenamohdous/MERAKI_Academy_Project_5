@@ -12,8 +12,6 @@ export const admin = createSlice({
   },
 });
 
-export const  { 
-getAllUsers
-} = admin.actions
+export const { setAllUsers } = admin.actions;
 
-export default admin.reducer
+export default admin.reducer;

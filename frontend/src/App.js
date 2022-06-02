@@ -5,6 +5,7 @@ import Product from "./components/Products";
 import Admin from "./components/Admin";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import OneProduct from "./components/OneProduct";
 
 const App = () => {
   return (
@@ -12,9 +13,10 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route path={"/Product"} element={<Product />} />
-         <Route path="/admin" element={<Admin />}/> 
-        <Route path = "/Login" element={<Login/>}/>
-        <Route path = "/Register" element={<Register/>}/>
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Register" element={<Register />} />
+        <Route path="/OneProduct/:id" element={<OneProduct />} />
       </Routes>
     </div>
   );
