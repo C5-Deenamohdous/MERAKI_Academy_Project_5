@@ -4,46 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
 import { setAllUsers } from "../../redux/reducers/admin";
+import LeftSideBar from "../LeftBar";
+
 
 const AdminPanel = () => {
-  const dispatch = useDispatch();
+ 
+  // Test ==========
+  return <div className="AdminPanelContainer">
+<LeftSideBar />
 
-  const { allUsers } = useSelector((state) => {
-    return {
-      allUsers: state.admin.allUsers,
-    };
-  });
 
-  useEffect(() => {
-    getAllUsers();
-  }, []);
-
-  const getAllUsers = () => {
-    axios
-      .get("http://localhost:5000/admin/users")
-      .then((result) => {
-        console.log(result);
-        dispatch(setAllUsers(result.data.result));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  return (
-    <div>
-      
-      {allUsers &&
-        allUsers.map((element) => {
-          return (
-            <div>
-
-              <div> {element.lastName}</div>
-            </div>
-          );
-        })}
-    </div>
-  );
+  </div>;
 };
 
 export default AdminPanel;

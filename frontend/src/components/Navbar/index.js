@@ -9,7 +9,7 @@ const NavBar = () => {
 
 
   return (
-    <div>NavBar</div>
+    <div className="NavBar">NavBar</div>
   )
 }
 

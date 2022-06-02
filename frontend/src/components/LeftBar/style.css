@@ -1,0 +1,7 @@
+.Links-Admin {
+  background-color: black;
+  height: 90vh;
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+}
