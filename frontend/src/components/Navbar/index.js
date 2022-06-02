@@ -11,9 +11,9 @@ const NavBar = () => {
 
   return (
 
-    <div className="NavBar">NavBar</div>
+    
 
-    <div>NavBar
+    <div className="NavBar">NavBar
       <Category/>
     </div>
 
