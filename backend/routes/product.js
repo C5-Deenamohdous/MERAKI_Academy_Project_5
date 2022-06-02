@@ -2,6 +2,8 @@ const express = require("express");
 
 const productRouter = express.Router();
 
+
+
 const {
   getOneProductById,
   getAllProduct,
@@ -15,3 +17,4 @@ productRouter.get("/category/:id", getProductByCategory);
 productRouter.get("/brand/:id", getProductByBrand);
 
 module.exports = productRouter;
+
