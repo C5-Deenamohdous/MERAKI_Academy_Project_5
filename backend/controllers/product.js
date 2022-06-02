@@ -5,7 +5,7 @@ const getOneProductById = (req, res) => {
 
   const query = `SELECT *,products.id FROM products
   INNER JOIN categories ON products.category_id=categories.id 
-INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0`;
+INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0 AND products.id=?`;
 
   const data = [id];
 
@@ -56,7 +56,7 @@ const getProductByCategory = (req, res) => {
 
   const query = `SELECT *,products.id FROM products
   INNER JOIN categories ON products.category_id=categories.id 
-INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0;`;
+INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0 AND products.category_id=?;`;
   const data = [category_id];
 
   connection.query(query, data, (err, result) => {
@@ -82,8 +82,8 @@ const getProductByBrand = (req, res) => {
   const brand_id = req.params.id;
   const query = `SELECT *,products.id FROM products
   INNER JOIN categories ON products.category_id=categories.id 
-INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0;`;
-  const data = [category_id];
+INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0 AND products.brand_id=?;`;
+  const data = [brand_id];
 
   connection.query(query, data, (err, result) => {
     if (err) {
@@ -92,13 +92,13 @@ INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0;`;
     if (result.length) {
       res.status(200).json({
         success: true,
-        massage: `All the products for the category: ${category_id}`,
+        massage: `All the products for the brand: ${brand_id}`,
         result: result,
       });
     } else {
       res.status(404).json({
         success: false,
-        massage: `The category: ${category_id} has no category `,
+        massage: `The brand: ${brand_id} has no category `,
       });
     }
   });
