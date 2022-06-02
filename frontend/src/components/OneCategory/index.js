@@ -1,0 +1,54 @@
+import React, { useContext, useEffect, useState } from "react";
+
+import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
+import { setOneCategory } from "../../redux/reducers/products";
+import { useNavigate, useParams } from "react-router-dom";
+const OneCategory=()=>{
+  const { id } = useParams();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const [message, setMessage] = useState("");
+    const { oneCategory } =useSelector((state) => {
+        return {
+            oneCategory:state.products.oneCategory,
+        };
+      });
+      const getOneCategory = () => {
+axios.get(`http://localhost:5000/category/${id}`)
+.then((result) => {
+  console.log(result, "******one category by id ");
+  dispatch(setOneCategory(result.data.result));
+  setMessage("one category");
+})
+.catch((err) => {
+  console.log(err);
+  setMessage(err.response.data.message);
+});
+};
+useEffect(() => {
+    getOneCategory();
+}, []);
+return (
+    <div>
+      {oneCategory &&
+        oneCategory.map((product, i) => {
+          return (
+            <div>
+              <div>
+                <img className="ONEproductImage" src={product.productImage} />
+              </div>
+              <div className="datails-Container">
+                <p>{product.title}</p>
+                <p>{product.categoryName}</p>
+                <p>{product.description}</p>
+                <p>{product.price}</p>
+                <p>{product.brandName}</p>
+              </div>
+            </div>
+          );
+        })}
+    </div>
+  );
+};
+export default OneCategory
