@@ -2,9 +2,10 @@ const connection = require("../models/db");
 const getOneProductById = (req, res) => {
   const id = req.params.id;
 
-  const query = `SELECT * FROM products
+  const query = `SELECT *,products.id FROM products
   INNER JOIN categories ON products.category_id=categories.id 
-INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0`;
+INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0;`;
+
   const data = [id];
 
   connection.query(query, data, (err, result) => {
@@ -29,10 +30,9 @@ INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0`;
   });
 };
 const getAllProduct= (req, res) => {
-  const query = `SELECT * FROM products
+  const query = `SELECT *,products.id FROM products
   INNER JOIN categories ON products.category_id=categories.id 
-INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0`
-;
+INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0;`;
     connection.query(query, (err, result) => {
       if (err) {
         res.status(500).json({
@@ -52,9 +52,9 @@ INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0`
   const  getProductByCategory=(req,res)=>{
     const category_id = req.params.id;
 
-    const query = `SELECT * FROM products
-    INNER JOIN categories ON products.category_id=categories.id 
-  INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0`;
+    const query = `SELECT *,products.id FROM products
+  INNER JOIN categories ON products.category_id=categories.id 
+INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0;`;
     const data = [category_id];
   
     connection.query(query, data, (err, result) => {
@@ -78,9 +78,10 @@ INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0`
   const  getProductByBrand=(req,res)=>{
     const brand_id = req.params.id;
 
-    const query = `SELECT * FROM products
+    const query = `SELECT *,products.id FROM products
     INNER JOIN categories ON products.category_id=categories.id 
-  INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0`;
+  INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0;`;
+  
     const data = [brand_id];
   
     connection.query(query, data, (err, result) => {
