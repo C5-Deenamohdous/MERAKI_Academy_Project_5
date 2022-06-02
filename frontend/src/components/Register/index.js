@@ -60,17 +60,21 @@ const Register = () => {
 
   return (
     <>
-      <div className="Form">
+      <div className="center">
         {isLoggedIn ? (
           <>
-            <p className="Title">Register:</p>
-            <form onSubmit={addNewUser}>
+          <h1>Register</h1>
+            <center onSubmit={addNewUser}>
               <br />
-              <input
-                type="text"
-                placeholder="First Name"
-                onChange={(e) => setFirstName(e.target.value)}
-              />
+              <div className="inputbox">
+            <input
+              type="text"
+              required="required"
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+            <span>firstName</span>
+          </div>
+              
               <br />
               <input
                 type="text"
@@ -90,11 +94,14 @@ const Register = () => {
                 onChange={(e) => setProfileImage(e.target.value)}
               />
               <br />
-              <input
-                type="text"
-                placeholder="Email"
-                onChange={(e) => setEmail(e.target.value)}
-              />
+              <div className="inputbox">
+            <input
+              type="text"
+              required="required"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <span>Email</span>
+          </div>
               <br />
               <input
                 type="password"
@@ -104,10 +111,11 @@ const Register = () => {
               <br />
               <button>Register</button>
               <br />
-            </form>
-            {status
+              {status
               ? message && <div className="SuccessMessage">{message}</div>
               : message && <div className="ErrorMessage">{message}</div>}
+            </center>
+
           </>
         ) : (
           <p>Logout First</p>
