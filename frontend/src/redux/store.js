@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 // Ahmad
 // Dina
-// Taha
+import adminReducer from "../redux/reducers/admin";
 export default configureStore({
   reducer: {
     //   Ahmad
     //  Dina
-    // Taha
+    admin: adminReducer,
   },
 });
