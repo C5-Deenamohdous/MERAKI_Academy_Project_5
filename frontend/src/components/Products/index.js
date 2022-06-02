@@ -22,7 +22,7 @@ const Product = () => {
         setMessage("ALL products");
       })
       .catch((err) => {
-          console.log(err);
+        console.log(err);
         setMessage(err.response.data.message);
       });
   };
@@ -30,22 +30,24 @@ const Product = () => {
     getAllProducts();
   }, []);
 
-  return <div>
-       <p>All products</p>
-      {products && 
-      products.map((products,i)=>{
+  return (
+    <div>
+      <p>All products</p>
+      {products &&
+        products.map((products, i) => {
           return (
-              <div key={i}>
-<p>{products.title}</p>
-<p>{products.categoryName}</p>
-<p>{products.description}</p>
-<p>{products.price}</p>
-<p>{products.brandName}</p>
-<p>{products.productImage}</p>
-              </div>
-          )
-      })}
-  </div>;
+            <div key={i}>
+              <img className="productImage" src={products.productImage} />
+              <p>{products.title}</p>
+              <p>{products.categoryName}</p>
+              <p>{products.description}</p>
+              <p>{products.price}</p>
+              <p>{products.brandName}</p>
+            </div>
+          );
+        })}
+    </div>
+  );
 };
 
 export default Product;
