@@ -11,14 +11,14 @@ INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0 AND
 
   connection.query(query, data, (err, result) => {
     if (err) {
-      res.status(500).json({
+     return res.status(500).json({
         success: false,
         massage: "Server Error",
         err: err,
       });
     }
     if (!result.length) {
-      res.status(404).json({
+      return  res.status(404).json({
         success: false,
         massage: "The product is Not Found",
       });
@@ -103,10 +103,28 @@ INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0 AND
     }
   });
 };
-
+const getAllCategory = (req,res) => {
+  const query = `SELECT * FROM categories
+ WHERE is_deleted=0;`;
+  connection.query(query, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        massage: "server error",
+        err: err,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      massage: "All categories",
+      result: result,
+    });
+  });
+};
 module.exports = {
   getOneProductById,
   getAllProduct,
   getProductByCategory,
   getProductByBrand,
+  getAllCategory,
 };

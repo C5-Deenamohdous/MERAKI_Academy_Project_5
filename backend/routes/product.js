@@ -9,8 +9,10 @@ const {
   getAllProduct,
   getProductByCategory,
   getProductByBrand,
+  getAllCategory
 } = require("../controllers/product");
 
+productRouter.get("/categoryName",getAllCategory)
 productRouter.get("/:id", getOneProductById);
 productRouter.get("/", getAllProduct);
 productRouter.get("/category/:id", getProductByCategory);
