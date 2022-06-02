@@ -23,4 +23,24 @@ const addRatingToProduct = (req, res) => {
   });
 };
 
-module.exports = { addRatingToProduct };
+const getProductRating = (req, res) => {
+  const product_id = req.params.id;
+
+  const query = `SELECT * FROM rate  INNER JOIN users ON users.id = rate.user_id WHERE rate.product_id=?`;
+  const data = [product_id];
+
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        message: `Server Error`,
+        err: err,
+      });
+    }
+    res.status(200).json({
+      message: `All rating on product with id => ${product_id}`,
+      result,
+    });
+  });
+};
+
+module.exports = { addRatingToProduct, getProductRating };
