@@ -17,7 +17,7 @@ const Product = () => {
       .get("http://localhost:5000/product/")
 
       .then((result) => {
-        console.log(result, "}}}}}");
+        console.log(result, "}/!!!!}}");
         dispatch(setProducts(result.data.result));
         setMessage("ALL products");
       })
