@@ -14,7 +14,9 @@ const NavBar = () => {
     
 
     <div className="NavBar">NavBar
+
       <Category/>
+      
     </div>
 
   )
