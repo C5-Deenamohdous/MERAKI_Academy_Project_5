@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./style.css";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-import { setComment, deleteComments,updateComments } from "../../redux/reducers/comments";
+import { setComment, deleteComments,updateComments,addComments } from "../../redux/reducers/comments";
 import { useNavigate, useParams } from "react-router-dom";
 
 const Comment = ({ id }) => {
@@ -15,7 +15,8 @@ const Comment = ({ id }) => {
     };
   });
   const [message, setMessage] = useState("");
-const [newComment, setNewComment] = useState("")
+const [newComment, setNewComment] = useState("");
+const [addComment, setAddComment] = useState("")
 const [click, setClick] = useState(false)
   const getCommentById = () => {
     axios
@@ -69,7 +70,30 @@ comment:newComment
   });
 
   };
-
+const createComment = () =>{
+        axios
+          .post(
+            `http://localhost:5000/comment/${id}`,
+            {
+              comment:addComment,
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          )
+          .then((result) => {
+            dispatch(addComments({
+                comment:addComment,id:result.data.result.insertId
+            }))
+            
+        })
+          .catch((err) => {
+            setMessage(err.response.data.message);
+          });
+     
+}
   useEffect(() => {
     getCommentById();
   }, []);
@@ -77,6 +101,11 @@ comment:newComment
   return (
     <div className="Container">
       <div className="row-Container">
+          <input type={"textArea"} placeholder="write yor comment..." onChange={(e)=>{setAddComment( e.target.value) }}/>
+             <button onClick={()=>{
+                 createComment();
+             }}>Add </button>
+        
         {comment &&
           comment.map((comment, i) => {
             return (
@@ -107,6 +136,7 @@ comment:newComment
                         setNewComment(e.target.value);
                       }}
                     />
+
               </div>
             );
           })}

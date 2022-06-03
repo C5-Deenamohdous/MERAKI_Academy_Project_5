@@ -22,12 +22,14 @@ const commentSlice = createSlice({
             comment: action.payload.comment,
           };
         }
-            return el
-        
+        return el;
       });
+    },
+    addComments: (state, action) => {
+      state.comment = [...state.comment, action.payload];
     },
   },
 });
-export const { setComment, deleteComments, updateComments } =
+export const { setComment, deleteComments, updateComments ,addComments } =
   commentSlice.actions;
 export default commentSlice.reducer;
