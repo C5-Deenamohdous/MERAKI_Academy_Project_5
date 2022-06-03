@@ -59,6 +59,13 @@ export const admin = createSlice({
       });
       console.log(state.oneProduct);
     },
+
+    deleteuser: (state, action) => {
+      //payload id ,
+      state.allUsers = state.allUsers.filter((element) => {
+        return element.id !== action.payload;
+      });
+    },
   },
 });
 
@@ -73,6 +80,7 @@ export const {
   deleteProduct,
   setOneProduct,
   updateOneProduct,
+  deleteuser,
 } = admin.actions;
 
 export default admin.reducer;
