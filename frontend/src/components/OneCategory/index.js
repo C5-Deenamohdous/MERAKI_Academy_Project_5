@@ -38,7 +38,7 @@ return (
           return (
             <div key={i} className="category-box">
               <div className="image-Container"  >
-                <img className="ONECategoryImage" src={product.productImage} />
+                <img className="ONEProductImage" src={product.productImage} />
               </div>
               <div className="datails-Container">
                 <p>{product.title}</p>

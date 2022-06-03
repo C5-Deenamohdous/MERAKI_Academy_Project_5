@@ -9,13 +9,13 @@ const OneBrand=()=>{
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [message, setMessage] = useState("");
-    const { OneBrand } =useSelector((state) => {
+    const { oneBrand } =useSelector((state) => {
         return {
-            OneBrand:state.products.OneBrand,
+           oneBrand:state.products.oneBrand,
         };
       });
       const getOneBrand = () => {
-        console.log();
+       
 axios.get(`http://localhost:5000/product/brand/${id}`)
 .then((result) => {
 console.log(result, "******one brand by id ");
@@ -31,12 +31,15 @@ useEffect(() => {
     getOneBrand();
 }, []);
 return(
-    <div>
+ 
+    <div  className="Container">
+          {console.log(OneBrand,">>>")}
+        <div  className="row-Container" >
 {
-    OneBrand &&
-    OneBrand.map((brand,i)=>{
+    oneBrand &&
+    oneBrand.map((brand,i)=>{
         return (
-            <div>
+            <div  key={i} >
               <div>
                 <img className="ONEproductImage" src={brand.productImage} />
               </div>
@@ -51,6 +54,7 @@ return(
           );
     })
 }
+</div>
     </div>
 )
 };
