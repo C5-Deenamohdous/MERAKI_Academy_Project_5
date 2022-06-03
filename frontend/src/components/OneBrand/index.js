@@ -33,13 +33,12 @@ useEffect(() => {
 return(
  
     <div  className="Container">
-          {console.log(OneBrand,">>>")}
         <div  className="row-Container" >
 {
     oneBrand &&
     oneBrand.map((brand,i)=>{
         return (
-            <div  key={i} >
+            <div  key={i}    className="product-box">
               <div>
                 <img className="ONEproductImage" src={brand.productImage} />
               </div>

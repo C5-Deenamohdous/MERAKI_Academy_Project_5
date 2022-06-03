@@ -61,10 +61,10 @@ INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0 AND
 
   connection.query(query, data, (err, result) => {
     if (err) {
-      res.status(500).json({ err });
+      return    res.status(500).json({ err });
     }
     if (result.length) {
-      res.status(200).json({
+     return res.status(200).json({
         success: true,
         massage: `All the products for the category: ${category_id}`,
         result: result,
@@ -87,10 +87,10 @@ INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0 AND
 
   connection.query(query, data, (err, result) => {
     if (err) {
-      res.status(500).json({ err });
+    return  res.status(500).json({ err });
     }
     if (result.length) {
-      res.status(200).json({
+    return  res.status(200).json({
         success: true,
         massage: `All the products for the brand: ${brand_id}`,
         result: result,
