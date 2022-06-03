@@ -2,7 +2,7 @@ const connection = require("../models/db");
 
 const getAllCommentsById = (req, res) => {
   const product_id = req.params.id;
-  const query = `SELECT * FROM comments RIGHT JOIN users ON users.id=comments.user_id  
+  const query = `SELECT *,comments.id FROM comments RIGHT JOIN users ON users.id=comments.user_id  
   WHERE comments.is_deleted=0  AND comments.product_id=? ;`;
   data = [product_id];
   connection.query(query, data, (err, result) => {

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./style.css";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-import { setComment, deleteComments } from "../../redux/reducers/comments";
+import { setComment, deleteComments,updateComments } from "../../redux/reducers/comments";
 import { useNavigate, useParams } from "react-router-dom";
 
 const Comment = ({ id }) => {
@@ -15,7 +15,8 @@ const Comment = ({ id }) => {
     };
   });
   const [message, setMessage] = useState("");
-
+const [newComment, setNewComment] = useState("")
+const [click, setClick] = useState(false)
   const getCommentById = () => {
     axios
       .get(`http://localhost:5000/comment/${id}`)
@@ -30,6 +31,7 @@ const Comment = ({ id }) => {
       });
   };
   const deleteComment = (commentId) => {
+      console.log(commentId,"PPPPPPPPPpP");
     axios
       .delete(`http://localhost:5000/comment/${commentId}`,{
         headers: {
@@ -46,6 +48,27 @@ const Comment = ({ id }) => {
         setMessage(err.response.data.message);
       });
   };
+  const updateComment = (commentId) =>{
+axios.put(`http://localhost:5000/comment/${commentId}`,{
+comment:newComment
+},
+{
+    headers: {
+        Authorization: `Bearer ${token}`,
+      },
+
+  })
+  .then((result) => {
+    dispatch(updateComments(commentId));
+    setMessage(" Comment is updated");
+  })
+  .catch((err) => {
+    console.log(err);
+    setMessage(err.response.data.message);
+  });
+
+  };
+
   useEffect(() => {
     getCommentById();
   }, []);
@@ -66,6 +89,22 @@ const Comment = ({ id }) => {
                 >
                   Delete
                 </p>
+                {/* { !click ? 
+                
+                <p
+                  onClick={() => {
+                    updateComment(comment.id);
+                  }}
+                >
+                  update
+                </p>
+            : "" }
+                    <input
+                      defaultValue={comment.comment}
+                      onChange={(e) => {
+                        setNewComment(e.target.value);
+                      }}
+                    /> */}
               </div>
             );
           })}
