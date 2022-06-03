@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-
+import "./style.css";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { setOneCategory } from "../../redux/reducers/products";
