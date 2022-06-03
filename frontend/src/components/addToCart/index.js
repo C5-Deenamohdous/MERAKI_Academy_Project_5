@@ -6,11 +6,12 @@ import axios from "axios";
 
 import { addToCart } from "../../redux/reducers/cart";
 
-const AddToCartButton = ({ id }) => {
+const AddToCartButton = ({ element }) => {
+  
   const dispatch = useDispatch();
 
   return <button onClick={() => {
-    
+
   }}></button>;
 };
 

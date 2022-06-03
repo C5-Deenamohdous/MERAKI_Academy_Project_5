@@ -12,6 +12,7 @@ const Product = () => {
   const { products } = useSelector((state) => {
     return {
       products: state.products.products,
+
     };
   });
   const getAllProducts = async () => {
