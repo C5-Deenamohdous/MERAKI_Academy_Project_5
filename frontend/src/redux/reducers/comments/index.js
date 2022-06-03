@@ -13,17 +13,21 @@ const commentSlice = createSlice({
         return element.id !== action.payload;
       });
     },
-    updateComments:(state,action) => {
-state.comment=state.comment.map((el,i)=>{
-    if(el.id === action.payload.id){
-return{
-    ...el,
-    comment:action.comment
-}
-    }
-})
-    }
+    updateComments: (state, action) => {
+      state.comment = state.comment.map((el, i) => {
+        console.log(action.payload, "payloaaddd");
+        if (el.id === action.payload.commentId) {
+          return {
+            ...el,
+            comment: action.payload.comment,
+          };
+        }
+            return el
+        
+      });
+    },
   },
 });
-export const { setComment,deleteComments,updateComments } = commentSlice.actions;
+export const { setComment, deleteComments, updateComments } =
+  commentSlice.actions;
 export default commentSlice.reducer;

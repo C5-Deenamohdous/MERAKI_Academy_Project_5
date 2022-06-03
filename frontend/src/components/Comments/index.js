@@ -59,7 +59,8 @@ comment:newComment
 
   })
   .then((result) => {
-    dispatch(updateComments(commentId));
+      console.log(result,"ooooooooo");
+    dispatch(updateComments({commentId:commentId,comment:newComment}));
     setMessage(" Comment is updated");
   })
   .catch((err) => {
@@ -89,22 +90,23 @@ comment:newComment
                 >
                   Delete
                 </p>
-                {/* { !click ? 
+                {/* { click ?  */}
                 
                 <p
                   onClick={() => {
                     updateComment(comment.id);
+
                   }}
                 >
                   update
                 </p>
-            : "" }
+            {/* // : "" } */}
                     <input
                       defaultValue={comment.comment}
                       onChange={(e) => {
                         setNewComment(e.target.value);
                       }}
-                    /> */}
+                    />
               </div>
             );
           })}
