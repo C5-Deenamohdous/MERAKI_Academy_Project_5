@@ -4,8 +4,9 @@ export const admin = createSlice({
   name: "admin",
   initialState: {
     allUsers: [],
-    category:[],
-    Product:[],
+    category: [],
+    Product: [],
+    oneProduct: [],
   },
   reducers: {
     setAllUsers: (state, action) => {
@@ -23,9 +24,42 @@ export const admin = createSlice({
     addProduct: (state, action) => {
       state.Product.push(action.payload);
     },
+    deleteProduct: (state, action) => {
+      //payload id ,
+      state.Product = state.Product.filter((element) => {
+        return element.id !== action.payload;
+      });
+    },
+    setOneProduct: (state, action) => {
+      state.oneProduct = action.payload;
+    },
+    updateOneProduct: (state, action) => {
+      state.oneProduct = state.oneProduct.map((element) => {
+        if (element.id === action.payload.id) {
+          console.log(action.payload);
+          return {
+            ...element,
+            categoryName: action.payload.categoryName,
+            title: action.payload.title,
+            description: action.payload.description,
+          };
+        }
+        return element;
+      });
+      console.log(state.oneProduct);
+    },
   },
 });
 
-export const { setAllUsers,setCategory,addCategory,setProduct,addProduct } = admin.actions;
+export const {
+  setAllUsers,
+  setCategory,
+  addCategory,
+  setProduct,
+  addProduct,
+  deleteProduct,
+  setOneProduct,
+  updateOneProduct,
+} = admin.actions;
 
 export default admin.reducer;

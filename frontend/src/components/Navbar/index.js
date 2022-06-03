@@ -1,3 +1,4 @@
+import "./style.css"
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
@@ -8,11 +9,9 @@ const NavBar = () => {
   const dispatch = useDispatch();
 
   return (
-    
-  
-
-    <div>NavBar
-      <Category/>
+    <div className="NavBar">
+      NavBar
+      <Category />
     </div>
   );
 };
