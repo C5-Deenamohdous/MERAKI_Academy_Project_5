@@ -54,7 +54,7 @@ const OneProduct = () => {
           );
         })}
         <div><Comment id={id}/> </div>
-        {/* <div><Rate id={id}/> </div> */}
+        <div><Rate id={id}/> </div>
     </div>
   );
 };
