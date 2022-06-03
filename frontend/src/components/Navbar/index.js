@@ -19,9 +19,9 @@ const NavBar = () => {
     <div className="NavBar">
       NavBar
     
-      <Category />
-      <br/>
-      <Brand/> 
+      {/* <Category /> */}
+      {/* <br/> */}
+      {/* <Brand/>  */}
       <br/>
        {isLoggedIn ? (
       <p 
