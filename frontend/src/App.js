@@ -8,8 +8,13 @@ import Register from "./components/Register";
 import OneProduct from "./components/OneProduct";
 import OneCategory from "./components/OneCategory";
 import CreateCategory from "./components/CreateCategory";
+
+import CreateBrand from "./components/CreateBrand";
+
+
 import UpdateProduct from "./components/UpdateProduct";
 import OneBrand from "./components/OneBrand";
+
 const App = () => {
   return (
     <div className="App">
@@ -21,6 +26,11 @@ const App = () => {
         <Route path="/Register" element={<Register />} />
         <Route path="/OneProduct/:id" element={<OneProduct />} />
         <Route path="/category/:id" element={<OneCategory />} />
+
+        <Route path="/CreateCategory" element={<CreateCategory/>}/>
+        <Route path="/CreateBrand" element={<CreateBrand/>}/>
+
+
         <Route path="/CreateCategory" element={<CreateCategory />} />
         <Route path="/admin/product/:id" element={<UpdateProduct />} />
         <Route path="/brand/:id" element={<OneBrand/>}/>

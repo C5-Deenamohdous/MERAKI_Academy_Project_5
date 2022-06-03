@@ -1,14 +1,13 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, {useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
-import {addCategory} from "../../redux/reducers/admin"
-
+import { addBrand } from "../../redux/reducers/admin";
 import axios from "axios";
 
 //=========================Redux======================================
 
 import { useSelector, useDispatch } from "react-redux";
-const CreateCategory = ()=>{
+const CreateBrand = ()=>{
 
     const dispatch = useDispatch();
     const { token, isLoggedIn } = useSelector((state) => {
@@ -17,21 +16,21 @@ const CreateCategory = ()=>{
   
     const navigate = useNavigate();
   
-    const [categoryName, setcategoryName] = useState("");
+    const [brandName, setbrandName] = useState("");
     const [message, setMessage] = useState("");
     const [status, setStatus] = useState(false);
   
     //===============================================================
   
-    const NewCategory = async (e) => {
+    const CreateNewBrand = async (e) => {
       e.preventDefault();
       try {
-        const category = {
-            categoryName,
+        const Brand = {
+            brandName,
         };
         const result = await axios.post(
-          `http://localhost:5000/admin/create_category`,
-          category,
+          `http://localhost:5000/admin/create_brand/:id`,
+          Brand,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -40,11 +39,10 @@ const CreateCategory = ()=>{
         );
         if (result.data.success) {
           setStatus(true);
-          setMessage(`${categoryName} created`);
-          console.log(result.data);
-          dispatch(addCategory(category));
+          setMessage(`${brandName} created`);
+          dispatch(addBrand(Brand));
         }
-        console.log(category);
+        console.log(Brand);
       } catch (error) {
         if (!error.response.data.success) {
           setStatus(false);
@@ -60,17 +58,17 @@ const CreateCategory = ()=>{
     //===============================================================
     return (
       <>
-        <form onSubmit={NewCategory}>
+        <form onSubmit={CreateNewBrand}>
           <br />
           <input
             type="text"
-            placeholder="category Name here"
-            onChange={(e) => setcategoryName(e.target.value)}
+            placeholder="Brand Name here"
+            onChange={(e) => setbrandName(e.target.value)}
           />
           <br />
 
           <br />
-          <button>Create New category</button>
+          <button>Create New Brand</button>
         </form>
         <br />
         {status
@@ -80,7 +78,7 @@ const CreateCategory = ()=>{
     );
   };
   
-  export default CreateCategory;
+  export default CreateBrand;
 
 
 

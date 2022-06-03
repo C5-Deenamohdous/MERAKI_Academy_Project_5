@@ -4,8 +4,11 @@ export const admin = createSlice({
   name: "admin",
   initialState: {
     allUsers: [],
-    category: [],
-    Product: [],
+
+    category:[],
+    Product:[],
+    Brand:[],
+    
     oneProduct: [],
   },
   reducers: {
@@ -24,6 +27,14 @@ export const admin = createSlice({
     addProduct: (state, action) => {
       state.Product.push(action.payload);
     },
+ 
+    setBrand: (state, action) => {
+      state.Brand = action.payload;
+    },
+    addBrand: (state, action) => {
+      state.Brand.push(action.payload);
+    },
+
     deleteProduct: (state, action) => {
       //payload id ,
       state.Product = state.Product.filter((element) => {
@@ -57,6 +68,8 @@ export const {
   addCategory,
   setProduct,
   addProduct,
+  setBrand,
+  addBrand,
   deleteProduct,
   setOneProduct,
   updateOneProduct,
