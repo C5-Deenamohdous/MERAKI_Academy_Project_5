@@ -29,7 +29,7 @@ const App = () => {
 
         <Route path="/CreateCategory" element={<CreateCategory/>}/>
         <Route path="/CreateBrand" element={<CreateBrand/>}/>
-
+        
 
         <Route path="/CreateCategory" element={<CreateCategory />} />
         <Route path="/admin/product/:id" element={<UpdateProduct />} />

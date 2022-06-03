@@ -2,14 +2,15 @@ import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import {addCategory} from "../../redux/reducers/admin"
+import Category from "../Category";
 
 import axios from "axios";
 
 //=========================Redux======================================
 
 import { useSelector, useDispatch } from "react-redux";
+//   CreateCategory  1111111
 const CreateCategory = ()=>{
-
     const dispatch = useDispatch();
     const { token, isLoggedIn } = useSelector((state) => {
       return { token: state.auth.token, isLoggedIn: state.auth.isLoggedIn };
@@ -41,7 +42,7 @@ const CreateCategory = ()=>{
         if (result.data.success) {
           setStatus(true);
           setMessage(`${categoryName} created`);
-          console.log(result.data);
+          console.log(result.data.result.insertId);
           dispatch(addCategory(category));
         }
         console.log(category);
@@ -60,7 +61,11 @@ const CreateCategory = ()=>{
     //===============================================================
     return (
       <>
-        <form onSubmit={NewCategory}>
+      {/* <Category/> */}
+        <form onSubmit={NewCategory
+        
+        // navigate(`/admin/create_brand/${result.data.result.insertId}`)
+        }>
           <br />
           <input
             type="text"

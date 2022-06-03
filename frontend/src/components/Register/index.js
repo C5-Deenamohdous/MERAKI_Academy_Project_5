@@ -28,8 +28,7 @@ const Register = () => {
 
     // =================================================================
 
-    const addNewUser = async (e) => {
-        e.preventDefault();
+    const addNewUser = async () => {
         try {
             const result = await axios.post("http://localhost:5000/register", {
 
@@ -66,7 +65,7 @@ const Register = () => {
                         <h1>Register
                         <br />To get full acses </h1>
 
-                        <center onSubmit={addNewUser}>
+                        <center >
 
                             <div className="inputbox">
                                 <input
@@ -122,14 +121,17 @@ const Register = () => {
 
                             <div className="inputbox">
                                 <input
-                                    type="text"
+                                    type="password"
                                     required="required"
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
                                 <span>enter your password</span>
                             </div>
 
-                            <button>Register</button>
+                            <button onClick={()=>{
+
+                            addNewUser();
+                            }}>Register</button>
 
                             {status
                                 ? message && <div className="SuccessMessage">{message}</div>
