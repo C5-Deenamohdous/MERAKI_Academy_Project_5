@@ -25,7 +25,7 @@ const Product = () => {
       })
       .catch((err) => {
         console.log(err);
-        // setMessage(err.response.data.message);
+        setMessage(err.response.data.message);
       });
   };
   useEffect(() => {
