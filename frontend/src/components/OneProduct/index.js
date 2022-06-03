@@ -5,6 +5,7 @@ import axios from "axios";
 import { setOneProduct } from "../../redux/reducers/products";
 import { useNavigate, useParams } from "react-router-dom";
 import Comment from "../Comments";
+import Rate from "../Rate";
 const OneProduct = () => {
 
   const { id } = useParams();
@@ -53,6 +54,7 @@ const OneProduct = () => {
           );
         })}
         <div><Comment id={id}/> </div>
+        {/* <div><Rate id={id}/> </div> */}
     </div>
   );
 };
