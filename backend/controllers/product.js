@@ -121,10 +121,29 @@ const getAllCategory = (req,res) => {
     });
   });
 };
+const getAllBrands = (req,res) => {
+  const query = `SELECT * FROM brands
+ WHERE is_deleted=0;`;
+  connection.query(query, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        massage: "server error",
+        err: err,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      massage: "All brands",
+      result: result,
+    });
+  });
+};
 module.exports = {
   getOneProductById,
   getAllProduct,
   getProductByCategory,
   getProductByBrand,
   getAllCategory,
+  getAllBrands
 };
