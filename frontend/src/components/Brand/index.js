@@ -38,7 +38,7 @@ const Brand = () => {
       return (
         <div
           onClick={() => {
-            // navigate(`/brand/${category.id}`);
+            // navigate(`/brand/${brand.id}`);
           }}
         >
           <p>{brand.brandName}</p>
