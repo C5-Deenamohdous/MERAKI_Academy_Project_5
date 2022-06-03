@@ -8,11 +8,10 @@ import LeftSideBar from "../LeftBar";
 
 
 const AdminPanel = () => {
- 
-  // Test ==========
+
+  
   return <div className="AdminPanelContainer">
 <LeftSideBar />
-
 
   </div>;
 };
