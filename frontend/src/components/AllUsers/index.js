@@ -29,7 +29,6 @@ const UsersControlPanel = () => {
         console.log(err);
       });
   };
-
   return (
     <div>
       {allUsers &&
