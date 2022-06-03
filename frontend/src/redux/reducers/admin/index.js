@@ -6,6 +6,7 @@ export const admin = createSlice({
     allUsers: [],
     category:[],
     Product:[],
+    Brand:[],
   },
   reducers: {
     setAllUsers: (state, action) => {
@@ -23,9 +24,15 @@ export const admin = createSlice({
     addProduct: (state, action) => {
       state.Product.push(action.payload);
     },
+    setBrand: (state, action) => {
+      state.Brand = action.payload;
+    },
+    addBrand: (state, action) => {
+      state.Brand.push(action.payload);
+    },
   },
 });
 
-export const { setAllUsers,setCategory,addCategory,setProduct,addProduct } = admin.actions;
+export const { setAllUsers,setCategory,addCategory,setProduct,addProduct,setBrand,addBrand } = admin.actions;
 
 export default admin.reducer;
