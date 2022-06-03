@@ -6,10 +6,14 @@ import Admin from "./components/Admin";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import OneProduct from "./components/OneProduct";
-import UsersControlPanel from "./components/AllUsers";
 import OneCategory from "./components/OneCategory";
 import CreateCategory from "./components/CreateCategory";
+
 import CreateBrand from "./components/CreateBrand";
+
+
+import UpdateProduct from "./components/UpdateProduct";
+import OneBrand from "./components/OneBrand";
 
 const App = () => {
   return (
@@ -21,13 +25,15 @@ const App = () => {
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/OneProduct/:id" element={<OneProduct />} />
-        
-        <Route path="/admin/users" element={<UsersControlPanel />} />
-
         <Route path="/category/:id" element={<OneCategory />} />
+
         <Route path="/CreateCategory" element={<CreateCategory/>}/>
         <Route path="/CreateBrand" element={<CreateBrand/>}/>
 
+
+        <Route path="/CreateCategory" element={<CreateCategory />} />
+        <Route path="/admin/product/:id" element={<UpdateProduct />} />
+        <Route path="/brand/:id" element={<OneBrand/>}/>
       </Routes>
     </div>
   );

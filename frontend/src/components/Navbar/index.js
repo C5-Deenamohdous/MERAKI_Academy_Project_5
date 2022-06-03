@@ -1,23 +1,22 @@
+import "./style.css"
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
-import Category  from "../Category"
+import Category from "../Category";
+import Brand from "../Brand";
 
 const NavBar = () => {
-
-    const dispatch = useDispatch();
-
+  const dispatch = useDispatch();
 
   return (
-
-  
-
-    <div>NavBar
-      <Category/>
+    <div className="NavBar">
+      NavBar
+      <Category />
+      <br/>
+      <Brand/>
     </div>
+  );
+};
 
-  )
-}
-
-export default NavBar
+export default NavBar;

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-
+import "./style.css";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { setCategory } from "../../redux/reducers/products";
@@ -43,7 +43,7 @@ const Category = () => {
               <p>{category.categoryName}</p>
             </div>
           );
-        })}
+        })}  
     </div>
   );
 };

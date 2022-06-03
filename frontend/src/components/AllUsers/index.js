@@ -30,7 +30,7 @@ const UsersControlPanel = () => {
       });
   };
   return (
-    <div>
+    <div className="UsersInControlPanel">
       {allUsers &&
         allUsers.map((element) => {
           return (
