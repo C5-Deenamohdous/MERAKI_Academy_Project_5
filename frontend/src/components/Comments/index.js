@@ -17,7 +17,7 @@ const Comment=({id})=>{
     const [message, setMessage] = useState("");
 
     const getCommentById=()=>{
-        console.log(id,";;;;;;;;");
+       
       
         axios.get(`http://localhost:5000/comment/${id}`)
         .then((result) => {
