@@ -30,7 +30,7 @@ const CreateCategory = ()=>{
             categoryName,
         };
         const result = await axios.post(
-          "http://localhost:5000/admin/create_category",
+          `http://localhost:5000/admin/create_category`,
           category,
           {
             headers: {
@@ -41,6 +41,7 @@ const CreateCategory = ()=>{
         if (result.data.success) {
           setStatus(true);
           setMessage(`${categoryName} created`);
+          console.log(result.data);
           dispatch(addCategory(category));
         }
         console.log(category);

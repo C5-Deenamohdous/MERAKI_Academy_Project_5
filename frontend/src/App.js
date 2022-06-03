@@ -9,6 +9,7 @@ import OneProduct from "./components/OneProduct";
 import UsersControlPanel from "./components/AllUsers";
 import OneCategory from "./components/OneCategory";
 import CreateCategory from "./components/CreateCategory";
+import CreateBrand from "./components/CreateBrand";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
 
         <Route path="/category/:id" element={<OneCategory />} />
         <Route path="/CreateCategory" element={<CreateCategory/>}/>
+        <Route path="/CreateBrand" element={<CreateBrand/>}/>
 
       </Routes>
     </div>

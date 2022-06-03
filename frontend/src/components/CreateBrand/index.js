@@ -1,5 +1,4 @@
-//CreateBrand
-import React, { useContext, useState, useEffect } from "react";
+import React, {useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { addBrand } from "../../redux/reducers/admin";
@@ -30,7 +29,7 @@ const CreateBrand = ()=>{
             brandName,
         };
         const result = await axios.post(
-          "http://localhost:5000/admin/create_brand/:id",
+          `http://localhost:5000/admin/create_brand/:id`,
           Brand,
           {
             headers: {
