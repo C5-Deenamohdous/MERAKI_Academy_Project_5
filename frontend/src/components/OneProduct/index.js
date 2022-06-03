@@ -4,10 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { setOneProduct } from "../../redux/reducers/products";
 import { useNavigate, useParams } from "react-router-dom";
-
+import Comment from "../Comments";
 const OneProduct = () => {
+
   const { id } = useParams();
-  console.log(id);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
@@ -47,10 +47,12 @@ const OneProduct = () => {
                 <p>{product.description}</p>
                 <p>{product.price}</p>
                 <p>{product.brandName}</p>
+
               </div>
             </div>
           );
         })}
+        <div><Comment id={id}/> </div>
     </div>
   );
 };
