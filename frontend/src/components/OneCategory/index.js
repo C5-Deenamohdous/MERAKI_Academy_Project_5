@@ -2,16 +2,19 @@ import React, { useContext, useEffect, useState } from "react";
 import "./style.css";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-import { setOneCategory } from "../../redux/reducers/products";
+import { setOneCategory ,setProducts } from "../../redux/reducers/products";
 import { useNavigate, useParams } from "react-router-dom";
+import Category from "../Category";
 const OneCategory=()=>{
   const { id } = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [message, setMessage] = useState("");
-    const { oneCategory } =useSelector((state) => {
+    const { oneCategory,products } =useSelector((state) => {
         return {
             oneCategory:state.products.oneCategory,
+           products: state.products.products,
+
         };
       });
       const getOneCategory = () => {
@@ -31,12 +34,17 @@ useEffect(() => {
     getOneCategory();
 }, []);
 return (
-    <div className="Container">
+    <div className="Container" 
+     
+     >
       <div  className="row-Container">
       {oneCategory &&
         oneCategory.map((product, i) => {
           return (
-            <div key={i} className="category-box">
+            <div key={i} className="category-box"
+             onClick={() => {
+              navigate(`/OneProduct/${product.id}`);
+            }}>
               <div className="image-Container"  >
                 <img className="ONEProductImage" src={product.productImage} />
               </div>
