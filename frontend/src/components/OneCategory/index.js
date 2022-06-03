@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-
+import "./style.css";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { setOneCategory } from "../../redux/reducers/products";
@@ -31,13 +31,14 @@ useEffect(() => {
     getOneCategory();
 }, []);
 return (
-    <div>
+    <div className="Container">
+      <div  className="row-Container">
       {oneCategory &&
         oneCategory.map((product, i) => {
           return (
-            <div>
-              <div>
-                <img className="ONEproductImage" src={product.productImage} />
+            <div key={i} className="category-box">
+              <div className="image-Container"  >
+                <img className="ONEProductImage" src={product.productImage} />
               </div>
               <div className="datails-Container">
                 <p>{product.title}</p>
@@ -50,6 +51,8 @@ return (
           );
         })}
     </div>
+    </div>
+  
   );
 };
 export default OneCategory

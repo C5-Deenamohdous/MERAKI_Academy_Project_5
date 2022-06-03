@@ -41,12 +41,12 @@ const Product = () => {
           {products &&
             products.map((products, i) => {
               return (
-                <div
+                <div  key={i}
                   className="product-box"
                   onClick={() => {
                     navigate(`/OneProduct/${products.id}`);
                   }}
-                  key={i}
+                 
                 >
                   <div className="image-Container">
                     <img className="productImage" src={products.productImage} />

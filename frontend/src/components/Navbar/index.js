@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import Category from "../Category";
+import Brand from "../Brand";
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,8 @@ const NavBar = () => {
     <div className="NavBar">
       NavBar
       <Category />
+      <br/>
+      <Brand/>
     </div>
   );
 };
