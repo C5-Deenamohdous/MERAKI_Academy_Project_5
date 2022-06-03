@@ -8,7 +8,7 @@ import Register from "./components/Register";
 import OneProduct from "./components/OneProduct";
 import OneCategory from "./components/OneCategory";
 import CreateCategory from "./components/CreateCategory";
-
+import CreateProduct from "./components/create product";
 import CreateBrand from "./components/CreateBrand";
 
 
@@ -29,7 +29,7 @@ const App = () => {
 
         <Route path="/CreateCategory" element={<CreateCategory/>}/>
         <Route path="/CreateBrand" element={<CreateBrand/>}/>
-        
+        <Route path="/CreateProduct" element={<CreateProduct/>}/>
 
         <Route path="/CreateCategory" element={<CreateCategory />} />
         <Route path="/admin/product/:id" element={<UpdateProduct />} />
