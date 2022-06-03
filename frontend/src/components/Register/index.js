@@ -64,9 +64,7 @@ const Register = () => {
                     <>
                         <h1>Register
                         <br />To get full acses </h1>
-
                         <center >
-
                             <div className="inputbox">
                                 <input
                                     type="text"
@@ -75,8 +73,6 @@ const Register = () => {
                                 />
                                 <span>enter your first Name</span>
                             </div>
-
-
                             <div className="inputbox">
                                 <input
                                     type="text"
@@ -96,9 +92,6 @@ const Register = () => {
                                 />
                                 <span>enter your phone Number</span>
                             </div>
-
-
-
                             <div className="inputbox">
                                 <input
                                     type="text"
@@ -107,9 +100,6 @@ const Register = () => {
                                 />
                                 <span>enter your profile Image</span>
                             </div>
-
-
-
                             <div className="inputbox">
                                 <input
                                     type="text"
@@ -118,7 +108,6 @@ const Register = () => {
                                 />
                                 <span>Email</span>
                             </div>
-
                             <div className="inputbox">
                                 <input
                                     type="password"
@@ -127,17 +116,13 @@ const Register = () => {
                                 />
                                 <span>enter your password</span>
                             </div>
-
                             <button onClick={()=>{
-
                             addNewUser();
                             }}>Register</button>
-
                             {status
                                 ? message && <div className="SuccessMessage">{message}</div>
                                 : message && <div className="ErrorMessage">{message}</div>}
                         </center>
-
                     </>
                 ) : (
                     <p>Logout First</p>
