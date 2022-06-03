@@ -12,6 +12,7 @@ const {
   getAllCategory,getAllBrands
 } = require("../controllers/product");
 
+
 productRouter.get("/categoryName",getAllCategory)
 productRouter.get("/brandName",getAllBrands)
 productRouter.get("/:id", getOneProductById);
