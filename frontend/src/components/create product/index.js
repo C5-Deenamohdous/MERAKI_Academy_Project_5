@@ -184,6 +184,27 @@ const CreateProduct = () => {
                     )
                 })
                 : ""}
+                
+                <button onClick={() => {
+                setIsClicked(true);
+            }}> choose Brand to add product</button>
+            {isClicked ?
+                Brand &&
+                Brand.map((element, i) => {
+                    return (
+                        <button onClick={() => {
+                            setBrand_id(element.id)
+                            console.log(brand_id);
+                            setIsClicked(false)
+                        }}>
+                            {/* <sas>sasaas</sas> */}
+                            Brand name : {element.brandName}
+                            
+                        </button>
+                    )
+                })
+                : ""}
+
         </>
     );
 };
