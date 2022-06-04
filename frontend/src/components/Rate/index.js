@@ -11,7 +11,13 @@ const Rate = () => {
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
   const [rateNew, setNewRate] = useState("");
-  const [ratingNum, setRatingNum] = useState("");
+  const [addRate, setAddrate] = useState("");
+  const array0 = [];
+  const array1 = [];
+  const array2 = [];
+  const array3 = [];
+  const array4 = [];
+  const array5 = [];
   const { products, rate, token } = useSelector((state) => {
     return {
       products: state.products.products,
@@ -35,9 +41,10 @@ const Rate = () => {
       .then((result) => {
         console.log(result, "rate resultttt");
         dispatch(addRate({ value: rateNew, product_id: id }));
+
       })
       .catch((err) => {
-        // setMessage(err.response.data.message);
+        setMessage(err.response.data.message);
       });
   };
   const getRate = () => {
@@ -48,7 +55,7 @@ const Rate = () => {
         },
       })
       .then((result) => {
-          console.log(result,"555555555555");
+        console.log(result, "555555555555");
         dispatch(setRate(result.data.result));
       })
       .catch((err) => {
@@ -57,20 +64,27 @@ const Rate = () => {
   };
   useEffect(() => {
     getRate();
-  }, []);
+  }, [rate]);
 
   let sum = 0;
 
   return (
-      
     <div>
-        {console.log(rate,"888888")}
+      {console.log(rate, "888888")}
       {rate &&
         rate.map((el, i) => {
           return (
             <>
-              {(sum = +el.value + +sum )}
-             {console.log(sum,"7777777777")}
+            <div className="TestRating">              {el.value === "0" ? array0.push(el.value) : ""}
+              {el.value === "1" ? array1.push(el.value) : ""}
+              {el.value === "2" ? array2.push(el.value) : ""}
+              {el.value === "3" ? array3.push(el.value) : ""}
+              {el.value === "4" ? array4.push(el.value) : ""}
+              {el.value === "5" ? array5.push(el.value) : ""}
+              </div>
+
+
+              {console.log(sum, "7777777777")}
             </>
           );
         })}
@@ -88,7 +102,24 @@ const Rate = () => {
         }}
       />
       <div>
-        <span>Rating {sum.toString()} </span>
+        <span>
+          Rating =
+     
+          {
+        //   Math.round
+          ((
+              array0.length +
+            array1.length * 1 +
+            array3.length * 3 +
+            array4.length * 4 +
+            array5.length * 5) /
+            (array0.length +
+              array1.length +
+              array2.length +
+              array3.length +
+              array4.length +
+              array5.length))}
+        </span>
       </div>
     </div>
   );
