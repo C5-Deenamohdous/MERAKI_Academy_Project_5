@@ -5,18 +5,22 @@ export const auth = createSlice({
   initialState: {
     token:localStorage.getItem("token") || "",
     isLoggedIn:localStorage.getItem("token") ? true:false,
+    userId:localStorage.getItem("userId")||"",
   },
   reducers: {
     setlogin: (state, action) => {
-      state.token = action.token;
+      state.token = action.payload.token;
       state.isLoggedIn = true;
-        localStorage.setItem('token',action.token);
+        localStorage.setItem('token',action.payload.token);
+    state.userId=localStorage.setItem("userId",action.payload.userId)
     },
     logout: (state, action) => {
       state.token = "";
       state.isLoggedIn = false;
       localStorage.clear();
+      state.userId=""
     },
+  
   },
 });
 
