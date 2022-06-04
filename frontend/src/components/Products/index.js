@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./style.css";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-import AddToCartButton from "../AddToCart";
+import AddToCartButton from "../addToCart"
 import { setProducts } from "../../redux/reducers/products";
 import { useNavigate } from "react-router-dom";
 import { setCart } from "../../redux/reducers/cart";
