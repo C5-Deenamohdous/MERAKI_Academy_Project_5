@@ -14,7 +14,8 @@ const register = async (req, res) => {
   
 
   const hashedPassword = await bcrypt.hash(password, 10);
-  const query = `INSERT INTO users(email,
+  const query = `INSERT INTO users(
+    email,
     password,
     firstName,
     lastName,
