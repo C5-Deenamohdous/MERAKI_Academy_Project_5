@@ -61,25 +61,30 @@ const Product = () => {
           {products &&
             products.map((products, i) => {
               return (
-                <div
-                  key={i}
-                  className="product-box"
-                  onClick={() => {
-                    navigate(`/OneProduct/${products.id}`);
-                  }}
-                >
-                  <div className="image-Container">
-                    <img className="productImage" src={products.productImage} />
+                <>
+                  <AddToCartButton productId={products.id} />
+                  <div
+                    key={i}
+                    className="product-box"
+                    onClick={() => {
+                      navigate(`/OneProduct/${products.id}`);
+                    }}
+                  >
+                    <div className="image-Container">
+                      <img
+                        className="productImage"
+                        src={products.productImage}
+                      />
+                    </div>
+                    <div className="datails-Container">
+                      <p>{products.title}</p>
+                      <p>{products.categoryName}</p>
+                      <p>{products.description}</p>
+                      <p>{products.price}</p>
+                      <p>{products.brandName}</p>
+                    </div>
                   </div>
-                  <div className="datails-Container">
-                    <p>{products.title}</p>
-                    <p>{products.categoryName}</p>
-                    <p>{products.description}</p>
-                    <p>{products.price}</p>
-                    <p>{products.brandName}</p>
-                    <AddToCartButton productId={products.id} />
-                  </div>
-                </div>
+                </>
               );
             })}
         </div>

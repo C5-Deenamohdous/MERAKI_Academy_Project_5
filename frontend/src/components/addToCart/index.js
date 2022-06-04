@@ -1,38 +1,72 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart } from "../../redux/reducers/cart";
+import { addToCart, removeFromCart } from "../../redux/reducers/cart";
 
 const AddToCartButton = ({ productId }) => {
   const dispatch = useDispatch();
-  const { productInCart , token} = useSelector((state) => {
+  const { productInCart, token } = useSelector((state) => {
     return {
       cart: state.cart.cart,
       productInCart: state.cart.productInCart,
-      token:state.auth.token
+      token: state.auth.token,
     };
   });
-  const AddToCart = (id) => { 
-    
+  const AddToCart = (id) => {
+    axios
+      .post(
+        `http://localhost:5000/cart/${id}`,
+        {
+          product_id: id,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((result) => {
+        dispatch(addToCart(id));
+      })
+      .catch((err) => {
+        console.log(err, "ERR IN ADDTOCART");
+      });
+  };
 
+  const deleteFromCart = (id) => {
+    axios
+      .delete(`http://localhost:5000/cart/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((result) => {
+        dispatch(removeFromCart(id));
+      })
+      .catch((err) => {
+        console.log(err, "ERR DELETE FROM CART");
+      });
+  };
 
-
-  }
-
-
-  console.log(productInCart, "ALL ID's inCart");
+  // console.log(productInCart, "ALL ID's inCart");
   return (
     <>
       {productInCart.includes(productId) ? (
         <button
           onClick={() => {
-            addToCart(productId);
+            deleteFromCart(productId);
+          }}
+        >
+          Remove
+        </button>
+      ) : (
+        <button
+          onClick={() => {
+            AddToCart(productId);
           }}
         >
           Add
         </button>
-      ) : (
-        <button>Remove</button>
       )}
     </>
   );
