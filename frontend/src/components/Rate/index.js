@@ -112,6 +112,7 @@ const Rate = () => {
           ((
               array0.length +
             array1.length * 1 +
+            array2.length * 2 +
             array3.length * 3 +
             array4.length * 4 +
             array5.length * 5) /
