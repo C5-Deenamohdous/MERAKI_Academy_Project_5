@@ -19,9 +19,12 @@ const NavBar = () => {
   return (
     <div className="NavBar">
       NavBar
-      <Category />
+      {/* <Category /> */}
       <br />
-      <Brand />
+      {/* <Brand /> */}
+      <p onClick={()=>{
+        // navigate(`/user/${userid}`)
+      }}>profile</p>
       <br />
       {isLoggedIn ? (
         <p

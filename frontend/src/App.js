@@ -13,6 +13,7 @@ import CreateBrand from "./components/CreateBrand";
 import UpdateProduct from "./components/UpdateProduct";
 import OneBrand from "./components/OneBrand";
 import CartSection from "./components/CartSection";
+import UserProfile from "./components/userprofile";
 
 const App = () => {
   return (
@@ -32,6 +33,8 @@ const App = () => {
         <Route path="/admin/product/:id" element={<UpdateProduct />} />
         <Route path="/brand/:id" element={<OneBrand />} />
         <Route path="/cart" element={<CartSection />} />
+        <Route path="/User/:id" element={<UserProfile />} />
+
       </Routes>
     </div>
   );
