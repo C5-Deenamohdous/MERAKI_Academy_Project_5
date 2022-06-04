@@ -10,10 +10,11 @@ import { useNavigate } from "react-router-dom";
 const NavBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isLoggedIn, cart } = useSelector((state) => {
+  const { isLoggedIn, cart,userId } = useSelector((state) => {
     return {
       isLoggedIn: state.auth.isLoggedIn,
       cart: state.cart.cart,
+      userId:state.auth.userId,
     };
   });
   return (
@@ -23,7 +24,7 @@ const NavBar = () => {
       <br />
       {/* <Brand /> */}
       <p onClick={()=>{
-        // navigate(`/user/${userid}`)
+        navigate(`/user/${userId}`)
       }}>profile</p>
       <br />
       {isLoggedIn ? (

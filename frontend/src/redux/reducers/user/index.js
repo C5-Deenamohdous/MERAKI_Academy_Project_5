@@ -17,8 +17,9 @@ export const user = createSlice({
     },
     updateuserProfile: (state, action) => {
       state.userProfile = state.userProfile.map((element) => {
+        console.log("============",action.payload);
         if (element.id === action.payload.id) {
-          console.log(action.payload);
+        
           return {
             ...element,
             firstName: action.payload.firstName,
