@@ -30,7 +30,7 @@ INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0 AND
     });
   });
 };
-//*,products.id FROM products
+
 
 const getAllProduct = (req, res) => {
   const limit = 3;
