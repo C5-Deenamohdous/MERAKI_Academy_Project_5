@@ -15,7 +15,7 @@ const commentSlice = createSlice({
     },
     updateComments: (state, action) => {
       state.comment = state.comment.map((el, i) => {
-        console.log(action.payload, "payloaaddd");
+        // console.log(action.payload, "payloaaddd");
         if (el.id === action.payload.commentId) {
           return {
             ...el,
