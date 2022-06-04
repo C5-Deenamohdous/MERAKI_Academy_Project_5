@@ -26,7 +26,7 @@ const AddToCartButton = ({ productId }) => {
         }
       )
       .then((result) => {
-        dispatch(addToCart(id));
+        dispatch(addToCart({ product_id: id }));
       })
       .catch((err) => {
         console.log(err, "ERR IN ADDTOCART");
@@ -41,7 +41,7 @@ const AddToCartButton = ({ productId }) => {
         },
       })
       .then((result) => {
-        dispatch(removeFromCart(id));
+        dispatch(removeFromCart({product_id:id}));
       })
       .catch((err) => {
         console.log(err, "ERR DELETE FROM CART");

@@ -7,3 +7,11 @@
 .logout{
     margin-left: 50px;
 }
+
+.TempClass { 
+    position: absolute;
+    right: 0;
+    background-color: rgb(12, 11, 11);
+    color: white;
+    cursor: pointer;
+}
