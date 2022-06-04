@@ -15,6 +15,7 @@ const getUserById = (req, res) => {
         err: err,
       });
     }
+    
     if (!result) {
       return res.status(404).json({
         success: false,
@@ -22,7 +23,6 @@ const getUserById = (req, res) => {
         err: err,
       });
     }
-    console.log(result.data);
     res.status(200).json({
       success: true,
       massage: `The user: ${id} is found`,
@@ -30,9 +30,6 @@ const getUserById = (req, res) => {
     });
   });
 };
-
-
-
 
 
 const getAllusers = (req, res) => {
