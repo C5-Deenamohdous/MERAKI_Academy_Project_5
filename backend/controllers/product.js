@@ -31,10 +31,12 @@ INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0 AND
   });
 };
 
+
 const getAllProduct = (req, res) => {
-  const query = `SELECT *,products.id FROM products
-  INNER JOIN categories ON products.category_id=categories.id 
-INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0;`;
+  const limit = 3;
+  const page = req.query.page;
+  const offset = (page - 1) * limit;
+  const query = "select *,products.id FROM products INNER JOIN categories ON products.category_id=categories.id INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0  limit "+limit+" OFFSET "+offset ;
   connection.query(query, (err, result) => {
     if (err) {
       return res.status(500).json({
@@ -43,9 +45,12 @@ INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0;`;
         err: err,
       });
     }
+ 
     res.status(200).json({
       success: true,
       massage: "All products",
+      products_page_count :result.length,
+      page_number:page,
       result: result,
     });
   });

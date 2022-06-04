@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./style.css";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-import AddToCartButton from "../AddToCart";
+import AddToCartButton from "../addToCart"
 import { setProducts } from "../../redux/reducers/products";
 import { useNavigate } from "react-router-dom";
 import { setCart } from "../../redux/reducers/cart";
@@ -10,6 +10,8 @@ const Product = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(3);
   const { products, cart, token } = useSelector((state) => {
     return {
       products: state.products.products,
@@ -35,7 +37,7 @@ const Product = () => {
   };
   const getAllProducts = async () => {
     axios
-      .get("http://localhost:5000/product/")
+      .get("http://localhost:5000/product/?page=1&limit=3")
 
       .then((result) => {
         console.log(result, "}/!!!!}}");
@@ -45,6 +47,17 @@ const Product = () => {
       .catch((err) => {
         console.log(err);
         setMessage(err.response.data.message);
+      });
+  };
+  const nextPage = () => {
+    axios
+      .get("http://localhost:5000/product/?page=2&limit=3", 
+      )
+      .then((result) => {
+        dispatch(setProducts(result.data.result));
+      })
+      .catch((error) => {
+        setMessage(error.response.data.message);
       });
   };
   useEffect(() => {
@@ -83,14 +96,37 @@ const Product = () => {
                       <p>{products.price}</p>
                       <p>{products.brandName}</p>
                     </div>
+                    
                   </div>
                 </>
+               
               );
             })}
         </div>
       </div>
+      <button
+            className="backButton"
+            onClick={() => {
+              getAllProducts();
+            }}
+          >
+           back
+          </button>
+      <button
+          className="nextButton"
+          onClick={() => {
+            
+            setPage(2);
+            setLimit(3);
+            nextPage();
+          }}
+        >
+         next
+        </button>
     </div>
+  
   );
+  
 };
 
 export default Product;
