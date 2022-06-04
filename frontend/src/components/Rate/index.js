@@ -11,7 +11,7 @@ const Rate = () => {
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
   const [rateNew, setNewRate] = useState("");
-  const [addRate, setAddrate] = useState("");
+  const [isRate, setIsRate] = useState(false);
   const array0 = [];
   const array1 = [];
   const array2 = [];
@@ -39,12 +39,14 @@ const Rate = () => {
         }
       )
       .then((result) => {
+         
         console.log(result, "rate resultttt");
         dispatch(addRate({ value: rateNew, product_id: id }));
-
+        setIsRate(true)
+         console.log(isRate,"0000000000");
       })
       .catch((err) => {
-        setMessage(err.response.data.message);
+        // setMessage(err.response.data.message);
       });
   };
   const getRate = () => {
@@ -64,7 +66,7 @@ const Rate = () => {
   };
   useEffect(() => {
     getRate();
-  }, [rate]);
+  }, [isRate]);
 
   let sum = 0;
 
