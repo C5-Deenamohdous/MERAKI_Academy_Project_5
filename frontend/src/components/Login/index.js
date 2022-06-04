@@ -37,7 +37,7 @@ const Login = () => {
         localStorage.setItem("userId", res.data.userId);
         navigate("/Product");
         // saveToken(res.data.token);
-        // console.log(res.data);
+      
       } else throw Error;
     } catch (error) {
       if (error.response && error.response.data) {
