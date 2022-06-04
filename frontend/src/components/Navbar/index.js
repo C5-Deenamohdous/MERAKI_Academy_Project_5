@@ -37,7 +37,14 @@ const NavBar = () => {
         ""
       )}
       <br />
-      <p className="TempClass">Items In Cart {cart.length}</p>
+      <p
+        className="TempClass"
+        onClick={() => {
+          navigate("/cart");
+        }}
+      >
+        Items In Cart {cart.length}
+      </p>
     </div>
   );
 };
