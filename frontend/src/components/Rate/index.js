@@ -11,7 +11,7 @@ const Rate = () => {
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
   const [rateNew, setNewRate] = useState("");
-  const [ratingNum, setRatingNum] = useState("");
+  const [addRate, setAddrate] = useState("");
   const array0 = [];
   const array1 = [];
   const array2 = [];
@@ -41,9 +41,10 @@ const Rate = () => {
       .then((result) => {
         console.log(result, "rate resultttt");
         dispatch(addRate({ value: rateNew, product_id: id }));
+
       })
       .catch((err) => {
-        // setMessage(err.response.data.message);
+        setMessage(err.response.data.message);
       });
   };
   const getRate = () => {
@@ -63,7 +64,7 @@ const Rate = () => {
   };
   useEffect(() => {
     getRate();
-  }, []);
+  }, [rate]);
 
   let sum = 0;
 
@@ -74,14 +75,15 @@ const Rate = () => {
         rate.map((el, i) => {
           return (
             <>
-              {el.value === "0" ? array0.push(el.value) : ""}
+            <div className="TestRating">              {el.value === "0" ? array0.push(el.value) : ""}
               {el.value === "1" ? array1.push(el.value) : ""}
               {el.value === "2" ? array2.push(el.value) : ""}
               {el.value === "3" ? array3.push(el.value) : ""}
               {el.value === "4" ? array4.push(el.value) : ""}
               {el.value === "5" ? array5.push(el.value) : ""}
+              </div>
 
-              {/* {(sum = +el.value + +sum )} */}
+
               {console.log(sum, "7777777777")}
             </>
           );
@@ -103,7 +105,9 @@ const Rate = () => {
         <span>
           Rating =
      
-          {Math.round((
+          {
+        //   Math.round
+          ((
               array0.length +
             array1.length * 1 +
             array3.length * 3 +
