@@ -7,11 +7,14 @@ export const RateSlice = createSlice({
   },
   reducers: {
     addRate: (state, action) => {
-      state.cart = [...state.rate, ...action.payload];
+      state.rate = [...state.rate, ...action.payload];
     },
+    setRate:(state,action) => {
+      state.rate = action.payload
+    }
   },
 });
 
-export const { addRate } = RateSlice.actions;
+export const { addRate ,setRate} = RateSlice.actions;
 
 export default RateSlice.reducer;
