@@ -1,4 +1,4 @@
-import "./style.css"
+import "./style.css";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
@@ -10,29 +10,34 @@ import { useNavigate } from "react-router-dom";
 const NavBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isLoggedIn } = useSelector((state) => {
+  const { isLoggedIn, cart } = useSelector((state) => {
     return {
       isLoggedIn: state.auth.isLoggedIn,
+      cart: state.cart.cart,
     };
   });
   return (
     <div className="NavBar">
       NavBar
-    
-      {/* <Category /> */}
-      {/* <br/> */}
-      {/* <Brand/>  */}
-      <br/>
-       {isLoggedIn ? (
-      <p 
-            className="logout"
-            onClick={() => {
-              dispatch(logout());
-             navigate("/Home")
-            }}
-          >
-            Logout
-          </p> ):""}<br/>
+      <Category />
+      <br />
+      <Brand />
+      <br />
+      {isLoggedIn ? (
+        <p
+          className="logout"
+          onClick={() => {
+            dispatch(logout());
+            navigate("/Home");
+          }}
+        >
+          Logout
+        </p>
+      ) : (
+        ""
+      )}
+      <br />
+      <p className="TempClass">Items In Cart {cart.length}</p>
     </div>
   );
 };

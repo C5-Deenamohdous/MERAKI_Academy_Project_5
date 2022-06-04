@@ -15,16 +15,17 @@ export const cartSlice = createSlice({
     },
     addToCart: (state, action) => {
       state.cart = [...state.cart, action.payload];
-      state.productInCart = [...state.productInCart, action.payload];
+      state.productInCart = state.cart.map((element) => {
+        return element.product_id;
+      });
     },
     removeFromCart: (state, action) => {
-      state.cart = state.cart.filter(
-        (element) => element.id !== action.payload
-      );
-
-      state.productInCart = state.productInCart.filter(
-        (element) => element !== action.payload
-      );
+      state.cart = state.cart.filter((element) => {
+        return element.product_id !== action.payload.product_id;
+      });
+      state.productInCart = state.productInCart.filter((element) => {
+        return element !== action.payload.product_id;
+      });
     },
   },
 });

@@ -7,3 +7,8 @@
 .logout{
     margin-left: 50px;
 }
+
+.TempClass { 
+    position: absolute;
+    right: 0;
+}
