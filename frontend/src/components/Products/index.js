@@ -105,6 +105,14 @@ const Product = () => {
         </div>
       </div>
       <button
+            className="backButton"
+            onClick={() => {
+              getAllProducts();
+            }}
+          >
+           back
+          </button>
+      <button
           className="nextButton"
           onClick={() => {
             
@@ -113,7 +121,7 @@ const Product = () => {
             nextPage();
           }}
         >
-          <i class="fa fa-arrow-right" aria-hidden="true"></i>
+         next
         </button>
     </div>
   
