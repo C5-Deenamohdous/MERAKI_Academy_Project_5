@@ -3,14 +3,20 @@ const express = require("express");
 
 const UserRouter = express.Router();
 
-/* Importing the functions from the admin.js file. */
+/* Importing the functions from the user.js file. */
 const {
+  getUserById,
   getAllusers,
   deleteUserById,
+  updateUserById,
 } = require("../controllers/user");
-/* AdminRouter is a router that is used to handle all the admin routes. */
-adminRouter.get("/users", getAllusers); //!done
+
+UserRouter.get("/:id", getUserById); //!
+/* UserRouter is a router that is used to handle all the user routes. */
+UserRouter.get("/users", getAllusers); //!done
 /* Deleting a user by id. */
-adminRouter.delete("/delete_user/:id", deleteUserById); //!done
+UserRouter.delete("/delete_user/:id", deleteUserById); //!done
+UserRouter.put("/:id", updateUserById); //!done
+
 
 module.exports = UserRouter;
