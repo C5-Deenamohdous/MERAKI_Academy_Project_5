@@ -7,7 +7,7 @@ export const RateSlice = createSlice({
   },
   reducers: {
     addRate: (state, action) => {
-      state.rate = [...state.rate, ...action.payload];
+      state.rate = [...state.rate, action.payload];
     },
     setRate:(state,action) => {
       state.rate = action.payload
