@@ -33,7 +33,7 @@ INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0 AND
 
 
 const getAllProduct = (req, res) => {
-  const limit = 3;
+  const limit = 15;
   const page = req.query.page;
   const offset = (page - 1) * limit;
   const query = "select *,products.id FROM products INNER JOIN categories ON products.category_id=categories.id INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0  limit "+limit+" OFFSET "+offset ;

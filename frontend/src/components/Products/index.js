@@ -12,6 +12,8 @@ const Product = () => {
   const [message, setMessage] = useState("");
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(3);
+  const [clickNext, setClickNext] = useState(false);
+
   const { products, cart, token } = useSelector((state) => {
     return {
       products: state.products.products,
@@ -37,7 +39,7 @@ const Product = () => {
   };
   const getAllProducts = async () => {
     axios
-      .get("http://localhost:5000/product/?page=1&limit=3")
+      .get(`http://localhost:5000/product/?page=1&limit=15`)
 
       .then((result) => {
         console.log(result, "}/!!!!}}");
@@ -49,9 +51,9 @@ const Product = () => {
         setMessage(err.response.data.message);
       });
   };
-  const nextPage = () => {
+  const nextPage = (page) => {
     axios
-      .get("http://localhost:5000/product/?page=2&limit=3", 
+      .get(`http://localhost:5000/product/?page=${page}&limit=15`, 
       )
       .then((result) => {
         dispatch(setProducts(result.data.result));
@@ -104,21 +106,29 @@ const Product = () => {
             })}
         </div>
       </div>
+      {clickNext ? (
       <button
             className="backButton"
             onClick={() => {
-              getAllProducts();
+              setPage(page-1);
+              setLimit(15);
+              nextPage(page-1);
+
             }}
           >
            back
           </button>
+            ) : (
+              ""
+            )
+            }
       <button
           className="nextButton"
           onClick={() => {
             
-            setPage(2);
-            setLimit(3);
-            nextPage();
+            setPage(page+1);
+            setLimit(15);
+            nextPage(page+1);
           }}
         >
          next
