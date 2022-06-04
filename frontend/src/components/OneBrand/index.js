@@ -2,16 +2,17 @@ import React, { useContext, useEffect, useState } from "react";
 import "./style.css";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-import { setOneBrand } from "../../redux/reducers/products";
+import { setOneBrand,setProducts } from "../../redux/reducers/products";
 import { useNavigate, useParams } from "react-router-dom";
 const OneBrand=()=>{
     const { id } = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [message, setMessage] = useState("");
-    const { oneBrand } =useSelector((state) => {
+    const { oneBrand,products } =useSelector((state) => {
         return {
            oneBrand:state.products.oneBrand,
+           products: state.products.products,
         };
       });
       const getOneBrand = () => {
@@ -38,7 +39,10 @@ return(
     oneBrand &&
     oneBrand.map((brand,i)=>{
         return (
-            <div  key={i}    className="product-box">
+            <div  key={i}    className="product-box" 
+            onClick={() => {
+              navigate(`/OneProduct/${brand.id}`);
+            }}>
               <div>
                 <img className="ONEproductImage" src={brand.productImage} />
               </div>
