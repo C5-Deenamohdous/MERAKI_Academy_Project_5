@@ -193,7 +193,7 @@ const /* Updating the product with the given id. */
     quantity=IF(${isquantity},?,quantity),
     category_id=IF(${iscategory_id},?,category_id),
     brand_id=IF(${isbrand_id},?,brand_id) 
-    WHERE id=? AND is_deleted=0  ;`;
+    WHERE id=? AND is_deleted=1  ;`;
     const data = [
       title,
       description,
