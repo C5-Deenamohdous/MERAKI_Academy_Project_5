@@ -1,3 +1,4 @@
+import "./style.css";
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -39,10 +40,24 @@ const CartSection = () => {
       {cart &&
         cart.map((element) => {
           return (
-            <div>
-              <p>{element.title}</p>
-              <p>{element.description}</p>
-              <p>{element.price}</p>
+            <div className="CartContainer">
+              <div className="CartOneProduct">
+                <div className="ImageInCart">
+                  <img src={element.productImage} />
+                </div>
+                <div className="infoInCart">
+                  <p>{element.title}</p>
+                  <p>{element.description}</p>
+                </div>
+                <div className="Price">
+                  <p>Price</p>
+                  <p>{element.price}</p>
+                </div>
+                <div className="InputInCart">
+                  <p>Quantity</p>
+                  <input type="number" defaultValue="1" />
+                </div>
+              </div>
             </div>
           );
         })}
