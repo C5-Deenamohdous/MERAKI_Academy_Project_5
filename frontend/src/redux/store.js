@@ -4,7 +4,9 @@ import adminReducer from "../redux/reducers/admin";
 import authReducer from "../redux/reducers/auth";
 import commentReducer from "../redux/reducers/comments";
 import cartReducer from "../redux/reducers/cart";
-import rateReducer from "../redux/reducers/rate"
+import rateReducer from "../redux/reducers/rate";
+import userReducer from "../redux/reducers/user"
+import { useReducer } from "react";
 export default configureStore({
   reducer: {
     products: productReducer,
@@ -13,5 +15,6 @@ export default configureStore({
     comment: commentReducer,
     cart: cartReducer,
     rate:rateReducer,
+    user:userReducer
   },
 });
