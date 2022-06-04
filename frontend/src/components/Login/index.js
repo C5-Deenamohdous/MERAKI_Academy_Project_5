@@ -34,6 +34,7 @@ const Login = () => {
         setMessage("");
         dispatch(setlogin(res.data));
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("userId", res.data.userId);
         navigate("/Product");
         // saveToken(res.data.token);
         // console.log(res.data);
