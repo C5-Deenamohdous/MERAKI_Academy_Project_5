@@ -8,6 +8,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 
 
+//put // http://localhost:5000/user/6
+// get("/:id", getUserById);
+// get("/users", getAllusers);
+// delete("/:id", deleteUserById); 
+// put("/:id", updateUserById); 
+
 
 const UserProfile = ()=>{
 
@@ -16,15 +22,13 @@ const UserProfile = ()=>{
     const dispatch = useDispatch();
     const [message, setMessage] = useState("");
 
-
-
     const getUserById = () => {
         axios
-          .get(`http://localhost:5000/product/${id}`)
+          .get(`http://localhost:5000/user/${id}`)
           .then((result) => {
             console.log(result, "******one product");
             // dispatch(setOneProduct(result.data.result));
-            setMessage("one product");
+            setMessage("user with ID");
           })
           .catch((err) => {
             console.log(err);
