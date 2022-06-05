@@ -30,11 +30,12 @@ export const cartSlice = createSlice({
     changeQuantity: (state, action) => {
       state.cart = state.cart.map((element) => {
         if (element.product_id === action.payload.product_id) {
-          console.log(action.payload, "PAY", state.cart, "CART");
+          console.log(action.payload, "PAY");
           return { ...element, quantityInCart: action.payload.quantityInCart };
         }
         return element;
       });
+      console.log(state.cart, "====");
     },
   },
 });

@@ -3,11 +3,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setCart, changeQuantity } from "../../redux/reducers/cart";
+import {
+  setCart,
+  changeQuantity,
+  removeFromCart,
+} from "../../redux/reducers/cart";
 import AddToCartButton from "../AddToCart";
 const CartSection = () => {
-  const [productQuantity, setProductQuantity] = useState();
-
   const dispatch = useDispatch();
   const { cart, token, userId } = useSelector((state) => {
     return {
@@ -61,6 +63,21 @@ const CartSection = () => {
       });
   };
 
+  const deleteFromCart = (id) => {
+    axios
+      .delete(`http://localhost:5000/cart/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((result) => {
+        dispatch(removeFromCart({ product_id: id }));
+      })
+      .catch((err) => {
+        console.log(err, "ERR DELETE FROM CART");
+      });
+  };
+
   useEffect(() => {
     getProductInCart();
   }, []);
@@ -88,7 +105,6 @@ const CartSection = () => {
                 <div>
                   <button
                     onClick={() => {
-                      // setProductQuantity(element.quantityInCart + 1);
                       changeQuantityInCart(
                         element.product_id,
                         element.quantityInCart + 1
@@ -100,14 +116,23 @@ const CartSection = () => {
                   <span>x{element.quantityInCart}</span>
                   <button
                     onClick={() => {
-                      setProductQuantity(element.quantityInCart - 1);
+                      if (element.quantityInCart - 1 == 0) {
+                        return deleteFromCart(element.product_id);
+                      }
+                      changeQuantityInCart(
+                        element.product_id,
+                        element.quantityInCart - 1
+                      );
                     }}
                   >
                     -
                   </button>
+                  <p>
+                    Sum For One product {element.quantityInCart * element.price}
+                  </p>
                 </div>
               </div>
-              <p>For Test {productQuantity}</p>
+              <p>Total</p>
             </div>
           );
         })}
