@@ -4,6 +4,7 @@ import "./style.css";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setlogin } from "../../redux/reducers/auth";
+import LoginGoogle from "../LoginGoogle";
 const Login = () => {
   const dispatch = useDispatch();
 
@@ -90,6 +91,7 @@ const Login = () => {
             ? message && <div className="SuccessMessage">{message}</div>
             : message && <div className="ErrorMessage">{message}</div>}
         </center>
+        <LoginGoogle/>
       </div>
     </>
   );
