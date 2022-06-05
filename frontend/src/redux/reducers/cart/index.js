@@ -13,6 +13,9 @@ export const cartSlice = createSlice({
       state.productInCart = state.cart.map((element) => {
         return element.product_id;
       });
+      state.subTotal = state.cart.reduce((total, element) => {
+        return total + element.price * element.quantityInCart;
+      }, 0);
     },
     addToCart: (state, action) => {
       state.cart = [...state.cart, action.payload];
@@ -27,6 +30,9 @@ export const cartSlice = createSlice({
       state.productInCart = state.productInCart.filter((element) => {
         return element !== action.payload.product_id;
       });
+      state.subTotal = state.cart.reduce((total, element) => {
+        return total + element.price * element.quantityInCart;
+      }, 0);
     },
     changeQuantity: (state, action) => {
       state.cart = state.cart.map((element) => {
@@ -36,6 +42,9 @@ export const cartSlice = createSlice({
         }
         return element;
       });
+      state.subTotal = state.cart.reduce((total, element) => {
+        return total + element.price * element.quantityInCart;
+      }, 0);
       console.log(state.cart, "====");
     },
   },
