@@ -1,21 +1,24 @@
 //userprofile
-// i need to git the user info from the databace using the userid from 
+// i need to git the user info from the databace using the userid from
 //the token
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { setuserProfile, deleteuserProfile, updateuserProfile } from "../../redux/reducers/user";
+import {
+  setuserProfile,
+  deleteuserProfile,
+  updateuserProfile,
+} from "../../redux/reducers/user";
 const UserProfile = () => {
-
-  // to see user profaile set from local stoge 
+  // to see user profaile set from local stoge
   const { userProfile, userId } = useSelector((state) => {
     return {
       // userid:state.auth.userid,
       userProfile: state.user.userProfile,
       userId: state.auth.userId,
-    }
+    };
   });
   const { id } = useParams();
 
@@ -37,7 +40,6 @@ const UserProfile = () => {
       });
   };
 
-
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -45,27 +47,29 @@ const UserProfile = () => {
 
   const updateUserById = () => {
     axios
-      .put(`http://localhost:5000/user/${id}`,
+      .put(
+        `http://localhost:5000/user/${id}`,
 
         {
-          id:id,
+          id: id,
           firstName,
           lastName,
           phoneNumber,
           profileImage,
-
-        })
+        }
+      )
 
       .then((result) => {
         console.log(result, "user profile");
-        dispatch(updateuserProfile({
-          id:id,
-          firstName,
-          lastName,
-          phoneNumber,
-          profileImage,
-
-        }));
+        dispatch(
+          updateuserProfile({
+            id: id,
+            firstName,
+            lastName,
+            phoneNumber,
+            profileImage,
+          })
+        );
 
         setMessage("user with ID is redy to be updated");
       })
@@ -76,13 +80,37 @@ const UserProfile = () => {
   };
   const [isClicked, setIsClicked] = useState(false);
 
+  const DeletUserById = () => {
+    axios
+      .delete(
+        `http://localhost:5000/user/${id}`,
+        {
+          id: id,
+        }
+      )
+      .then((result) => {
+        console.log(result, "user profile");
+        dispatch(
+          deleteuserProfile({
+            id: id,
+          })
+        );
+        setMessage("user with ID is Deleted");
+        navigate("/register");
+        localStorage.clear();
+      })
+      .catch((err) => {
+        console.log(err);
+        setMessage(err.response.data.message);
+      });
+  };
 
   useEffect(() => {
     getUserById();
   }, []);
   return (
     <div>
-          {/* // <div>sasassasa</div> */}
+      {/* // <div>sasassasa</div> */}
 
       {userProfile &&
         userProfile.map((user, i) => {
@@ -92,65 +120,92 @@ const UserProfile = () => {
                 <img className="userProfile" src={user.profileImage} />
               </div>
               <div className="datails-Container">
-                <p>firstName   :{user.firstName}</p>
-                <p>lastName    :{user.lastName}</p>
+                <p>firstName :{user.firstName}</p>
+                <p>lastName :{user.lastName}</p>
                 <p>phoneNumber :{user.phoneNumber}</p>
               </div>
               <div>
-                <button onClick={() => {
-                  setIsClicked(true);
-                  { setFirstName(user.firstName) };
-                  { setLastName(user.lastName) };
-                  { setPhoneNumber(user.phoneNumber) };
-                  { setProfileImage(user.profileImage) };
-                }}> update your info</button>
-                {isClicked ? <div>
-                  <div className="inputbox">
-                    <input
-                      defaultValue={firstName}
-                      type="text"
-                      required="required"
-                      onChange={(e) => setFirstName(e.target.value)}
-                    />
-                    <span>firstName</span>
-                  </div>
-                  <div className="inputbox">
-                    <input
-                      defaultValue={lastName}
+                <button
+                  onClick={() => {
+                    setIsClicked(true);
+                    {
+                      setFirstName(user.firstName);
+                    }
+                    {
+                      setLastName(user.lastName);
+                    }
+                    {
+                      setPhoneNumber(user.phoneNumber);
+                    }
+                    {
+                      setProfileImage(user.profileImage);
+                    }
+                  }}
+                >
+                  {" "}
+                  update your info
+                </button>
+                <br/>
+                <button
+                  onClick={() => {
+                    DeletUserById(id);
+                    setMessage("user hase been deleted");
+                  }}
+                >
+                  Delet your Profaile
+                </button>
 
-                      type="text"
-                      required="required"
-                      onChange={(e) => setLastName(e.target.value)}
-                    />
-                    <span>lastName</span>
+                {isClicked ? (
+                  <div>
+                    <div className="inputbox">
+                      <input
+                        defaultValue={firstName}
+                        type="text"
+                        required="required"
+                        onChange={(e) => setFirstName(e.target.value)}
+                      />
+                      <span>firstName</span>
+                    </div>
+                    <div className="inputbox">
+                      <input
+                        defaultValue={lastName}
+                        type="text"
+                        required="required"
+                        onChange={(e) => setLastName(e.target.value)}
+                      />
+                      <span>lastName</span>
+                    </div>
+                    <div className="inputbox">
+                      <input
+                        defaultValue={phoneNumber}
+                        type="text"
+                        required="required"
+                        onChange={(e) => setPhoneNumber(e.target.value)}
+                      />
+                      <span>phoneNumber</span>
+                    </div>
+                    <div className="inputbox">
+                      <input
+                        defaultValue={profileImage}
+                        type="text"
+                        required="required"
+                        onChange={(e) => setProfileImage(e.target.value)}
+                      />
+                      <span>profileImage</span>
+                    </div>
+                    <button
+                      onClick={() => {
+                        updateUserById(id);
+                        setIsClicked(false);
+                      }}
+                    >
+                      {" "}
+                      update
+                    </button>
                   </div>
-                  <div className="inputbox">
-                    <input
-                      defaultValue={phoneNumber}
-
-                      type="text"
-                      required="required"
-                      onChange={(e) => setPhoneNumber(e.target.value)}
-                    />
-                    <span>phoneNumber</span>
-                  </div>
-                  <div className="inputbox">
-                    <input
-                      defaultValue={profileImage}
-
-                      type="text"
-                      required="required"
-                      onChange={(e) => setProfileImage(e.target.value)}
-                    />
-                    <span>profileImage</span>
-                  </div>
-                  <button onClick={() => {
-                    updateUserById(id);
-                    setIsClicked(false);
-                  }}> update
-                  </button>
-                </div>
-                  : ""}
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           );
@@ -158,6 +213,6 @@ const UserProfile = () => {
     </div>
     // <div>sasassasa</div>
   );
-}
+};
 
 export default UserProfile;
