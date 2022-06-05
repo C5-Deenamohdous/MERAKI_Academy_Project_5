@@ -83,56 +83,67 @@ const CartSection = () => {
   }, []);
 
   return (
-    <div>
-      <h2>For Test</h2>
+    <div className="CartContainer">
+      <div className="CartOneProduct">
+        <div className="ContainerInfoAndImage">
+          <p className="CartHeader-P Bottom">Product</p>
+        </div>
+        <div className="CartPrice Bottom">
+          <p className="CartHeader-P Bottom">Price</p>
+        </div>
+
+        <p className="CartQuantity Bottom">Quantity</p>
+        <p className="CartTotal Bottom">Total</p>
+        {/* <AddToCartButton productId={element.product_id} /> inside MAP*/}
+      </div>
       {cart &&
         cart.map((element) => {
           return (
-            <div className="CartContainer">
-              <AddToCartButton productId={element.product_id} />
-              <div className="CartOneProduct">
-                <div className="ImageInCart">
+            <div className="CartOneProduct">
+              <div className="ContainerInfoAndImage">
+                <div className="Image">
                   <img src={element.productImage} />
                 </div>
                 <div className="infoInCart">
                   <p>{element.title}</p>
                   <p>{element.description}</p>
                 </div>
-                <div className="Price">
-                  <p>Price</p>
-                  <p>{element.price}</p>
-                </div>
-                <div>
-                  <button
-                    onClick={() => {
-                      changeQuantityInCart(
-                        element.product_id,
-                        element.quantityInCart + 1
-                      );
-                    }}
-                  >
-                    +
-                  </button>
-                  <span>x{element.quantityInCart}</span>
-                  <button
-                    onClick={() => {
-                      if (element.quantityInCart - 1 == 0) {
-                        return deleteFromCart(element.product_id);
-                      }
-                      changeQuantityInCart(
-                        element.product_id,
-                        element.quantityInCart - 1
-                      );
-                    }}
-                  >
-                    -
-                  </button>
-                  <p>
-                    Sum For One product {element.quantityInCart * element.price}
-                  </p>
-                </div>
               </div>
-              <p>Total</p>
+
+              <div className="CartPrice">
+                <p>{element.price}</p>
+              </div>
+
+              <div className="CartQuantity">
+                <button
+                  onClick={() => {
+                    changeQuantityInCart(
+                      element.product_id,
+                      element.quantityInCart + 1
+                    );
+                  }}
+                >
+                  +
+                </button>
+                <span>x{element.quantityInCart}</span>
+                <button
+                  onClick={() => {
+                    if (element.quantityInCart - 1 == 0) {
+                      return deleteFromCart(element.product_id);
+                    }
+                    changeQuantityInCart(
+                      element.product_id,
+                      element.quantityInCart - 1
+                    );
+                  }}
+                >
+                  -
+                </button>
+              </div>
+
+              <div className="CartTotal">
+                <p>{element.quantityInCart * element.price}</p>
+              </div>
             </div>
           );
         })}
