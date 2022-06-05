@@ -3,15 +3,17 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setCart } from "../../redux/reducers/cart";
+import { setCart, changeQuantity } from "../../redux/reducers/cart";
 import AddToCartButton from "../AddToCart";
 const CartSection = () => {
   const [productQuantity, setProductQuantity] = useState();
+
   const dispatch = useDispatch();
-  const { cart, token } = useSelector((state) => {
+  const { cart, token, userId } = useSelector((state) => {
     return {
       cart: state.cart.cart,
       token: state.auth.token,
+      userId: state.auth.userId,
     };
   });
 
@@ -31,7 +33,33 @@ const CartSection = () => {
       });
   };
 
-  const [quantity, setQuantity] = useState("");
+  const changeQuantityInCart = (product_id, updatedQuantity) => {
+    console.log(updatedQuantity);
+    axios
+      .put(
+        `http://localhost:5000/cart/change_quantity/${product_id}`,
+        {
+          quantityInCart: updatedQuantity,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((result) => {
+        dispatch(
+          changeQuantity({
+            product_id: product_id,
+            quantityInCart: updatedQuantity,
+          })
+        );
+        console.log(result, "UPDATE QUANTITY");
+      })
+      .catch((err) => {
+        console.log(err, "ERR IN ADDTOCART");
+      });
+  };
 
   useEffect(() => {
     getProductInCart();
@@ -60,7 +88,11 @@ const CartSection = () => {
                 <div>
                   <button
                     onClick={() => {
-                      setProductQuantity(element.quantityInCart + 1);
+                      // setProductQuantity(element.quantityInCart + 1);
+                      changeQuantityInCart(
+                        element.product_id,
+                        element.quantityInCart + 1
+                      );
                     }}
                   >
                     +
