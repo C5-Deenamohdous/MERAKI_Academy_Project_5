@@ -11,15 +11,15 @@ import {
 import AddToCartButton from "../AddToCart";
 const CartSection = () => {
   const dispatch = useDispatch();
-  const { cart, token, userId } = useSelector((state) => {
+  const { cart, token, userId, subTotal } = useSelector((state) => {
     return {
       cart: state.cart.cart,
       token: state.auth.token,
       userId: state.auth.userId,
+      subTotal: state.cart.subTotal,
     };
   });
-  const [subTotal, setSubTotal] = useState(0);
-
+  // const [subTotal, setSubTotal] = useState(0);
 
   const getProductInCart = () => {
     axios
@@ -31,7 +31,7 @@ const CartSection = () => {
       .then((result) => {
         console.log(result, `CARTFORUSER`);
         dispatch(setCart(result.data.result));
-        subTotalCalculate(result.data.result);
+        // subTotalCalculate(result.data.result);
       })
       .catch((err) => {
         console.log(err, `ERROR IN USER CART`);
@@ -80,15 +80,6 @@ const CartSection = () => {
       });
   };
 
-  const subTotalCalculate = (result) => {
-    console.log("REDUCEER");
-    console.log(result, "INSIDE REDUCER");
-    const totalPriceForCart = result.reduce((total, element) => {
-      return total + element.price * element.quantityInCart;
-    }, 0);
-    setSubTotal(totalPriceForCart);
-  };
-
   useEffect(() => {
     getProductInCart();
   }, []);
@@ -132,7 +123,6 @@ const CartSection = () => {
                         element.product_id,
                         element.quantityInCart + 1
                       );
-                      subTotalCalculate(cart);
                     }}
                   >
                     +
@@ -140,14 +130,13 @@ const CartSection = () => {
                   <span>x{element.quantityInCart}</span>
                   <button
                     onClick={() => {
-                      if (element.quantityInCart - 1 == 0) {
-                        return deleteFromCart(element.product_id);
-                      }
                       changeQuantityInCart(
                         element.product_id,
                         element.quantityInCart - 1
                       );
-                      subTotalCalculate(cart);
+                      if (element.quantityInCart - 1 == 0) {
+                        deleteFromCart(element.product_id);
+                      }
                     }}
                   >
                     -
