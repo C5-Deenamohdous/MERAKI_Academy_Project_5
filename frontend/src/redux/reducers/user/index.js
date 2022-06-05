@@ -17,16 +17,13 @@ export const user = createSlice({
     },
     updateuserProfile: (state, action) => {
       state.userProfile = state.userProfile.map((element) => {
-        console.log("============",action.payload);
-        if (element.id === action.payload.id) {
-        
+        if (element.id == action.payload.id) {
           return {
             ...element,
             firstName: action.payload.firstName,
             lastName: action.payload.lastName,
             phoneNumber: action.payload.phoneNumber,
             profileImage: action.payload.profileImage,
-
           };
         }
         return element;
@@ -35,10 +32,7 @@ export const user = createSlice({
   },
 });
 
-export const {
-  setuserProfile,
-  deleteuserProfile,
-  updateuserProfile,
-} = user.actions;
+export const { setuserProfile, deleteuserProfile, updateuserProfile } =
+  user.actions;
 
 export default user.reducer;

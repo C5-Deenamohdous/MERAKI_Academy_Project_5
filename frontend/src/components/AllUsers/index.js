@@ -41,9 +41,11 @@ const UsersControlPanel = () => {
         allUsers.map((element) => {
           return (
             <div>
-              <div> {`${element.firstName} `+` ${element.lastName}`}</div>
-              <div> {element.phoneNumber}</div>
-              <div> {element.profileImage}</div>
+              <div>User Name : {`${element.firstName} `+` ${element.lastName}`}</div>
+              <div> User phone Number :{element.phoneNumber}</div>
+              <div> User email :{element.email}</div>
+
+             <div> <img className="userProfile" src={element.profileImage} /></div>
               <button  onClick={() => {
                     userDelete(element.id);
                   }}

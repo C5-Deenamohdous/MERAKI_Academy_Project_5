@@ -204,7 +204,9 @@ const CreateProduct = () => {
                     )
                 })
                 : ""}
-
+                <div>
+             {message }
+             </div>
         </>
     );
 };
