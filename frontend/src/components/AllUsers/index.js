@@ -4,18 +4,24 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { deleteuser } from "../../redux/reducers/admin";
 import { setAllUsers } from "../../redux/reducers/admin";
+
+import { useNavigate, useParams } from "react-router-dom";
+
 const UsersControlPanel = () => {
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   const { allUsers } = useSelector((state) => {
     return {
       allUsers: state.admin.allUsers,
     };
   });
-  const userDelete = (userId) => {
+    const getAllUsers = () => {
     axios
-      .delete(`http://localhost:5000/admin/delete_user/${userId}`)
+      .get("http://localhost:5000/admin/users")
       .then((result) => {
-        dispatch(deleteuser(userId));
+        dispatch(setAllUsers(result.data.result));
+        console.log(result);
       })
       .catch((err) => {
         console.log(err);
@@ -24,33 +30,16 @@ const UsersControlPanel = () => {
   useEffect(() => {
     getAllUsers();
   }, []);
-  const getAllUsers = () => {
-    axios
-      .get("http://localhost:5000/admin/users")
-      .then((result) => {
-        console.log(result);
-        dispatch(setAllUsers(result.data.result));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
   return (
     <div className="UsersInControlPanel">
       {allUsers &&
         allUsers.map((element) => {
           return (
-            <div>
+            <div onClick={()=>{
+              navigate(`/admin/user/${element.id}`);
+            }}>
               <div>User Name : {`${element.firstName} `+` ${element.lastName}`}</div>
-              <div> User phone Number :{element.phoneNumber}</div>
               <div> User email :{element.email}</div>
-
-             <div> <img className="userProfile" src={element.profileImage} /></div>
-              <button  onClick={() => {
-                    userDelete(element.id);
-                  }}
-                >  Delete User
-                </button>
               <div> ----------------------</div>
             </div>
           );
