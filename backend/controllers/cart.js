@@ -138,7 +138,7 @@ const updateCartQuantity = (req, res) => {
     if (result.affectedRows) {
       return res.status(201).json({
         success: true,
-        message: `Product with id => ${product_id} is deleted From Cart`,
+        message: `Product with id => ${product_id} Quantity is Updated In Cart`,
         result: result,
       });
     } else {
