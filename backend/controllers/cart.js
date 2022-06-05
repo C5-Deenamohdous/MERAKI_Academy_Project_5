@@ -58,7 +58,7 @@ const removeProductFromCart = (req, res) => {
   const user_id = req.token.userId;
   const product_id = req.params.id;
 
-  const query = `UPDATE cart SET is_deleted=1 WHERE user_id=? AND product_id=? AND is_deleted=0`;
+  const query = `DELETE FROM cart WHERE user_id=? AND product_id=? AND is_deleted=0`;
   const data = [user_id, product_id];
 
   connection.query(query, data, (err, result) => {

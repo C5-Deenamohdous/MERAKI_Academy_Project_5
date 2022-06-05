@@ -1,10 +1,10 @@
 import "./style.css";
-import React, { useEffect } from "react";
+import React, { useEffect ,useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setCart } from "../../redux/reducers/cart";
-
+import AddToCartButton from "../AddToCart";
 const CartSection = () => {
   const dispatch = useDispatch();
   const { cart, token } = useSelector((state) => {
@@ -30,6 +30,8 @@ const CartSection = () => {
       });
   };
 
+  const [quantity , setQuantity] = useState("")
+
   useEffect(() => {
     getProductInCart();
   }, []);
@@ -41,6 +43,7 @@ const CartSection = () => {
         cart.map((element) => {
           return (
             <div className="CartContainer">
+              <AddToCartButton productId={element.product_id} />
               <div className="CartOneProduct">
                 <div className="ImageInCart">
                   <img src={element.productImage} />
@@ -53,10 +56,12 @@ const CartSection = () => {
                   <p>Price</p>
                   <p>{element.price}</p>
                 </div>
-                <div className="InputInCart">
-                  <p>Quantity</p>
-                  <input type="number" defaultValue="1" />
-                </div>
+               <div>
+            <button>+</button>
+              <span>x</span>
+            <button>-</button>
+
+               </div>
               </div>
             </div>
           );
