@@ -16,7 +16,7 @@ const AdminProducts = () => {
 
   const getAllProducts = async () => {
     axios
-      .get("http://localhost:5000/product/")
+      .get(`http://localhost:5000/product/?page=1&limit=15`)
 
       .then((result) => {
         console.log(`INSIDE REQUEST`);
