@@ -18,6 +18,8 @@ const CartSection = () => {
       userId: state.auth.userId,
     };
   });
+  const [subTotal, setSubTotal] = useState(0);
+
 
   const getProductInCart = () => {
     axios
@@ -29,6 +31,7 @@ const CartSection = () => {
       .then((result) => {
         console.log(result, `CARTFORUSER`);
         dispatch(setCart(result.data.result));
+        subTotalCalculate(result.data.result);
       })
       .catch((err) => {
         console.log(err, `ERROR IN USER CART`);
@@ -36,7 +39,6 @@ const CartSection = () => {
   };
 
   const changeQuantityInCart = (product_id, updatedQuantity) => {
-    console.log(updatedQuantity);
     axios
       .put(
         `http://localhost:5000/cart/change_quantity/${product_id}`,
@@ -78,6 +80,15 @@ const CartSection = () => {
       });
   };
 
+  const subTotalCalculate = (result) => {
+    console.log("REDUCEER");
+    console.log(result, "INSIDE REDUCER");
+    const totalPriceForCart = result.reduce((total, element) => {
+      return total + element.price * element.quantityInCart;
+    }, 0);
+    setSubTotal(totalPriceForCart);
+  };
+
   useEffect(() => {
     getProductInCart();
   }, []);
@@ -94,7 +105,6 @@ const CartSection = () => {
 
         <p className="CartQuantity Bottom">Quantity</p>
         <p className="CartTotal Bottom">Total</p>
-        {/* <AddToCartButton productId={element.product_id} /> inside MAP*/}
       </div>
       {cart &&
         cart.map((element) => {
@@ -115,38 +125,44 @@ const CartSection = () => {
               </div>
 
               <div className="CartQuantity">
-                <button
-                  onClick={() => {
-                    changeQuantityInCart(
-                      element.product_id,
-                      element.quantityInCart + 1
-                    );
-                  }}
-                >
-                  +
-                </button>
-                <span>x{element.quantityInCart}</span>
-                <button
-                  onClick={() => {
-                    if (element.quantityInCart - 1 == 0) {
-                      return deleteFromCart(element.product_id);
-                    }
-                    changeQuantityInCart(
-                      element.product_id,
-                      element.quantityInCart - 1
-                    );
-                  }}
-                >
-                  -
-                </button>
+                <div className="CartBtnsContainer">
+                  <button
+                    onClick={() => {
+                      changeQuantityInCart(
+                        element.product_id,
+                        element.quantityInCart + 1
+                      );
+                      subTotalCalculate(cart);
+                    }}
+                  >
+                    +
+                  </button>
+                  <span>x{element.quantityInCart}</span>
+                  <button
+                    onClick={() => {
+                      if (element.quantityInCart - 1 == 0) {
+                        return deleteFromCart(element.product_id);
+                      }
+                      changeQuantityInCart(
+                        element.product_id,
+                        element.quantityInCart - 1
+                      );
+                      subTotalCalculate(cart);
+                    }}
+                  >
+                    -
+                  </button>
+                </div>
               </div>
 
               <div className="CartTotal">
+                <AddToCartButton productId={element.product_id} />
                 <p>{element.quantityInCart * element.price}</p>
               </div>
             </div>
           );
         })}
+      <div className="SubTotal">Subtotal {subTotal} </div>
     </div>
   );
 };

@@ -18,8 +18,8 @@
   border-bottom: 1px solid;
 }
 
-.CartHeader-P { 
-    margin-left: 30%;
+.CartHeader-P {
+  margin-left: 30%;
 }
 
 .ContainerInfoAndImage {
@@ -68,6 +68,28 @@
   height: 100%;
 }
 
+.CartBtnsContainer {
+  display: flex;
+  justify-content: center;
+  border: 1px solid #b4a9ad;
+}
+.CartBtnsContainer span {
+  width: 60%;
+}
+
+.CartBtnsContainer button {
+  width: 20%;
+  border: none;
+  cursor: pointer;
+}
+
 /* .Bottom  { 
     align-self: flex-end;
 } */
+
+.CartTotal button {
+  position: absolute;
+  right: 0;
+  color: white;
+  background-color: rgb(161, 42, 52);
+}
