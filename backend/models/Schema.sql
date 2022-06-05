@@ -103,8 +103,9 @@ CREATE TABLE rate(
 CREATE TABLE cart(
     id INT AUTO_INCREMENT NOT NULL , 
     user_id INT , 
-    product_id INT , 
-     FOREIGN KEY (user_id) REFERENCES users(id) ,
+    product_id INT ,
+    quantityInCart INT DEFAULT 1, 
+    FOREIGN KEY (user_id) REFERENCES users(id) ,
     FOREIGN KEY (product_id) REFERENCES products(id) ,
     PRIMARY KEY (id),
     is_deleted TINYINT DEFAULT 0 

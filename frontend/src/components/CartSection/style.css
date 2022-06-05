@@ -1,0 +1,95 @@
+.CartContainer {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  height: 100%;
+}
+
+.CartOneProduct {
+  display: flex;
+  width: 80%;
+  height: fit-content;
+  align-items: center;
+  height: 20%;
+  gap: 10%;
+  padding: 10px;
+  border-bottom: 1px solid;
+}
+
+.CartHeader-P {
+  margin-left: 30%;
+}
+
+.ContainerInfoAndImage {
+  width: 50%;
+  height: 100%;
+  display: flex;
+}
+
+.ContainerInfoAndImage .infoInCart {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  gap: 10px;
+}
+
+.ContainerInfoAndImage .Image {
+  width: 40%;
+  height: 100%;
+  background-color: tan;
+}
+
+.CartOneProduct .Image img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.CartQuantity {
+  width: 30%;
+  height: 100%;
+}
+
+.CartTotal {
+  width: 30%;
+  height: 100%;
+}
+
+.ImageInCart img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.CartPrice {
+  width: 10%;
+  height: 100%;
+}
+
+.CartBtnsContainer {
+  display: flex;
+  justify-content: center;
+  border: 1px solid #b4a9ad;
+}
+.CartBtnsContainer span {
+  width: 60%;
+}
+
+.CartBtnsContainer button {
+  width: 20%;
+  border: none;
+  cursor: pointer;
+}
+
+/* .Bottom  { 
+    align-self: flex-end;
+} */
+
+.CartTotal button {
+  position: absolute;
+  right: 0;
+  color: white;
+  background-color: rgb(161, 42, 52);
+}
