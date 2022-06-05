@@ -158,8 +158,6 @@ const UserProfile = () => {
     </div>
     // <div>sasassasa</div>
   );
-
-
 }
 
 export default UserProfile;
