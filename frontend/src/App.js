@@ -14,6 +14,7 @@ import UpdateProduct from "./components/UpdateProduct";
 import OneBrand from "./components/OneBrand";
 import CartSection from "./components/CartSection";
 import UserProfile from "./components/userprofile";
+import UserProfilePanel from "./components/UserInAdmin";
 
 const App = () => {
   return (
@@ -34,6 +35,8 @@ const App = () => {
         <Route path="/brand/:id" element={<OneBrand />} />
         <Route path="/cart" element={<CartSection />} />
         <Route path="/User/:id" element={<UserProfile />} />
+        <Route path="/admin/user/:id" element={<UserProfilePanel />} />
+
 
       </Routes>
     </div>
