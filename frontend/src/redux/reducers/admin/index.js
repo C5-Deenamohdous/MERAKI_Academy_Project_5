@@ -5,10 +5,10 @@ export const admin = createSlice({
   initialState: {
     allUsers: [],
 
-    category:[],
-    Product:[],
-    Brand:[],
-    
+    category: [],
+    Product: [],
+    Brand: [],
+
     oneProduct: [],
   },
   reducers: {
@@ -22,12 +22,18 @@ export const admin = createSlice({
       state.category.push(action.payload);
     },
     setProduct: (state, action) => {
-      state.Product = action.payload;
+      if (action.payload.length) {
+        state.Product = action.payload;
+        return;
+      }
+      if (typeof action.payload == "object") {
+        state.Product = [...state.Product, action.payload];
+      }
     },
     addProduct: (state, action) => {
       state.Product.push(action.payload);
     },
- 
+
     setBrand: (state, action) => {
       state.Brand = action.payload;
     },
@@ -53,7 +59,7 @@ export const admin = createSlice({
             categoryName: action.payload.categoryName,
             title: action.payload.title,
             description: action.payload.description,
-            productImage:action.payload.productImage,
+            productImage: action.payload.productImage,
           };
         }
         return element;
