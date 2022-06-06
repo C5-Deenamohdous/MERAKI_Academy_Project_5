@@ -63,10 +63,27 @@ const addToOrders = (req, res) => {
     }
   });
 };
+///=   const order_id req.params.id . 
+const getAllOrders = (req, res) => {
+  const query = `SELECT *,orders.id FROM orders INNER JOIN orderInfo ON orderInfo.order_id = orders.id
+ INNER JOIN products ON products.id = orderInfo.product_id INNER JOIN categories ON categories.id = products.category_id INNER JOIN brands ON brands.id = products.brand_id WHERE orders.orderStatus = 0 AND orders.is_deleted=0`;
 
-
-
+  connection.query(query, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        err: err,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: `All Orders`,
+      result: result,
+    });
+  });
+};
 
 module.exports = {
   addToOrders,
+  getAllOrders,
 };
