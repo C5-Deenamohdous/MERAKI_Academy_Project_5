@@ -5,6 +5,7 @@ export const orders = createSlice({
   initialState: {
     allOrders: [],
     completedOrders: [],
+    allUnCompleted: [],
   },
   reducers: {
     setALlOrders: (state, action) => {
@@ -13,9 +14,13 @@ export const orders = createSlice({
     setCompletedOrders: (state, action) => {
       state.completedOrders = action.payload;
     },
+    setAllUnCompleted: (state, action) => {
+      state.allUnCompleted = action.payload;
+    },
   },
 });
 
-export const { setALlOrders, setCompletedOrders } = orders.actions;
+export const { setALlOrders, setCompletedOrders, setAllUnCompleted } =
+  orders.actions;
 
 export default orders.reducer;

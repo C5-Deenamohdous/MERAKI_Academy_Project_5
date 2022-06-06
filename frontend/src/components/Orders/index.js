@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import AdminAllOrders from "../AdminAllOrders";
 import AdminCompletedOrders from "../AdminCompletedOrders";
+import AdminUnCompletedOrders from "../AdminUnCompletedOrders";
 const Orders = () => {
   const [isAllOrder, setIsAllOrder] = useState(true);
   const [isCompletedOrder, setIsCompletedOrder] = useState(false);
@@ -41,7 +42,7 @@ const Orders = () => {
       </div>
       {isAllOrder ? <AdminAllOrders /> : ""}
       {isCompletedOrder ? <AdminCompletedOrders /> : ""}
-      {isUnCompleted ? <>ttt</> : ""}
+      {isUnCompleted ? <AdminUnCompletedOrders /> : ""}
     </div>
   );
 };

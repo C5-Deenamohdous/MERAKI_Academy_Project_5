@@ -158,7 +158,7 @@ const unCompletedOrders = (req, res) => {
     }
     res.status(200).json({
       success: true,
-      message: `Completed Orders`,
+      message: `UnCompleted Orders`,
       result: result,
     });
   });
