@@ -24,7 +24,7 @@ const addToWishList = (req, res) => {
   });
 };
 
-
+//! need to acsess the right data in query
 const getUserWishList = (req, res) => {
     const user_id = req.token.userId;
   
