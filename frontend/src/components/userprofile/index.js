@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import Cloud from "../Cloud";
 import {
   setuserProfile,
   deleteuserProfile,
@@ -205,6 +206,7 @@ const UserProfile = () => {
                   ""
                 )}
               </div>
+              <Cloud setProfileImage={setProfileImage}/>
             </div>
           );
         })}
