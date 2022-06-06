@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import Cloud from "../Cloud";
 import {
   setuserProfile,
   deleteuserProfile,
@@ -25,6 +26,7 @@ const UserProfile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
+  const [url, setUrl] = useState("");
 
   const getUserById = () => {
     axios
@@ -44,8 +46,9 @@ const UserProfile = () => {
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [profileImage, setProfileImage] = useState("");
-
+// const [newImg, setNewImg] = useState("");
   const updateUserById = () => {
+   let newImg=url || profileImage;
     axios
       .put(
         `http://localhost:5000/user/${id}`,
@@ -55,11 +58,12 @@ const UserProfile = () => {
           firstName,
           lastName,
           phoneNumber,
-          profileImage,
+          profileImage:newImg,
         }
       )
 
       .then((result) => {
+        console.log(url, "urllllllll");
         console.log(result, "user profile");
         dispatch(
           updateuserProfile({
@@ -67,7 +71,7 @@ const UserProfile = () => {
             firstName,
             lastName,
             phoneNumber,
-            profileImage,
+            profileImage:newImg,
           })
         );
 
@@ -205,6 +209,7 @@ const UserProfile = () => {
                   ""
                 )}
               </div>
+              <Cloud setProfileImage={setProfileImage} url={url} setUrl={setUrl}/>
             </div>
           );
         })}
