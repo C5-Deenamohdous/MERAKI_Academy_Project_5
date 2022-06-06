@@ -103,7 +103,8 @@ const getAllOrdersWithDetails = (req, res) => {
 // Admin to get One Order Details ,
 const getOneOrderDetail = (req, res) => {
   const order_id = req.params.id;
-  const query = `SELECT *,orders.id FROM orders INNER JOIN orderInfo ON orderInfo.order_id =orders.id
+  const query = `SELECT *,orders.id FROM orders 
+INNER JOIN orderInfo ON orderInfo.order_id =orders.id
 INNER JOIN products ON products.id = orderInfo.product_id 
 INNER JOIN categories ON categories.id = products.category_id 
 INNER JOIN brands ON brands.id = products.brand_id
@@ -114,7 +115,7 @@ WHERE orders.is_deleted=0 AND orders.id=?`;
       return res.status(500).json({
         success: false,
         message: `Server Error`,
-        err:err
+        err: err,
       });
     }
     res.status(200).json({
@@ -124,11 +125,110 @@ WHERE orders.is_deleted=0 AND orders.id=?`;
   });
 };
 
-//
+//== to sort Completed and not completed orders ,, (in Admin Panel ,, )
+
+const completedOrders = (req, res) => {
+  const query = `SELECT * FROM orders WHERE orderStatus = 1`;
+  connection.query(query, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        message: `Server Error`,
+        err: err,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: `Completed Orders`,
+      result: result,
+    });
+  });
+};
+
+//unCompletedOrders ,
+const unCompletedOrders = (req, res) => {
+  const query = `SELECT * FROM orders WHERE orderStatus = 0`;
+  connection.query(query, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        message: `Server Error`,
+        err: err,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: `Completed Orders`,
+      result: result,
+    });
+  });
+};
+
+const getAllOrdersByUser = (req, res) => {
+  const user_id = req.params.id;
+  const query = `SELECT * FROM orders WHERE user_id=?`;
+  const data = [user_id];
+
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        message: `SERVER ERROR`,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      result: result,
+    });
+  });
+};
+
+const getAllCompletedOrdersByUser = (req, res) => {
+  const user_id = req.params.id;
+  const query = `SELECT * FROM orders WHERE user_id=? AND orderStatus = 1 `;
+  const data = [user_id];
+
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        message: `SERVER ERROR`,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      result: result,
+    });
+  });
+};
+
+const getAllUnCompletedOrdersByUser = (req, res) => {
+  const user_id = req.params.id;
+  const query = `SELECT * FROM orders WHERE user_id=? AND orderStatus = 0 `;
+  const data = [user_id];
+
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        message: `SERVER ERROR`,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      result: result,
+    });
+  });
+};
 
 module.exports = {
   addToOrders,
   getAllOrders,
   getAllOrdersWithDetails,
   getOneOrderDetail,
+  unCompletedOrders,
+  completedOrders,
+  getAllOrdersByUser,
+  getAllCompletedOrdersByUser,
+  getAllUnCompletedOrdersByUser,
 };
