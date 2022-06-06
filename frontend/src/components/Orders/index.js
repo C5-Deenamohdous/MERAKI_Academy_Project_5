@@ -2,7 +2,7 @@ import "./style.css";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import AdminAllOrders from "../AdminAllOrders";
-
+import AdminCompletedOrders from "../AdminCompletedOrders";
 const Orders = () => {
   const [isAllOrder, setIsAllOrder] = useState(true);
   const [isCompletedOrder, setIsCompletedOrder] = useState(false);
@@ -40,7 +40,7 @@ const Orders = () => {
         </select>
       </div>
       {isAllOrder ? <AdminAllOrders /> : ""}
-      {isCompletedOrder ? <>CCC</> : ""}
+      {isCompletedOrder ? <AdminCompletedOrders /> : ""}
       {isUnCompleted ? <>ttt</> : ""}
     </div>
   );
