@@ -7,6 +7,7 @@ import cartReducer from "../redux/reducers/cart";
 import rateReducer from "../redux/reducers/rate";
 import userReducer from "../redux/reducers/user";
 import WishlistReducer from "../redux/reducers/WishList";
+import ordersSlice from "../redux/reducers/orders";
 export default configureStore({
   reducer: {
     products: productReducer,
@@ -14,10 +15,9 @@ export default configureStore({
     auth: authReducer,
     comment: commentReducer,
     cart: cartReducer,
-    rate:rateReducer,
-    user:userReducer,
-    Wishlist:WishlistReducer,
-
+    rate: rateReducer,
+    user: userReducer,
+    Wishlist: WishlistReducer,
+    orders: ordersSlice,
   },
 });
-
