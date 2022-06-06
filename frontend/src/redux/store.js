@@ -5,7 +5,8 @@ import authReducer from "../redux/reducers/auth";
 import commentReducer from "../redux/reducers/comments";
 import cartReducer from "../redux/reducers/cart";
 import rateReducer from "../redux/reducers/rate";
-import userReducer from "../redux/reducers/user"
+import userReducer from "../redux/reducers/user";
+import WishlistReducer from "../redux/reducers/WishList";
 export default configureStore({
   reducer: {
     products: productReducer,
@@ -14,6 +15,9 @@ export default configureStore({
     comment: commentReducer,
     cart: cartReducer,
     rate:rateReducer,
-    user:userReducer
+    user:userReducer,
+    Wishlist:WishlistReducer,
+
   },
 });
+
