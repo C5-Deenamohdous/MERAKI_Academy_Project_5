@@ -132,4 +132,14 @@ CREATE TABLE orderInfo (
     FOREIGN KEY (order_id) REFERENCES orders(id),
     FOREIGN KEY (product_id) REFERENCES products(id),
     PRIMARY KEY(id)
-)
+); 
+
+CREATE TABLE wishList (
+    id INT AUTO_INCREMENT NOT NULL, 
+    user_id INT, 
+    product_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (product_id) REFERENCES products(id),
+    PRIMARY KEY (id),
+    is_deleted TINYINT DEFAULT 0 
+);
