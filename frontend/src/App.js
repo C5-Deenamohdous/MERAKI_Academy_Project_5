@@ -1,5 +1,4 @@
 import "./App.css";
-// import { io } from "socket.io-client";
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./components/Navbar";
 import Product from "./components/Products";
@@ -19,8 +18,6 @@ import UserProfilePanel from "./components/UserInAdmin";
 import ContactUs from "./components/ContactUs";
 import WishlistSection from "./components/WishList"; 
 import ChatRoom from "./components/ChatRoom";
-// const socket = io.connect("http://localhost:3001");
-
 
 const App = () => {
   return (
@@ -45,8 +42,9 @@ const App = () => {
         <Route path="/Wishlist" element={<WishlistSection />} />
         <Route path="/ChatRoom" element={<ChatRoom />} />
 
+        <Route path="/contactUs" element={<ContactUs />} />
+      <Route path="admin/:id/details" element={<ContactUs />} />
 
-<Route path="/contactUs" element={ <ContactUs/>}/>
       </Routes>
     </div>
   );

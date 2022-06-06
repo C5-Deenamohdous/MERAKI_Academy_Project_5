@@ -1,7 +1,9 @@
 import "./style.css";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import AdminAllOrders from "../AdminAllOrders";
+import AdminCompletedOrders from "../AdminCompletedOrders";
+import AdminUnCompletedOrders from "../AdminUnCompletedOrders";
 const Orders = () => {
   const [isAllOrder, setIsAllOrder] = useState(true);
   const [isCompletedOrder, setIsCompletedOrder] = useState(false);
@@ -38,9 +40,9 @@ const Orders = () => {
           <option value="3">Un Completed</option>
         </select>
       </div>
-      {isAllOrder? <>HH</> : ""}
-      {isCompletedOrder? <>CCC</> : ""}
-      {isUnCompleted? <>ttt</> : ""}
+      {isAllOrder ? <AdminAllOrders /> : ""}
+      {isCompletedOrder ? <AdminCompletedOrders /> : ""}
+      {isUnCompleted ? <AdminUnCompletedOrders /> : ""}
     </div>
   );
 };
