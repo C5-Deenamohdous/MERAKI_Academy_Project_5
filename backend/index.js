@@ -17,7 +17,8 @@ const productRouter = require("./routes/product");
 const cartRouter = require("./routes/cart");
 const commentRouter = require("./routes/comment");
 const ratingRouter = require("./routes/rating");
-const UserRouter = require("./routes/user")
+const UserRouter = require("./routes/user");
+const ordersRouter = require("./routes/orders");
 
 app.use("/role", rolesRouter);
 app.use("/permission", permissionsRouter);
@@ -29,7 +30,7 @@ app.use("/cart", cartRouter);
 app.use("/comment", commentRouter);
 app.use("/rating", ratingRouter);
 app.use("/user", UserRouter);
-
+app.use("/order", ordersRouter);
 
 const PORT = process.env.PORT || 5000;
 
