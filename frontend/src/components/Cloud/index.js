@@ -1,9 +1,9 @@
 import "./style.css";
 import React, { useState } from "react";
 import axios from "axios";
-const UploadImg = ({ setProfileImage }) => {
+const UploadImg = ({ setProfileImage ,setUrl ,url}) => {
   const [image, setImage] = useState("");
-  const [url, setUrl] = useState("");
+  // const [url, setUrl] = useState("");
 
   const uploadImage = () => {
     const data = new FormData();
@@ -13,7 +13,8 @@ const UploadImg = ({ setProfileImage }) => {
       .post("https://api.cloudinary.com/v1_1/dvxtq6nio/image/upload", data)
       .then((result) => {
         console.log(result, "result in cloudinary");
-        setUrl(data.url);
+        setUrl(result.data.url);
+        // setProfileImage(result.data.url)
       })
 
       .catch((err) => {
@@ -41,7 +42,7 @@ const UploadImg = ({ setProfileImage }) => {
         </button>
       </div>
       <div>
-        <img src={url} />
+        {/* <img src={url} /> */}
       </div>
     </div>
   );
