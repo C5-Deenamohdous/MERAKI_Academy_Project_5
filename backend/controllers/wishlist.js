@@ -28,7 +28,12 @@ const addToWishList = (req, res) => {
 const getUserWishList = (req, res) => {
     const user_id = req.token.userId;
   
-    const query = `SELECT * FROM wishList INNER JOIN products ON products.id = wishList.product_id INNER JOIN categories ON categories.id = products.category_id INNER JOIN brands ON brands.id = products.brand_id  WHERE wishList.user_id=? AND wishList.is_deleted=0 `;
+    const query = `SELECT * FROM wishList 
+    INNER JOIN products ON
+    products.id = wishList.product_id INNER JOIN categories
+     ON categories.id = products.category_id INNER JOIN brands 
+     ON brands.id = products.brand_id 
+     WHERE wishList.user_id=? AND wishList.is_deleted=0 `;
   
     const data = [user_id];
   
