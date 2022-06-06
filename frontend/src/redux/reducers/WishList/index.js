@@ -25,9 +25,6 @@ export const WishlistSlice = createSlice({
         state.productInWishlist = state.productInWishlist.filter((element) => {
           return element !== action.payload.product_id;
         });
-        state.subTotal = state.Wishlist.reduce((total, element) => {
-          return total + element.price * element.quantityInWishlist;
-        }, 0);
       },
     },
   });
