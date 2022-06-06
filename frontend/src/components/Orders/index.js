@@ -7,9 +7,6 @@ const Orders = () => {
   const [isCompletedOrder, setIsCompletedOrder] = useState(false);
   const [isUnCompleted, setIsUnCompleted] = useState(false);
 
-
-  
-
   return (
     <div className="Container-Orders">
       <div className="One-Order">
