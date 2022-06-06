@@ -13,6 +13,7 @@ const AddToWishlistButton = ({ productId }) => {
     };
   });
   const AddToWishlist = (id) => {
+    console.log(id,"pppppppppid ");
     axios
       .post(
         `http://localhost:5000/Wishlist/${id}`,

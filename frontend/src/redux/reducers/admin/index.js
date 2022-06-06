@@ -53,6 +53,7 @@ export const admin = createSlice({
             categoryName: action.payload.categoryName,
             title: action.payload.title,
             description: action.payload.description,
+            productImage:action.payload.productImage,
           };
         }
         return element;
