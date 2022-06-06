@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { setOneProduct, updateOneProduct } from "../../redux/reducers/admin";
 import { useNavigate, useParams } from "react-router-dom";
-
+import Cloud from "../Cloud";
 const UpdateProduct = () => {
   const [category, setCategory] = useState("");
   const [isChanged, setIsChanged] = useState(false);
@@ -18,7 +18,7 @@ const UpdateProduct = () => {
   const [category_id, setCategory_id] = useState("");
   const [brand_id, setBrand_id] = useState("");
   const [isClicked, setIsClicked] = useState(false);
-
+  const [url, setUrl] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -57,11 +57,12 @@ const UpdateProduct = () => {
   }, []);
 
   const updateProduct = (productId) => {
+    let newImg= url || productImage;
     axios
       .put(`http://localhost:5000/admin/update_product/${productId}`, {
         title,
         description,
-        productImage,
+        productImage:newImg,
         price,
         quantity,
         category_id,
@@ -75,7 +76,7 @@ const UpdateProduct = () => {
             id: productId,
             title,
             description,
-            productImage,
+            productImage:newImg,
             price,
             quantity,
             categoryName:categName,
@@ -185,6 +186,7 @@ const UpdateProduct = () => {
                 >
                   UPDATE
                 </p>
+                
                 <span
                   onClick={() => {
                     navigate(-1);
@@ -193,6 +195,7 @@ const UpdateProduct = () => {
                   Back
                 </span>
               </div>
+              <Cloud setProductImage={setProductImage} url={url} setUrl={setUrl}/>
             </>
           );
         })}
