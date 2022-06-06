@@ -3,10 +3,14 @@ import "./style.css";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import AddToCartButton from "../AddToCart";
+import AddToWishlistButton from "../addToWishlistButton";
 import { setProducts } from "../../redux/reducers/products";
 import { useNavigate } from "react-router-dom";
 import { setCart } from "../../redux/reducers/cart";
+import { setWishlist } from "../../redux/reducers/WishList";
+
 const Product = () => {
+  
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
@@ -14,13 +18,30 @@ const Product = () => {
   const [limit, setLimit] = useState(3);
   const [clickNext, setClickNext] = useState(false);
 
-  const { products, cart, token } = useSelector((state) => {
+  const { products, cart, token ,Wishlist} = useSelector((state) => {
     return {
       products: state.products.products,
       cart: state.cart.cart,
+      Wishlist: state.Wishlist.Wishlist,
       token: state.auth.token,
     };
   });
+  const getProductInWishlist = () => {
+    axios
+      .get(`http://localhost:5000/Wishlist`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((result) => {
+        console.log(result, `WishlistFORUSER`);
+        dispatch(setWishlist(result.data.result));
+        // subTotalCalculate(result.data.result);
+      })
+      .catch((err) => {
+        console.log(err, `ERROR IN USER Wishlist`);
+      });
+  };
 
   const getProductInCart = () => {
     axios
@@ -65,6 +86,7 @@ const Product = () => {
   useEffect(() => {
     getAllProducts();
     getProductInCart();
+    getProductInWishlist();
   }, []);
 
   return (
@@ -78,6 +100,7 @@ const Product = () => {
               return (
                 <>
                   <AddToCartButton productId={products.id} />
+                  <AddToWishlistButton productId={products.id} />
                   <div
                     key={i}
                     className="product-box"

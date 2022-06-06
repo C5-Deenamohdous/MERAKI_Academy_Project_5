@@ -57,7 +57,7 @@ const AddToCartButton = ({ productId }) => {
             deleteFromCart(productId);
           }}
         >
-          Remove
+          Remove cart
         </button>
       ) : (
         <button
@@ -65,7 +65,7 @@ const AddToCartButton = ({ productId }) => {
             AddToCart(productId);
           }}
         >
-          Add
+          Add to cart
         </button>
       )}
     </>

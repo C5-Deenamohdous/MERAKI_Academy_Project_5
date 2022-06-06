@@ -7,14 +7,17 @@ import Category from "../Category";
 import Brand from "../Brand";
 import { logout } from "../../redux/reducers/auth";
 import { useNavigate } from "react-router-dom";
+// import Wishlist from "../../redux/reducers/WishList";
 const NavBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isLoggedIn, cart,userId } = useSelector((state) => {
+  const { isLoggedIn, cart,userId,Wishlist } = useSelector((state) => {
     return {
       isLoggedIn: state.auth.isLoggedIn,
       cart: state.cart.cart,
       userId:state.auth.userId,
+      Wishlist: state.Wishlist.Wishlist,
+
     };
   });
   return (
@@ -48,6 +51,15 @@ const NavBar = () => {
         }}
       >
         Items In Cart {cart.length}
+      </p>
+
+      <p
+        className="TempClassss"
+        onClick={() => {
+          navigate("/Wishlist");
+        }}
+      >
+        Items In whish {Wishlist.length}
       </p>
     </div>
   );

@@ -16,6 +16,7 @@ import CartSection from "./components/CartSection";
 import UserProfile from "./components/userprofile";
 import UserProfilePanel from "./components/UserInAdmin";
 import ContactUs from "./components/ContactUs";
+import WishlistSection from "./components/WishList"; 
 
 const App = () => {
   return (
@@ -37,6 +38,8 @@ const App = () => {
         <Route path="/cart" element={<CartSection />} />
         <Route path="/User/:id" element={<UserProfile />} />
         <Route path="/admin/user/:id" element={<UserProfilePanel />} />
+        <Route path="/Wishlist" element={<WishlistSection />} />
+
 
 <Route path="/contactUs" element={ <ContactUs/>}/>
       </Routes>
