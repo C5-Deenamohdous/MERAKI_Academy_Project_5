@@ -1,5 +1,6 @@
+import React, { useEffect, useState } from "react";
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import NavBar from "./components/Navbar";
 import Product from "./components/Products";
 import Admin from "./components/Admin";
@@ -16,35 +17,47 @@ import CartSection from "./components/CartSection";
 import UserProfile from "./components/userprofile";
 import UserProfilePanel from "./components/UserInAdmin";
 import ContactUs from "./components/ContactUs";
-import WishlistSection from "./components/WishList"; 
+import WishlistSection from "./components/WishList";
 import ChatRoom from "./components/ChatRoom";
-
+import OrderDetails from "./components/AdminOrderDetails";
+import AdminProducts from "./components/AdminProducts";
+import UsersControlPanel from "./components/AllUsers";
+import Orders from "./components/Orders";
 const App = () => {
+  const location = useLocation();
+  useEffect(() => {
+    console.log(location);
+  }, [location.pathname]);
+
   return (
     <div className="App">
-      <NavBar />
+      {location.pathname.includes("admin") ? <Admin /> : <NavBar />}
+
       <Routes>
         <Route path={"/Product"} element={<Product />} />
-        <Route path="/admin" element={<Admin />} />
+        {/* <Route path="/admin" element={<Admin />} /> */}
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/OneProduct/:id" element={<OneProduct />} />
         <Route path="/category/:id" element={<OneCategory />} />
-        <Route path="/CreateCategory" element={<CreateCategory />} />
-        <Route path="/CreateBrand" element={<CreateBrand />} />
-        <Route path="/CreateProduct" element={<CreateProduct />} />
-        <Route path="/CreateCategory" element={<CreateCategory />} />
-        <Route path="/admin/product/:id" element={<UpdateProduct />} />
         <Route path="/brand/:id" element={<OneBrand />} />
         <Route path="/cart" element={<CartSection />} />
         <Route path="/User/:id" element={<UserProfile />} />
-        <Route path="/admin/user/:id" element={<UserProfilePanel />} />
         <Route path="/Wishlist" element={<WishlistSection />} />
         <Route path="/ChatRoom" element={<ChatRoom />} />
-
         <Route path="/contactUs" element={<ContactUs />} />
-      <Route path="admin/:id/details" element={<ContactUs />} />
 
+        {/* All Admin Routes */}
+
+        <Route path="/admin/products" element={<AdminProducts />} />
+        <Route path="/admin/all_users" element={<UsersControlPanel />} />
+        <Route path="/admin/user/:id" element={<UserProfilePanel />} />
+        <Route path="/admin/CreateCategory" element={<CreateCategory />} />
+        <Route path="/admin/CreateBrand" element={<CreateBrand />} />
+        <Route path="/admin/CreateProduct" element={<CreateProduct />} />
+        <Route path="/admin/product/:id" element={<UpdateProduct />} />
+        <Route path="/admin/all_orders" element={<Orders />} />
+        <Route path="/admin/order_details/:id" element={<OrderDetails />} />
       </Routes>
     </div>
   );

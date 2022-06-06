@@ -108,6 +108,7 @@ INNER JOIN orderInfo ON orderInfo.order_id =orders.id
 INNER JOIN products ON products.id = orderInfo.product_id 
 INNER JOIN categories ON categories.id = products.category_id 
 INNER JOIN brands ON brands.id = products.brand_id
+INNER JOIN users ON users.id = orders.user_id
 WHERE orders.is_deleted=0 AND orders.id=?`;
   const data = [order_id];
   connection.query(query, data, (err, result) => {
