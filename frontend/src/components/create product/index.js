@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { setProduct } from "../../redux/reducers/admin";
 import { useNavigate, useParams } from "react-router-dom";
+import Cloud from "../Cloud";
+
 //creteProduct
 const CreateProduct = () => {
 
@@ -13,8 +15,7 @@ const CreateProduct = () => {
 
     const [catId, setCatId] = useState("");
     const [BrandtId, setBrandtId] = useState("");
-
-
+    
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [productImage, setProductImage] = useState("");
@@ -23,7 +24,7 @@ const CreateProduct = () => {
     const [category_id, setCategory_id] = useState("");
     const [brand_id, setBrand_id] = useState("");
     const [isClicked, setIsClicked] = useState(false);
-
+const [url, setUrl] = useState("");
     const navigate = useNavigate();
     const { id } = useParams();
     const dispatch = useDispatch();
@@ -35,13 +36,15 @@ const CreateProduct = () => {
     });
 
     const add_product = () => {
+   let newImg= url || productImage;
+
         axios
             .post(`http://localhost:5000/admin/add_product`,
 
                 {
                     title,
                     description,
-                    productImage,
+                    productImage:newImg,
                     price,
                     quantity,
                     category_id: category_id,
@@ -60,7 +63,7 @@ const CreateProduct = () => {
                     setProduct({
                         title,
                         description,
-                        productImage,
+                        productImage:newImg,
                         price,
                         quantity,
                         category_id: category_id,
@@ -160,9 +163,11 @@ const CreateProduct = () => {
                             />
                             <span>Quantity</span>
                         </div>
+                         <Cloud setProductImage={setProductImage} url={url} setUrl={setUrl}/>
                         <button onClick={() => {
                             add_product();
                         }}>add_product</button>
+                         
                     </center>
                 </>
             </div>
