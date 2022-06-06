@@ -20,6 +20,7 @@ CREATE TABLE users(
     phoneNumber VARCHAR(255) NOT NULL , 
     profileImage VARCHAR(255) NOT NULL , 
     role_id INT,
+    joinedDate DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (role_id) REFERENCES roles(id),
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
@@ -111,3 +112,34 @@ CREATE TABLE cart(
     is_deleted TINYINT DEFAULT 0 
 );
 
+CREATE TABLE orders (
+id INT AUTO_INCREMENT NOT NULL, 
+user_id INT, 
+orderStatus TINYINT DEFAULT 0,
+orderDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+is_deleted TINYINT DEFAULT 0,
+FOREIGN KEY (user_id) REFERENCES users(id),
+PRIMARY KEY (id)
+);
+
+CREATE TABLE orderInfo (
+    id INT AUTO_INCREMENT NOT NULL ,
+    user_id INT , 
+    order_id INT,
+    product_id INT ,
+    quantityInCart INT, 
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (order_id) REFERENCES orders(id),
+    FOREIGN KEY (product_id) REFERENCES products(id),
+    PRIMARY KEY(id)
+); 
+
+CREATE TABLE wishList (
+    id INT AUTO_INCREMENT NOT NULL, 
+    user_id INT, 
+    product_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (product_id) REFERENCES products(id),
+    PRIMARY KEY (id),
+    is_deleted TINYINT DEFAULT 0 
+);
