@@ -23,17 +23,15 @@ const AdminAllOrders = () => {
     getAllOrders();
   }, []);
 
-  //   console.log("ALLL ORDERDS", allOrders);
   return (
     <>
-    
       {allOrders &&
         allOrders.map((element) => {
           return (
             <div
               className="One-Order"
               onClick={() => {
-                navigate(`admin/details/${element.id}`);
+                navigate(`/admin/order_details/${element.id}`);
               }}
             >
               <p>{element.id}</p>
