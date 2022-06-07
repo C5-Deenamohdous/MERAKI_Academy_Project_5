@@ -48,6 +48,7 @@ const ratingRouter = require("./routes/rating");
 const UserRouter = require("./routes/user");
 const ordersRouter = require("./routes/orders");
 const WishListRouter = require("./routes/wishlist");
+const loginGoogleRouter=require("./routes/loginGoogle");
 
 app.use("/role", rolesRouter);
 app.use("/permission", permissionsRouter);
@@ -61,6 +62,10 @@ app.use("/rating", ratingRouter);
 app.use("/user", UserRouter);
 app.use("/order", ordersRouter);
 app.use("/WishList", WishListRouter);
+app.use("/LoginGoogle",loginGoogleRouter)
+;
+
+
 
 
 
