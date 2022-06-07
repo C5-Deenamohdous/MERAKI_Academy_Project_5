@@ -70,7 +70,7 @@ const CreateProduct = () => {
             brand_id: brand_id,
           })
         );
-        navigate("/admin");
+        // navigate("/admin");
       })
       .catch((err) => {
         console.log(err);
@@ -109,123 +109,109 @@ const CreateProduct = () => {
   }, []);
 
   return (
-    <>
-      <div className="center">
-        <>
-          <h1>
-            add_product
-            <br />
-            add_product here{" "}
-          </h1>
-          <center>
-            <div className="inputbox">
-              <input
-                type="text"
-                required="required"
-                onChange={(e) => setTitle(e.target.value)}
-              />
-              <span>enter the title here</span>
-            </div>
-            <div className="inputbox">
-              <input
-                type="text"
-                required="required"
-                onChange={(e) => setDescription(e.target.value)}
-              />
-              <span>enter the description here</span>
-            </div>
-            <div className="inputbox">
-              <input
-                type="text"
-                required="required"
-                onChange={(e) => setProductImage(e.target.value)}
-              />
-              <span>enter the Product Image</span>
-            </div>
-            <div className="inputbox">
-              <input
-                type="text"
-                required="required"
-                onChange={(e) => setPrice(e.target.value)}
-              />
-              <span>enter the price here</span>
-            </div>
-            <div className="inputbox">
-              <input
-                type="text"
-                required="required"
-                onChange={(e) => setQuantity(e.target.value)}
-              />
-              <span>Quantity</span>
-            </div>
-            <Cloud
-              setProductImage={setProductImage}
-              url={url}
-              setUrl={setUrl}
-            />
-            <button
-              onClick={() => {
-                add_product();
-              }}
-            >
+    <div className="Center-Container">
+      <div className="creareP-Container">
+        <div className="center">
+          <>
+            <h1>
               add_product
-            </button>
-          </center>
-        </>
-      </div>
+              <br />
+              add_product here{" "}
+            </h1>
+            <center>
+              <div className="inputbox">
+                <input
+                  type="text"
+                  required="required"
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+                <span>enter the title here</span>
+              </div>
+              <div className="inputbox">
+                <input
+                  type="text"
+                  required="required"
+                  onChange={(e) => setDescription(e.target.value)}
+                />
+                <span>enter the description here</span>
+              </div>
+              <div className="inputbox">
+                <input
+                  type="text"
+                  required="required"
+                  onChange={(e) => setProductImage(e.target.value)}
+                />
+                <span>enter the Product Image</span>
+              </div>
+              <div className="inputbox">
+                <input
+                  type="text"
+                  required="required"
+                  onChange={(e) => setPrice(e.target.value)}
+                />
+                <span>enter the price here</span>
+              </div>
+              <div className="inputbox">
+                <input
+                  type="text"
+                  required="required"
+                  onChange={(e) => setQuantity(e.target.value)}
+                />
+                <span>Quantity</span>
+              </div>
+              <Cloud
+                setProductImage={setProductImage}
+                url={url}
+                setUrl={setUrl}
+              />
+              <div className="Select-C">
+                <select
+                  onChange={(e) => {
+                    console.log(e.target.value);
+                    setCategory_id(e.target.value);
+                  }}
+                >
+                  <option disabled selected>
+                    CategoryName
+                  </option>
+                  {category &&
+                    category.map((element, i) => {
+                      return (
+                        <option value={element.id}>
+                          {element.categoryName}
+                        </option>
+                      );
+                    })}
+                </select>
 
-      <button
-        onClick={() => {
-          setIsClicked(true);
-        }}
-      >
-        {" "}
-        choose category to add Brand
-      </button>
-      {isClicked
-        ? category &&
-          category.map((element, i) => {
-            return (
-              <p
-                onClick={() => {
-                  setCategory_id(element.id);
-                  console.log(category_id);
-                  setIsClicked(false);
-                }}
-              >
-                category name : {element.categoryName}
-              </p>
-            );
-          })
-        : ""}
+                <select
+                  onChange={(e) => {
+                    console.log(e.target.value);
+                    setBrand_id(e.target.value);
+                  }}
+                >
+                  <option disabled selected>
+                    BrandName
+                  </option>
+                  {Brand &&
+                    Brand.map((elem) => {
+                      return <option value={elem.id}>{elem.brandName}</option>;
+                    })}
+                </select>
+              </div>
 
-      <button
-        onClick={() => {
-          setIsClicked(true);
-        }}
-      >
-        {" "}
-        choose Brand to add product
-      </button>
-      {isClicked
-        ? Brand &&
-          Brand.map((element, i) => {
-            return (
               <button
                 onClick={() => {
-                  setBrand_id(element.id);
-                  console.log(brand_id);
-                  setIsClicked(false);
+                  add_product();
                 }}
               >
-                {/* <sas>sasaas</sas> */}
-                Brand name : {element.brandName}
+                add_product
               </button>
-            );
-          })
-        : ""}
-      <div>{message}</div>
-    </>
+            </center>
+          </>
+        </div>
+      </div>
+    </div>
   );
 };
 export default CreateProduct;

@@ -23,6 +23,7 @@ import OrderDetails from "./components/AdminOrderDetails";
 import AdminProducts from "./components/AdminProducts";
 import UsersControlPanel from "./components/AllUsers";
 import Orders from "./components/Orders";
+import AdminUserOrder from "./components/AdminUserOrder";
 const App = () => {
   const location = useLocation();
   useEffect(() => {
@@ -58,6 +59,7 @@ const App = () => {
         <Route path="/admin/product/:id" element={<UpdateProduct />} />
         <Route path="/admin/all_orders" element={<Orders />} />
         <Route path="/admin/order_details/:id" element={<OrderDetails />} />
+        <Route path="/admin/user_orders/:id" element={<AdminUserOrder />} />
       </Routes>
     </div>
   );

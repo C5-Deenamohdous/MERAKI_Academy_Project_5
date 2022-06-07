@@ -186,7 +186,7 @@ const getAllOrdersByUser = (req, res) => {
 
 const getAllCompletedOrdersByUser = (req, res) => {
   const user_id = req.params.id;
-  const query = `SELECT * FROM orders WHERE user_id=? AND orderStatus = 1 `;
+  const query = `SELECT *,orders.id FROM orders WHERE user_id=? AND orderStatus = 1 `;
   const data = [user_id];
 
   connection.query(query, data, (err, result) => {

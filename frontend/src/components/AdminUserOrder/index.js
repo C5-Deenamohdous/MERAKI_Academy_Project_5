@@ -1,32 +1,34 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { setALlOrders } from "../../redux/reducers/orders";
+import { useNavigate, useParams } from "react-router-dom";
+import { setAllUserOrders } from "../../redux/reducers/orders";
 
-const AdminAllOrders = () => {
+const AdminUserOrder = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { allOrders } = useSelector((state) => {
+  const { allUSerOrders } = useSelector((state) => {
     return {
-      allOrders: state.orders.allOrders,
+      allUSerOrders: state.orders.allUSerOrders,
     };
   });
-  const getAllOrders = () => {
-    axios.get(`http://localhost:5000/order/all`).then((result) => {
+  const getAllUserOrders = () => {
+    axios.get(`http://localhost:5000/order/user/${id}`).then((result) => {
       console.log(result);
-      dispatch(setALlOrders(result.data.result));
+      dispatch(setAllUserOrders(result.data.result));
     });
   };
 
   useEffect(() => {
-    getAllOrders();
+    getAllUserOrders();
   }, []);
 
+  //   console.log("ALLL ORDERDS", allOrders);
   return (
     <>
-      {allOrders &&
-        allOrders.map((element) => {
+      {allUSerOrders &&
+        allUSerOrders.map((element) => {
           return (
             <div
               className="One-Order"
@@ -44,4 +46,4 @@ const AdminAllOrders = () => {
   );
 };
 
-export default AdminAllOrders;
+export default AdminUserOrder;

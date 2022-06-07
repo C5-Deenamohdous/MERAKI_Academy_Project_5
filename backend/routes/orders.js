@@ -11,6 +11,7 @@ const {
   unCompletedOrders,
   getAllUnCompletedOrdersByUser,
   getAllCompletedOrdersByUser,
+  getAllOrdersByUser,
 } = require("../controllers/orders");
 //
 const authentication = require("../middlewares/authentication");
@@ -21,11 +22,7 @@ ordersRouter.get("/all", getAllOrders);
 ordersRouter.get("/one_order/:id", getOneOrderDetail);
 ordersRouter.get("/all_completed", completedOrders);
 ordersRouter.get("/all_uncompleted", unCompletedOrders);
-ordersRouter.get("/user/:id", authentication, getAllOrders);
-ordersRouter.get("/user_completed/:id", authentication, getAllCompletedOrdersByUser);
-ordersRouter.get(
-  "/user_unCompleted/:id",
-  authentication,
-  getAllUnCompletedOrdersByUser
-);
+ordersRouter.get("/user/:id", getAllOrdersByUser);
+ordersRouter.get("/user_completed/:id", getAllCompletedOrdersByUser);
+ordersRouter.get("/user_unCompleted/:id", getAllUnCompletedOrdersByUser);
 module.exports = ordersRouter;

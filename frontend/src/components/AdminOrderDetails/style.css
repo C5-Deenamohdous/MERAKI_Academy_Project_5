@@ -1,0 +1,57 @@
+.Col-Container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.OneOrderDetail {
+  display: flex;
+  border-bottom: 1px solid;
+  height: 20%;
+  width: 100%;
+  padding: 1%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.OneOrderDetail .Num {
+  width: 10%;
+}
+.OneOrderDetail .Details {
+  width: 26%;
+  display: flex;
+}
+
+/* .PhotoAndInfo {
+  display: flex;
+  width: 50%;
+} */
+
+.OneOrderDetail .Details .img-Container {
+  width: 30%;
+  height: 100%;
+}
+.img-Container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.titleAndDesc { 
+    display: flex;
+    flex-direction: column;
+}
+
+.OneOrderDetail .Date {
+  width: 10%;
+}
+.OneOrderDetail .Price {
+  width: 10%;
+}
+.OneOrderDetail .Total {
+  width: 10%;
+}
+.OneOrderDetail .Status {
+  width: 10%;
+}
