@@ -1,6 +1,4 @@
-import "./style.css";
 import React, { useState } from "react";
-
 import AdminUserOrder from "../AdminUserOrder";
 import AdminUserCompletedOrders from "../AdminCompletedUserOrder";
 import AdminUserUnCompletedOrders from "../AdminUnCompletedUserOrder";

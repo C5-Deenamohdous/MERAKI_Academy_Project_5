@@ -3,13 +3,19 @@
 //be reanderd
 
 import "./style.css";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { setuserProfile } from "../../redux/reducers/user";
 import axios from "axios";
 import { deleteuser } from "../../redux/reducers/admin";
+import  AdminPanelUserOrderContainer  from "../AdminPanelUserOrderContainer";
+
 const UserProfilePanel = () => {
+  const [isUserInfo, setIsUserInfo] = useState(true);
+  const [isOrdersSection, setOrdersSection] = useState(false);
+  const [isCommentsSection, setIsCommentsSection] = useState(false);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { userProfile } = useSelector((state) => {
@@ -19,6 +25,7 @@ const UserProfilePanel = () => {
     };
   });
   const { id } = useParams();
+
   const userDelete = () => {
     axios
       .delete(`http://localhost:5000/admin/delete_user/${id}`)
@@ -32,18 +39,9 @@ const UserProfilePanel = () => {
   useEffect(() => {
     getAllUsers();
   }, []);
-  const getAllUsers = () => {
-    axios
-      .get(`http://localhost:5000/user/${id}`)
-      .then((result) => {
-        dispatch(setuserProfile(result.data.result));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  return (
-    <div className="Center-Container">
+
+  const UserInfoComponent = () => {
+    return (
       <div className="UsersInControlPanel">
         {userProfile &&
           userProfile.map((element) => {
@@ -76,7 +74,56 @@ const UserProfilePanel = () => {
             );
           })}
       </div>
+    );
+  };
+
+  const getAllUsers = () => {
+    axios
+      .get(`http://localhost:5000/user/${id}`)
+      .then((result) => {
+        dispatch(setuserProfile(result.data.result));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  return (
+    <div className="Center-Container">
+      <div className="Btns-InUser">
+        <span
+          onClick={() => {
+            setIsUserInfo(true);
+            setOrdersSection(false);
+            setIsCommentsSection(false);
+          }}
+        >
+          User Info
+        </span>
+        <span
+          onClick={() => {
+            setIsUserInfo(false);
+            setOrdersSection(true);
+            setIsCommentsSection(false);
+          }}
+        >
+          Orders
+        </span>
+        <span
+          onClick={() => {
+            setIsUserInfo(false);
+            setOrdersSection(false);
+            setIsCommentsSection(true);
+          }}
+        >
+          Comments
+        </span>
+      </div>
+      {isUserInfo ? <UserInfoComponent /> : ""}
+      {isOrdersSection ? <AdminPanelUserOrderContainer /> : ""}
+      {isCommentsSection ? "Commeeeent" : ""}
     </div>
   );
 };
+
 export default UserProfilePanel;
