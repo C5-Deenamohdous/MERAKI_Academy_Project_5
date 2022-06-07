@@ -1,14 +1,15 @@
 // in this componant i need to reander all the user info
-//when the admin chose a user all the user info will 
-//be reanderd 
+//when the admin chose a user all the user info will
+//be reanderd
 import "./style.css";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import {setuserProfile,} from "../../redux/reducers/user";
+import { setuserProfile } from "../../redux/reducers/user";
 import axios from "axios";
 import { deleteuser } from "../../redux/reducers/admin";
 const UserProfilePanel = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { userProfile } = useSelector((state) => {
     return {
@@ -41,27 +42,39 @@ const UserProfilePanel = () => {
       });
   };
   return (
-    <div className="Center-Container"> 
-    <div className="UsersInControlPanel">
-      {userProfile &&
-        userProfile.map((element) => {
-          return (
-            <div>
-              <div>User Name : {`${element.firstName} `+` ${element.lastName}`}</div>
-              <div> User phone Number :{element.phoneNumber}</div>
-              <div> User email :{element.email}</div>
-             <div> <img className="userProfile" src={element.profileImage} /></div>
-              <button  onClick={() => {
+    <div className="Center-Container">
+      <div className="UsersInControlPanel">
+        {userProfile &&
+          userProfile.map((element) => {
+            return (
+              <div>
+                <div>
+                  User Name : {`${element.firstName} ` + ` ${element.lastName}`}
+                </div>
+                <div> User phone Number :{element.phoneNumber}</div>
+                <div> User email :{element.email}</div>
+                <div>
+                  <img className="userProfile" src={element.profileImage} />
+                </div>
+                <button
+                  onClick={() => {
                     userDelete(element.id);
                   }}
-                >  Delete User
+                >
+                  Delete User
                 </button>
-              <div> ----------------------</div>
-              {/* <button></button> */}
-            </div>
-          );
-        })}
-    </div>
+                <div> ----------------------</div>
+                <button
+                  onClick={() => {
+                    navigate(`/admin/user_orders/${element.id}`);
+                  }}
+                >
+                  User Orders
+                </button>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 };
