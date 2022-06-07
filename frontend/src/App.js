@@ -26,6 +26,7 @@ import Orders from "./components/Orders";
 import AdminUserOrder from "./components/AdminUserOrder";
 import AdminUserCompletedOrders from "./components/AdminCompletedUserOrder";
 import AdminUserUnCompletedOrders from "./components/AdminUnCompletedUserOrder";
+import Home from "./components/Home";
 const App = () => {
   const location = useLocation();
   useEffect(() => {
@@ -49,7 +50,7 @@ const App = () => {
         <Route path="/Wishlist" element={<WishlistSection />} />
         <Route path="/ChatRoom" element={<ChatRoom />} />
         <Route path="/contactUs" element={<ContactUs />} />
-
+        <Route path="/home" element={<Home />} />
         {/* All Admin Routes */}
 
         <Route path="/admin/products" element={<AdminProducts />} />

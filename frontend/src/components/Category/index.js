@@ -30,20 +30,25 @@ const Category = () => {
   useEffect(() => {
     getAllCategory();
   }, []);
-  return (
+  return ( 
     <div>
+  <p className="introOfCategoryPath">Explore Popular Category |</p>
+    <div  className="allCategory" >
+     
       {category &&
         category.map((category, i) => {
           return (
-            <div
+            <div className="returnDiv"
               onClick={() => {
                 navigate(`/category/${category.id}`);
               }}
             >
-              <p>{category.categoryName}</p>
+              <img className="categoryImg" src="https://ichef.bbci.co.uk/news/2048/cpsprodpb/16452/production/_110781219_gettyimages-1190190284.jpg" />
+              <p className="category">{category.categoryName}</p>
             </div>
           );
         })}  
+    </div>
     </div>
   );
 };

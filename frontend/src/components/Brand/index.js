@@ -31,22 +31,26 @@ const Brand = () => {
   }, []);
 
   return(
-      <div>
+    <div>
+    <p className="introOfBrandPath">Explore Popular Brand |</p>
+      <div className="allBrands">
 {
     brand &&
     brand.map((brand, i) => {
       return (
-        <div
+        <div className="returnDiv"
           onClick={() => {
             navigate(`/brand/${brand.id}`);
           }}
         >
-          <p>{brand.brandName}</p>
+          <img className="brandImg" src="https://thumbs.dreamstime.com/z/silver-apple-brand-logo-icon-shadow-isolated-white-background-127321063.jpg"/>
+          <p className="brand">{brand.brandName}</p>
         </div>
       );
     })
 }
 
+      </div>
       </div>
   )
 };
