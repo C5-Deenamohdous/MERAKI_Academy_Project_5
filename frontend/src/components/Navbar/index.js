@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
-import Category from "../Category";
+
 import Brand from "../Brand";
 import { logout } from "../../redux/reducers/auth";
 import { useNavigate } from "react-router-dom";
@@ -23,7 +23,7 @@ const NavBar = () => {
   return (
     <div className="NavBar">
       NavBar
-      {/* <Category /> */}
+    
 
       {/* <Brand /> */}
       <p onClick={()=>{
