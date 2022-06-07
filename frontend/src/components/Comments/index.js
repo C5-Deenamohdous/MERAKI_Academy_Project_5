@@ -5,6 +5,7 @@ import axios from "axios";
 import { setComment, deleteComments,updateComments,addComments } from "../../redux/reducers/comments";
 import { useNavigate, useParams } from "react-router-dom";
 
+
 const Comment = ({ id }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -84,8 +85,12 @@ const createComment = () =>{
             }
           )
           .then((result) => {
+            console.log(result,"oooooooooo");
             dispatch(addComments({
-                comment:addComment,id:result.data.result.insertId
+                comment:addComment,id:result.data.insertId,
+              firstName:result.data.result[0].firstName,
+              lastName:result.data.result[0].lastName,
+              profileImage:result.data.result[0].profileImage
             }))
             
         })
@@ -110,7 +115,9 @@ const createComment = () =>{
           comment.map((comment, i) => {
             return (
               <div key={i} className="comment">
-                <p></p>
+                <p>{comment.firstName}</p>
+                <p>{comment.lastName}</p>
+                <p>{comment.profileImage}</p>
                 <p>{comment.comment}</p>
                 <p
                   onClick={() => {

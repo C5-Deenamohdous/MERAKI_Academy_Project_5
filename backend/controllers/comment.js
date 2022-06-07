@@ -2,7 +2,7 @@ const connection = require("../models/db");
 
 const getAllCommentsById = (req, res) => {
   const product_id = req.params.id;
-  const query = `SELECT *,comments.id FROM comments RIGHT JOIN users ON users.id=comments.user_id  
+  const query = `SELECT *,comments.id FROM comments RIGHT JOIN users ON users.id=comments.user_id
   WHERE comments.is_deleted=0  AND comments.product_id=? ;`;
   data = [product_id];
   connection.query(query, data, (err, result) => {
@@ -37,17 +37,29 @@ const createNewComment = (req, res) => {
 
   connection.query(query, data, (err, result) => {
     if (err) {
-      return  res.status(404).json({
+      return res.status(404).json({
         success: false,
         massage: "something went wrong while creating a new comment",
         err: err,
       });
     }
-    res.status(201).json({
-      success: true,
-      massage: "The comment has been created success ",
-      result: result,
-    });
+    if (result.affectedRows) {
+      const query = "SELECT * FROM users WHERE id=?";
+      const data = [user_id];
+      connection.query(query, data, (err, answer) => {
+        if (err) {
+          return res.status(404).json({
+            success: false,
+            massage: "error in second query in comment component",
+            err: err,
+          });
+        }
+        res.json({
+          insertId: result.insertId,
+          result:answer
+        });
+      });
+    }
   });
 };
 
@@ -66,7 +78,7 @@ const updatCommentById = (req, res) => {
     }
 
     if (result.affectedRows != 0) {
-      return  res.status(201).json({
+      return res.status(201).json({
         success: true,
         massage: `comment updated`,
         result: result,
