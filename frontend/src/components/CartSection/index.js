@@ -9,6 +9,7 @@ import {
   removeFromCart,
 } from "../../redux/reducers/cart";
 import AddToCartButton from "../AddToCart";
+import CheckOut from "../CheckOut";
 const CartSection = () => {
   const dispatch = useDispatch();
   const { cart, token, userId, subTotal } = useSelector((state) => {
@@ -152,6 +153,7 @@ const CartSection = () => {
           );
         })}
       <div className="SubTotal">Subtotal {subTotal} </div>
+      <CheckOut />
     </div>
   );
 };

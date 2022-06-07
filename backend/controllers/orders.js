@@ -5,7 +5,7 @@ const addToOrders = (req, res) => {
   const user_id = req.token.userId;
   const query = `INSERT INTO orders (user_id) VALUES(?)`;
   const date = [user_id];
-
+console.log(user_id);
   connection.query(query, date, (err, result) => {
     if (err) {
       return res.status(500).json({
