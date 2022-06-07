@@ -25,8 +25,8 @@ const LoginGoogle = () => {
         email: email,
       })
       .then((result) => {
-        console.log(result, "resulutttttt of login goooglllleeee");
-        dispatch(setlogin(result));
+        console.log(result.data.token, "resulutttttt of login goooglllleeee");
+        dispatch(setlogin(result.data));
         localStorage.setItem("token", result.data.token);
         localStorage.setItem("userId", result.data.userId);
         navigate("/Product");
