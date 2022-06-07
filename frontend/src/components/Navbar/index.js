@@ -14,92 +14,111 @@ import { useNavigate } from "react-router-dom";
 const NavBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isLoggedIn, cart,userId,Wishlist } = useSelector((state) => {
+  const { isLoggedIn, cart, userId, Wishlist } = useSelector((state) => {
     return {
       isLoggedIn: state.auth.isLoggedIn,
       cart: state.cart.cart,
-      userId:state.auth.userId,
+      userId: state.auth.userId,
       Wishlist: state.Wishlist.Wishlist,
-
     };
   });
   return (
     <div className="NavBar">
-  <p im="#default" class="logo" img src = "https://mir-s3-cdn-cf.behance.net/projects/404/45459367470591.Y3JvcCwxMDA5LDc4OSwxMDksMTE3.jpg"></p>
-  <div class="header-right">
-      {/* <Category /> */}
-      {/* <Brand /> */}
-      {isLoggedIn ? (
-        <>
-        <p
-          className="Home"
-          onClick={() => {
-            navigate("/Product");
-          }}
-        >
-          Home
-        </p>
-<p onClick={()=>{
-  navigate(`/user/${userId}`)
-}}>profile</p> 
-
-        <p
-          className="Login/Logout"
-          onClick={() => {
-            dispatch(logout());
-            navigate("/Home");
-          }}
-        >
-          Logout
-        </p>
-        <p className="cart" >
-        < BsCartDash
-                onClick={() => {
-          navigate("/cart");
-        }}
-        /></p>
-         {/* {cart.length} */}
-< p className="Wishlist">
-  <TbJewishStar
-        onClick={() => {
-          navigate("/Wishlist");
-        }}/>
-      </p>
-        {/* Items In whish {Wishlist.length} */}
-        <input className="serch" type="text" placeholder="Search.." name="search"/>
-        <p
-          className="admin"
-          onClick={() => {
-            navigate("/admin");
-          }}
-        >
-          Admin panel 
-        </p>
-        </>
-      ) : (
-        <>
+      <p
+        im="#default"
+        class="logo"
+        img
+        src="https://mir-s3-cdn-cf.behance.net/projects/404/45459367470591.Y3JvcCwxMDA5LDc4OSwxMDksMTE3.jpg"
+      ></p>
+      <div class="header-right">
+        {/* <Category /> */}
+        {/* <Brand /> */}
+        {isLoggedIn ? (
+          <>
             <p
-          className="Home"
-          onClick={() => {
-            navigate("/Product");
-          }}
-        >
-          Home
-        </p>
-        <p
-        className="Login/Logout"
-        onClick={() => {
-          navigate("/Login");
-        }}
-      >
-        login
-      </p>
-      <input className="serch" type="text" placeholder="Search.." name="search"/>
+              className="Home"
+              onClick={() => {
+                navigate("/Product");
+              }}
+            >
+              Home
+            </p>
+            <p
+              onClick={() => {
+                navigate(`/user/${userId}`);
+              }}
+            >
+              profile
+            </p>
 
-      </>
-      )}
-         </div>
- 
+            <p
+              className="Login/Logout"
+              onClick={() => {
+                dispatch(logout());
+                navigate("/Home");
+              }}
+            >
+              Logout
+            </p>
+            <p className="cart">
+              <span>{cart.length}</span>
+              <BsCartDash
+                onClick={() => {
+                  navigate("/cart");
+                }}
+              />
+            </p>
+            {/* {cart.length} */}
+            <p className="Wishlist">
+              <TbJewishStar
+                onClick={() => {
+                  navigate("/Wishlist");
+                }}
+              />
+            </p>
+            {/* Items In whish {Wishlist.length} */}
+            <input
+              className="serch"
+              type="text"
+              placeholder="Search.."
+              name="search"
+            />
+            <p
+              className="admin"
+              onClick={() => {
+                navigate("/admin");
+              }}
+            >
+              Admin panel
+            </p>
+          </>
+        ) : (
+          <>
+            <p
+              className="Home"
+              onClick={() => {
+                navigate("/Product");
+              }}
+            >
+              Home
+            </p>
+            <p
+              className="Login/Logout"
+              onClick={() => {
+                navigate("/Login");
+              }}
+            >
+              login
+            </p>
+            <input
+              className="serch"
+              type="text"
+              placeholder="Search.."
+              name="search"
+            />
+          </>
+        )}
+      </div>
     </div>
   );
 };
