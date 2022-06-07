@@ -1,7 +1,4 @@
-// in this componant i need to reander all the user info
-//when the admin chose a user all the user info will
-//be reanderd
-
+// in this componant i need to reander all the user info,,
 import "./style.css";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
