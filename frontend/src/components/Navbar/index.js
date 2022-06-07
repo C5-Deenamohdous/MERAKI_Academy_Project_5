@@ -1,7 +1,10 @@
 import "./style.css";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { BsCartDash } from "react-icons/bs";
+import { TbJewishStar } from "react-icons/tb";
 
+//BsCartDash
 import { useDispatch, useSelector } from "react-redux";
 import Category from "../Category";
 import Brand from "../Brand";
@@ -22,17 +25,26 @@ const NavBar = () => {
   });
   return (
     <div className="NavBar">
-      NavBar
+  <p im="#default" class="logo" img src = "https://mir-s3-cdn-cf.behance.net/projects/404/45459367470591.Y3JvcCwxMDA5LDc4OSwxMDksMTE3.jpg"></p>
+  <div class="header-right">
       {/* <Category /> */}
-
       {/* <Brand /> */}
-      <p onClick={()=>{
-        navigate(`/user/${userId}`)
-      }}>profile</p>
-      
       {isLoggedIn ? (
+        <>
         <p
-          className="logout"
+          className="Home"
+          onClick={() => {
+            navigate("/Product");
+          }}
+        >
+          Home
+        </p>
+<p onClick={()=>{
+  navigate(`/user/${userId}`)
+}}>profile</p> 
+
+        <p
+          className="Login/Logout"
           onClick={() => {
             dispatch(logout());
             navigate("/Home");
@@ -40,27 +52,54 @@ const NavBar = () => {
         >
           Logout
         </p>
-      ) : (
-        ""
-      )}
-      
-      <p
-        className="TempClass"
-        onClick={() => {
+        <p className="cart" >
+        < BsCartDash
+                onClick={() => {
           navigate("/cart");
         }}
-      >
-        Items In Cart {cart.length}
-      </p>
-
-      <p
-        className="TempClassss"
+        /></p>
+         {/* {cart.length} */}
+< p className="Wishlist">
+  <TbJewishStar
         onClick={() => {
           navigate("/Wishlist");
+        }}/>
+      </p>
+        {/* Items In whish {Wishlist.length} */}
+        <input className="serch" type="text" placeholder="Search.." name="search"/>
+        <p
+          className="admin"
+          onClick={() => {
+            navigate("/admin");
+          }}
+        >
+          Admin panel 
+        </p>
+        </>
+      ) : (
+        <>
+            <p
+          className="Home"
+          onClick={() => {
+            navigate("/Product");
+          }}
+        >
+          Home
+        </p>
+        <p
+        className="Login/Logout"
+        onClick={() => {
+          navigate("/Login");
         }}
       >
-        Items In whish {Wishlist.length}
+        login
       </p>
+      <input className="serch" type="text" placeholder="Search.." name="search"/>
+
+      </>
+      )}
+         </div>
+ 
     </div>
   );
 };
