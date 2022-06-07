@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import Brand from "../Brand";
+
 import { logout } from "../../redux/reducers/auth";
 import { useNavigate } from "react-router-dom";
 // import Wishlist from "../../redux/reducers/WishList";
@@ -25,7 +25,7 @@ const NavBar = () => {
       NavBar
     
 
-      {/* <Brand /> */}
+      
       <p onClick={()=>{
         navigate(`/user/${userId}`)
       }}>profile</p>

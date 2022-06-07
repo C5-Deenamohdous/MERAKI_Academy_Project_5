@@ -31,5 +31,5 @@ object-fit: contain;
 .introOfCategoryPath{
     margin-left: 1em;
     text-align: start;
-    margin-bottom: 1em;
+    margin-bottom: .6em;
 }
