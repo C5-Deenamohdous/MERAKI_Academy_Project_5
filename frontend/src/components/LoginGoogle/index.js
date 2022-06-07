@@ -19,24 +19,22 @@ const LoginGoogle = () => {
   const dispatch = useDispatch();
 
   const Google = (email) => {
-    console.log(email, "hhhhhhhhhhhhhh");
     axios
       .post("http://localhost:5000/LoginGoogle", {
         email: email,
       })
       .then((result) => {
-        console.log(result.data.token, "resulutttttt of login goooglllleeee");
         dispatch(setlogin(result.data));
         localStorage.setItem("token", result.data.token);
         localStorage.setItem("userId", result.data.userId);
         navigate("/Product");
       })
       .catch((err) => {
-        console.log(err,"rrrrrrr");
+        console.log(err,);
       });
   };
   const onSuccess = (res) => {
-    console.log(res.profileObj.email, "||||||||||");
+  
     console.log("login success current user :", res);
     Google(res.profileObj.email);
   };
