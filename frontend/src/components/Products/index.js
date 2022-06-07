@@ -10,7 +10,6 @@ import { setCart } from "../../redux/reducers/cart";
 import { setWishlist } from "../../redux/reducers/WishList";
 
 const Product = () => {
-  
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
@@ -18,7 +17,7 @@ const Product = () => {
   const [limit, setLimit] = useState(3);
   const [clickNext, setClickNext] = useState(false);
 
-  const { products, cart, token ,Wishlist} = useSelector((state) => {
+  const { products, cart, token, Wishlist } = useSelector((state) => {
     return {
       products: state.products.products,
       cart: state.cart.cart,
@@ -74,8 +73,7 @@ const Product = () => {
   };
   const nextPage = (page) => {
     axios
-      .get(`http://localhost:5000/product/?page=${page}&limit=15`, 
-      )
+      .get(`http://localhost:5000/product/?page=${page}&limit=15`)
       .then((result) => {
         dispatch(setProducts(result.data.result));
       })
@@ -91,25 +89,21 @@ const Product = () => {
 
   return (
     <div>
-      <p>All products</p>
-
       <div className="Container">
         <div className="row-Container">
           {products &&
             products.map((products, i) => {
               return (
                 <>
-                  <AddToCartButton productId={products.id} />
-                  <AddToWishlistButton productId={products.id} />
-                  <div
-                    key={i}
-                    className="product-box"
-                    onClick={() => {
-                      navigate(`/OneProduct/${products.id}`);
-                    }}
-                  >
+                  <div key={i} className="product-box">
+                    <AddToCartButton productId={products.id} />
+                    <AddToWishlistButton productId={products.id} />
+
                     <div className="image-Container">
                       <img
+                        onClick={() => {
+                          navigate(`/OneProduct/${products.id}`);
+                        }}
                         className="productImage"
                         src={products.productImage}
                       />
@@ -121,45 +115,38 @@ const Product = () => {
                       <p>{products.price}</p>
                       <p>{products.brandName}</p>
                     </div>
-                    
                   </div>
                 </>
-               
               );
             })}
         </div>
       </div>
       {clickNext ? (
-      <button
-            className="backButton"
-            onClick={() => {
-              setPage(page-1);
-              setLimit(15);
-              nextPage(page-1);
-
-            }}
-          >
-           back
-          </button>
-            ) : (
-              ""
-            )
-            }
-      <button
-          className="nextButton"
+        <button
+          className="backButton"
           onClick={() => {
-            
-            setPage(page+1);
+            setPage(page - 1);
             setLimit(15);
-            nextPage(page+1);
+            nextPage(page - 1);
           }}
         >
-         next
+          back
         </button>
+      ) : (
+        ""
+      )}
+      <button
+        className="nextButton"
+        onClick={() => {
+          setPage(page + 1);
+          setLimit(15);
+          nextPage(page + 1);
+        }}
+      >
+        next
+      </button>
     </div>
-  
   );
-  
 };
 
 export default Product;

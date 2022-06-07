@@ -41,6 +41,7 @@ const UserProfilePanel = () => {
       });
   };
   return (
+    <div className="Center-Container"> 
     <div className="UsersInControlPanel">
       {userProfile &&
         userProfile.map((element) => {
@@ -60,6 +61,7 @@ const UserProfilePanel = () => {
             </div>
           );
         })}
+    </div>
     </div>
   );
 };

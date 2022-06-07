@@ -57,12 +57,12 @@ const UpdateProduct = () => {
   }, []);
 
   const updateProduct = (productId) => {
-    let newImg= url || productImage;
+    let newImg = url || productImage;
     axios
       .put(`http://localhost:5000/admin/update_product/${productId}`, {
         title,
         description,
-        productImage:newImg,
+        productImage: newImg,
         price,
         quantity,
         category_id,
@@ -76,10 +76,10 @@ const UpdateProduct = () => {
             id: productId,
             title,
             description,
-            productImage:newImg,
+            productImage: newImg,
             price,
             quantity,
-            categoryName:categName,
+            categoryName: categName,
             category_id,
             brand_id,
           })
@@ -91,7 +91,7 @@ const UpdateProduct = () => {
   };
 
   return (
-    <>
+    <div className="Center-Container">
       {oneProduct &&
         oneProduct.map((element, i) => {
           return (
@@ -186,7 +186,7 @@ const UpdateProduct = () => {
                 >
                   UPDATE
                 </p>
-                
+
                 <span
                   onClick={() => {
                     navigate(-1);
@@ -195,12 +195,16 @@ const UpdateProduct = () => {
                   Back
                 </span>
               </div>
-              <Cloud setProductImage={setProductImage} url={url} setUrl={setUrl}/>
+              <Cloud
+                setProductImage={setProductImage}
+                url={url}
+                setUrl={setUrl}
+              />
             </>
           );
         })}
       <h1>{message}</h1>
-    </>
+    </div>
   );
 };
 

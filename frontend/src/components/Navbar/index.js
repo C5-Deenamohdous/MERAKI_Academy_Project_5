@@ -24,12 +24,12 @@ const NavBar = () => {
     <div className="NavBar">
       NavBar
       {/* <Category /> */}
-      <br />
+
       {/* <Brand /> */}
       <p onClick={()=>{
         navigate(`/user/${userId}`)
       }}>profile</p>
-      <br />
+      
       {isLoggedIn ? (
         <p
           className="logout"
@@ -43,7 +43,7 @@ const NavBar = () => {
       ) : (
         ""
       )}
-      <br />
+      
       <p
         className="TempClass"
         onClick={() => {

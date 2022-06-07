@@ -26,6 +26,7 @@ const AdminAllOrders = () => {
   //   console.log("ALLL ORDERDS", allOrders);
   return (
     <>
+    
       {allOrders &&
         allOrders.map((element) => {
           return (
