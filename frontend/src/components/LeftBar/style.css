@@ -1,9 +1,11 @@
 .Links-Admin {
   background-color: black;
-  height: 90vh;
-  width: 10%;
+  height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .Links-Admin a {

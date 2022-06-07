@@ -16,7 +16,7 @@ const UsersControlPanel = () => {
       allUsers: state.admin.allUsers,
     };
   });
-    const getAllUsers = () => {
+  const getAllUsers = () => {
     axios
       .get("http://localhost:5000/admin/users")
       .then((result) => {
@@ -31,19 +31,25 @@ const UsersControlPanel = () => {
     getAllUsers();
   }, []);
   return (
-    <div className="UsersInControlPanel">
-      {allUsers &&
-        allUsers.map((element) => {
-          return (
-            <div onClick={()=>{
-              navigate(`/admin/user/${element.id}`);
-            }}>
-              <div>User Name : {`${element.firstName} `+` ${element.lastName}`}</div>
-              <div> User email :{element.email}</div>
-              <div> ----------------------</div>
-            </div>
-          );
-        })}
+    <div className="Center-Container">
+      <div className="UsersInControlPanel">
+        {allUsers &&
+          allUsers.map((element) => {
+            return (
+              <div
+                onClick={() => {
+                  navigate(`/admin/user/${element.id}`);
+                }}
+              >
+                <div>
+                  User Name : {`${element.firstName} ` + ` ${element.lastName}`}
+                </div>
+                <div> User email :{element.email}</div>
+                <div> ----------------------</div>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 };

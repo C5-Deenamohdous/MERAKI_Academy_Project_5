@@ -44,6 +44,7 @@ const AdminProducts = () => {
   console.log(Product, "PPP");
 
   return (
+    <div className="Center-Container">
     <div className="ProductsInControlPanel">
       <div className="datails-Product">
         <p>#</p>
@@ -78,6 +79,7 @@ const AdminProducts = () => {
             </div>
           );
         })}
+    </div>
     </div>
   );
 };

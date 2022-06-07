@@ -108,6 +108,7 @@ INNER JOIN orderInfo ON orderInfo.order_id =orders.id
 INNER JOIN products ON products.id = orderInfo.product_id 
 INNER JOIN categories ON categories.id = products.category_id 
 INNER JOIN brands ON brands.id = products.brand_id
+INNER JOIN users ON users.id = orders.user_id
 WHERE orders.is_deleted=0 AND orders.id=?`;
   const data = [order_id];
   connection.query(query, data, (err, result) => {
@@ -158,7 +159,7 @@ const unCompletedOrders = (req, res) => {
     }
     res.status(200).json({
       success: true,
-      message: `Completed Orders`,
+      message: `UnCompleted Orders`,
       result: result,
     });
   });
@@ -185,7 +186,7 @@ const getAllOrdersByUser = (req, res) => {
 
 const getAllCompletedOrdersByUser = (req, res) => {
   const user_id = req.params.id;
-  const query = `SELECT * FROM orders WHERE user_id=? AND orderStatus = 1 `;
+  const query = `SELECT *,orders.id FROM orders WHERE user_id=? AND orderStatus = 1 `;
   const data = [user_id];
 
   connection.query(query, data, (err, result) => {
