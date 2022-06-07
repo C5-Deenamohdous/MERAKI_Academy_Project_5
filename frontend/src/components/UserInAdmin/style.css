@@ -1,0 +1,10 @@
+.Btns-InUser {
+    display: flex;
+    justify-content: space-between;
+    height: 10%;
+    width: 100%;
+    color: white;
+    background-color: rgb(105, 81, 81);
+    padding: 20px;
+  }
+  

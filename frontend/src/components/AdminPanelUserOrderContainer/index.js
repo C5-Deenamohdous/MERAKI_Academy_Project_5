@@ -14,9 +14,6 @@ const AdminPanelUserOrderContainer = () => {
     <div className="Center-Container">
       <div className="Container-Orders">
         <div className="One-Order">
-          <p># Order</p>
-          <p>Date</p>
-          <p>Status</p>
           <select
             onChange={(e) => {
               console.log(e.target.value);

@@ -9,7 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { setuserProfile } from "../../redux/reducers/user";
 import axios from "axios";
 import { deleteuser } from "../../redux/reducers/admin";
-import  AdminPanelUserOrderContainer  from "../AdminPanelUserOrderContainer";
+import AdminPanelUserOrderContainer from "../AdminPanelUserOrderContainer";
 
 const UserProfilePanel = () => {
   const [isUserInfo, setIsUserInfo] = useState(true);
