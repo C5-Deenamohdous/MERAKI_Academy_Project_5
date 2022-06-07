@@ -24,6 +24,8 @@ import AdminProducts from "./components/AdminProducts";
 import UsersControlPanel from "./components/AllUsers";
 import Orders from "./components/Orders";
 import AdminUserOrder from "./components/AdminUserOrder";
+import AdminUserCompletedOrders from "./components/AdminCompletedUserOrder";
+import AdminUserUnCompletedOrders from "./components/AdminUnCompletedUserOrder";
 const App = () => {
   const location = useLocation();
   useEffect(() => {
@@ -60,6 +62,14 @@ const App = () => {
         <Route path="/admin/all_orders" element={<Orders />} />
         <Route path="/admin/order_details/:id" element={<OrderDetails />} />
         <Route path="/admin/user_orders/:id" element={<AdminUserOrder />} />
+        <Route
+          path="/admin/user_orders_completed/:id"
+          element={<AdminUserCompletedOrders />}
+        />
+        <Route
+          path="/admin/user_orders_uncompleted/:id"
+          element={<AdminUserUnCompletedOrders />}
+        />
       </Routes>
     </div>
   );
