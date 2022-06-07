@@ -70,7 +70,7 @@ const CreateProduct = () => {
             brand_id: brand_id,
           })
         );
-        navigate("/admin");
+        // navigate("/admin");
       })
       .catch((err) => {
         console.log(err);
@@ -109,7 +109,7 @@ const CreateProduct = () => {
   }, []);
 
   return (
-    <>
+    <div className="creareP-Container">
       <div className="center">
         <>
           <h1>
@@ -163,6 +163,40 @@ const CreateProduct = () => {
               url={url}
               setUrl={setUrl}
             />
+            <div className="Select-C">
+              <select
+                onChange={(e) => {
+                  console.log(e.target.value);
+                  setCategory_id(e.target.value);
+                }}
+              >
+                <option disabled selected>
+                  CategoryName
+                </option>
+                {category &&
+                  category.map((element, i) => {
+                    return (
+                      <option value={element.id}>{element.categoryName}</option>
+                    );
+                  })}
+              </select>
+
+              <select
+                onChange={(e) => {
+                  console.log(e.target.value);
+                  setBrand_id(e.target.value);
+                }}
+              >
+                <option disabled selected>
+                  BrandName
+                </option>
+                {Brand &&
+                  Brand.map((elem) => {
+                    return <option value={elem.id}>{elem.brandName}</option>;
+                  })}
+              </select>
+            </div>
+
             <button
               onClick={() => {
                 add_product();
@@ -173,59 +207,7 @@ const CreateProduct = () => {
           </center>
         </>
       </div>
-
-      <button
-        onClick={() => {
-          setIsClicked(true);
-        }}
-      >
-        {" "}
-        choose category to add Brand
-      </button>
-      {isClicked
-        ? category &&
-          category.map((element, i) => {
-            return (
-              <p
-                onClick={() => {
-                  setCategory_id(element.id);
-                  console.log(category_id);
-                  setIsClicked(false);
-                }}
-              >
-                category name : {element.categoryName}
-              </p>
-            );
-          })
-        : ""}
-
-      <button
-        onClick={() => {
-          setIsClicked(true);
-        }}
-      >
-        {" "}
-        choose Brand to add product
-      </button>
-      {isClicked
-        ? Brand &&
-          Brand.map((element, i) => {
-            return (
-              <button
-                onClick={() => {
-                  setBrand_id(element.id);
-                  console.log(brand_id);
-                  setIsClicked(false);
-                }}
-              >
-                {/* <sas>sasaas</sas> */}
-                Brand name : {element.brandName}
-              </button>
-            );
-          })
-        : ""}
-      <div>{message}</div>
-    </>
+    </div>
   );
 };
 export default CreateProduct;
