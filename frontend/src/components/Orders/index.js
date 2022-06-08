@@ -1,16 +1,13 @@
 import "./style.css";
 import React, { useState } from "react";
-
-import AdminUserOrder from "../AdminUserOrder";
-import AdminUserCompletedOrders from "../AdminCompletedUserOrder";
-import AdminUserUnCompletedOrders from "../AdminUnCompletedUserOrder";
-
-const AdminPanelUserOrderContainer = () => {
-  const [isAdminUserOrder, setIsAdminUserOrder] = useState(true);
-  const [isAdminUserCompletedOrders, setIsAdminUserCompletedOrders] =
-    useState(false);
-  const [isAdminUserUnCompletedOrders, setIsAdminUserUnCompletedOrders] =
-    useState(false);
+import { Link } from "react-router-dom";
+import AdminAllOrders from "../AdminAllOrders";
+import AdminCompletedOrders from "../AdminCompletedOrders";
+import AdminUnCompletedOrders from "../AdminUnCompletedOrders";
+const Orders = () => {
+  const [isAllOrder, setIsAllOrder] = useState(true);
+  const [isCompletedOrder, setIsCompletedOrder] = useState(false);
+  const [isUnCompleted, setIsUnCompleted] = useState(false);
 
   return (
     <div className="Center-Container">
@@ -23,19 +20,19 @@ const AdminPanelUserOrderContainer = () => {
             onChange={(e) => {
               console.log(e.target.value);
               if (e.target.value == 1) {
-                setIsAdminUserOrder(true);
-                setIsAdminUserCompletedOrders(false);
-                setIsAdminUserUnCompletedOrders(false);
+                setIsAllOrder(true);
+                setIsCompletedOrder(false);
+                setIsUnCompleted(false);
               }
               if (e.target.value == 2) {
-                setIsAdminUserOrder(false);
-                setIsAdminUserCompletedOrders(true);
-                setIsAdminUserUnCompletedOrders(false);
+                setIsAllOrder(false);
+                setIsCompletedOrder(true);
+                setIsUnCompleted(false);
               }
               if (e.target.value == 3) {
-                setIsAdminUserOrder(false);
-                setIsAdminUserCompletedOrders(false);
-                setIsAdminUserUnCompletedOrders(true);
+                setIsAllOrder(false);
+                setIsCompletedOrder(false);
+                setIsUnCompleted(true);
               }
             }}
           >
@@ -44,12 +41,12 @@ const AdminPanelUserOrderContainer = () => {
             <option value="3">Un Completed</option>
           </select>
         </div>
-        {isAdminUserOrder ? <AdminUserOrder /> : ""}
-        {isAdminUserCompletedOrders ? <AdminUserCompletedOrders /> : ""}
-        {isAdminUserUnCompletedOrders ? <AdminUserUnCompletedOrders /> : ""}
+        {isAllOrder ? <AdminAllOrders /> : ""}
+        {isCompletedOrder ? <AdminCompletedOrders /> : ""}
+        {isUnCompleted ? <AdminUnCompletedOrders /> : ""}
       </div>
     </div>
   );
 };
 
-export default AdminPanelUserOrderContainer;
+export default Orders;

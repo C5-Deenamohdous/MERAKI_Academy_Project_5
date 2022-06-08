@@ -10,6 +10,7 @@ export const orders = createSlice({
     allUSerOrders: [],
     allCompletedForUser: [],
     allUnCompletedForUser: [],
+    statusInsideDetail: "",
   },
   reducers: {
     setALlOrders: (state, action) => {
@@ -33,6 +34,9 @@ export const orders = createSlice({
     setAllUnCompletedForUser: (state, action) => {
       state.allUnCompletedForUser = action.payload;
     },
+    setStatusInsideDetail: (state, action) => {
+      state.statusInsideDetail = action.payload;
+    },
   },
 });
 
@@ -44,6 +48,7 @@ export const {
   setAllUserOrders,
   setAllCompletedForUser,
   setAllUnCompletedForUser,
+  setStatusInsideDetail,
 } = orders.actions;
 
 export default orders.reducer;
