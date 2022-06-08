@@ -37,6 +37,23 @@ export const orders = createSlice({
     setStatusInsideDetail: (state, action) => {
       state.statusInsideDetail = action.payload;
     },
+    makeOrderCompleted: (state, action) => {
+      console.log(action, "=====");
+      state.allOrders = state.allOrders.map((element) => {
+        if (element.id === action.payload.id) {
+          return { ...element, orderStatus: action.payload.status };
+        }
+        return element;
+      });
+    },
+    makeOrderUnCompleted: (state, action) => {
+      state.allOrders = state.allOrders.map((element) => {
+        if (element.id === action.payload.id) {
+          return { ...element, orderStatus: action.payload.status };
+        }
+        return element;
+      });
+    },
   },
 });
 
@@ -49,6 +66,8 @@ export const {
   setAllCompletedForUser,
   setAllUnCompletedForUser,
   setStatusInsideDetail,
+  makeOrderCompleted,
+  makeOrderUnCompleted
 } = orders.actions;
 
 export default orders.reducer;
