@@ -10,7 +10,7 @@
 .Header-Photo {
   display: flex;
   width: 100%;
-  height: 55vh;
+  height: 75vh;
   background-color: var(--mainColor);
 }
 
@@ -23,5 +23,17 @@
 .Image-H img {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: contain;
+}
+
+.HomeBtns {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+  font-size: 23px;
+}
+
+.HomeBtns span:hover {
+  color: var(--btnsColor);
+  cursor: pointer;
 }
