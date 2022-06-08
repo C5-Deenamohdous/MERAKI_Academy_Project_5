@@ -10,6 +10,11 @@ const Home = () => {
   const [catg3, setCatg3] = useState("");
   const [catg4, setCatg4] = useState("");
 
+  const [isCatg1, setIsCatg1] = useState(true);
+  const [isCatg2, setIsCatg2] = useState(false);
+  const [isCatg3, setIsCatg3] = useState(false);
+  const [isCatg4, setIsCatg4] = useState(false);
+
   const navigate = useNavigate();
 
   const getCatg1 = () => {
@@ -68,6 +73,24 @@ const Home = () => {
     getCatg4();
   }, []);
 
+  const Catg1 = () => {
+    return (
+      <>
+        {catg1 &&
+          catg1.map((element) => {
+            return (
+              <div class="card">
+                <div class="content">
+                  <div class="front">Front</div>
+                  <div class="back">Back!</div>
+                </div>
+              </div>
+            );
+          })}
+      </>
+    );
+  };
+
   return (
     <>
       <div className="Header-Photo">
@@ -75,8 +98,6 @@ const Home = () => {
           <img src="https://www.pngall.com/wp-content/uploads/2016/05/Laptop-Free-Download-PNG.png" />
         </div>
       </div>
-      {/* <Category />
-      <Brand /> */}
       <span
         className="shopNowButton"
         onClick={() => {
@@ -91,6 +112,13 @@ const Home = () => {
         <span>Catg3</span>
         <span>Catg4</span>
       </div>
+      {isCatg1 ? (
+        <div className="Cards-Container">
+          <Catg1 />
+        </div>
+      ) : (
+        ""
+      )}
     </>
   );
 };
