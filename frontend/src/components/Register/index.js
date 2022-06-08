@@ -25,7 +25,7 @@ const Register = () => {
     const role_id = "1";
     const [message, setMessage] = useState("");
     const [status, setStatus] = useState(false);
-
+    const[isClick,setIsClick]=useState(false)
     // =================================================================
 
     const addNewUser = async () => {
@@ -65,6 +65,7 @@ const Register = () => {
                        
                         <center >
                         <ul className="login-Register-MenuRegister">
+
           <li  className="login" onClick={()=>{
          navigate("/Login") 
         }}> Login  </li>
@@ -139,7 +140,8 @@ const Register = () => {
                         </center>
                     </>
                 ) : (
-                    <p>Logout First</p>
+                    
+                    ""
                 )}
             </div>
         </>

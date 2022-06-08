@@ -20,6 +20,7 @@
   width: 400px;
   height: 40px;
   margin-bottom: 20px;
+  padding: 5px;
 }
 .passwordInput,.emailInput{
     border-color: currentcolor currentcolor rgb(80, 87, 90);
@@ -31,6 +32,7 @@
     width: 400px;
     height: 40px;
     margin-bottom: 20px;
+    padding: 5px;
   }
 .registerButton{
     border-color: rgb(60, 65, 67);
@@ -45,3 +47,7 @@
     width: 150px;
     cursor: pointer;
 }
+.registerButton:hover{
+    background-color: rgb(236, 92, 92);
+    transition: 0.4s;
+  };
