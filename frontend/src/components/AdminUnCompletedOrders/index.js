@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { setAllUnCompleted } from "../../redux/reducers/orders";
+import OrderStatus from "../ChangeOrderStatus";
 
 const AdminUnCompletedOrders = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { allUnCompleted } = useSelector((state) => {
     return {
@@ -28,9 +31,20 @@ const AdminUnCompletedOrders = () => {
         allUnCompleted.map((element) => {
           return (
             <div className="One-Order">
-              <p>{element.id}</p>
-              <p>{element.orderDate}</p>
-              <p>{element.Status ? "Completed" : "Un Completed"} </p>
+              <div
+                onClick={() => {
+                  navigate(`/admin/order_details/${element.id}`);
+                }}
+              >
+                <p>{element.id}</p>
+                <p>{element.orderDate}</p>
+                <p>{element.orderStatus ? "Completed" : "Un Completed"} </p>
+              </div>
+
+              <OrderStatus
+                order_id={element.id}
+                orderStatus={element.orderStatus}
+              />
             </div>
           );
         })}

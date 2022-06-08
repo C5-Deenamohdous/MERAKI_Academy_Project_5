@@ -5,7 +5,7 @@ const addToOrders = (req, res) => {
   const user_id = req.token.userId;
   const query = `INSERT INTO orders (user_id) VALUES(?)`;
   const date = [user_id];
-console.log(user_id);
+  console.log(user_id);
   connection.query(query, date, (err, result) => {
     if (err) {
       return res.status(500).json({
@@ -222,6 +222,44 @@ const getAllUnCompletedOrdersByUser = (req, res) => {
   });
 };
 
+const changeOrderToCompleted = (req, res) => {
+  // const user_id = req.token.user_id
+  const order_id = req.params.id;
+
+  const query = `UPDATE orders SET orderStatus = 1 WHERE id=?`;
+  const data = [order_id];
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        message: `Server Error`,
+        err: err,
+      });
+    }
+    res.status(201).json({
+      message: `Order with id => ${order_id} Completed`,
+      result: result,
+    });
+  });
+};
+
+const changeOrderToUnCompleted = (req, res) => {
+  const order_id = req.params.id;
+  const query = `UPDATE orders SET orderStatus = 0 WHERE id=?`;
+  const data = [order_id];
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        message: `Server Error`,
+        err: err,
+      });
+    }
+    res.status(201).json({
+      message: `Order with id => ${order_id} Changed To Uncompleted`,
+      result: result,
+    });
+  });
+};
+
 module.exports = {
   addToOrders,
   getAllOrders,
@@ -232,4 +270,6 @@ module.exports = {
   getAllOrdersByUser,
   getAllCompletedOrdersByUser,
   getAllUnCompletedOrdersByUser,
+  changeOrderToCompleted,
+  changeOrderToUnCompleted,
 };

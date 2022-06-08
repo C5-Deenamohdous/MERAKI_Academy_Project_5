@@ -10,6 +10,7 @@ export const orders = createSlice({
     allUSerOrders: [],
     allCompletedForUser: [],
     allUnCompletedForUser: [],
+    statusInsideDetail: "",
   },
   reducers: {
     setALlOrders: (state, action) => {
@@ -33,6 +34,33 @@ export const orders = createSlice({
     setAllUnCompletedForUser: (state, action) => {
       state.allUnCompletedForUser = action.payload;
     },
+    setStatusInsideDetail: (state, action) => {
+      state.statusInsideDetail = action.payload;
+    },
+    makeOrderCompleted: (state, action) => {
+      state.allOrders = state.allOrders.map((element) => {
+        if (element.id === action.payload.id) {
+          return { ...element, orderStatus: action.payload.status };
+        }
+        return element;
+      });
+      state.allUnCompleted = state.allUnCompleted.filter((element) => {
+        return element.id !== action.payload.id;
+      });
+      state.statusInsideDetail = 1;
+    },
+    makeOrderUnCompleted: (state, action) => {
+      state.allOrders = state.allOrders.map((element) => {
+        if (element.id === action.payload.id) {
+          return { ...element, orderStatus: action.payload.status };
+        }
+        return element;
+      });
+      state.completedOrders = state.completedOrders.filter((element) => {
+        return element.id !== action.payload.id;
+      });
+      state.statusInsideDetail = 0;
+    },
   },
 });
 
@@ -44,6 +72,9 @@ export const {
   setAllUserOrders,
   setAllCompletedForUser,
   setAllUnCompletedForUser,
+  setStatusInsideDetail,
+  makeOrderCompleted,
+  makeOrderUnCompleted,
 } = orders.actions;
 
 export default orders.reducer;
