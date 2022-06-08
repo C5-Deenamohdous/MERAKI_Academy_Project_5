@@ -15,6 +15,7 @@ const AdminAllOrders = () => {
   const getAllOrders = () => {
     axios.get(`http://localhost:5000/order/all`).then((result) => {
       console.log(result);
+      console.log("===");
       dispatch(setALlOrders(result.data.result));
     });
   };
@@ -36,7 +37,7 @@ const AdminAllOrders = () => {
             >
               <p>{element.id}</p>
               <p>{element.orderDate}</p>
-              <p>{element.Status ? "Completed" : "Un Completed"} </p>
+              <p>{element.Status == 1 ? "Completed" : "Un Completed"} </p>
             </div>
           );
         })}
