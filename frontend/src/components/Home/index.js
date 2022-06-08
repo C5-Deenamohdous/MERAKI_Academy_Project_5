@@ -191,14 +191,76 @@ const Home = () => {
         Shop Now
       </span>
       <div className="HomeBtns">
-        <span className={isCatg1 ? "Active_HomeP" : ""}>Catg1</span>
-        <span className={isCatg2 ? "Active_HomeP" : ""}>Categ2</span>
-        <span className={isCatg3 ? "Active_HomeP" : ""}>Catg3</span>
-        <span className={isCatg4 ? "Active_HomeP" : ""}>Catg4</span>
+        <span
+          className={isCatg1 ? "Active_HomeP" : ""}
+          onClick={() => {
+            setIsCatg1(true);
+            setIsCatg2(false);
+            setIsCatg3(false);
+            setIsCatg4(false);
+          }}
+        >
+          Catg1
+        </span>
+        <span
+          className={isCatg2 ? "Active_HomeP" : ""}
+          onClick={() => {
+            setIsCatg1(false);
+            setIsCatg2(true);
+            setIsCatg3(false);
+            setIsCatg4(false);
+          }}
+        >
+          Categ2
+        </span>
+
+        <span
+          className={isCatg3 ? "Active_HomeP" : ""}
+          onClick={() => {
+            setIsCatg1(false);
+            setIsCatg2(false);
+            setIsCatg3(true);
+            setIsCatg4(false);
+          }}
+        >
+          Catg3
+        </span>
+        <span
+          className={isCatg4 ? "Active_HomeP" : ""}
+          onClick={() => {
+            setIsCatg1(false);
+            setIsCatg2(false);
+            setIsCatg3(false);
+            setIsCatg4(true);
+          }}
+        >
+          Catg4
+        </span>
       </div>
       {isCatg1 ? (
         <div className="Cards-Container">
+          <Catg1 />
+        </div>
+      ) : (
+        ""
+      )}
+      {isCatg2 ? (
+        <div className="Cards-Container">
           <Catg2 />
+        </div>
+      ) : (
+        ""
+      )}
+      {isCatg3 ? (
+        <div className="Cards-Container">
+          <Catg3 />
+        </div>
+      ) : (
+        ""
+      )}
+      {isCatg4 ? (
+        <div className="Cards-Container">
+          <Catg4 />
         </div>
       ) : (
         ""

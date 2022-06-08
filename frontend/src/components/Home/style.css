@@ -33,9 +33,13 @@
   font-size: 23px;
 }
 
-.HomeBtns span:hover {
-  color: var(--btnsColor);
+.HomeBtns span {
+  transition: 0.3s;
   cursor: pointer;
+}
+.HomeBtns span:hover {
+  transition: 0.3s;
+  color: var(--btnsColor);
 }
 
 .HomeBtns .Active_HomeP {
