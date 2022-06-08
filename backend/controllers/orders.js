@@ -222,7 +222,7 @@ const getAllUnCompletedOrdersByUser = (req, res) => {
   });
 };
 
-const changeOrderToCompleted = (req, token) => {
+const changeOrderToCompleted = (req, res) => {
   // const user_id = req.token.user_id
   const order_id = req.params.id;
 
@@ -242,7 +242,7 @@ const changeOrderToCompleted = (req, token) => {
   });
 };
 
-const changeOrderToUnCompleted = (req, token) => {
+const changeOrderToUnCompleted = (req, res) => {
   const order_id = req.params.id;
   const query = `UPDATE orders SET orderStatus = 0 WHERE id=?`;
   const data = [order_id];
@@ -271,4 +271,5 @@ module.exports = {
   getAllCompletedOrdersByUser,
   getAllUnCompletedOrdersByUser,
   changeOrderToCompleted,
+  changeOrderToUnCompleted,
 };
