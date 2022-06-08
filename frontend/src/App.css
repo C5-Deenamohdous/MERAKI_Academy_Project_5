@@ -5,8 +5,11 @@
 }
 .App {
   text-align: center;
-  width: 100vw;
-  height: 100vh;
   display: flex;
+  height: 100%;
   flex-direction: column;
+}
+
+:root {
+  --mainColor: #f3f3f5;
 }
