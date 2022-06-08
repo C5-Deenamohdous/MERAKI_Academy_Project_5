@@ -45,6 +45,9 @@ export const orders = createSlice({
         }
         return element;
       });
+      state.allUnCompleted = state.allUnCompleted.filter((element) => {
+        return element.id !== action.payload.id;
+      });
     },
     makeOrderUnCompleted: (state, action) => {
       state.allOrders = state.allOrders.map((element) => {
@@ -52,6 +55,9 @@ export const orders = createSlice({
           return { ...element, orderStatus: action.payload.status };
         }
         return element;
+      });
+      state.completedOrders = state.completedOrders.filter((element) => {
+        return element.id !== action.payload.id;
       });
     },
   },
@@ -67,7 +73,7 @@ export const {
   setAllUnCompletedForUser,
   setStatusInsideDetail,
   makeOrderCompleted,
-  makeOrderUnCompleted
+  makeOrderUnCompleted,
 } = orders.actions;
 
 export default orders.reducer;

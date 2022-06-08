@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { setAllUnCompleted } from "../../redux/reducers/orders";
+import OrderStatus from "../ChangeOrderStatus";
 
 const AdminUnCompletedOrders = () => {
   const navigate = useNavigate();
@@ -29,15 +30,21 @@ const AdminUnCompletedOrders = () => {
       {allUnCompleted &&
         allUnCompleted.map((element) => {
           return (
-            <div
-              className="One-Order"
-              onClick={() => {
-                navigate(`/admin/order_details/${element.id}`);
-              }}
-            >
-              <p>{element.id}</p>
-              <p>{element.orderDate}</p>
-              <p>{element.orderStatus ? "Completed" : "Un Completed"} </p>
+            <div className="One-Order">
+              <div
+                onClick={() => {
+                  navigate(`/admin/order_details/${element.id}`);
+                }}
+              >
+                <p>{element.id}</p>
+                <p>{element.orderDate}</p>
+                <p>{element.orderStatus ? "Completed" : "Un Completed"} </p>
+              </div>
+
+              <OrderStatus
+                order_id={element.id}
+                orderStatus={element.orderStatus}
+              />
             </div>
           );
         })}
