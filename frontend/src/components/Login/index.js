@@ -96,7 +96,7 @@ const Login = () => {
               login(e);
             }}
           >
-            Login
+            LOGIN
           </button>
 
           {status
