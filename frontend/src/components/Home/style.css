@@ -10,7 +10,7 @@
 .Header-Photo {
   display: flex;
   width: 100%;
-  height: 55vh;
+  height: 75vh;
   background-color: var(--mainColor);
 }
 
@@ -23,5 +23,107 @@
 .Image-H img {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: contain;
+}
+
+.HomeBtns {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+  font-size: 23px;
+}
+
+.HomeBtns span {
+  transition: 0.3s;
+  cursor: pointer;
+}
+.HomeBtns span:hover {
+  transition: 0.3s;
+  color: var(--btnsColor);
+}
+
+.HomeBtns .Active_HomeP {
+  color: var(--btnsColor);
+}
+
+/* Product Cart */
+.Cards-Container {
+  display: flex;
+  height: 40vh;
+  width: 100%;
+  padding: 5px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 23%;
+  height: 100%;
+  margin-top: 20px;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 15px rgb(0 0 0 / 10%);
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .content {
+  transform: rotateY(180deg);
+  transition: transform 0.8s;
+}
+
+.front {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.front .imgContainer {
+  width: 100%;
+  height: 80%;
+}
+
+.front .imgContainer img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.Price-Title {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2px;
+}
+
+.Price-Title .Title {
+  font-weight: 600;
+}
+.Price-Title .Price {
+  color: var(--btnsColor);
+  font-weight: 400;
+}
+
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+  background-color: var(--mainColor);
+  text-align: center;
+  border-radius: 5px;
+  backface-visibility: hidden;
+}
+
+.back {
+  position: absolute;
+  top: 0;
+  background: #03446a;
+  color: white;
+  transform: rotateY(180deg);
 }
