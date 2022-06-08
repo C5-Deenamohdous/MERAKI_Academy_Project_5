@@ -15,8 +15,10 @@ const Brand = () => {
   });
   const [message, setMessage] = useState("");
 
-  const getAllBrand=()=>{
-      axios.get(`http://localhost:5000/product/brandName`).then((result) => {
+  const getAllBrand = () => {
+    axios
+      .get(`http://localhost:5000/product/brandName`)
+      .then((result) => {
         console.log(result, "!!!!!!! all  brands");
         dispatch(setBrand(result.data.result));
         setMessage("ALL Brands");
@@ -30,28 +32,32 @@ const Brand = () => {
     getAllBrand();
   }, []);
 
-  return(
-    <div>
-    <p className="introOfBrandPath">Explore Popular Brand |</p>
-      <div className="allBrands">
-{
-    brand &&
-    brand.map((brand, i) => {
-      return (
-        <div className="returnDiv"
-          onClick={() => {
-            navigate(`/brand/${brand.id}`);
-          }}
-        >
-          <img className="brandImg" src="https://thumbs.dreamstime.com/z/silver-apple-brand-logo-icon-shadow-isolated-white-background-127321063.jpg"/>
-          <p className="brand">{brand.brandName}</p>
-        </div>
-      );
-    })
-}
-
+  return (
+    <>
+      <div className="Paragraph">
+        <p>Explore Popular Brand |</p>
       </div>
+      <div className="Main-Container">
+        {brand &&
+          brand.map((brand, i) => {
+            return (
+              <div
+                className="PhotoAndTitle"
+                onClick={() => {
+                  navigate(`/brand/${brand.id}`);
+                }}
+              >
+                <div className="Image">
+                  <img src="https://thumbs.dreamstime.com/z/silver-apple-brand-logo-icon-shadow-isolated-white-background-127321063.jpg" />
+                </div>
+                <div className="Title-H">
+                  <p>{brand.brandName}</p>
+                </div>
+              </div>
+            );
+          })}
       </div>
-  )
+    </>
+  );
 };
 export default Brand;

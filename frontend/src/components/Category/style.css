@@ -1,3 +1,8 @@
+.Container { 
+    display: flex;
+    width: 100%;
+}
+
 .allCategory {
   display: flex;
       margin-left: 1em;
