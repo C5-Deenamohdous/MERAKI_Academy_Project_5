@@ -21,7 +21,7 @@
 }
 /* Style the header with a grey background and some padding */
 .NavBar {
-  height: 10%;
+  height: 10vh;
   padding: 5px;
   width: 100%;
   background-color: #f1f1f1;

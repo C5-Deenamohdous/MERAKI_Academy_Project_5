@@ -6,11 +6,10 @@
 .App {
   text-align: center;
   display: flex;
-  width: 100vw;
-  height: 100vh;
+  height: 100%;
   flex-direction: column;
 }
 
 :root {
-  
+  --mainColor: #f3f3f5;
 }

@@ -30,28 +30,34 @@ const Category = () => {
   useEffect(() => {
     getAllCategory();
   }, []);
-  // return ( 
-  //   <div className="Main-Container">
-
-  // <p className="introOfCategoryPath">Explore Popular Category |</p>
-
-  //   <div  className="allCategory" >   
-  //     {category &&
-  //       category.map((category, i) => {
-  //         return (
-  //           <div className="returnDiv"
-  //             onClick={() => {
-  //               navigate(`/category/${category.id}`);
-  //             }}
-  //           >
-  //             <img className="categoryImg" src="https://ichef.bbci.co.uk/news/2048/cpsprodpb/16452/production/_110781219_gettyimages-1190190284.jpg" />
-  //             <p className="category">{category.categoryName}</p>
-  //           </div>
-  //         );
-  //       })}  
-  //   </div>
-  //   </div>
-  // );
+  return (
+    <>
+      <p className="Paragraph">Explore Popular Category |</p>
+      <div className="Main-Container">
+        {category &&
+          category.map((category, i) => {
+            return (
+              <div
+                className="PhotoAndTitle"
+                onClick={() => {
+                  navigate(`/category/${category.id}`);
+                }}
+              >
+                <div className="Image">
+                  <img
+                    className="categoryImg"
+                    src="https://ichef.bbci.co.uk/news/2048/cpsprodpb/16452/production/_110781219_gettyimages-1190190284.jpg"
+                  />
+                </div>
+                <div className="Title-H">
+                  <p className="category">{category.categoryName}</p>
+                </div>
+              </div>
+            );
+          })}
+      </div>
+    </>
+  );
 };
 
 export default Category;
