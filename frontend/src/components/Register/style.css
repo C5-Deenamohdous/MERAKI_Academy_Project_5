@@ -1,0 +1,53 @@
+.center{
+    background-image: initial;
+ ;
+}
+.login-Register-MenuRegister{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 26px;
+   list-style: none;
+   padding: 5px 11px;
+   margin-top: 80px;
+}
+.firstNameInput,.lastNameInput,.phoneNumInput{
+    border-color: currentcolor currentcolor rgb(80, 87, 90);
+  color: rgb(166, 159, 147);
+  background-image: initial;
+  background-color: transparent;
+  border-style: none none solid;
+  margin:  0px 0px 20px;
+  width: 400px;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+.passwordInput,.emailInput{
+    border-color: currentcolor currentcolor rgb(80, 87, 90);
+    color: rgb(166, 159, 147);
+    background-image: initial;
+    background-color: transparent;
+    border-style: none none solid;
+    margin:  0px 0px 20px;
+    width: 400px;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 5px;
+  }
+.registerButton{
+    border-color: rgb(60, 65, 67);
+    color: rgb(185, 179, 169);
+    border: 1px solid #d5d5d5;
+    display: inline-block;
+    font-size: 20px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 150px;
+    cursor: pointer;
+}
+.registerButton:hover{
+    background-color: rgb(236, 92, 92);
+    transition: 0.4s;
+  };

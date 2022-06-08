@@ -25,7 +25,7 @@ const Register = () => {
     const role_id = "1";
     const [message, setMessage] = useState("");
     const [status, setStatus] = useState(false);
-
+    const[isClick,setIsClick]=useState(false)
     // =================================================================
 
     const addNewUser = async () => {
@@ -62,70 +62,86 @@ const Register = () => {
             <div className="center">
                 {isLoggedIn ? (
                     <>
-                        <h1>Register
-                        <br />To get full acses </h1>
+                       
                         <center >
+                        <ul className="login-Register-MenuRegister">
+
+          <li  className="login" onClick={()=>{
+         navigate("/Login") 
+        }}> Login  </li>
+          <li className="register" onClick={()=>{
+         navigate("/Register") 
+        }}> Register  </li>
+        </ul>
                             <div className="inputbox">
-                                <input
+                                <input  className="firstNameInput"
+                                placeholder=" First Name"
                                     type="text"
                                     required="required"
                                     onChange={(e) => setFirstName(e.target.value)}
                                 />
-                                <span>enter your first Name</span>
+                               
                             </div>
                             <div className="inputbox">
-                                <input
+                                <input className="lastNameInput"
+                                placeholder="Last Name"
                                     type="text"
                                     required="required"
                                     onChange={(e) => setLastName(e.target.value)}
                                 />
-                                <span>enter your Last Name</span>
+                               
                             </div>
 
 
                             <div className="inputbox">
                                 <input
+                                className="phoneNumInput"
+                                placeholder=" phone Number"
                                     type="text"
                                     required="required"
 
                                     onChange={(e) => setPhoneNumber(e.target.value)}
                                 />
-                                <span>enter your phone Number</span>
+                              
                             </div>
                             <div className="inputbox">
-                                <input
+                                <input className="firstNameInput"
+                                placeholder=" profile Image"
                                     type="text"
                                     required="required"
                                     onChange={(e) => setProfileImage(e.target.value)}
                                 />
-                                <span>enter your profile Image</span>
+                             
                             </div>
                             <div className="inputbox">
-                                <input
+                                <input className="emailInput"
+                                placeholder="Email"
                                     type="text"
                                     required="required"
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
-                                <span>Email</span>
+                              
                             </div>
                             <div className="inputbox">
-                                <input
+                                <input className="passwordInput"
+                                placeholder="Password"
                                     type="password"
                                     required="required"
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
-                                <span>enter your password</span>
+                               
                             </div>
-                            <button onClick={()=>{
+                            <button className="registerButton" onClick={()=>{
                             addNewUser();
-                            }}>Register</button>
+                            }}>Create</button>
                             {status
                                 ? message && <div className="SuccessMessage">{message}</div>
                                 : message && <div className="ErrorMessage">{message}</div>}
                         </center>
                     </>
                 ) : (
-                    <p>Logout First</p>
+                    
+                    ""
                 )}
             </div>
         </>
