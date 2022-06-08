@@ -38,7 +38,6 @@ export const orders = createSlice({
       state.statusInsideDetail = action.payload;
     },
     makeOrderCompleted: (state, action) => {
-      console.log(action, "=====");
       state.allOrders = state.allOrders.map((element) => {
         if (element.id === action.payload.id) {
           return { ...element, orderStatus: action.payload.status };
@@ -48,6 +47,7 @@ export const orders = createSlice({
       state.allUnCompleted = state.allUnCompleted.filter((element) => {
         return element.id !== action.payload.id;
       });
+      state.statusInsideDetail = 1;
     },
     makeOrderUnCompleted: (state, action) => {
       state.allOrders = state.allOrders.map((element) => {
@@ -59,6 +59,7 @@ export const orders = createSlice({
       state.completedOrders = state.completedOrders.filter((element) => {
         return element.id !== action.payload.id;
       });
+      state.statusInsideDetail = 0;
     },
   },
 });

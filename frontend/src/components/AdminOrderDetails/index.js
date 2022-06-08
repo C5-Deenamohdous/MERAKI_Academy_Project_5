@@ -7,6 +7,7 @@ import {
   setOneOrderDetails,
   setStatusInsideDetail,
 } from "../../redux/reducers/orders";
+import OrderStatus from "../ChangeOrderStatus";
 
 const OrderDetails = () => {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ const OrderDetails = () => {
   const [lastName, setLastName] = useState("");
   const [orderId, setOrderId] = useState("");
   const [userId, setUserId] = useState("");
+  const [orderStatus, setOrderStatus] = useState("");
 
   const { oneOrderDetails, statusInsideDetail } = useSelector((state) => {
     return {
@@ -33,10 +35,8 @@ const OrderDetails = () => {
         setLastName(result.data.result[0].lastName);
         setUserId(result.data.result[0].user_id);
         setOrderId(result.data.result[0].id);
-        result.data.result[0].orderStatus == 1
-          ? dispatch(setStatusInsideDetail("Completed"))
-          : dispatch(setStatusInsideDetail("UnCompleted"));
-
+        // setOrderStatus(result.data.result[0].id);
+        dispatch(setStatusInsideDetail(result.data.result[0].orderStatus));
         dispatch(setOneOrderDetails(result.data.result));
       })
       .catch((err) => {
@@ -51,7 +51,10 @@ const OrderDetails = () => {
     <div className="Center-Container">
       <div className="Col-Container">
         <div>
-          <p>Order Status {statusInsideDetail}</p>
+          <p>
+            Order Status {statusInsideDetail == 1 ? "Completed" : "UnCompleted"}
+          </p>
+          <OrderStatus order_id={orderId} orderStatus={statusInsideDetail} />
           <p
             onClick={() => {
               navigate(`/admin/user/${userId}`);
