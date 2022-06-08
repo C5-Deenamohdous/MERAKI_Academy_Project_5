@@ -55,31 +55,43 @@ const Login = () => {
   return (
     <>
       <div className="center">
-        <h1> login know to </h1>
-        <center onSubmit={login}>
+        <ul className="login-Register-Menu">
+          <li  className="login" onClick={()=>{
+         navigate("/Login") 
+        }}> login  </li>
+          <li className="register" onClick={()=>{
+         navigate("/Register") 
+        }}> Register  </li>
+        </ul>
+       
+       
           <br />
 
           <div className="inputbox">
-            <input
+             
+            <input className="emailInput"
+            placeholder="Email"
               type="text"
               required="required"
               onChange={(e) => setEmail(e.target.value)}
             />
-            <span>Email</span>
+           
           </div>
 
           <br />
           <div className="inputbox">
-            <input
+         
+            <input className="passwordInput"
               type="password"
+              placeholder="Password"
               required="required"
               onChange={(e) => setPassword(e.target.value)}
             />
-            <span>Password</span>
+           
           </div>
           <br />
           <button
-            className="inputbox"
+            className="loginButton"
             onClick={(e) => {
               login(e);
             }}
@@ -90,8 +102,8 @@ const Login = () => {
           {status
             ? message && <div className="SuccessMessage">{message}</div>
             : message && <div className="ErrorMessage">{message}</div>}
-        </center>
-        <LoginGoogle/>
+   
+        <LoginGoogle />
       </div>
     </>
   );

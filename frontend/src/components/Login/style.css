@@ -1,68 +1,49 @@
-.center {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(45deg, greenyellow, dodgerblue);
-    font-family: "Sansita Swashed", cursive;
-    position: relative;
-    padding: 50px 50px;
-    background: #fff;
-    border-radius: 10px;
-  }
-  .center h1 {
-    font-size: 2em;
-    border-left: 5px solid dodgerblue;
-    padding: 10px;
-    color: #000;
-    letter-spacing: 5px;
-    margin-bottom: 60px;
-    font-weight: bold;
-    padding-left: 10px;
-  }
-  .center .inputbox {
-    position: relative;
-    width: 300px;
-    height: 50px;
-    margin-bottom: 50px;
-  }
-  .center .inputbox input {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    border: 2px solid #000;
-    outline: none;
-    background: none;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 1.2em;
-  }
-  .center .inputbox:last-child {
-    margin-bottom: 0;
-  }
-  .center .inputbox span {
-    position: absolute;
-    top: 14px;
-    left: 20px;
-    font-size: 1em;
-    transition: 0.6s;
-    font-family: sans-serif;
-  }
-  .center .inputbox input:focus ~ span,
-  .center .inputbox input:valid ~ span {
-    transform: translateX(-13px) translateY(-35px);
-    font-size: 1em;
-  }
-  .center .inputbox [type="button"] {
-    width: 50%;
-    background: dodgerblue;
-    color: #fff;
-    border: #fff;
-  }
-  .center .inputbox:hover [type="button"] {
-    background: linear-gradient(45deg, greenyellow, dodgerblue);
-  }
+.login-Register-Menu{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 26px;
+ list-style: none;
+ padding: 5px 11px;
+
+}
+.login{
+  font-size: 29px  ;
+  font-family:sans-serif ;
+
+}
+.register{
+  font-size: 29px  ;
+  font-family:sans-serif ;
+}
+.emailInput{
+  border-color: currentcolor currentcolor rgb(80, 87, 90);
+  color: rgb(166, 159, 147);
+  background-image: initial;
+  background-color: transparent;
+  border-style: none none solid;
+  margin:  0px 0px 20px;
+  width: 150px;
+  height: 40px;
+}
+.passwordInput{
+  border-color: currentcolor currentcolor rgb(80, 87, 90);
+  color: rgb(166, 159, 147);
+  background-image: initial;
+  background-color: transparent;
+  border-style: none none solid;
+  margin:  0px 0px 20px;
+  width: 150px;
+  height: 40px;
+}
+.loginButton{
+  border-color: rgb(60, 65, 67);
+  color: rgb(185, 179, 169);
+  border: 1px solid #d5d5d5;
+  display: inline-block;
+  font-size: 20px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 150px;
+}
