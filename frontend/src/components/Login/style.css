@@ -1,19 +1,25 @@
+.center{
+     background-image: initial;
+  ;
+}
 .login-Register-Menu{
   display: flex;
   justify-content: center;
   margin: 0 auto 26px;
  list-style: none;
  padding: 5px 11px;
+ margin-top: 80px;
 
 }
 .login{
-  font-size: 29px  ;
+  font-size: 35px  ;
   font-family:sans-serif ;
-
+margin-right:13px ;
 }
 .register{
-  font-size: 29px  ;
+  font-size: 35px  ;
   font-family:sans-serif ;
+  margin-left: 13px;
 }
 .emailInput{
   border-color: currentcolor currentcolor rgb(80, 87, 90);
@@ -22,8 +28,9 @@
   background-color: transparent;
   border-style: none none solid;
   margin:  0px 0px 20px;
-  width: 150px;
+  width: 300px;
   height: 40px;
+  margin-bottom: 20px;
 }
 .passwordInput{
   border-color: currentcolor currentcolor rgb(80, 87, 90);
@@ -32,8 +39,9 @@
   background-color: transparent;
   border-style: none none solid;
   margin:  0px 0px 20px;
-  width: 150px;
+  width: 300px;
   height: 40px;
+  margin-bottom: 20px;
 }
 .loginButton{
   border-color: rgb(60, 65, 67);
@@ -46,4 +54,8 @@
   text-align: center;
   text-transform: uppercase;
   width: 150px;
+  cursor: pointer;
+}
+button :hover{
+  color: rgb(236, 92, 92);
 }

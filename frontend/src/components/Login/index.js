@@ -58,7 +58,7 @@ const Login = () => {
         <ul className="login-Register-Menu">
           <li  className="login" onClick={()=>{
          navigate("/Login") 
-        }}> login  </li>
+        }}> Login  </li>
           <li className="register" onClick={()=>{
          navigate("/Register") 
         }}> Register  </li>
