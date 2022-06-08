@@ -77,11 +77,95 @@ const Home = () => {
     return (
       <>
         {catg1 &&
-          catg1.map((element) => {
+          catg1.slice(0, 8).map((element) => {
             return (
               <div class="card">
                 <div class="content">
-                  <div class="front">Front</div>
+                  <div class="front">
+                    <div className="imgContainer">
+                      <img src={element.productimage} />
+                    </div>
+                    <div className="Price-Title">
+                      <p>{element.title}</p>
+                      <p>{element.price}</p>
+                    </div>
+                  </div>
+                  <div class="back">Back!</div>
+                </div>
+              </div>
+            );
+          })}
+      </>
+    );
+  };
+  const Catg2 = () => {
+    return (
+      <>
+        {catg2 &&
+          catg2.slice(0, 8).map((element) => {
+            return (
+              <div class="card">
+                <div class="content">
+                  <div class="front">
+                    <div className="imgContainer">
+                      <img src={element.productImage} />
+                    </div>
+                    <div className="Price-Title">
+                      <p className="Title">{element.title}</p>
+                      <p className="Price">{element.price}$</p>
+                    </div>
+                  </div>
+                  <div class="back">Back!</div>
+                </div>
+              </div>
+            );
+          })}
+      </>
+    );
+  };
+  const Catg3 = () => {
+    return (
+      <>
+        {catg3 &&
+          catg3.slice(0, 8).map((element) => {
+            return (
+              <div class="card">
+                <div class="content">
+                  <div class="front">
+                    <div className="imgContainer">
+                      <img src={element.productImage} />
+                    </div>
+                    <div className="Price-Title">
+                      <p className="Title">{element.title}</p>
+                      <p className="Price">{element.price}$</p>
+                    </div>
+                  </div>
+                  <div class="back">Back!</div>
+                </div>
+              </div>
+            );
+          })}
+      </>
+    );
+  };
+
+  const Catg4 = () => {
+    return (
+      <>
+        {catg4 &&
+          catg4.slice(0, 8).map((element) => {
+            return (
+              <div class="card">
+                <div class="content">
+                  <div class="front">
+                    <div className="imgContainer">
+                      <img src={element.productImage} />
+                    </div>
+                    <div className="Price-Title">
+                      <p className="Title">{element.title}</p>
+                      <p className="Price">{element.price}$</p>
+                    </div>
+                  </div>
                   <div class="back">Back!</div>
                 </div>
               </div>
@@ -107,14 +191,14 @@ const Home = () => {
         Shop Now
       </span>
       <div className="HomeBtns">
-        <span>Catg1</span>
-        <span>Categ2</span>
-        <span>Catg3</span>
-        <span>Catg4</span>
+        <span className={isCatg1 ? "Active_HomeP" : ""}>Catg1</span>
+        <span className={isCatg2 ? "Active_HomeP" : ""}>Categ2</span>
+        <span className={isCatg3 ? "Active_HomeP" : ""}>Catg3</span>
+        <span className={isCatg4 ? "Active_HomeP" : ""}>Catg4</span>
       </div>
       {isCatg1 ? (
         <div className="Cards-Container">
-          <Catg1 />
+          <Catg2 />
         </div>
       ) : (
         ""
