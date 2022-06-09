@@ -5,6 +5,8 @@ import axios from "axios";
 import { setOneProduct } from "../../redux/reducers/products";
 import { useNavigate, useParams } from "react-router-dom";
 import Comment from "../Comments";
+import AddToCartButton from "../AddToCart";
+import AddToWishlistButton from "../addToWishlistButton";
 import Rate from "../Rate";
 const OneProduct = () => {
   const { id } = useParams();
@@ -52,6 +54,10 @@ const OneProduct = () => {
                       <p  className="price">{product.price}</p>
                       <p className="brandName1">{product.brandName}</p>{" "}
                     </div>
+                    <div className="Cart-Btns1">
+                        <AddToCartButton productId={product.id} />
+                        <AddToWishlistButton productId={product.id} />
+                      </div>
                     <div className="rate">
                       <Rate id={product.product_id} />{" "}
                   

@@ -22,25 +22,32 @@
 .details-Container{
     justify-content: start;
     align-items:flex-start;
+    margin-top: 6em;
 
 }
 .title1{
-    font-weight: bolder;
+    font-weight: 600;
+    font-size: 30px;
+    text-transform: capitalize;
+    color: #444
 }
 .category1{
-
+    color: #666;
+    font-size: 14px;
+    line-height: 26px;
 }
 .description1{
 
 }
 .price{
-    color:rgb(236, 92, 92)  
+    color: var(--btnsColor);
+    font-size: 30px; 
 }
 .brandName1{
 
 }
 .rate{
-    padding-top: 15em;
+    /* padding-top: 15em; */
 }
 .details_Rate{
     display: flex;
@@ -51,4 +58,9 @@
 .comment{
     display: flex;
     flex-direction: column; 
+}
+ .Cart-Btns1 svg{
+     margin-top: 2em;
+     color: var(--btnsColor);
+font-size: 28px;
 }
