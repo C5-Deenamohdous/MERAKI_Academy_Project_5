@@ -79,11 +79,12 @@ const ContactUs = () => {
             onRequestClose={() => setIsOpen(false)}
           >
             <div className="popUpContainer">
-         <p className="text1"><b>Thank you for getting in touch!</b><br/>*Please Check you Mail  </p> 
+              <div className="paragrapgh">
+         <p className="text1"><b>Thank you for getting in touch!</b>  <p>*Please Check you Mail </p></p>
       
-          <br/>
-          <br/>
-        <span className="imgGreen"> <BsCheckCircleFill/> </span>  </div>
+          </div>
+        <span className="imgGreen"> <BsCheckCircleFill/> </span>
+          </div>
           </Modal>
         </div>
       </form>
