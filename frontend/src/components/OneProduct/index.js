@@ -7,14 +7,14 @@ import { useNavigate, useParams } from "react-router-dom";
 import Comment from "../Comments";
 import Rate from "../Rate";
 const OneProduct = () => {
-
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
-  const { oneProduct } =useSelector((state) => {
+
+  const { oneProduct } = useSelector((state) => {
     return {
-      oneProduct:state.products.oneProduct,
+      oneProduct: state.products.oneProduct,
     };
   });
   const getOneProduct = () => {
@@ -34,27 +34,38 @@ const OneProduct = () => {
     getOneProduct();
   }, []);
   return (
-    <div>
+    <div className="container">
       {oneProduct &&
         oneProduct.map((product, i) => {
           return (
-            <div>
-              <div>
-                <img className="ONEproductImage" src={product.productImage} />
-              </div>
-              <div className="datails-Container">
-                <p>{product.title}</p>
-                <p>{product.categoryName}</p>
-                <p>{product.description}</p>
-                <p>{product.price}</p>
-                <p>{product.brandName}</p>
+            <>
+              <div className="container1"><div className="ONEproductImage">
+                  <img src={product.productImage} />
+                </div>
+               
+                
+                  <div className="details_Rate">
+                    <div className="details-Container">
+                      <p>{product.title}</p>
+                      <p>{product.categoryName}</p>
+                      <p>{product.description}</p>
+                      <p>{product.price}</p>
+                      <p>{product.brandName}</p>{" "}
+                    </div>
+                    <div className="rate">
+                      <Rate id={product.product_id} />{" "}
+                  
+                  </div>
+                </div>
 
+               
               </div>
-            </div>
+              <div className="comment">
+                <Comment id={product.product_id} />{" "}
+              </div>
+            </>
           );
         })}
-        <div><Comment id={id}/> </div>
-        <div><Rate id={id}/> </div>
     </div>
   );
 };
