@@ -1,7 +1,9 @@
 import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import Modal from "react-modal";
-import {  BsCheckCircleFill } from "react-icons/bs";
+import {  BsCheckCircleFill ,BsFillTelephoneFill } from "react-icons/bs";
+import { IoLocationSharp } from "react-icons/io5";
+import { RiMailUnreadFill } from "react-icons/ri";
 import "./style.css";
 const ContactUs = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,10 +28,12 @@ const ContactUs = () => {
       );
   };
 
-  return (
-    <div class="container">
-      <p className="text"> Contact us </p>
-      
+  return ( <>
+     <div className="text"> <p className="paragarph"> Contact us </p></div>
+   
+    
+     <div  className="container2">
+      <div className="formCon">
       <form className="form-row" ref={form} onSubmit={sendEmail}>
         <div>
           <label className="label"></label>
@@ -82,7 +86,23 @@ const ContactUs = () => {
           </Modal>
         </div>
       </form>
-    </div>
+      </div>
+      <div className="rightSide">
+<p className="locationIcon"><IoLocationSharp/> 
+<span></span>
+</p>
+<p className="phoneIcon"><BsFillTelephoneFill/> 
+<span></span>
+</p>
+<p className="mailIcon"><RiMailUnreadFill/>
+<span></span>
+ </p>
+
+      </div>
+      
+      </div>
+   
+    </>
   );
 };
 export default ContactUs;
