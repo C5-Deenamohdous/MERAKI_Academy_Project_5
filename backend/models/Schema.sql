@@ -7,8 +7,7 @@ CREATE TABLE roles (
     id INT AUTO_INCREMENT NOT NULL,
     role VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
- is_deleted TINYINT DEFAULT 0 
-
+    is_deleted TINYINT DEFAULT 0 
 );
 
 CREATE TABLE users(
@@ -20,7 +19,7 @@ CREATE TABLE users(
     phoneNumber VARCHAR(255) NOT NULL , 
     profileImage VARCHAR(255) NOT NULL , 
     role_id INT,
-    joinedDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+    joinedDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (role_id) REFERENCES roles(id),
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
@@ -68,7 +67,6 @@ CREATE TABLE products(
     price VARCHAR(255),
     quantity VARCHAR(255),
     category_id INT , 
-    -- company ,, id < ()
     FOREIGN KEY (category_id) REFERENCES categories(id),
     brand_id INT,
     FOREIGN KEY (brand_id) REFERENCES brands(id),
@@ -116,7 +114,7 @@ CREATE TABLE orders (
 id INT AUTO_INCREMENT NOT NULL, 
 user_id INT, 
 orderStatus TINYINT DEFAULT 0,
-orderDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+orderDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 is_deleted TINYINT DEFAULT 0,
 FOREIGN KEY (user_id) REFERENCES users(id),
 PRIMARY KEY (id)

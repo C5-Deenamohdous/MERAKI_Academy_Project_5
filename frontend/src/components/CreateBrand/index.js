@@ -85,7 +85,7 @@ const CreateBrand = () => {
   console.log(category);
   return (
     <>
-      <form>
+      <form className="CreateBrand">
         <br />
         <input
           type="text"

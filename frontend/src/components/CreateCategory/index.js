@@ -62,7 +62,7 @@ const CreateCategory = ()=>{
     return (
       <>
       {/* <Category/> */}
-        <form onSubmit={NewCategory
+        <form className="NewCategory" onSubmit={NewCategory
         
         // navigate(`/admin/create_brand/${result.data.result.insertId}`)
         }>
