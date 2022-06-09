@@ -140,7 +140,7 @@ const Home = () => {
                 <div class="content">
                   <div class="front">
                     <div className="imgContainer">
-                      <img src={element.productimage} />
+                      <img src={element.productImage} />
                     </div>
                     <div className="Price-Title">
                       <p>{element.title}</p>
@@ -150,8 +150,8 @@ const Home = () => {
                   <div class="back">
                     <div className="Flip">
                       <div className="Cart-Btns">
-                        <AddToCartButton productId={element.id} />
                         <AddToWishlistButton productId={element.id} />
+                        <AddToCartButton productId={element.id} />
                       </div>
                       <button className="Show-More">Show More</button>
                     </div>
