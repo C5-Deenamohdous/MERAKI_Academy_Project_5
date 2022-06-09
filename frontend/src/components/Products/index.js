@@ -6,8 +6,7 @@ import AddToCartButton from "../AddToCart";
 import AddToWishlistButton from "../addToWishlistButton";
 import { setProducts } from "../../redux/reducers/products";
 import { useNavigate } from "react-router-dom";
-import { setCart } from "../../redux/reducers/cart";
-import { setWishlist } from "../../redux/reducers/WishList";
+
 
 const Product = () => {
   const navigate = useNavigate();
@@ -17,7 +16,7 @@ const Product = () => {
   const [limit, setLimit] = useState(3);
   const [clickNext, setClickNext] = useState(false);
 
-  const { products, cart, token, Wishlist } = useSelector((state) => {
+  const { products, token } = useSelector((state) => {
     return {
       products: state.products.products,
       cart: state.cart.cart,
@@ -25,38 +24,7 @@ const Product = () => {
       token: state.auth.token,
     };
   });
-  const getProductInWishlist = () => {
-    axios
-      .get(`http://localhost:5000/Wishlist`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((result) => {
-        console.log(result, `WishlistFORUSER`);
-        dispatch(setWishlist(result.data.result));
-        // subTotalCalculate(result.data.result);
-      })
-      .catch((err) => {
-        console.log(err, `ERROR IN USER Wishlist`);
-      });
-  };
-
-  const getProductInCart = () => {
-    axios
-      .get(`http://localhost:5000/cart`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((result) => {
-        console.log(result, `CARTFORUSER`);
-        dispatch(setCart(result.data.result));
-      })
-      .catch((err) => {
-        console.log(err, `ERROR IN USER CART`);
-      });
-  };
+ 
   const getAllProducts = async () => {
     axios
       .get(`http://localhost:5000/product/?page=1&limit=15`)
@@ -83,8 +51,6 @@ const Product = () => {
   };
   useEffect(() => {
     getAllProducts();
-    getProductInCart();
-    getProductInWishlist();
   }, []);
 
   return (

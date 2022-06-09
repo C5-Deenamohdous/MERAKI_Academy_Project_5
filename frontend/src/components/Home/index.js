@@ -1,12 +1,24 @@
 import "./style.css";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import Category from "../Category";
-// import Brand from "../Brand";
 import axios from "axios";
 import SimpleImageSlider from "react-simple-image-slider";
+import AddToCartButton from "../AddToCart";
+import AddToWishlistButton from "../addToWishlistButton";
+
+import { setCart } from "../../redux/reducers/cart";
+import { setWishlist } from "../../redux/reducers/WishList";
+import { useSelector, useDispatch } from "react-redux";
 
 const Home = () => {
+  const dispatch = useDispatch();
+
+  const { token } = useSelector((state) => {
+    return {
+      token: state.auth.token,
+    };
+  });
+
   const images = [
     {
       url: "https://www.pngall.com/wp-content/uploads/1/Electronic-High-Quality-PNG.png",
@@ -76,11 +88,46 @@ const Home = () => {
       });
   };
 
+  const getProductInWishlist = () => {
+    axios
+      .get(`http://localhost:5000/Wishlist`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((result) => {
+        console.log(result, `WishlistFORUSER`);
+        dispatch(setWishlist(result.data.result));
+        // subTotalCalculate(result.data.result);
+      })
+      .catch((err) => {
+        console.log(err, `ERROR IN USER Wishlist`);
+      });
+  };
+
+  const getProductInCart = () => {
+    axios
+      .get(`http://localhost:5000/cart`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((result) => {
+        console.log(result, `CARTFORUSER`);
+        dispatch(setCart(result.data.result));
+      })
+      .catch((err) => {
+        console.log(err, `ERROR IN USER CART`);
+      });
+  };
+
   useEffect(() => {
     getCatg1();
     getCatg2();
     getCatg3();
     getCatg4();
+    getProductInCart();
+    getProductInWishlist();
   }, []);
 
   const Catg1 = () => {
@@ -100,7 +147,15 @@ const Home = () => {
                       <p>{element.price}</p>
                     </div>
                   </div>
-                  <div class="back">Back!</div>
+                  <div class="back">
+                    <div className="Flip">
+                      <div className="Cart-Btns">
+                        <AddToCartButton productId={element.id} />
+                        <AddToWishlistButton productId={element.id} />
+                      </div>
+                      <button className="Show-More">Show More</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             );
@@ -196,7 +251,7 @@ const Home = () => {
           showBullets={true}
           showNavs={true}
           slideDuration={1}
-          autoPlayDelay	={7}
+          autoPlayDelay={7}
           navStyle={2}
           bgColor={"#f3f3f5"}
           autoPlay={true}

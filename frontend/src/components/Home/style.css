@@ -72,7 +72,7 @@
 
 .card:hover .content {
   transform: rotateY(180deg);
-  transition: transform 0.8s;
+  transition: transform 1.5s;
 }
 
 .front {
@@ -138,4 +138,31 @@
   left: 0 !important;
 }
 .Slider .rsis-image {
+}
+.back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back .Flip .Show-More {
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.Flip .Cart-Btns {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-left: 0px;
+  display: flex;
+  gap: 5px;
+  font-size: 22px;
+  color: var(--btnsColor);
+}
+
+.Flip .Cart-Btns span {
+  cursor: pointer;
 }

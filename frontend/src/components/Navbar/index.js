@@ -38,7 +38,7 @@ const NavBar = () => {
             <p
               className="Home"
               onClick={() => {
-                navigate("/Product");
+                navigate("/");
               }}
             >
               Home
