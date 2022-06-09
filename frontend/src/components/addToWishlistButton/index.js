@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { addToWishlist,removeFromWishlist } from "../../redux/reducers/WishList";
-import { AiOutlineStar } from "react-icons/ai";
+import { AiFillStar , AiOutlineStar } from "react-icons/ai";
 
 
 const AddToWishlistButton = ({ productId }) => {
@@ -53,21 +53,21 @@ const AddToWishlistButton = ({ productId }) => {
   return (
     <>
       {productInWishlist.includes(productId) ? (
-        <button
+        <span
           onClick={() => {
             deleteFromWishlist(productId);
           }}
         >
-          Remove Wishlist
-        </button>
+          <AiFillStar />
+        </span>
       ) : (
-        <button
+        <span
           onClick={() => {
             AddToWishlist(productId);
           }}
         >
-          Wishlist
-        </button>
+          <AiOutlineStar />
+        </span>
       )}
     </>
   );
