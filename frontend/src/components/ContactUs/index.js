@@ -29,7 +29,8 @@ const ContactUs = () => {
   };
 
   return ( <>
-     <div className="text"> <p className="paragarph"> Contact us </p></div>
+     <div className="text"> 
+     <span className="paragarph"> Contact  </span><span className="text3">US</span></div>
    
     
      <div  className="container2">
@@ -89,13 +90,13 @@ const ContactUs = () => {
       </div>
       <div className="rightSide">
 <p className="locationIcon"><IoLocationSharp/> 
-<span></span>
+<span className="info">Amman, Jordan</span>
 </p>
 <p className="phoneIcon"><BsFillTelephoneFill/> 
-<span></span>
+<span  className="info">0795366562</span>
 </p>
 <p className="mailIcon"><RiMailUnreadFill/>
-<span></span>
+<span  className="info">ADA_Store@gmail.com</span>
  </p>
 
       </div>

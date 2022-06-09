@@ -1,26 +1,16 @@
 
-.container{
-    display: flex;
-    /* flex-direction: column; */
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    /* margin-top: 3em; */
-    border: grey solid 1px;
-    width:40%;
-    /* margin-left: 25%; */
-    padding: 3%;
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
-}
+
 .container2{
-width: 100%;
+width: 70%;
 display: flex;
 /* align-items: center; */
 justify-content: center;
-margin: auto;
+
+gap:20%;
+ position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .formCon{
 /* width: 50%; */
@@ -36,17 +26,27 @@ justify-content: flex-end;
     margin-bottom: 1.5em;
   padding-bottom: 10px;
   width:100%;
-  color: #5e5e7c;
+  color: #5a5a6e;
  font-family: 'Oswald', sans-serif;
   text-align: center;
   font-size: 35px;
 display: flex;
 justify-content: center;
 align-items: center;
+border-bottom: 3px solid #78788c;
+margin: auto;
+width: fit-content;
+}
+.text3{
+ 
+  width: fit-content;
+  color:rgb(236, 92, 92);
+  margin-left: 5px;
 }
 .paragarph{
-  border-bottom: 3px solid #78788c;
+ 
   width: fit-content;
+
 }
 .input-data {
   border-color: currentcolor currentcolor rgb(80, 87, 90);
@@ -134,11 +134,24 @@ font-size: 50px;
       font-size: 20px;
   }
   .rightSide{
-    width: 50%;
+    width: 47%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items:flex-start;
   }
-  .locationIcon , .phoneIcon , .mailIcon{
+  .locationIcon , .phoneIcon , .mailIcon {
     line-height: 3;
-    color: rgb(102, 92, 92);
+    color:  #5e5e7c;
     font-size: 25px;
 
   }
+.rightSide .info{
+  margin-left: 10px;
+  margin-top: 10px;
+
+}
+.rightSide svg{
+  color:rgb(236, 92, 92);
+  margin-top: 15px;
+}
