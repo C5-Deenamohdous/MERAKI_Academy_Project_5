@@ -72,7 +72,12 @@ const ContactUs = () => {
             isOpen={isOpen}
             onRequestClose={() => setIsOpen(false)}
           >
-            thank you
+            <div className="popUpContainer">
+         <p className="text1">Thank you for getting in touch!<br/>Please Check you Mail  </p> 
+      
+          <br/>
+          <br/>
+          <img className="imgGreen" src="https://www.displaysense.co.uk/images/social-distancing-glow-in-the-dark-green-tick-sticker-85mm-p3755-14416_image.jpg"/></div>
           </Modal>
         </div>
       </form>
