@@ -4,7 +4,17 @@ import { useNavigate } from "react-router-dom";
 // import Category from "../Category";
 // import Brand from "../Brand";
 import axios from "axios";
+import SimpleImageSlider from "react-simple-image-slider";
+
 const Home = () => {
+  const images = [
+    {
+      url: "https://www.pngall.com/wp-content/uploads/1/Electronic-High-Quality-PNG.png",
+    },
+    {
+      url: "https://www.pngall.com/wp-content/uploads/1/Electronic-Download-PNG.png",
+    },
+  ];
   const [catg1, setCatg1] = useState("");
   const [catg2, setCatg2] = useState("");
   const [catg3, setCatg3] = useState("");
@@ -177,11 +187,26 @@ const Home = () => {
 
   return (
     <>
-      <div className="Header-Photo">
+      <div className="Slider">
+        <SimpleImageSlider
+          style={{ width: "80%" }}
+          width={"100%"}
+          height={"90vh"}
+          images={images}
+          showBullets={true}
+          showNavs={true}
+          slideDuration={1}
+          autoPlayDelay	={7}
+          navStyle={2}
+          bgColor={"#f3f3f5"}
+          autoPlay={true}
+        />
+      </div>
+      {/* <div className="Header-Photo">
         <div className="Image-H">
           <img src="https://www.pngall.com/wp-content/uploads/2016/05/Laptop-Free-Download-PNG.png" />
         </div>
-      </div>
+      </div> */}
       <span
         className="shopNowButton"
         onClick={() => {
