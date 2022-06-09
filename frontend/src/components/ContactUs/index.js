@@ -1,7 +1,11 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
+import Modal from "react-modal";
+
 import "./style.css";
 const ContactUs = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const form = useRef();
   const sendEmail = (e) => {
     e.preventDefault();
@@ -28,15 +32,48 @@ const ContactUs = () => {
       <form className="form-row" ref={form} onSubmit={sendEmail}>
         <div>
           <label className="label"></label>
-          <input placeholder="Name" className="input-data" type="text" name="user_name" />
+          <input
+            placeholder="Name"
+            className="input-data"
+            type="text"
+            name="user_name"
+          />
           <br />
-         
-          <input placeholder="Email" className="input-data" type="email" name="user_email" />
+
+          <input
+            placeholder="Email"
+            className="input-data"
+            type="email"
+            name="user_email"
+          />
           <br />
-          
-          <input placeholder="Message" className="input-data-textarea" name="message" />
+
+          <input
+            placeholder="Message"
+            className="input-data-textarea"
+            name="message"
+          />
           <br />
-          <input className="buttonSend" type="submit" value="Send" />{" "}
+
+          <input
+            className="buttonSend"
+            type="submit"
+            value="Send"
+            onClick={() => {
+              setIsOpen(true);
+              setTimeout(() => {
+                setIsOpen(false);
+              }, 2000);
+            }}
+          />
+          <Modal
+            ariaHideApp={false}
+            className={"popUp"}
+            isOpen={isOpen}
+            onRequestClose={() => setIsOpen(false)}
+          >
+            thank you
+          </Modal>
         </div>
       </form>
     </div>
