@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import Modal from "react-modal";
-
+import {  BsCheckCircleFill } from "react-icons/bs";
 import "./style.css";
 const ContactUs = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -78,7 +78,7 @@ const ContactUs = () => {
       
           <br/>
           <br/>
-          <img className="imgGreen" src="https://www.displaysense.co.uk/images/social-distancing-glow-in-the-dark-green-tick-sticker-85mm-p3755-14416_image.jpg"/></div>
+        <span className="imgGreen"> <BsCheckCircleFill/> </span>  </div>
           </Modal>
         </div>
       </form>
