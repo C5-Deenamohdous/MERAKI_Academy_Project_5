@@ -1,11 +1,9 @@
 import "./style.css";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import Category from "../Category";
-// import Brand from "../Brand";
 import axios from "axios";
 import SimpleImageSlider from "react-simple-image-slider";
-
+import AddToCartButton from "../AddToCart";
 const Home = () => {
   const images = [
     {
@@ -100,7 +98,15 @@ const Home = () => {
                       <p>{element.price}</p>
                     </div>
                   </div>
-                  <div class="back">Back!</div>
+                  <div class="back">
+                    <div className="Flip">
+                      <div className="Cart-Btns">
+                        <AddToCartButton productId={element.id} />
+                        <span>{/* <AiOutlineStar /> */}</span>
+                      </div>
+                      <button className="Show-More">Show More</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             );
@@ -196,7 +202,7 @@ const Home = () => {
           showBullets={true}
           showNavs={true}
           slideDuration={1}
-          autoPlayDelay	={7}
+          autoPlayDelay={7}
           navStyle={2}
           bgColor={"#f3f3f5"}
           autoPlay={true}

@@ -52,7 +52,7 @@ const App = () => {
         <Route path="/Wishlist" element={<WishlistSection />} />
         <Route path="/ChatRoom" element={<ChatRoom />} />
         <Route path="/contactUs" element={<ContactUs />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         {/* All Admin Routes */}
 
         <Route path="/admin/products" element={<AdminProducts />} />
