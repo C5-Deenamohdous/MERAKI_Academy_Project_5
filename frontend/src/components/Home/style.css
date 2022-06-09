@@ -72,7 +72,7 @@
 
 .card:hover .content {
   transform: rotateY(180deg);
-  transition: transform 0.8s;
+  transition: transform 1.5s;
 }
 
 .front {

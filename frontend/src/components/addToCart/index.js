@@ -3,7 +3,6 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "../../redux/reducers/cart";
 import { BsFillCartPlusFill, BsFillCartDashFill } from "react-icons/bs";
-// import { AiOutlineStar } from "react-icons/ai";
 
 const AddToCartButton = ({ productId }) => {
   const dispatch = useDispatch();

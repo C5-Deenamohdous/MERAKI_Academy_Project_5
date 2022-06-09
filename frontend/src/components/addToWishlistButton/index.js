@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { addToWishlist,removeFromWishlist } from "../../redux/reducers/WishList";
+import { AiOutlineStar } from "react-icons/ai";
+
 
 const AddToWishlistButton = ({ productId }) => {
   const dispatch = useDispatch();
