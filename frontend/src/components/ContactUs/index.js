@@ -1,7 +1,9 @@
 import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import Modal from "react-modal";
-
+import {  BsCheckCircleFill ,BsFillTelephoneFill } from "react-icons/bs";
+import { IoLocationSharp } from "react-icons/io5";
+import { RiMailUnreadFill } from "react-icons/ri";
 import "./style.css";
 const ContactUs = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,10 +28,13 @@ const ContactUs = () => {
       );
   };
 
-  return (
-    <div class="container">
-      <p className="text"> Contact us </p>
-      
+  return ( <>
+     <div className="text"> 
+     <span className="paragarph"> Contact  </span><span className="text3">US</span></div>
+   
+    
+     <div  className="container2">
+      <div className="formCon">
       <form className="form-row" ref={form} onSubmit={sendEmail}>
         <div>
           <label className="label"></label>
@@ -78,11 +83,27 @@ const ContactUs = () => {
       
           <br/>
           <br/>
-          <img className="imgGreen" src="https://www.displaysense.co.uk/images/social-distancing-glow-in-the-dark-green-tick-sticker-85mm-p3755-14416_image.jpg"/></div>
+        <span className="imgGreen"> <BsCheckCircleFill/> </span>  </div>
           </Modal>
         </div>
       </form>
-    </div>
+      </div>
+      <div className="rightSide">
+<p className="locationIcon"><IoLocationSharp/> 
+<span className="info">Amman, Jordan</span>
+</p>
+<p className="phoneIcon"><BsFillTelephoneFill/> 
+<span  className="info">0795366562</span>
+</p>
+<p className="mailIcon"><RiMailUnreadFill/>
+<span  className="info">ADA_Store@gmail.com</span>
+ </p>
+
+      </div>
+      
+      </div>
+   
+    </>
   );
 };
 export default ContactUs;

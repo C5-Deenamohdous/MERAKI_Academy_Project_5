@@ -58,41 +58,31 @@ const Product = () => {
       <div className="Container">
         <div className="row-Container">
           {products &&
-            products.map((products, i) => {
+            products.map((element, i) => {
               return (
                 <>
-                <div class="card">
+                   <div class="card">
                 <div class="content">
-                <div class="front">
-                
-  <div className="image-Container">
-                      <img
-                        // onClick={() => {
-                        //   navigate(`/OneProduct/${products.id}`);
-                        // }}
-                        className="productImage"
-                        src={products.productImage}
-                      />
+                  <div class="front">
+                    <div className="imgContainer">
+                      <img src={element.productImage} />
                     </div>
-                   <div className="datails-Container">
-                      <p>{products.title}</p>
-                      {/* <p>{products.categoryName}</p> */}
-                      {/* <p>{products.description}</p> */}
-                      <p>{products.price}</p>
-                      {/* <p>{products.brandName}</p> */}
-                    </div> 
-                   
-                    
+                    <div className="Price-Title">
+                      <p>{element.title}</p>
+                      <p>{element.price}</p>
+                    </div>
+                  </div>
+                  <div class="back">
+                    <div className="Flip">
+                      <div className="Cart-Btns">
+                        <AddToCartButton productId={element.id} />
+                        <AddToWishlistButton productId={element.id} />
+                      </div>
+                      <button className="Show-More">Show More</button>
+                    </div>
+                  </div>
                 </div>
-                <div class="back">
-                  <button>Shop Now</button>
-                   {/* <div key={i} className="product-box">
-                    <AddToCartButton productId={products.id} />
-                    <AddToWishlistButton productId={products.id} /> */}
-                     {/* </div> */}
-                </div>
-                </div>
-                </div>
+              </div>
                 </>
               );
             })}
