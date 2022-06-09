@@ -95,27 +95,38 @@ const Product = () => {
             products.map((products, i) => {
               return (
                 <>
-                  <div key={i} className="product-box">
-                    <AddToCartButton productId={products.id} />
-                    <AddToWishlistButton productId={products.id} />
-
-                    <div className="image-Container">
+                <div class="card">
+                <div class="content">
+                <div class="front">
+                
+  <div className="image-Container">
                       <img
-                        onClick={() => {
-                          navigate(`/OneProduct/${products.id}`);
-                        }}
+                        // onClick={() => {
+                        //   navigate(`/OneProduct/${products.id}`);
+                        // }}
                         className="productImage"
                         src={products.productImage}
                       />
                     </div>
-                    <div className="datails-Container">
+                   <div className="datails-Container">
                       <p>{products.title}</p>
-                      <p>{products.categoryName}</p>
-                      <p>{products.description}</p>
+                      {/* <p>{products.categoryName}</p> */}
+                      {/* <p>{products.description}</p> */}
                       <p>{products.price}</p>
-                      <p>{products.brandName}</p>
-                    </div>
-                  </div>
+                      {/* <p>{products.brandName}</p> */}
+                    </div> 
+                   
+                    
+                </div>
+                <div class="back">
+                  <button>Shop Now</button>
+                   {/* <div key={i} className="product-box">
+                    <AddToCartButton productId={products.id} />
+                    <AddToWishlistButton productId={products.id} /> */}
+                     {/* </div> */}
+                </div>
+                </div>
+                </div>
                 </>
               );
             })}

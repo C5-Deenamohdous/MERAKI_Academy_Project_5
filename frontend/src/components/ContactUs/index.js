@@ -29,6 +29,7 @@ const ContactUs = () => {
   return (
     <div class="container">
       <p className="text"> Contact us </p>
+      
       <form className="form-row" ref={form} onSubmit={sendEmail}>
         <div>
           <label className="label"></label>
@@ -73,7 +74,7 @@ const ContactUs = () => {
             onRequestClose={() => setIsOpen(false)}
           >
             <div className="popUpContainer">
-         <p className="text1">Thank you for getting in touch!<br/>Please Check you Mail  </p> 
+         <p className="text1"><b>Thank you for getting in touch!</b><br/>*Please Check you Mail  </p> 
       
           <br/>
           <br/>
