@@ -42,8 +42,8 @@ const LoginGoogle = () => {
     console.log("login failed  :", res);
   };
   return (
-    <div>
-      <GoogleLogin
+    <div className="main">
+      <GoogleLogin className="googleLogin"
         clientId={clientId}
         buttonText="Login"
         onSuccess={onSuccess}

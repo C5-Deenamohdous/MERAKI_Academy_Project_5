@@ -8,20 +8,24 @@
   margin: 0 auto 26px;
  list-style: none;
  padding: 5px 11px;
- margin-top: 80px;
+ margin-top: 45px;
 
+}
+.loginInRegister{
+  font-size: 35px  ;
+  font-family:sans-serif ;
+margin-right:15px ;
+color: black;
+cursor: pointer;
 }
 .login{
   font-size: 35px  ;
   font-family:sans-serif ;
-margin-right:13px ;
+margin-right:15px ;
 color: rgb(210, 81, 73);
+cursor: pointer;
 }
-.register{
-  font-size: 35px  ;
-  font-family:sans-serif ;
-  margin-left: 13px;
-}
+
 .emailInput{
   border-color: currentcolor currentcolor rgb(80, 87, 90);
   color: rgb(166, 159, 147);

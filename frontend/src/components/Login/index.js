@@ -21,6 +21,7 @@ const Login = () => {
   const [message, setMessage] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState(false);
+  const[isClick,setIsClick]=useState(false)
 
   const login = async (e) => {
     e.preventDefault();
@@ -55,15 +56,16 @@ const Login = () => {
   return (
     <>
       <div className="center">
+      {!isClick  ?
         <ul className="login-Register-Menu">
           <li  className="login" onClick={()=>{
          navigate("/Login") 
         }}> Login  </li>
-          <li className="register" onClick={()=>{
+          <li className="loginInRegister" onClick={()=>{
          navigate("/Register") 
         }}> Register  </li>
         </ul>
-       
+          : ""  }
        
           <br />
 

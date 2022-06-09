@@ -64,15 +64,20 @@ const Register = () => {
                     <>
                        
                         <center >
+                            {!isClick  ? 
+<>
                         <ul className="login-Register-MenuRegister">
 
-          <li  className="login" onClick={()=>{
+          <li  className="registerInLogin" onClick={()=>{
          navigate("/Login") 
         }}> Login  </li>
           <li className="register" onClick={()=>{
          navigate("/Register") 
         }}> Register  </li>
-        </ul>
+        </ul> 
+        </>
+       : ""  }
+       
                             <div className="inputbox">
                                 <input  className="firstNameInput"
                                 placeholder=" First Name"

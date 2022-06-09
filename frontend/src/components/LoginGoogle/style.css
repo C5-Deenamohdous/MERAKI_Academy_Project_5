@@ -1,0 +1,15 @@
+.googleLogin{
+margin-top:2%;
+    border-color: rgb(60, 65, 67);
+
+  line-height: 50px;  
+  border-color: rgb(60, 65, 67);
+  width: 150px;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  display: inline-block;
+  border: 1px solid #d5d5d5;
+  color: rgb(185, 179, 169);
+background-color: gray;
+}
