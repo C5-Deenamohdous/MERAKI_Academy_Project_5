@@ -46,11 +46,11 @@ const OneProduct = () => {
                 
                   <div className="details_Rate">
                     <div className="details-Container">
-                      <p>{product.title}</p>
-                      <p>{product.categoryName}</p>
-                      <p>{product.description}</p>
-                      <p>{product.price}</p>
-                      <p>{product.brandName}</p>{" "}
+                      <p className="title1">{product.title}</p>
+                      <p className="category1">{product.categoryName}</p>
+                      <p className="description1">{product.description}</p>
+                      <p  className="price">{product.price}</p>
+                      <p className="brandName1">{product.brandName}</p>{" "}
                     </div>
                     <div className="rate">
                       <Rate id={product.product_id} />{" "}

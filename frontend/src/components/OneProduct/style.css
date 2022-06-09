@@ -19,8 +19,29 @@
     height: 100%;
 
 }
+.details-Container{
+    justify-content: start;
+    align-items:flex-start;
 
+}
+.title1{
+    font-weight: bolder;
+}
+.category1{
 
+}
+.description1{
+
+}
+.price{
+    color:rgb(236, 92, 92)  
+}
+.brandName1{
+
+}
+.rate{
+    padding-top: 15em;
+}
 .details_Rate{
     display: flex;
      flex-direction: column; 
