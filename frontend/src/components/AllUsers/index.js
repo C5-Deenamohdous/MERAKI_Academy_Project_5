@@ -34,7 +34,7 @@ const UsersControlPanel = () => {
     <div className="Center-Container">
       <div className="UsersInControlPanel">
         {allUsers &&
-          allUsers.map((element) => {
+          allUsers.map((element,i) => {
             return (
               <div
                 onClick={() => {
@@ -42,11 +42,13 @@ const UsersControlPanel = () => {
                 }}
               >
                 <div>
+                <span>{i+1}  </span>
                   User Name : {`${element.firstName} ` + ` ${element.lastName}`}
                 </div>
                 <div> User email :{element.email}</div>
                 <div> ----------------------</div>
               </div>
+              
             );
           })}
       </div>
