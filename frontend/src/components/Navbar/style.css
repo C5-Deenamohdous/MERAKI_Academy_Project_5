@@ -1,4 +1,6 @@
 /* Style the header with a grey background and some padding */
+@import url("https://fonts.googleapis.com/css2?family=Cabin:ital@0;1&display=swap");
+
 .NavBar {
   height: 12vh;
   width: 100%;
@@ -12,38 +14,77 @@
   color: var(--subColor);
 }
 
+.SEARCH-Container input {
+  padding: 10px;
+  border-color: none;
+  border: none;
+  border-radius: 15px;
+  border: -0.7px solid;
+  border: 0.1px solid #dcd9d9;
+  outline-color: #dcd9d9;
+  font-size: 16px;
+  color: var(--BlackColor);
+  outline-style: none;
+  padding-left: 15px;
+}
 
+.SEARCH-Container {
+  position: relative;
+}
+.SEARCH-Container .SEARCH-ICON {
+  position: absolute;
+  top: 20%;
+  right: 5%;
+}
+
+.SEARCH-Container .SEARCH-ICON svg {
+  font-size: 20px;
+}
 
 .LOGO {
   display: flex;
   align-items: center;
-  width: 30%;
+  width: 25%;
   justify-content: flex-start;
   padding-top: 10px;
+  font-family: "Cabin", sans-serif;
+}
 
+.LOGO .LOGOTEST {
+  font-size: 45px;
+  color: var(--BlackColor);
+  font-weight: 600;
+  text-shadow: 3px 4px 2px var(--subColor);
+}
+
+.LOGO .ICON {
+  margin-top: 5px;
+}
+.LOGO .ICON svg {
+  font-size: 50px;
 }
 
 .CENTER-NAV {
   display: flex;
   align-items: center;
-  width: 40%;
-  justify-content: space-between;
+  width: 55%;
+  justify-content: space-evenly;
   padding-top: 10px;
 }
 
-.RIGT-NAV span:hover ,.CENTER-NAV span:hover { 
+.RIGT-NAV span:hover,
+.CENTER-NAV span:hover {
   color: var(--btnsColor);
   transition: 0.3s;
 }
 
 .RIGT-NAV {
   display: flex;
-  width: 30%;
+  width: 20%;
   align-items: center;
   justify-content: flex-end;
-  gap: 5%;
+  gap: 10%;
   padding-top: 10px;
-
 }
 
 .NavBar span {
@@ -108,4 +149,18 @@
   top: -65%;
   text-align: center;
   font-size: 15px;
+}
+
+.Catg-IconCont {
+  display: flex;
+}
+
+.Catg-IconCont:hover {
+  color: var(--btnsColor);
+}
+.DropIcon {
+  margin-top: 4px;
+}
+.Catg-IconCont .DropIcon span svg {
+  font-size: 17px;
 }
