@@ -78,7 +78,9 @@ const Product = () => {
                         <AddToCartButton productId={element.id} />
                         <AddToWishlistButton productId={element.id} />
                       </div>
-                      <button className="Show-More">Show More</button>
+                      <button onClick={()=>{
+                        navigate(`/oneProduct/${element.id}`)
+                      }} className="Show-More">Show More</button>
                     </div>
                   </div>
                 </div>

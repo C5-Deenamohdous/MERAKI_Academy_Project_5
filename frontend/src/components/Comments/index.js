@@ -2,23 +2,29 @@ import React, { useContext, useEffect, useState } from "react";
 import "./style.css";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-import { setComment, deleteComments,updateComments,addComments } from "../../redux/reducers/comments";
+import {
+  setComment,
+  deleteComments,
+  updateComments,
+  addComments,
+} from "../../redux/reducers/comments";
 import { useNavigate, useParams } from "react-router-dom";
-
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { BiEdit } from "react-icons/bi";
 
 const Comment = ({ id }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { comment ,token} = useSelector((state) => {
+  const { comment, token } = useSelector((state) => {
     return {
       comment: state.comment.comment,
-      token:state.auth.token
+      token: state.auth.token,
     };
   });
   const [message, setMessage] = useState("");
-const [newComment, setNewComment] = useState("");
-const [addComment, setAddComment] = useState("")
-const [click, setClick] = useState(false)
+  const [newComment, setNewComment] = useState("");
+  const [addComment, setAddComment] = useState("");
+  const [click, setClick] = useState(false);
   const getCommentById = () => {
     axios
       .get(`http://localhost:5000/comment/${id}`)
@@ -33,13 +39,12 @@ const [click, setClick] = useState(false)
       });
   };
   const deleteComment = (commentId) => {
-      console.log(commentId,"PPPPPPPPPpP");
+    console.log(commentId, "PPPPPPPPPpP");
     axios
-      .delete(`http://localhost:5000/comment/${commentId}`,{
+      .delete(`http://localhost:5000/comment/${commentId}`, {
         headers: {
-            Authorization: `Bearer ${token}`,
-          },
-  
+          Authorization: `Bearer ${token}`,
+        },
       })
       .then((result) => {
         dispatch(deleteComments(commentId));
@@ -50,104 +55,131 @@ const [click, setClick] = useState(false)
         setMessage(err.response.data.message);
       });
   };
-  const updateComment = (commentId) =>{
-axios.put(`http://localhost:5000/comment/${commentId}`,{
-comment:newComment
-},
-{
-    headers: {
-        Authorization: `Bearer ${token}`,
-      },
-
-  })
-  .then((result) => {
-      console.log(result,"ooooooooo");
-    dispatch(updateComments({commentId:commentId,comment:newComment}));
-    setMessage(" Comment is updated");
-  })
-  .catch((err) => {
-    console.log(err);
-    setMessage(err.response.data.message);
-  });
-
+  const updateComment = (commentId) => {
+    axios
+      .put(
+        `http://localhost:5000/comment/${commentId}`,
+        {
+          comment: newComment,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((result) => {
+        console.log(result, "ooooooooo");
+        dispatch(updateComments({ commentId: commentId, comment: newComment }));
+        setMessage(" Comment is updated");
+      })
+      .catch((err) => {
+        console.log(err);
+        setMessage(err.response.data.message);
+      });
   };
-const createComment = () =>{
-        axios
-          .post(
-            `http://localhost:5000/comment/${id}`,
-            {
-              comment:addComment,
-            },
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          )
-          .then((result) => {
-            console.log(result,"oooooooooo");
-            dispatch(addComments({
-                comment:addComment,id:result.data.insertId,
-              firstName:result.data.result[0].firstName,
-              lastName:result.data.result[0].lastName,
-              profileImage:result.data.result[0].profileImage
-            }))
-            
-        })
-          .catch((err) => {
-            setMessage(err.response.data.message);
-          });
-     
-}
+  const createComment = () => {
+    axios
+      .post(
+        `http://localhost:5000/comment/${id}`,
+        {
+          comment: addComment,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((result) => {
+        console.log(result, "oooooooooo");
+        dispatch(
+          addComments({
+            comment: addComment,
+            id: result.data.insertId,
+            firstName: result.data.result[0].firstName,
+            lastName: result.data.result[0].lastName,
+            profileImage: result.data.result[0].profileImage,
+          })
+        );
+      })
+      .catch((err) => {
+        setMessage(err.response.data.message);
+      });
+  };
   useEffect(() => {
     getCommentById();
   }, []);
   console.log(comment, "{{{{{{{");
   return (
-    <div className="Container">
-      <div className="row-Container">
-          <input type={"textArea"} placeholder="write yor comment..." onChange={(e)=>{setAddComment( e.target.value) }}/>
-             <button onClick={()=>{
-                 createComment();
-             }}>Add </button>
-        
-        {comment &&
-          comment.map((comment, i) => {
-            return (
-              <div key={i} className="comment">
-                <p>{comment.firstName}</p>
-                <p>{comment.lastName}</p>
-                <p>{comment.profileImage}</p>
-                <p>{comment.comment}</p>
+    <div className="comments-Container">
+      <div className="row-Container1">
+        <input
+          className="inputComment"
+          type={"textArea"}
+          placeholder="write yor comment..."
+          onChange={(e) => {
+            setAddComment(e.target.value);
+          }}
+        />
+        <button
+          className="addButton"
+          onClick={() => {
+            createComment();
+          }}
+        >
+          Add Comment
+        </button>
+      </div>
+      {comment &&
+        comment.map((comment, i) => {
+          return (
+            <div key={i} className="oneComment">
+              <p className="publisherImg">{comment.profileImage}</p>
+
+              <div className="Container">
+                <div className="displayName">
+                  <p>
+                    {comment.firstName}
+                    {comment.lastName} :
+                  </p>
+                </div>
+                <div className="commentBody">
+                  <p>{comment.comment}</p>
+                </div>
+              </div>
+              <div className="deleteUpdateButton">
                 <p
+                  className="deleteIcon"
                   onClick={() => {
                     deleteComment(comment.id);
                   }}
                 >
-                  Delete
+                  <RiDeleteBin6Line />
                 </p>
-                {/* { click ?  */}
-                
-                <p
-                  onClick={() => {
-                    updateComment(comment.id);
 
+              
+                  <p
+                    className="updateIcon"
+                    onClick={() => {
+                      updateComment(comment.id);
+                      setClick(true);
+                    }}
+                  >
+                    <BiEdit />
+                  </p>
+              
+
+                <input
+                  defaultValue={comment.comment}
+                  onChange={(e) => {
+                    setNewComment(e.target.value);
                   }}
-                >
-                  update
-                </p>
-            {/* // : "" } */}
-                    <input
-                      defaultValue={comment.comment}
-                      onChange={(e) => {
-                        setNewComment(e.target.value);
-                      }}
-                    />
-
+                />
               </div>
-            );
-          })}
-      </div>
+            </div>
+          );
+        })}
     </div>
   );
 };

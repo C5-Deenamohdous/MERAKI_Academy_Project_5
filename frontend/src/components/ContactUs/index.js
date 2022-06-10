@@ -13,16 +13,17 @@ const ContactUs = () => {
     e.preventDefault();
     emailjs
       .sendForm(
-        "service_1h0nflc",
-        "template_0oc8ifp",
+        "service_gtvema5",
+        "template_bpti47e",
         form.current,
-        "4qjKDmecaKgSq4X7L"
+        "yGuRes5s4gLmRVQhc"
       )
       .then(
         (result) => {
           console.log(result.text);
         },
         (error) => {
+
           console.log(error.text);
         }
       );
@@ -37,7 +38,7 @@ const ContactUs = () => {
       <div className="formCon">
       <form className="form-row" ref={form} onSubmit={sendEmail}>
         <div>
-          <label className="label"></label>
+          
           <input
             placeholder="Name"
             className="input-data"
@@ -45,7 +46,7 @@ const ContactUs = () => {
             name="user_name"
           />
           <br />
-
+         
           <input
             placeholder="Email"
             className="input-data"
@@ -53,14 +54,14 @@ const ContactUs = () => {
             name="user_email"
           />
           <br />
-
+          
           <input
             placeholder="Message"
             className="input-data-textarea"
             name="message"
           />
           <br />
-
+<label></label>
           <input
             className="buttonSend"
             type="submit"
@@ -72,20 +73,7 @@ const ContactUs = () => {
               }, 2000);
             }}
           />
-          <Modal
-            ariaHideApp={false}
-            className={"popUp"}
-            isOpen={isOpen}
-            onRequestClose={() => setIsOpen(false)}
-          >
-            <div className="popUpContainer">
-              <div className="paragrapgh">
-         <p className="text1"><b>Thank you for getting in touch!</b>  <p>*Please Check you Mail </p></p>
-      
-          </div>
-        <span className="imgGreen"> <BsCheckCircleFill/> </span>
-          </div>
-          </Modal>
+    
         </div>
       </form>
       </div>
@@ -103,8 +91,22 @@ const ContactUs = () => {
       </div>
       
       </div>
-   
+      <Modal
+  ariaHideApp={false}
+  className={"popUp"}
+  isOpen={isOpen}
+  onRequestClose={() => setIsOpen(false)}
+>
+  <div className="popUpContainer">
+    <div className="paragrapgh">
+<p className="text1"><b>Thank you for getting in touch!</b>  <p>*Please Check you Mail </p></p>
+
+</div>
+<span className="imgGreen"> <BsCheckCircleFill/> </span>
+</div>
+</Modal>
     </>
+
   );
 };
 export default ContactUs;
