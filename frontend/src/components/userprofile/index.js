@@ -7,6 +7,7 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import Cloud from "../Cloud";
+import Modal from "react-modal";
 import "./style.css";
 import {
   setuserProfile,
@@ -28,6 +29,7 @@ const UserProfile = () => {
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
   const [url, setUrl] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
   const getUserById = () => {
     axios
@@ -128,6 +130,10 @@ const UserProfile = () => {
                     <button
                       className="updateButton"
                       onClick={() => {
+                        setIsOpen(true);
+                        setTimeout(() => {
+                          setIsOpen(false);
+                        }, 2000);
                         setIsClicked(true);
                         {
                           setFirstName(user.firstName);
@@ -158,26 +164,41 @@ const UserProfile = () => {
                   </div>
                 </div>
                 <div className="datails-Container_profile">
-                  <span className="line">
-                    FirstName :{" "}
-                    <span className="lineINLine"> {user.firstName}</span>
-                  </span>
-                  <span className="line">
-                    LastName :{" "}
-                    <span className="lineINLine"> {user.lastName}</span>
-                  </span>
-                  <span className="line">
-                    Email : <span className="lineINLine"> {user.email}</span>
-                  </span>
-                  <span className="line">
-                    phoneNumber :{" "}
-                    <span className="lineINLine"> {user.phoneNumber}</span>
-                  </span>
+                  <div className="line">
+                    <div className="Di">
+                      <span>FirstName:</span>
+                    </div>
+                    <div className="inLine">
+                      <span>{user.firstName}</span>
+                    </div>
+                  </div>
+                  <div className="line">
+                    <div className="Di">
+                      <span>LastName:</span>
+                    </div>
+                    <div className="inLine">
+                      <span>{user.lastName}</span>
+                    </div>
+                  </div>
+                  <div className="line">
+                    <div className="Di">
+                      <span>Email:</span>
+                    </div>
+                    <div className="inLine">
+                      <span>{user.email}</span>
+                    </div>{" "}
+                  </div>
+                  <div className="line">
+                    <div className="Di">
+                      <span>PhoneNumber:</span>
+                    </div>{" "}
+                    <div className="inLine">
+                      <span>{user.phoneNumber}</span>
+                    </div>{" "}
+                  </div>
                 </div>
               </div>
               <div>
-                <br />
-
                 {isClicked ? (
                   <div>
                     <div className="inputbox">
@@ -235,6 +256,14 @@ const UserProfile = () => {
                   ""
                 )}
               </div>
+              <Modal
+                ariaHideApp={false}
+                className={"popUp"}
+                isOpen={isOpen}
+                onRequestClose={() => setIsOpen(false)}
+              >
+                <div className="popUpContainer"></div>
+              </Modal>
             </>
           );
         })}
