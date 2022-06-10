@@ -104,7 +104,7 @@ const createComment = () =>{
   }, []);
   console.log(comment, "{{{{{{{");
   return (
-    <div className="Container">
+    <div className="tweets-Container">
       <div className="row-Container">
           <input type={"textArea"} placeholder="write yor comment..." onChange={(e)=>{setAddComment( e.target.value) }}/>
              <button onClick={()=>{
@@ -114,10 +114,13 @@ const createComment = () =>{
         {comment &&
           comment.map((comment, i) => {
             return (
-              <div key={i} className="comment">
+              <div  key={i} className="oneTweet">
+                <p className="publisherImg">{comment.profileImage}</p>
+
+              <div className="comment">
                 <p>{comment.firstName}</p>
                 <p>{comment.lastName}</p>
-                <p>{comment.profileImage}</p>
+                
                 <p>{comment.comment}</p>
                 <p
                   onClick={() => {
@@ -144,6 +147,7 @@ const createComment = () =>{
                       }}
                     />
 
+              </div>
               </div>
             );
           })}

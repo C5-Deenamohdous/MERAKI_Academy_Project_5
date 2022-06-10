@@ -67,7 +67,7 @@ const OneProduct = () => {
                
               </div>
               <div className="comment">
-                <Comment id={product.product_id} />{" "}
+                <Comment id={id} />{" "}
               </div>
             </>
           );
