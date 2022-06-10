@@ -7,6 +7,8 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import Cloud from "../Cloud";
+import Modal from "react-modal";
+import "./style.css";
 import {
   setuserProfile,
   deleteuserProfile,
@@ -27,6 +29,7 @@ const UserProfile = () => {
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
   const [url, setUrl] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
   const getUserById = () => {
     axios
@@ -46,9 +49,9 @@ const UserProfile = () => {
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [profileImage, setProfileImage] = useState("");
-// const [newImg, setNewImg] = useState("");
+  // const [newImg, setNewImg] = useState("");
   const updateUserById = () => {
-   let newImg=url || profileImage;
+    let newImg = url || profileImage;
     axios
       .put(
         `http://localhost:5000/user/${id}`,
@@ -58,7 +61,7 @@ const UserProfile = () => {
           firstName,
           lastName,
           phoneNumber,
-          profileImage:newImg,
+          profileImage: newImg,
         }
       )
 
@@ -71,11 +74,11 @@ const UserProfile = () => {
             firstName,
             lastName,
             phoneNumber,
-            profileImage:newImg,
+            profileImage: newImg,
           })
         );
 
-        setMessage("user with ID is redy to be updated");
+        setMessage("user with ID is ready to be updated");
       })
       .catch((err) => {
         console.log(err);
@@ -86,12 +89,9 @@ const UserProfile = () => {
 
   const DeletUserById = () => {
     axios
-      .delete(
-        `http://localhost:5000/user/${id}`,
-        {
-          id: id,
-        }
-      )
+      .delete(`http://localhost:5000/user/${id}`, {
+        id: id,
+      })
       .then((result) => {
         console.log(result, "user profile");
         dispatch(
@@ -117,49 +117,88 @@ const UserProfile = () => {
       {userProfile &&
         userProfile.map((user, i) => {
           return (
-            <div className="sec_container">
-              <div className="inner_container">
-              <div className="userProfileImg">
-                <img  src={user.profileImage} />
-                <p>Name :{user.firstName}</p>
-              </div>
-              <div className="datails-Container_profile">
-                <p>FirstName :{user.firstName}</p>
-                <p>LastName :{user.lastName}</p>
-                <p>PhoneNumber :{user.phoneNumber}</p>
-              </div>
+            <>
+              <div className="sec_container">
+                <div className="inner_container">
+                  <div className="userProfileImg">
+                    <img src={user.profileImage} />
+                    <p className="nameInfo">
+                      {user.firstName} {user.lastName}
+                    </p>
+                  </div>
+                  <div>
+                    <button
+                      className="updateButton"
+                      onClick={() => {
+                        setIsOpen(true);
+                        setTimeout(() => {
+                          setIsOpen(false);
+                        }, 2000);
+                        setIsClicked(true);
+                        {
+                          setFirstName(user.firstName);
+                        }
+                        {
+                          setLastName(user.lastName);
+                        }
+                        {
+                          setPhoneNumber(user.phoneNumber);
+                        }
+                        {
+                          setProfileImage(user.profileImage);
+                        }
+                      }}
+                    >
+                      {" "}
+                      Update your info
+                    </button>
+                    <button
+                      className="deleteButton"
+                      onClick={() => {
+                        DeletUserById(id);
+                        setMessage("user has been deleted");
+                      }}
+                    >
+                      Delete your Account
+                    </button>
+                  </div>
+                </div>
+                <div className="datails-Container_profile">
+                  <div className="line">
+                    <div className="Di">
+                      <span>FirstName:</span>
+                    </div>
+                    <div className="inLine">
+                      <span>{user.firstName}</span>
+                    </div>
+                  </div>
+                  <div className="line">
+                    <div className="Di">
+                      <span>LastName:</span>
+                    </div>
+                    <div className="inLine">
+                      <span>{user.lastName}</span>
+                    </div>
+                  </div>
+                  <div className="line">
+                    <div className="Di">
+                      <span>Email:</span>
+                    </div>
+                    <div className="inLine">
+                      <span>{user.email}</span>
+                    </div>{" "}
+                  </div>
+                  <div className="line">
+                    <div className="Di">
+                      <span>PhoneNumber:</span>
+                    </div>{" "}
+                    <div className="inLine">
+                      <span>{user.phoneNumber}</span>
+                    </div>{" "}
+                  </div>
+                </div>
               </div>
               <div>
-                <button
-                  onClick={() => {
-                    setIsClicked(true);
-                    {
-                      setFirstName(user.firstName);
-                    }
-                    {
-                      setLastName(user.lastName);
-                    }
-                    {
-                      setPhoneNumber(user.phoneNumber);
-                    }
-                    {
-                      setProfileImage(user.profileImage);
-                    }
-                  }}
-                >
-                  {" "}
-                  update your info
-                </button>
-                <br/>
-                <button
-                  onClick={() => {
-                    DeletUserById(id);
-                    setMessage("user hase been deleted");
-                  }}
-                >
-                  Delet your Profaile
-                </button>
-
                 {isClicked ? (
                   <div>
                     <div className="inputbox">
@@ -190,13 +229,18 @@ const UserProfile = () => {
                       <span>phoneNumber</span>
                     </div>
                     <div className="inputbox">
-                      <input
+                      {/* <input
                         defaultValue={profileImage}
                         type="text"
                         required="required"
                         onChange={(e) => setProfileImage(e.target.value)}
                       />
-                      <span>profileImage</span>
+                      <span>profileImage</span> */}
+                      <Cloud
+                        setProfileImage={setProfileImage}
+                        url={url}
+                        setUrl={setUrl}
+                      />
                     </div>
                     <button
                       onClick={() => {
@@ -212,8 +256,15 @@ const UserProfile = () => {
                   ""
                 )}
               </div>
-              <Cloud setProfileImage={setProfileImage} url={url} setUrl={setUrl}/>
-            </div>
+              <Modal
+                ariaHideApp={false}
+                className={"popUp"}
+                isOpen={isOpen}
+                onRequestClose={() => setIsOpen(false)}
+              >
+                <div className="popUpContainer"></div>
+              </Modal>
+            </>
           );
         })}
     </div>
