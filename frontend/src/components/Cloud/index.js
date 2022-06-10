@@ -1,9 +1,9 @@
 import "./style.css";
 import React, { useState } from "react";
 import axios from "axios";
-const UploadImg = ({ setProfileImage ,setUrl ,url}) => {
+const UploadImg = ({ setProfileImage, setUrl, url }) => {
   const [image, setImage] = useState("");
-  // const [url, setUrl] = useState("");
+  const [isImgSet, setIsImg] = useState(false);
 
   const uploadImage = () => {
     const data = new FormData();
@@ -14,7 +14,7 @@ const UploadImg = ({ setProfileImage ,setUrl ,url}) => {
       .then((result) => {
         console.log(result, "result in cloudinary");
         setUrl(result.data.url);
-        // setProfileImage(result.data.url)
+        setIsImg(false);
       })
 
       .catch((err) => {
@@ -22,28 +22,17 @@ const UploadImg = ({ setProfileImage ,setUrl ,url}) => {
       });
   };
   return (
-    <div>
-      <div>
-        <input
-          type={"file"}
-          onChange={(e) => {
-            setImage(e.target.files[0]);
-          }}
-        />
-        <br/>
-        <button
-          onClick={() => {
-            {
-              uploadImage();
-            }
-          }}
-        >
-          Upload
-        </button>
-      </div>
-      <div>
-        {/* <img src={url} /> */}
-      </div>
+    <div className="cloud">
+      <input
+        type={"file"}
+        onChange={(e) => {
+          setImage(e.target.files[0]);
+          setIsImg(true);
+        }}
+      />
+      {isImgSet ? uploadImage() : ""}
+      <br />
+    
     </div>
   );
 };
