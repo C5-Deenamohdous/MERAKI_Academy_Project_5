@@ -32,17 +32,17 @@ const CategAndBrand = () => {
             .get(`http://localhost:5000/product/brand_for_catg/${element.id}`)
             .then((result) => {
               if (i == 0) {
-                setBrand1(result.data.result.slice(0,4));
+                setBrand1(result.data.result.slice(0, 4));
                 setCatgId1(element.id);
                 setCatgName1(element.categoryName);
               }
               if (i == 1) {
-                setBrand2(result.data.result.slice(0,4));
+                setBrand2(result.data.result.slice(0, 4));
                 setCatgId2(element.id);
                 setCatgName2(element.categoryName);
               }
               if (i == 2) {
-                setBrand3(result.data.result.slice(0,4));
+                setBrand3(result.data.result.slice(0, 4));
                 setCatgId3(element.id);
                 setCatgName3(element.categoryName);
               }
@@ -62,25 +62,73 @@ const CategAndBrand = () => {
     <>
       <div className="Container-DropDown">
         <div className="CatgNameHeader">
-          <h2>1{catgName1} </h2>
+          <h2
+            className="DropDown-Btns"
+            onClick={() => {
+              navigate(`/category/${catgId1}`);
+            }}
+          >
+            {catgName1}
+          </h2>
           {brand1 &&
             brand1.map((element) => {
-              return <p>NAAME{element.brandName}</p>;
+              return (
+                <p
+                  className="DropDown-Btns"
+                  onClick={() => {
+                    navigate(`/brand/${element.id}`);
+                  }}
+                >
+                  {element.brandName}
+                </p>
+              );
             })}
         </div>
         <div className="CatgNameHeader">
-          <h2>2{catgName2} </h2>
+          <h2
+            className="DropDown-Btns"
+            onClick={() => {
+              navigate(`/category/${catgId2}`);
+            }}
+          >
+            {catgName2}
+          </h2>
           {brand2 &&
             brand2.map((element) => {
-              return <p>NAAME{element.brandName}</p>;
+              return (
+                <p
+                  className="DropDown-Btns"
+                  onClick={() => {
+                    navigate(`/brand/${element.id}`);
+                  }}
+                >
+                  {element.brandName}
+                </p>
+              );
             })}
         </div>
 
         <div className="CatgNameHeader">
-          <h2>3{catgName3} </h2>
+          <h2
+            className="DropDown-Btns"
+            onClick={() => {
+              navigate(`/category/${catgId3}`);
+            }}
+          >
+            {catgName3}
+          </h2>
           {brand3 &&
             brand3.map((element) => {
-              return <p>NAAME{element.brandName}</p>;
+              return (
+                <p
+                  className="DropDown-Btns"
+                  onClick={() => {
+                    navigate(`/brand/${element.id}`);
+                  }}
+                >
+                  {element.brandName}
+                </p>
+              );
             })}
         </div>
       </div>

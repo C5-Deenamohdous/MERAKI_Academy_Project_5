@@ -19,3 +19,8 @@
   justify-content: space-around;
   align-items: flex-start;
 }
+
+.DropDown-Btns:hover { 
+    cursor: pointer;
+    color: var(--btnsColor);
+}
