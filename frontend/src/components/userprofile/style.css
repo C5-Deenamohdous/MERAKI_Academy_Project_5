@@ -21,10 +21,32 @@
     justify-content: center;
 }
 .updateButton{
-    width: 100%;
+    width: 90%;
+    padding: 8px 12px;
+    margin: 8px 0 0;
+    font-family: "Montserrat", sans-serif;
+    border: 2px solid #78788c;
+    cursor: pointer;
+  transition: all 0.3s;
+ margin-top: 20px;
+ margin-bottom: 5px;
+height:20%;
+color: var(--btnsColor);
+font-size: 16px;
+font-weight: 600;
 }
 .deleteButton{
-    width: 100%;
+    width: 90%;
+    padding: 8px 12px;
+    margin: 8px 0 0;
+    font-family: "Montserrat", sans-serif;
+    border: 2px solid #78788c;
+    cursor: pointer;
+  transition: all 0.3s;
+  height:20%;
+color: var(--btnsColor);
+font-size: 16px;
+font-weight: 600;
 }
 .userProfileImg {
   width: 60%;
@@ -62,5 +84,15 @@
 }
 .lineINLine{
     color:rgb(133, 115, 115) ;
+    /* padding-left: 50px; */
+    text-align: center;
+    justify-content: center;
    
+}
+.nameInfo{
+    color: black;
+    background-image: initial;
+    background-color: transparent;
+    font-weight: 600;
+    font-size: 26px;
 }

@@ -120,7 +120,7 @@ const UserProfile = () => {
                 <div className="inner_container">
                   <div className="userProfileImg">
                     <img src={user.profileImage} />
-                    <p>
+                    <p className="nameInfo">
                       {user.firstName} {user.lastName}
                     </p>
                   </div>
@@ -144,7 +144,7 @@ const UserProfile = () => {
                       }}
                     >
                       {" "}
-                      update your info
+                      Update your info
                     </button>
                     <button
                       className="deleteButton"
@@ -153,25 +153,25 @@ const UserProfile = () => {
                         setMessage("user has been deleted");
                       }}
                     >
-                      Delete your Profile
+                      Delete your Account
                     </button>
                   </div>
                 </div>
                 <div className="datails-Container_profile">
                   <span className="line">
                     FirstName :{" "}
-                    <span className="lineINLine">{user.firstName}</span>
+                    <span className="lineINLine"> {user.firstName}</span>
                   </span>
                   <span className="line">
                     LastName :{" "}
-                    <span className="lineINLine">{user.lastName}</span>
+                    <span className="lineINLine"> {user.lastName}</span>
                   </span>
                   <span className="line">
-                    Email : <span className="lineINLine">    {user.email}</span>
+                    Email : <span className="lineINLine"> {user.email}</span>
                   </span>
                   <span className="line">
                     phoneNumber :{" "}
-                    <span className="lineINLine">   {user.phoneNumber}</span>
+                    <span className="lineINLine"> {user.phoneNumber}</span>
                   </span>
                 </div>
               </div>
