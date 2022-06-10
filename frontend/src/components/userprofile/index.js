@@ -143,6 +143,14 @@ const UserProfile = () => {
                   {" "}
                   update your info
                 </button>
+                <button className="deleteButton"
+                  onClick={() => {
+                    DeletUserById(id);
+                    setMessage("user has been deleted");
+                  }}
+                >
+                  Delete your Profile
+                </button>
                   </div>
                 </div>
                 <div className="datails-Container_profile">
@@ -154,14 +162,7 @@ const UserProfile = () => {
               <div>
            
                 <br />
-                <button
-                  onClick={() => {
-                    DeletUserById(id);
-                    setMessage("user has been deleted");
-                  }}
-                >
-                  Delete your Profile
-                </button>
+               
 
                 {isClicked ? (
                   <div>
@@ -193,14 +194,19 @@ const UserProfile = () => {
                       <span>phoneNumber</span>
                     </div>
                     <div className="inputbox">
-                      <input
+                      {/* <input
                         defaultValue={profileImage}
                         type="text"
                         required="required"
                         onChange={(e) => setProfileImage(e.target.value)}
                       />
-                      <span>profileImage</span>
-                    </div>
+                      <span>profileImage</span> */}
+                      <Cloud
+                setProfileImage={setProfileImage}
+                url={url}
+                setUrl={setUrl}
+              />
+                    </div> 
                     <button
                       onClick={() => {
                         updateUserById(id);
@@ -215,11 +221,7 @@ const UserProfile = () => {
                   ""
                 )}
               </div>
-              <Cloud
-                setProfileImage={setProfileImage}
-                url={url}
-                setUrl={setUrl}
-              />
+              
             </>
           );
         })}

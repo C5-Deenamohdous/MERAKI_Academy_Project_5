@@ -15,10 +15,11 @@ import { BiEdit } from "react-icons/bi";
 const Comment = ({ id }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { comment, token } = useSelector((state) => {
+  const { comment, token ,userId } = useSelector((state) => {
     return {
       comment: state.comment.comment,
       token: state.auth.token,
+      userId:state.auth.userId
     };
   });
   const [message, setMessage] = useState("");
@@ -140,15 +141,16 @@ const Comment = ({ id }) => {
               <div className="Container">
                 <div className="displayName">
                   <p>
-                    {comment.firstName}
-                    {comment.lastName} :
-                  </p>
+                    {comment.firstName} {comment.lastName} : </p>
+
+                       
+                 
                 </div>
                 <div className="commentBody">
                   <p>{comment.comment}</p>
                 </div>
               </div>
-              <div className="deleteUpdateButton">
+              {userId ===comment.user_id ? <div className="deleteUpdateButton">
                 <p
                   className="deleteIcon"
                   onClick={() => {
@@ -177,7 +179,8 @@ const Comment = ({ id }) => {
                   }} 
                 />: ""}
                 
-              </div>
+              </div>:""}
+              
             </div>
           );
         })}

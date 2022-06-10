@@ -21,6 +21,9 @@
 .updateButton{
     width: 100%;
 }
+.deleteButton{
+    width: 100%;
+}
 .userProfileImg {
   width: 60%;
   height: 100%;
