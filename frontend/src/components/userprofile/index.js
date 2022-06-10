@@ -122,25 +122,8 @@ const UserProfile = () => {
                     <img src={user.profileImage} />
                     <p>Name :{user.firstName}</p>
                   </div>
-
+                  <div>
                   <button className="updateButton"
-                    onClick={() => {
-                      updateUserById(id);
-                      setIsClicked(false);
-                    }}
-                  >
-                    {" "}
-                    update
-                  </button>
-                </div>
-                <div className="datails-Container_profile">
-                  <p>FirstName :{user.firstName}</p>
-                  <p>LastName :{user.lastName}</p>
-                  <p>PhoneNumber :{user.phoneNumber}</p>
-                </div>
-              </div>
-              <div>
-                <button
                   onClick={() => {
                     setIsClicked(true);
                     {
@@ -160,6 +143,16 @@ const UserProfile = () => {
                   {" "}
                   update your info
                 </button>
+                  </div>
+                </div>
+                <div className="datails-Container_profile">
+                  <p>FirstName :{user.firstName}</p>
+                  <p>LastName :{user.lastName}</p>
+                  <p>PhoneNumber :{user.phoneNumber}</p>
+                </div>
+              </div>
+              <div>
+           
                 <br />
                 <button
                   onClick={() => {
@@ -167,7 +160,7 @@ const UserProfile = () => {
                     setMessage("user hase been deleted");
                   }}
                 >
-                  Delet your Profaile
+                  Delete your Profile
                 </button>
 
                 {isClicked ? (
@@ -208,6 +201,15 @@ const UserProfile = () => {
                       />
                       <span>profileImage</span>
                     </div>
+                    <button
+                      onClick={() => {
+                        updateUserById(id);
+                        setIsClicked(false);
+                      }}
+                    >
+                      {" "}
+                      update
+                    </button>
                   </div>
                 ) : (
                   ""
