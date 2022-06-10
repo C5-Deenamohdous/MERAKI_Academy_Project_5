@@ -74,6 +74,9 @@ const NavBar = () => {
             <AiOutlineSearch />
           </p>
         </div>
+        <div className="DropDev">
+          <CategAndBrand />
+        </div>
       </div>
 
       <div className="RIGT-NAV">
@@ -110,7 +113,6 @@ const NavBar = () => {
           </span>
         </div>
       </div>
-      <CategAndBrand />
     </div>
   );
 };

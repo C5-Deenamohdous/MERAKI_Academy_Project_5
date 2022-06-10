@@ -70,6 +70,8 @@
   width: 55%;
   justify-content: space-evenly;
   padding-top: 10px;
+  position: relative;
+  /* DropDown */
 }
 
 .RIGT-NAV span:hover,
@@ -158,9 +160,31 @@
 .Catg-IconCont:hover {
   color: var(--btnsColor);
 }
+
 .DropIcon {
   margin-top: 4px;
 }
 .Catg-IconCont .DropIcon span svg {
   font-size: 17px;
+}
+
+.DropDev {
+  width: 80%;
+  height: 60vh;
+  display: flex;
+  justify-content: space-between;
+  top: 110px;
+  position: absolute;
+  background-color: #f4f4ff;
+  border-color: unset;
+  z-index: 1;
+  box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px, rgb(0 0 0 / 12%) 0px -12px 30px,
+    rgb(0 0 0 / 12%) 0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px,
+    rgb(0 0 0 / 9%) 0px -3px 5px;
+  top: 106%;
+  opacity: 0;
+  transition: 0.4s ease-in-out;
+}
+.Catg-IconCont:hover ~ .DropDev {
+  opacity: 1;
 }
