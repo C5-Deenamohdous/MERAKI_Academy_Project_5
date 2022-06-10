@@ -135,7 +135,7 @@ const Comment = ({ id }) => {
         comment.map((comment, i) => {
           return (
             <div key={i} className="oneComment">
-              <p className="publisherImg">{comment.profileImage}</p>
+              <img className="publisherImg" src={comment.profileImage}/>
 
               <div className="Container">
                 <div className="displayName">
@@ -169,13 +169,14 @@ const Comment = ({ id }) => {
                     <BiEdit />
                   </p>
               
-
-                <input
+{click ? <input
                   defaultValue={comment.comment}
                   onChange={(e) => {
                     setNewComment(e.target.value);
-                  }}
-                />
+                    
+                  }} 
+                />: ""}
+                
               </div>
             </div>
           );
