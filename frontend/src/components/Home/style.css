@@ -29,13 +29,14 @@
 .HomeBtns {
   display: flex;
   justify-content: center;
-  gap: 10%;
-  font-size: 23px;
+  font-size: 17px;
+  font-weight: 600;
 }
 
 .HomeBtns span {
   transition: 0.3s;
   cursor: pointer;
+  padding: 0 20px;
 }
 .HomeBtns span:hover {
   transition: 0.3s;
@@ -165,4 +166,8 @@
 
 .Flip .Cart-Btns span {
   cursor: pointer;
+}
+
+.CART-NAV {
+  display: flex;
 }
