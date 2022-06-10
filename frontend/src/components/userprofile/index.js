@@ -7,6 +7,7 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import Cloud from "../Cloud";
+import "./style.css";
 import {
   setuserProfile,
   deleteuserProfile,
@@ -46,9 +47,9 @@ const UserProfile = () => {
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [profileImage, setProfileImage] = useState("");
-// const [newImg, setNewImg] = useState("");
+  // const [newImg, setNewImg] = useState("");
   const updateUserById = () => {
-   let newImg=url || profileImage;
+    let newImg = url || profileImage;
     axios
       .put(
         `http://localhost:5000/user/${id}`,
@@ -58,7 +59,7 @@ const UserProfile = () => {
           firstName,
           lastName,
           phoneNumber,
-          profileImage:newImg,
+          profileImage: newImg,
         }
       )
 
@@ -71,7 +72,7 @@ const UserProfile = () => {
             firstName,
             lastName,
             phoneNumber,
-            profileImage:newImg,
+            profileImage: newImg,
           })
         );
 
@@ -86,12 +87,9 @@ const UserProfile = () => {
 
   const DeletUserById = () => {
     axios
-      .delete(
-        `http://localhost:5000/user/${id}`,
-        {
-          id: id,
-        }
-      )
+      .delete(`http://localhost:5000/user/${id}`, {
+        id: id,
+      })
       .then((result) => {
         console.log(result, "user profile");
         dispatch(
@@ -117,17 +115,29 @@ const UserProfile = () => {
       {userProfile &&
         userProfile.map((user, i) => {
           return (
-            <div className="sec_container">
-              <div className="inner_container">
-              <div className="userProfileImg">
-                <img  src={user.profileImage} />
-                <p>Name :{user.firstName}</p>
-              </div>
-              <div className="datails-Container_profile">
-                <p>FirstName :{user.firstName}</p>
-                <p>LastName :{user.lastName}</p>
-                <p>PhoneNumber :{user.phoneNumber}</p>
-              </div>
+            <>
+              <div className="sec_container">
+                <div className="inner_container">
+                  <div className="userProfileImg">
+                    <img src={user.profileImage} />
+                    <p>Name :{user.firstName}</p>
+                  </div>
+
+                  <button className="updateButton"
+                    onClick={() => {
+                      updateUserById(id);
+                      setIsClicked(false);
+                    }}
+                  >
+                    {" "}
+                    update
+                  </button>
+                </div>
+                <div className="datails-Container_profile">
+                  <p>FirstName :{user.firstName}</p>
+                  <p>LastName :{user.lastName}</p>
+                  <p>PhoneNumber :{user.phoneNumber}</p>
+                </div>
               </div>
               <div>
                 <button
@@ -150,7 +160,7 @@ const UserProfile = () => {
                   {" "}
                   update your info
                 </button>
-                <br/>
+                <br />
                 <button
                   onClick={() => {
                     DeletUserById(id);
@@ -198,22 +208,17 @@ const UserProfile = () => {
                       />
                       <span>profileImage</span>
                     </div>
-                    <button
-                      onClick={() => {
-                        updateUserById(id);
-                        setIsClicked(false);
-                      }}
-                    >
-                      {" "}
-                      update
-                    </button>
                   </div>
                 ) : (
                   ""
                 )}
               </div>
-              <Cloud setProfileImage={setProfileImage} url={url} setUrl={setUrl}/>
-            </div>
+              <Cloud
+                setProfileImage={setProfileImage}
+                url={url}
+                setUrl={setUrl}
+              />
+            </>
           );
         })}
     </div>
