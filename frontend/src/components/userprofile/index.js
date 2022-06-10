@@ -131,9 +131,9 @@ const UserProfile = () => {
                       className="updateButton"
                       onClick={() => {
                         setIsOpen(true);
-                        setTimeout(() => {
-                          setIsOpen(false);
-                        }, 2000);
+                        // setTimeout(() => {
+                        //   setIsOpen(false);
+                        // }, 2000);
                         setIsClicked(true);
                         {
                           setFirstName(user.firstName);
@@ -198,35 +198,46 @@ const UserProfile = () => {
                   </div>
                 </div>
               </div>
-              <div>
+              
+              <Modal
+                ariaHideApp={false}
+                className={"popUp1"}
+                isOpen={isOpen}
+                onRequestClose={() => setIsOpen(false)}
+              >
+                <div className="popUpContainer">
+                <div>
                 {isClicked ? (
                   <div>
                     <div className="inputbox">
-                      <input
+                      <input className="firstName1"
+                      placeholder="firstName"
                         defaultValue={firstName}
                         type="text"
                         required="required"
                         onChange={(e) => setFirstName(e.target.value)}
                       />
-                      <span>firstName</span>
+                    
                     </div>
                     <div className="inputbox">
-                      <input
+                      <input className="firstName1"
+                         placeholder="lastName"
                         defaultValue={lastName}
                         type="text"
                         required="required"
                         onChange={(e) => setLastName(e.target.value)}
                       />
-                      <span>lastName</span>
+                    
                     </div>
                     <div className="inputbox">
-                      <input
+                      <input className="firstName1"
+                       placeholder="phoneNumber"
                         defaultValue={phoneNumber}
                         type="text"
                         required="required"
                         onChange={(e) => setPhoneNumber(e.target.value)}
                       />
-                      <span>phoneNumber</span>
+                     
                     </div>
                     <div className="inputbox">
                       {/* <input
@@ -236,16 +247,18 @@ const UserProfile = () => {
                         onChange={(e) => setProfileImage(e.target.value)}
                       />
                       <span>profileImage</span> */}
-                      <Cloud
+                      <Cloud   className="cloud"
                         setProfileImage={setProfileImage}
                         url={url}
                         setUrl={setUrl}
                       />
                     </div>
-                    <button
+                    <button className="UpdateProfileButton"
                       onClick={() => {
                         updateUserById(id);
                         setIsClicked(false);
+                        setIsOpen(false);
+                        
                       }}
                     >
                       {" "}
@@ -256,13 +269,7 @@ const UserProfile = () => {
                   ""
                 )}
               </div>
-              <Modal
-                ariaHideApp={false}
-                className={"popUp"}
-                isOpen={isOpen}
-                onRequestClose={() => setIsOpen(false)}
-              >
-                <div className="popUpContainer"></div>
+                </div>
               </Modal>
             </>
           );
