@@ -1,3 +1,4 @@
+import "./style.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
@@ -31,17 +32,17 @@ const CategAndBrand = () => {
             .get(`http://localhost:5000/product/brand_for_catg/${element.id}`)
             .then((result) => {
               if (i == 0) {
-                setBrand1(result.data.result);
+                setBrand1(result.data.result.slice(0,4));
                 setCatgId1(element.id);
                 setCatgName1(element.categoryName);
               }
               if (i == 1) {
-                setBrand2(result.data.result);
+                setBrand2(result.data.result.slice(0,4));
                 setCatgId2(element.id);
                 setCatgName2(element.categoryName);
               }
               if (i == 2) {
-                setBrand3(result.data.result);
+                setBrand3(result.data.result.slice(0,4));
                 setCatgId3(element.id);
                 setCatgName3(element.categoryName);
               }
