@@ -120,7 +120,7 @@ const UserProfile = () => {
                 <div className="inner_container">
                   <div className="userProfileImg">
                     <img src={user.profileImage} />
-                    <p>Name :{user.firstName}</p>
+                    <p>{user.firstName}  {user.lastName}</p>
                   </div>
                   <div>
                   <button className="updateButton"
@@ -157,7 +157,7 @@ const UserProfile = () => {
                 <button
                   onClick={() => {
                     DeletUserById(id);
-                    setMessage("user hase been deleted");
+                    setMessage("user has been deleted");
                   }}
                 >
                   Delete your Profile

@@ -11,23 +11,28 @@
 }
 .inner_container{
     display: flex;
-    width: 50%;
+    width: 30%;
     height: 100%;
     flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
 }
 .updateButton{
     width: 100%;
 }
 .userProfileImg {
-  width: 100%;
+  width: 60%;
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .userProfileImg img {
   width: 100%;
   height: 100%;
- 
+ border-radius: 100%;
 }
 .datails-Container_profile {
     display: flex;
