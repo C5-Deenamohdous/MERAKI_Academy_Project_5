@@ -38,7 +38,12 @@ const NavBar = () => {
   }
   return (
     <div className="NavBar">
-      <div className="LOGO">
+      <div
+        className="LOGO"
+        onClick={() => {
+          navigate("/");
+        }}
+      >
         <span className="LOGOTEST">ADA</span>
         <span className="ICON">
           <GiUbisoftSun />
@@ -66,7 +71,13 @@ const NavBar = () => {
           </div>
         </div>
 
-        <span>Profile</span>
+        <span
+          onClick={() => {
+            navigate(`/user/${userId}`);
+          }}
+        >
+          Profile
+        </span>
         <div className="SEARCH-Container">
           <input
             className="serch"
@@ -136,7 +147,7 @@ export default NavBar;
 //           <>
 //             <p
 // onClick={() => {
-//   navigate(`/user/${userId}`);
+// navigate(`/user/${userId}`);
 // }}
 //             >
 //               profile
