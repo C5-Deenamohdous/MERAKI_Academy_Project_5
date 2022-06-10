@@ -64,7 +64,9 @@ const NavBar = () => {
             placeholder="Search.."
             name="search"
           />
-          <span>S</span>
+          <p className="SEARCH-ICON">
+            <AiOutlineSearch />
+          </p>
         </div>
       </div>
 
