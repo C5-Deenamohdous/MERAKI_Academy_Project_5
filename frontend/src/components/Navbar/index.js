@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import { BsCartDash } from "react-icons/bs";
 import { TbJewishStar } from "react-icons/tb";
 
-import { AiOutlinePoweroff } from "react-icons/ai";
+import { AiOutlinePoweroff, AiOutlineSearch } from "react-icons/ai";
 import { FiLogIn } from "react-icons/fi";
 import { BsCart, BsStars } from "react-icons/bs";
+import { GiUbisoftSun, GiHeraldicSun } from "react-icons/gi";
+
 // BsCart
 // FiLogIn
 // AiOutlinePoweroff << LogOut
@@ -39,7 +41,9 @@ const NavBar = () => {
     <div className="NavBar">
       <div className="LOGO">
         <span className="LOGOTEST">ADA</span>
-        <span className="ICON"></span>
+        <span className="ICON">
+          <GiUbisoftSun />
+        </span>
       </div>
 
       <div className="CENTER-NAV">
