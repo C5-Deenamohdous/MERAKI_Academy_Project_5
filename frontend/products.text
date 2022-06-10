@@ -1,0 +1,80 @@
+{
+
+CategoryName: smartphone
+BrandName:Apple
+
+title: iPhone 6 Plus
+description:
+64GB Gold
+Image:
+https://mobizil.com/wp-content/uploads/2017/10/iphone6plus-800x800.jpg
+price: 250 JD
+Quantity : 4
+}
+
+{
+
+CategoryName: smartphone
+BrandName:Apple
+
+title: iPhone x Plus
+description:
+16GB Gold
+Image:
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmQpVCXKBnGhjIsBr_qBVaHb_ctMlcQ2Qvfw&usqp=CAU
+price: 250 JD
+Quantity : 4
+}
+
+{
+
+CategoryName: smartphone
+BrandName:Apple
+
+title: iPhone 13Plus
+description: 
+64GB white
+Image:
+https://e7.pngegg.com/pngimages/929/914/png-clipart-iphone-x-apple-telephone-smartphone-t-mobile-apple-gadget-electronics.png
+
+price: 250 JD
+
+Quantity : 4
+
+}
+
+
+{
+
+CategoryName: smartphone
+BrandName:Apple
+
+title: iPhone 13 Pro Max
+description:
+32GB white
+Image:
+https://e7.pngegg.com/pngimages/929/914/png-clipart-iphone-x-apple-telephone-smartphone-t-mobile-apple-gadget-electronics.png
+
+price: 1129.00 JD
+
+Quantity : 3
+
+}
+
+{
+
+CategoryName: smartphone
+BrandName:Apple
+
+title: iPhone 8
+description:
+32GB white
+Image:
+https://m.media-amazon.com/images/I/71aOr1CuM1L._AC_SX679_.jpg
+price:
+177 JD
+Quantity : 
+3
+
+}
+
