@@ -117,15 +117,17 @@ const UserProfile = () => {
       {userProfile &&
         userProfile.map((user, i) => {
           return (
-            <div>
+            <div className="sec_container">
+              <div className="inner_container">
               <div className="userProfileImg">
                 <img  src={user.profileImage} />
-                <p>firstName :{user.firstName}</p>
+                <p>Name :{user.firstName}</p>
               </div>
               <div className="datails-Container_profile">
-                <p>firstName :{user.firstName}</p>
-                <p>lastName :{user.lastName}</p>
-                <p>phoneNumber :{user.phoneNumber}</p>
+                <p>FirstName :{user.firstName}</p>
+                <p>LastName :{user.lastName}</p>
+                <p>PhoneNumber :{user.phoneNumber}</p>
+              </div>
               </div>
               <div>
                 <button
