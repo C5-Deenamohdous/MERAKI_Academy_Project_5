@@ -136,9 +136,9 @@ const Home = () => {
         {catg1 &&
           catg1.slice(0, 8).map((element) => {
             return (
-              <div class="card">
-                <div class="content">
-                  <div class="front">
+              <div className="card">
+                <div className="content">
+                  <div className="front">
                     <div className="imgContainer">
                       <img src={element.productImage} />
                     </div>
@@ -147,7 +147,7 @@ const Home = () => {
                       <p>{element.price}</p>
                     </div>
                   </div>
-                  <div class="back">
+                  <div className="back">
                     <div className="Flip">
                       <div className="Cart-Btns">
                         <AddToWishlistButton productId={element.id} />
@@ -169,9 +169,9 @@ const Home = () => {
         {catg2 &&
           catg2.slice(0, 8).map((element) => {
             return (
-              <div class="card">
-                <div class="content">
-                  <div class="front">
+              <div className="card">
+                <div className="content">
+                  <div className="front">
                     <div className="imgContainer">
                       <img src={element.productImage} />
                     </div>
@@ -180,13 +180,12 @@ const Home = () => {
                       <p className="Price">{element.price}$</p>
                     </div>
                   </div>
-                  <div class="back">Back!</div>
+                  <div className="back">Back!</div>
                 </div>
               </div>
             );
           })}
       </>
-      
     );
   };
   const Catg3 = () => {
@@ -195,9 +194,9 @@ const Home = () => {
         {catg3 &&
           catg3.slice(0, 8).map((element) => {
             return (
-              <div class="card">
-                <div class="content">
-                  <div class="front">
+              <div className="card">
+                <div className="content">
+                  <div className="front">
                     <div className="imgContainer">
                       <img src={element.productImage} />
                     </div>
@@ -206,7 +205,7 @@ const Home = () => {
                       <p className="Price">{element.price}$</p>
                     </div>
                   </div>
-                  <div class="back">Back!</div>
+                  <div className="back">Back!</div>
                 </div>
               </div>
             );
@@ -221,9 +220,9 @@ const Home = () => {
         {catg4 &&
           catg4.slice(0, 8).map((element) => {
             return (
-              <div class="card">
-                <div class="content">
-                  <div class="front">
+              <div className="card">
+                <div className="content">
+                  <div className="front">
                     <div className="imgContainer">
                       <img src={element.productImage} />
                     </div>
@@ -232,7 +231,7 @@ const Home = () => {
                       <p className="Price">{element.price}$</p>
                     </div>
                   </div>
-                  <div class="back">Back!</div>
+                  <div className="back">Back!</div>
                 </div>
               </div>
             );
