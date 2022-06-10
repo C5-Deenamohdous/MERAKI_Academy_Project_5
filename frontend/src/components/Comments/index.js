@@ -62,6 +62,7 @@ const Comment = ({ id }) => {
         `http://localhost:5000/comment/${commentId}`,
         {
           comment: newComment,
+          
         },
         {
           headers: {
@@ -71,7 +72,8 @@ const Comment = ({ id }) => {
       )
       .then((result) => {
         console.log(result, "ooooooooo");
-        dispatch(updateComments({ commentId: commentId, comment: newComment }));
+        dispatch(updateComments({ commentId: commentId, comment: newComment , user_id: userId
+         }));
         setMessage(" Comment is updated");
       })
       .catch((err) => {
@@ -80,6 +82,7 @@ const Comment = ({ id }) => {
       });
   };
   const createComment = () => {
+   
     axios
       .post(
         `http://localhost:5000/comment/${id}`,
@@ -93,6 +96,7 @@ const Comment = ({ id }) => {
         }
       )
       .then((result) => {
+
         console.log(result, "oooooooooo");
         dispatch(
           addComments({
@@ -101,6 +105,7 @@ const Comment = ({ id }) => {
             firstName: result.data.result[0].firstName,
             lastName: result.data.result[0].lastName,
             profileImage: result.data.result[0].profileImage,
+            user_id: userId
           })
         );
       })
@@ -112,7 +117,9 @@ const Comment = ({ id }) => {
     getCommentById();
   }, []);
   console.log(comment, "{{{{{{{");
+
   return (
+
     <div className="comments-Container">
       <div className="row-Container1">
         <input
@@ -150,7 +157,9 @@ const Comment = ({ id }) => {
                   <p>{comment.comment}</p>
                 </div>
               </div>
-              {userId ===comment.user_id ? <div className="deleteUpdateButton">
+
+              {userId ==comment.user_id ? 
+              <div className="deleteUpdateButton">
                 <p
                   className="deleteIcon"
                   onClick={() => {

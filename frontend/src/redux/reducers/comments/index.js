@@ -20,6 +20,7 @@ const commentSlice = createSlice({
           return {
             ...el,
             comment: action.payload.comment,
+            user_id:action.payload.user_id
           };
         }
         return el;
