@@ -1,5 +1,5 @@
 import "./style.css";
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import CategAndBrand from "../NavCategory";
 
 import { AiOutlinePoweroff, AiOutlineSearch } from "react-icons/ai";
@@ -19,6 +19,7 @@ import { logout } from "../../redux/reducers/auth";
 import { useNavigate } from "react-router-dom";
 // import Wishlist from "../../redux/reducers/WishList";
 const NavBar = () => {
+  const [isHover, setIsHover] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isLoggedIn, cart, userId, Wishlist } = useSelector((state) => {
@@ -53,8 +54,11 @@ const NavBar = () => {
         >
           Home
         </span>
-        <div className="Catg-IconCont">
-          <span>Categories </span>
+        <div
+          className="Catg-IconCont"
+          style={isHover ? { color: "#ff4136" } : {}}
+        >
+          <span>Categories</span>
           <div className="DropIcon">
             <span>
               <BsArrowDownShort />
@@ -74,7 +78,15 @@ const NavBar = () => {
             <AiOutlineSearch />
           </p>
         </div>
-        <div className="DropDev">
+        <div
+          className="DropDev"
+          onMouseEnter={() => {
+            setIsHover(true);
+          }}
+          onMouseLeave={() => {
+            setIsHover(false);
+          }}
+        >
           <CategAndBrand />
         </div>
       </div>
