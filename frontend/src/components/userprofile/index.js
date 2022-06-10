@@ -113,15 +113,16 @@ const UserProfile = () => {
     getUserById();
   }, []);
   return (
-    <div>
+    <div className="big_container">
       {userProfile &&
         userProfile.map((user, i) => {
           return (
             <div>
-              <div>
-                <img className="userProfile" src={user.profileImage} />
+              <div className="userProfileImg">
+                <img  src={user.profileImage} />
+                <p>firstName :{user.firstName}</p>
               </div>
-              <div className="datails-Container">
+              <div className="datails-Container_profile">
                 <p>firstName :{user.firstName}</p>
                 <p>lastName :{user.lastName}</p>
                 <p>phoneNumber :{user.phoneNumber}</p>
