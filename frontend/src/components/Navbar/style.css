@@ -1,23 +1,26 @@
 /* Style the header with a grey background and some padding */
 .NavBar {
-  height: 10vh;
-  padding: 5px;
+  height: 12vh;
   width: 100%;
-  background-color: var(--mainColor);
+  background-color: var(--NavColor);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
-  font-size: 18px;
-  font-weight: 600;
+  padding: 20px;
+  font-size: 16px;
+  /* font-weight: 600; */
   color: var(--subColor);
 }
+
+
 
 .LOGO {
   display: flex;
   align-items: center;
   width: 30%;
   justify-content: flex-start;
+  padding-top: 10px;
+
 }
 
 .CENTER-NAV {
@@ -25,6 +28,12 @@
   align-items: center;
   width: 40%;
   justify-content: space-between;
+  padding-top: 10px;
+}
+
+.RIGT-NAV span:hover ,.CENTER-NAV span:hover { 
+  color: var(--btnsColor);
+  transition: 0.3s;
 }
 
 .RIGT-NAV {
@@ -33,8 +42,70 @@
   align-items: center;
   justify-content: flex-end;
   gap: 5%;
+  padding-top: 10px;
+
 }
 
 .NavBar span {
   cursor: pointer;
+}
+
+.CART-NAV {
+  position: relative;
+}
+.CART-NAV svg {
+  transform: rotateY(180deg);
+  font-size: 22px;
+}
+
+/* .CART-NAV .Number {
+  background-color: var(--btnsColor);
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  color: white;
+  position: absolute;
+  top: 3%;
+  right: -35%;
+  top: -60%;
+  text-align: center;
+} */
+
+.Login-Logout svg {
+  font-size: 22px;
+}
+
+.WISH-NAV {
+  position: relative;
+}
+.WISH-NAV svg {
+  /* transform: rotateY(180deg); */
+  font-size: 22px;
+}
+
+/* .WISH-NAV .Number {
+  background-color: var(--btnsColor);
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  color: white;
+  position: absolute;
+  top: 3%;
+  right: -35%;
+  top: -60%;
+  text-align: center;
+} */
+.CART-NAV .Number,
+.WISH-NAV .Number {
+  background-color: var(--btnsColor);
+  width: 20px;
+  height: 21px;
+  border-radius: 100%;
+  color: white;
+  position: absolute;
+  top: 3%;
+  right: -45%;
+  top: -65%;
+  text-align: center;
+  font-size: 15px;
 }

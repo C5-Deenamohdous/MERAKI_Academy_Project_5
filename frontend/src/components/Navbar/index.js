@@ -4,6 +4,13 @@ import { Link } from "react-router-dom";
 import { BsCartDash } from "react-icons/bs";
 import { TbJewishStar } from "react-icons/tb";
 
+import { AiOutlinePoweroff } from "react-icons/ai";
+import { FiLogIn } from "react-icons/fi";
+import { BsCart, BsStars } from "react-icons/bs";
+// BsCart
+// FiLogIn
+// AiOutlinePoweroff << LogOut
+
 //BsCartDash
 import { useDispatch, useSelector } from "react-redux";
 import Category from "../Category";
@@ -58,14 +65,37 @@ const NavBar = () => {
       </div>
 
       <div className="RIGT-NAV">
-        <div>
-          <span>Cart</span>
+        <div className="Login-Logout">
+          {isLoggedIn ? (
+            <span
+              onClick={() => {
+                dispatch(logout());
+                navigate("/");
+              }}
+            >
+              <AiOutlinePoweroff />
+            </span>
+          ) : (
+            <span
+              onClick={() => {
+                navigate("/Login");
+              }}
+            >
+              <FiLogIn />
+            </span>
+          )}
         </div>
-        <div>
-          <span>wishList</span>
+        <div className="WISH-NAV">
+          <span className="Number">{isLoggedIn ? Wishlist.length : 0}</span>
+          <span>
+            <BsStars />
+          </span>
         </div>
-        <div>
-          <span>Login-LogOut</span>
+        <div className="CART-NAV">
+          <span className="Number">{isLoggedIn ? cart.length : 0}</span>
+          <span>
+            <BsCart />
+          </span>
         </div>
       </div>
     </div>
@@ -78,9 +108,9 @@ export default NavBar;
 //         {isLoggedIn ? (
 //           <>
 //             <p
-//               onClick={() => {
-//                 navigate(`/user/${userId}`);
-//               }}
+// onClick={() => {
+//   navigate(`/user/${userId}`);
+// }}
 //             >
 //               profile
 //             </p>
