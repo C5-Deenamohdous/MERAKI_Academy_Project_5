@@ -114,9 +114,7 @@ const CreateProduct = () => {
         <div className="center">
           <>
             <h1>
-              add_product
-              <br />
-              add_product here{" "}
+            create new product{" "}
             </h1>
             <center>
               <div className="inputbox">
