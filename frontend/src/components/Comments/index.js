@@ -25,6 +25,7 @@ const Comment = ({ id }) => {
   const [message, setMessage] = useState("");
   const [newComment, setNewComment] = useState("");
   const [addComment, setAddComment] = useState("");
+  const [profileImg1, setProfileImg1] = useState("")
   const [click, setClick] = useState(false);
   const getCommentById = () => {
     axios
@@ -33,6 +34,7 @@ const Comment = ({ id }) => {
         console.log(result, "**!!!!!!!**all comments ");
         dispatch(setComment(result.data.result));
         setMessage("All Comments");
+        // setProfileImg1(result.)
       })
       .catch((err) => {
         console.log(err);
@@ -122,6 +124,7 @@ const Comment = ({ id }) => {
 
     <div className="comments-Container">
       <div className="row-Container1">
+
         <input
           className="inputComment"
           type={"textArea"}

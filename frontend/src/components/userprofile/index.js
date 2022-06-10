@@ -76,7 +76,7 @@ const UserProfile = () => {
           })
         );
 
-        setMessage("user with ID is redy to be updated");
+        setMessage("user with ID is ready to be updated");
       })
       .catch((err) => {
         console.log(err);
@@ -120,49 +120,63 @@ const UserProfile = () => {
                 <div className="inner_container">
                   <div className="userProfileImg">
                     <img src={user.profileImage} />
-                    <p>{user.firstName}  {user.lastName}</p>
+                    <p>
+                      {user.firstName} {user.lastName}
+                    </p>
                   </div>
                   <div>
-                  <button className="updateButton"
-                  onClick={() => {
-                    setIsClicked(true);
-                    {
-                      setFirstName(user.firstName);
-                    }
-                    {
-                      setLastName(user.lastName);
-                    }
-                    {
-                      setPhoneNumber(user.phoneNumber);
-                    }
-                    {
-                      setProfileImage(user.profileImage);
-                    }
-                  }}
-                >
-                  {" "}
-                  update your info
-                </button>
-                <button className="deleteButton"
-                  onClick={() => {
-                    DeletUserById(id);
-                    setMessage("user has been deleted");
-                  }}
-                >
-                  Delete your Profile
-                </button>
+                    <button
+                      className="updateButton"
+                      onClick={() => {
+                        setIsClicked(true);
+                        {
+                          setFirstName(user.firstName);
+                        }
+                        {
+                          setLastName(user.lastName);
+                        }
+                        {
+                          setPhoneNumber(user.phoneNumber);
+                        }
+                        {
+                          setProfileImage(user.profileImage);
+                        }
+                      }}
+                    >
+                      {" "}
+                      update your info
+                    </button>
+                    <button
+                      className="deleteButton"
+                      onClick={() => {
+                        DeletUserById(id);
+                        setMessage("user has been deleted");
+                      }}
+                    >
+                      Delete your Profile
+                    </button>
                   </div>
                 </div>
                 <div className="datails-Container_profile">
-                  <p>FirstName :{user.firstName}</p>
-                  <p>LastName :{user.lastName}</p>
-                  <p>PhoneNumber :{user.phoneNumber}</p>
+                  <span className="line">
+                    FirstName :{" "}
+                    <span className="lineINLine">{user.firstName}</span>
+                  </span>
+                  <span className="line">
+                    LastName :{" "}
+                    <span className="lineINLine">{user.lastName}</span>
+                  </span>
+                  <span className="line">
+                    Email : <span className="lineINLine">    {user.email}</span>
+                  </span>
+                  <span className="line">
+                    phoneNumber :{" "}
+                    <span className="lineINLine">   {user.phoneNumber}</span>
+                  </span>
                 </div>
               </div>
               <div>
-           
                 <br />
-               
 
                 {isClicked ? (
                   <div>
@@ -202,11 +216,11 @@ const UserProfile = () => {
                       />
                       <span>profileImage</span> */}
                       <Cloud
-                setProfileImage={setProfileImage}
-                url={url}
-                setUrl={setUrl}
-              />
-                    </div> 
+                        setProfileImage={setProfileImage}
+                        url={url}
+                        setUrl={setUrl}
+                      />
+                    </div>
                     <button
                       onClick={() => {
                         updateUserById(id);
@@ -221,7 +235,6 @@ const UserProfile = () => {
                   ""
                 )}
               </div>
-              
             </>
           );
         })}
