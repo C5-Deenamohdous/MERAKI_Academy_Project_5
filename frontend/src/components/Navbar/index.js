@@ -1,8 +1,6 @@
 import "./style.css";
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { BsCartDash } from "react-icons/bs";
-import { TbJewishStar } from "react-icons/tb";
+import CategAndBrand from "../NavCategory";
 
 import { AiOutlinePoweroff, AiOutlineSearch } from "react-icons/ai";
 import { FiLogIn } from "react-icons/fi";
@@ -112,6 +110,7 @@ const NavBar = () => {
           </span>
         </div>
       </div>
+      <CategAndBrand />
     </div>
   );
 };

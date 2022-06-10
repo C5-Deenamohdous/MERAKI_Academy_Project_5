@@ -11,14 +11,14 @@ INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0 AND
 
   connection.query(query, data, (err, result) => {
     if (err) {
-     return res.status(500).json({
+      return res.status(500).json({
         success: false,
         massage: "Server Error",
         err: err,
       });
     }
     if (!result.length) {
-      return  res.status(404).json({
+      return res.status(404).json({
         success: false,
         massage: "The product is Not Found",
       });
@@ -31,12 +31,15 @@ INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0 AND
   });
 };
 
-
 const getAllProduct = (req, res) => {
   const limit = 15;
   const page = req.query.page;
   const offset = (page - 1) * limit;
-  const query = "select *,products.id FROM products INNER JOIN categories ON products.category_id=categories.id INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0  limit "+limit+" OFFSET "+offset ;
+  const query =
+    "select *,products.id FROM products INNER JOIN categories ON products.category_id=categories.id INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0  limit " +
+    limit +
+    " OFFSET " +
+    offset;
   connection.query(query, (err, result) => {
     if (err) {
       return res.status(500).json({
@@ -45,12 +48,12 @@ const getAllProduct = (req, res) => {
         err: err,
       });
     }
- 
+
     res.status(200).json({
       success: true,
       massage: "All products",
-      products_page_count :result.length,
-      page_number:page,
+      products_page_count: result.length,
+      page_number: page,
       result: result,
     });
   });
@@ -66,10 +69,10 @@ INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0 AND
 
   connection.query(query, data, (err, result) => {
     if (err) {
-      return    res.status(500).json({ err });
+      return res.status(500).json({ err });
     }
     if (result.length) {
-     return res.status(200).json({
+      return res.status(200).json({
         success: true,
         massage: `All the products for the category: ${category_id}`,
         result: result,
@@ -92,10 +95,10 @@ INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0 AND
 
   connection.query(query, data, (err, result) => {
     if (err) {
-    return  res.status(500).json({ err });
+      return res.status(500).json({ err });
     }
     if (result.length) {
-    return  res.status(200).json({
+      return res.status(200).json({
         success: true,
         massage: `All the products for the brand: ${brand_id}`,
         result: result,
@@ -108,7 +111,7 @@ INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0 AND
     }
   });
 };
-const getAllCategory = (req,res) => {
+const getAllCategory = (req, res) => {
   const query = `SELECT * FROM categories
  WHERE is_deleted=0;`;
   connection.query(query, (err, result) => {
@@ -126,7 +129,7 @@ const getAllCategory = (req,res) => {
     });
   });
 };
-const getAllBrands = (req,res) => {
+const getAllBrands = (req, res) => {
   const query = `SELECT * FROM brands
  WHERE is_deleted=0;`;
   connection.query(query, (err, result) => {
@@ -144,11 +147,51 @@ const getAllBrands = (req,res) => {
     });
   });
 };
+
+getBrandByCategory = (req, res) => {
+  const category_id = req.params.id;
+  const query = `SELECT * FROM brands WHERE category_id=?`;
+  const data = [category_id];
+
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        message: `SERVER ERROR IN NEW FUNC`,
+        err: err,
+      });
+    }
+    res.status(200).json({
+      message: `ALL BRAND FOR CATG ${category_id}`,
+      result: result,
+    });
+  });
+};
+
+const categoriesJoinedWithBrand = (req, res) => {
+  const query = `SELECT *,categories.id FROM categories INNER JOIN brands ON categories.id = brands.category_id
+ WHERE categories.is_deleted=0;`;
+  connection.query(query, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        massage: "server error",
+        err: err,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      massage: "All categories with Brands",
+      result: result,
+    });
+  });
+};
+
 module.exports = {
   getOneProductById,
   getAllProduct,
   getProductByCategory,
   getProductByBrand,
   getAllCategory,
-  getAllBrands
+  getAllBrands,
+  getBrandByCategory,
 };
