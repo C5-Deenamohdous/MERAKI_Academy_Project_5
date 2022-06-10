@@ -118,11 +118,16 @@ const createComment = () =>{
               
                 <p className="publisherImg">{comment.profileImage}</p>
 
-              
-                <p>{comment.firstName}</p>
-                <p>{comment.lastName}</p>
-                
+              <div className="Container">
+              <div className="displayName">
+                <p>{comment.firstName}{comment.lastName} :</p>
+               
+                </div>
+                <div className="tweetBody">
                 <p>{comment.comment}</p>
+                </div>
+                </div>
+                <div className="deleteUpdateButton">
                 <p
                   onClick={() => {
                     deleteComment(comment.id);
@@ -147,7 +152,7 @@ const createComment = () =>{
                         setNewComment(e.target.value);
                       }}
                     />
-
+</div>
               </div>
               
             );
