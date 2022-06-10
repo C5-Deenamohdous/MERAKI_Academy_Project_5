@@ -28,16 +28,16 @@
   padding-left: 15px;
 }
 
-.SEARCH-Container { 
+.SEARCH-Container {
   position: relative;
 }
-.SEARCH-Container .SEARCH-ICON { 
+.SEARCH-Container .SEARCH-ICON {
   position: absolute;
   top: 20%;
   right: 5%;
 }
 
-.SEARCH-Container .SEARCH-ICON svg { 
+.SEARCH-Container .SEARCH-ICON svg {
   font-size: 20px;
 }
 
@@ -149,4 +149,18 @@
   top: -65%;
   text-align: center;
   font-size: 15px;
+}
+
+.Catg-IconCont {
+  display: flex;
+}
+
+.Catg-IconCont:hover {
+  color: var(--btnsColor);
+}
+.DropIcon {
+  margin-top: 4px;
+}
+.Catg-IconCont .DropIcon span svg {
+  font-size: 17px;
 }

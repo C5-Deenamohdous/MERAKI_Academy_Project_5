@@ -6,7 +6,7 @@ import { TbJewishStar } from "react-icons/tb";
 
 import { AiOutlinePoweroff, AiOutlineSearch } from "react-icons/ai";
 import { FiLogIn } from "react-icons/fi";
-import { BsCart, BsStars } from "react-icons/bs";
+import { BsCart, BsStars, BsArrowDownShort } from "react-icons/bs";
 import { GiUbisoftSun, GiHeraldicSun } from "react-icons/gi";
 
 // BsCart
@@ -55,7 +55,15 @@ const NavBar = () => {
         >
           Home
         </span>
-        <span>Categories</span>
+        <div className="Catg-IconCont">
+          <span>Categories </span>
+          <div className="DropIcon">
+            <span>
+              <BsArrowDownShort />
+            </span>
+          </div>
+        </div>
+
         <span>Profile</span>
         <div className="SEARCH-Container">
           <input
