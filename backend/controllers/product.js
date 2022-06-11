@@ -31,6 +31,27 @@ INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0 AND
   });
 };
 
+const SearshGetAllProduct = (req, res) => {
+  const query =
+    "select *,products.id FROM products INNER JOIN categories ON products.category_id=categories.id INNER JOIN brands ON products.brand_id=brands.id WHERE products.is_deleted=0 ";
+  connection.query(query, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        massage: "server error",
+        err: err,
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      massage: "All products",
+      result: result,
+    });
+  });
+};
+
+
 const getAllProduct = (req, res) => {
   const limit = 15;
   const page = req.query.page;
@@ -194,4 +215,5 @@ module.exports = {
   getAllCategory,
   getAllBrands,
   getBrandByCategory,
+  SearshGetAllProduct,
 };
