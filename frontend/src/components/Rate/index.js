@@ -71,7 +71,7 @@ const Rate = () => {
   let sum = 0;
 
   return (
-    <div>
+    <div className="rateContainer">
       {console.log(rate, "888888")}
       {rate &&
         rate.map((el, i) => {

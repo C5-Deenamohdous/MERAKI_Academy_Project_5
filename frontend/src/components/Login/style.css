@@ -1,6 +1,9 @@
 .center{
      background-image: initial;
-  ;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
 }
 .login-Register-Menu{
   display: flex;

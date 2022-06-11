@@ -1,11 +1,13 @@
 .ONEproductImage{
-    width: 50%;
+    width: 40%;
     height: 100%;
 
 }
 .ONEproductImage img{
     width: 100%;
     height: 100%;
+    object-fit: contain;
+
 }
 .container{
     display: flex;
@@ -21,11 +23,15 @@
   padding: 5px;
 }
 .details-Container{
-    justify-content: start;
+    justify-content: flex-start;
     align-items:flex-start;
     margin-top: 6em;
     display: flex ;
     flex-direction: column;
+    height: fit-content;
+  
+    margin-top: 10%;
+
 }
 .title1{
     font-weight: 600;
@@ -52,12 +58,19 @@
 }
 .rate{
     /* padding-top: 15em; */
+    display: flex;
+   
 }
 .details_Rate{
     display: flex;
      flex-direction: column; 
-     width: 50%;
      height: 100%;
+     width: 70%;
+     /* height: fit-content; */
+     justify-content: flex-start;
+     align-items: flex-start;
+     margin-left: 10%;
+
    
 }
 .comment{
@@ -66,6 +79,7 @@
 }
 .Cart-Btns1{
     display: flex ; 
+    /* margin-left: 30%; */
 }
  .Cart-Btns1 svg{
      margin-top: 2em;
