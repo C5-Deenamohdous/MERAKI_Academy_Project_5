@@ -22,6 +22,9 @@ export const cartSlice = createSlice({
       state.productInCart = state.cart.map((element) => {
         return element.product_id;
       });
+      state.subTotal = state.cart.reduce((total, element) => {
+        return total + element.price * element.quantityInCart;
+      }, 0);
     },
     removeFromCart: (state, action) => {
       state.cart = state.cart.filter((element) => {
