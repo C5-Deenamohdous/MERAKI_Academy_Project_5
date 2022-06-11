@@ -4,3 +4,18 @@
     flex-direction: column;
     width: 90%;
   }
+  .categoryReturn{
+
+
+  }
+  .categoryContainer1{
+    position: absolute;
+    display: flex;
+    
+    /* flex-direction: column; */
+    
+    left: 10%;
+    width: 90%;
+    height: 100vh;
+    background-color: antiquewhite;
+  }
