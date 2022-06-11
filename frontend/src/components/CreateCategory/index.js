@@ -60,7 +60,8 @@ const CreateCategory = ()=>{
   
     //===============================================================
     return (
-      <>
+      <div className="categoryContainer1">
+      <div className="categoryReturn">
       {/* <Category/> */}
         <form className="NewCategory" onSubmit={NewCategory
         
@@ -81,7 +82,8 @@ const CreateCategory = ()=>{
         {status
           ? message && <div className="SuccessMessage">{message}</div>
           : message && <div className="ErrorMessage">{message}</div>}
-      </>
+      </div>
+      </div>
     );
   };
   

@@ -84,7 +84,8 @@ const CreateBrand = () => {
   //===============================================================
   console.log(category);
   return (
-    <>
+    <div className="categoryContainer1">
+    <div className="categoryReturn">
       <form className="CreateBrand">
         <br />
         <input
@@ -117,7 +118,11 @@ const CreateBrand = () => {
           )
         })
         : ""}
-    </>
+         {status
+          ? message && <div className="SuccessMessage">{message}</div>
+          : message && <div className="ErrorMessage">{message}</div>}
+    </div>
+      </div>
   );
 };
 
