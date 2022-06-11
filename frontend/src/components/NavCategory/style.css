@@ -24,3 +24,7 @@
     cursor: pointer;
     color: var(--btnsColor);
 }
+.sideCart {
+  display: flex;
+  flex-direction: column;
+}

@@ -7,29 +7,28 @@ import { FiLogIn } from "react-icons/fi";
 import { BsCart, BsStars, BsArrowDownShort } from "react-icons/bs";
 import { GiUbisoftSun, GiHeraldicSun } from "react-icons/gi";
 
-// BsCart
-// FiLogIn
-// AiOutlinePoweroff << LogOut
-
-//BsCartDash
 import { useDispatch, useSelector } from "react-redux";
-import Category from "../Category";
-import Brand from "../Brand";
+
+import Modal from "react-modal";
 import { logout } from "../../redux/reducers/auth";
 import { useNavigate } from "react-router-dom";
 // import Wishlist from "../../redux/reducers/WishList";
 const NavBar = () => {
+  const [isOpen, setIsOpen] = useState("");
   const [isHover, setIsHover] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isLoggedIn, cart, userId, Wishlist } = useSelector((state) => {
-    return {
-      isLoggedIn: state.auth.isLoggedIn,
-      cart: state.cart.cart,
-      userId: state.auth.userId,
-      Wishlist: state.Wishlist.Wishlist,
-    };
-  });
+  const { isLoggedIn, cart, userId, Wishlist, subTotal } = useSelector(
+    (state) => {
+      return {
+        isLoggedIn: state.auth.isLoggedIn,
+        cart: state.cart.cart,
+        userId: state.auth.userId,
+        Wishlist: state.Wishlist.Wishlist,
+        subTotal: state.cart.subTotal,
+      };
+    }
+  );
   {
     /* <Category /> */
   }
@@ -125,17 +124,74 @@ const NavBar = () => {
         </div>
         <div className="WISH-NAV">
           <span className="Number">{isLoggedIn ? Wishlist.length : 0}</span>
-          <span>
+          <span
+            onClick={() => {
+              navigate("/Wishlist");
+            }}
+          >
             <BsStars />
           </span>
         </div>
-        <div className="CART-NAV">
+        <div
+          className="CART-NAV"
+          onClick={() => {
+            setIsOpen(true);
+          }}
+        >
           <span className="Number">{isLoggedIn ? cart.length : 0}</span>
           <span>
             <BsCart />
           </span>
         </div>
       </div>
+      <Modal
+        ariaHideApp={false}
+        className={"CartPopUp"}
+        isOpen={isOpen}
+        onRequestClose={() => setIsOpen(false)}
+      >
+        <div className="Btn-SideCart">
+          <span
+            onClick={() => {
+              setIsOpen(false);
+            }}
+          >
+            X
+          </span>
+        </div>
+        {cart &&
+          cart.map((element) => {
+            return (
+              <div className="sideCart">
+                <div className="sideCartImg">
+                  <img src={element.productImage} />
+                </div>
+                <div className="Title_Price">
+                  <span>{element.title}</span>
+                  <span className="Quan">
+                    {element.quantityInCart} x {element.price}
+                  </span>
+                </div>
+              </div>
+            );
+          })}
+        <div className="Total">
+          <span className="T_">Total</span>
+          <span className="Num">${subTotal}</span>
+        </div>
+        <div className="View-C">
+          <button
+            className="Vi"
+            onClick={() => {
+              navigate("/cart");
+              setIsOpen(false);
+            }}
+          >
+            View Cart
+          </button>
+          <button className="Ch">Checkout</button>
+        </div>
+      </Modal>
     </div>
   );
 };
