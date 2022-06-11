@@ -51,7 +51,7 @@ const UserProfile = () => {
   const [profileImage, setProfileImage] = useState("");
   // const [newImg, setNewImg] = useState("");
   const updateUserById = () => {
-    let newImg = url || profileImage;
+    // let newImg =url || profileImage;
     axios
       .put(
         `http://localhost:5000/user/${id}`,
@@ -61,7 +61,7 @@ const UserProfile = () => {
           firstName,
           lastName,
           phoneNumber,
-          profileImage: newImg,
+          profileImage: url || profileImage,
         }
       )
 
@@ -74,7 +74,7 @@ const UserProfile = () => {
             firstName,
             lastName,
             phoneNumber,
-            profileImage: newImg,
+            profileImage:  url || profileImage,
           })
         );
 
