@@ -1,4 +1,4 @@
-.Container {
+/* .Container {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -27,4 +27,67 @@
 .ONEProductImage {
   height: 100%;
   width: 100%;
+} */
+
+.CONTANER {
+  display: flex;
+  flex-direction: column;
+}
+
+.CONTANER .Section-Header {
+  height: 90vh;
+  background-color: var(--mainColor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.CONTANER .FilterBtns {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  font-size: 17px;
+  color: var(--subColor);
+  margin-top: 10vh;
+}
+
+.CONTANER .Card-Container {
+  gap: 2%;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.CONTANER .card {
+  width: 23%;
+  height: 50vh;
+  margin-top: 10vh;
+  padding: 10px;
+}
+
+.CONTANER .content {
+  width: 100%;
+  height: 100%;
+  /* box-shadow: 0 0 15px rgb(0 0 0 / 10%); */
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.CONTANER .front,
+.back {
+  height: 100%;
+  width: 100%;
+  background-color: var(--mainColor);
+  text-align: center;
+  border-radius: 5px;
+  backface-visibility: hidden;
+}
+
+.CONTANER .front .imgContainer img {
+  height: 100%;
+  width: 100%;
+  object-fit: scale-down;
 }

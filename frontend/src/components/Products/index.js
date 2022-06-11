@@ -7,7 +7,6 @@ import AddToWishlistButton from "../addToWishlistButton";
 import { setProducts } from "../../redux/reducers/products";
 import { useNavigate } from "react-router-dom";
 
-
 const Product = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -24,7 +23,7 @@ const Product = () => {
       token: state.auth.token,
     };
   });
- 
+
   const getAllProducts = async () => {
     axios
       .get(`http://localhost:5000/product/?page=1&limit=15`)
@@ -61,30 +60,35 @@ const Product = () => {
             products.map((element, i) => {
               return (
                 <>
-                   <div class="card">
-                <div class="content">
-                  <div class="front">
-                    <div className="imgContainer">
-                      <img src={element.productImage} />
-                    </div>
-                    <div className="Price-Title">
-                      <p>{element.title}</p>
-                      <p>{element.price}</p>
-                    </div>
-                  </div>
-                  <div class="back">
-                    <div className="Flip">
-                      <div className="Cart-Btns">
-                        <AddToCartButton productId={element.id} />
-                        <AddToWishlistButton productId={element.id} />
+                  <div class="card">
+                    <div class="content">
+                      <div class="front">
+                        <div className="imgContainer">
+                          <img src={element.productImage} />
+                        </div>
+                        <div className="Price-Title">
+                          <p>{element.title}</p>
+                          <p>{element.price}</p>
+                        </div>
                       </div>
-                      <button onClick={()=>{
-                        navigate(`/oneProduct/${element.id}`)
-                      }} className="Show-More">Show More</button>
+                      <div class="back">
+                        <div className="Flip">
+                          <div className="Cart-Btns">
+                            <AddToCartButton productId={element.id} />
+                            <AddToWishlistButton productId={element.id} />
+                          </div>
+                          <button
+                            onClick={() => {
+                              navigate(`/oneProduct/${element.id}`);
+                            }}
+                            className="Show-More"
+                          >
+                            Show More
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
                 </>
               );
             })}

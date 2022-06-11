@@ -151,7 +151,10 @@ const Home = () => {
                     <div className="Flip">
                       <div className="Cart-Btns">
                         <AddToWishlistButton productId={element.id} />
-                        <AddToCartButton productId={element.id} />
+                        <AddToCartButton
+                          productId={element.id}
+                          price={element.price}
+                        />
                       </div>
                       <button className="Show-More">Show More</button>
                     </div>
