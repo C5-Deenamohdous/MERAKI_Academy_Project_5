@@ -1,6 +1,7 @@
 import "./style.css";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import CategAndBrand from "../NavCategory";
+import axios from "axios";
 
 import { AiOutlinePoweroff, AiOutlineSearch } from "react-icons/ai";
 import { FiLogIn } from "react-icons/fi";
@@ -14,6 +15,7 @@ import { logout } from "../../redux/reducers/auth";
 import { useNavigate } from "react-router-dom";
 // import Wishlist from "../../redux/reducers/WishList";
 const NavBar = () => {
+
   const [isOpen, setIsOpen] = useState("");
   const [isHover, setIsHover] = useState(false);
   const dispatch = useDispatch();
@@ -29,12 +31,30 @@ const NavBar = () => {
       };
     }
   );
-  {
-    /* <Category /> */
-  }
-  {
-    /* <Brand /> */
-  }
+  // {productRouter.get("/search", SearshGetAllProduct);
+const [result, setResult] = useState("");
+const [search, setSearch] = useState(false);
+const [searchtext, setSearchtext] = useState("");
+
+
+  const SearshGetAllProduct = async () => {
+    axios
+      .get(`http://localhost:5000/product/search`)
+
+      .then((result) => {
+        console.log(result, "search all product");
+        setResult(result.data.result);
+        // setMessage("ALL products");
+      })
+      .catch((err) => {
+        console.log(err);
+        // setMessage(err.response.data.message);
+      });
+  };
+  useEffect(() => {
+    SearshGetAllProduct();
+  }, []);
+  
   return (
     <div className="NavBar">
       <div
@@ -78,11 +98,14 @@ const NavBar = () => {
           Profile
         </span>
         <div className="SEARCH-Container">
-          <input
+          <input 
             className="serch"
             type="text"
             placeholder="Search.."
-            name="search"
+            name="search" onChange={(e)=>{
+                         setSearchtext(e.target.value);
+                         setSearch(true);
+            }}
           />
           <p className="SEARCH-ICON">
             <AiOutlineSearch />
@@ -192,7 +215,26 @@ const NavBar = () => {
           <button className="Ch">Checkout</button>
         </div>
       </Modal>
+      {search&&searchtext !== "" ? <div> {result&&result.map((element,index)=>{
+return(
+  <>
+  {element.title.toLowerCase().includes(searchtext.toLowerCase()) ? 
+  <div className="searchoutbout">
+<span onClick={()=>{
+  navigate(`/oneProduct/${element.id}`)
+}}>
+{element.title};
+</span>
+  </div>
+  :""}
+  </>
+);
+      })
+      }
+       </div>
+        : ""}
     </div>
+
   );
 };
 

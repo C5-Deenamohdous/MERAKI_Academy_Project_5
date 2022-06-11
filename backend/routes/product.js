@@ -9,9 +9,11 @@ const {
   getProductByBrand,
   getAllCategory,
   getAllBrands,
+  SearshGetAllProduct,
   getBrandByCategory,
 } = require("../controllers/product");
 
+productRouter.get("/search", SearshGetAllProduct);
 productRouter.get("/categoryName", getAllCategory);
 productRouter.get("/brandName", getAllBrands);
 productRouter.get("/:id", getOneProductById);
