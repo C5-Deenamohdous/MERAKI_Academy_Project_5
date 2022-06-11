@@ -36,7 +36,7 @@ const OneCategory = () => {
   };
   useEffect(() => {
     getOneCategory();
-  }, []);
+  }, [id]);
   return (
     <div className="CONTANER">
       <div className="Section-Header">
