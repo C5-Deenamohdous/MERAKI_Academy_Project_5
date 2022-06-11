@@ -1,24 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 .App {
   text-align: center;
   display: flex;
   height: 100%;
   flex-direction: column;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 :root {
   --mainColor: #f3f3f5;
   --btnsColor: #ff4136;
-  --subColor : #666666;
-  --NavColor :#f6f6f8;
-  --BlackColor :#080808;
+  --subColor: #666666;
+  --NavColor: #f6f6f8;
+  --BlackColor: #080808;
 }

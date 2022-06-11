@@ -195,3 +195,127 @@
 .DropDev:hover ~ .Catg-IconCont {
   color: var(--btnsColor);
 }
+
+.CartPopUp {
+  width: 37%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  background-color: #f4f4ff;
+  border-color: unset;
+  outline: unset;
+  box-shadow: var(--mainColor) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  padding: 20px;
+  overflow: scroll;
+}
+
+.CartPopUp .sideCart {
+  display: flex;
+  width: 100%;
+  height: 30%;
+  flex-direction: row;
+  border-bottom: 0.5px solid rgb(211, 198, 198);
+}
+
+.sideCart .sideCartImg {
+  display: flex;
+  width: 25%;
+  height: 75%;
+  background-color: transparent;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.sideCart .sideCartImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.sideCart .Title_Price {
+  display: flex;
+  width: 70%;
+  justify-content: flex-start;
+  height: 100%;
+  align-items: flex-start;
+  margin-top: 5%;
+  flex-direction: column;
+  gap: 5px;
+}
+.Total {
+  height: 15%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+}
+.Total .T_ {
+  font-size: 30px;
+}
+
+.Total .Num {
+  color: var(--btnsColor);
+  font-size: 15px;
+}
+
+.Btn-SideCart {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 90px;
+}
+.Btn-SideCart span {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.Quan {
+  color: var(--btnsColor);
+}
+
+.View-C {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.View-C button {
+  width: 100%;
+  height: 60px;
+  background-color: var(--NavColor);
+  color: var(--BlackColor);
+  font-size: 20px;
+  border: 0.2px solid;
+  outline-style: none;
+  cursor: pointer;
+}
+
+.View-C .Ch {
+  background-color: var(--BlackColor);
+  color: var(--mainColor);
+}
+
+.View-C .Ch:hover {
+  transition: 0.3s;
+  background-color: var(--btnsColor);
+}
+
+.View-C .Vi:hover {
+  transition: 0.3s;
+  background-color: var(--btnsColor);
+  color: var(--NavColor);
+}
