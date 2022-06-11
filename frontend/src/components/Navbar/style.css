@@ -14,7 +14,6 @@
   color: var(--subColor);
 }
 
-
 .SEARCH-Container input {
   padding: 10px;
   border-color: none;
@@ -200,9 +199,6 @@
 .CartPopUp {
   width: 37%;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   position: absolute;
   right: 0;
@@ -214,6 +210,13 @@
     rgba(0, 0, 0, 0.09) 0px -3px 5px;
   padding: 20px;
   overflow: scroll;
+}
+
+.CONTAINER_CARTPOPUP {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
 
 .CartPopUp .sideCart {
@@ -257,6 +260,7 @@
   flex-direction: row;
   width: 100%;
   align-items: center;
+  /* margin-top: 10px; */
 }
 .Total .T_ {
   font-size: 30px;
@@ -272,7 +276,6 @@
   height: 10%;
   display: flex;
   justify-content: flex-end;
-  margin-top: 90px;
 }
 .Btn-SideCart span {
   font-size: 25px;
