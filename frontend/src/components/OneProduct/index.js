@@ -34,7 +34,7 @@ const OneProduct = () => {
   };
   useEffect(() => {
     getOneProduct();
-  }, []);
+  }, [id]);
   return (
     <div className="container">
       {oneProduct &&

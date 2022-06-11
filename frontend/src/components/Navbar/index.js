@@ -230,6 +230,7 @@ const NavBar = () => {
                       <span
                         onClick={() => {
                           navigate(`/oneProduct/${element.id}`);
+                          setSearchtext("");
                         }}
                       >
                         {element.title};
