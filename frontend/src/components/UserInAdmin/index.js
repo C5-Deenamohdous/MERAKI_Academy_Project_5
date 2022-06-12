@@ -39,19 +39,22 @@ const UserProfilePanel = () => {
 
   const UserInfoComponent = () => {
     return (
-      <div className="UsersInControlPanel">
+      <div className="UsersInControlPanelMain">
         {userProfile &&
           userProfile.map((element) => {
             return (
-              <div>
+              <div className="user_Line">
+                <div className="user_info">  
                 <div>
+                  <img className="userProfile" src={element.profileImage} />
+                </div>
+                <div >
                   User Name : {`${element.firstName} ` + ` ${element.lastName}`}
                 </div>
                 <div> User phone Number :{element.phoneNumber}</div>
                 <div> User email :{element.email}</div>
-                <div>
-                  <img className="userProfile" src={element.profileImage} />
-                </div>
+              
+                 </div>
                 <button
                   onClick={() => {
                     userDelete(element.id);
@@ -59,7 +62,7 @@ const UserProfilePanel = () => {
                 >
                   Delete User
                 </button>
-                <div> ----------------------</div>
+               
                 <button
                   onClick={() => {
                     navigate(`/admin/user_orders/${element.id}`);
@@ -67,6 +70,7 @@ const UserProfilePanel = () => {
                 >
                   User Orders
                 </button>
+               
               </div>
             );
           })}

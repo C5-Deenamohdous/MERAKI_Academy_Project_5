@@ -43,7 +43,7 @@
   transform: translateY(0rem);
 }
 
-.inputbox {
+.inputboxAhmad {
   font-family: 'Roboto', sans-serif;
   color: #333;
   font-size: 1.2rem;
@@ -58,7 +58,7 @@
   transition: all 0.3s;
 }
 
-.inputbox:placeholder-shown + .form__label {
+.inputboxAhmad:placeholder-shown + .form__label {
   opacity: 0;
   visibility: hidden;
   -webkit-transform: translateY(-4rem);
