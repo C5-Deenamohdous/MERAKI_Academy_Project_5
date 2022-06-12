@@ -109,107 +109,111 @@ const CreateProduct = () => {
   }, []);
 
   return (
-    <div className="Center-Container">
-      <div className="creareP-Container">
-        <div className="center">
-          <>
+    <div className="creareP-Container">
+      <>
+        <div className="nameofthepage">
+          <h1>create new product{""}</h1>
+        </div>
 
-            <h1>
-            create new product{""}
-            </h1>
-            <center>
-              <div className="inputboxAhmad">
-                <input
-                  type="text"
-                  required="required"
-                  onChange={(e) => setTitle(e.target.value)}
-                />
-                <span className="form__label">enter the title of your product here</span>
-              </div>
-              <div className="inputboxAhmad">
-                <input
-                  type="text"
-                  required="required"
-                  onChange={(e) => setDescription(e.target.value)}
-                />
-                <span className="form__label">enter the description of your product here</span>
-              </div>
-              <div className="inputboxAhmad">
-                <input
-                  type="text"
-                  required="required"
-                  onChange={(e) => setProductImage(e.target.value)}
-                />
-                <span className="form__label">enter the Product of your product Image</span>
-              </div>
-              <div className="inputboxAhmad">
-                <input
-                  type="text"
-                  required="required"
-                  onChange={(e) => setPrice(e.target.value)}
-                />
-                <span>enter the price of your product here</span>
-              </div>
-              <div className="inputboxAhmad">
-                <input
-                  type="text"
-                  required="required"
-                  onChange={(e) => setQuantity(e.target.value)}
-                />
-                <span className="form__label">Quantity of your product</span>
-              </div>
+        <div className="inputboxAhd">
+          <div className="inputboxAhmad">
+            <div>
+              <input
+                placeholder="enter the title of your product here"
+                className="input-data-textarea"
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="inputboxAhmad">
+            <div>
+              <input
+                placeholder="Description of your product here"
+                className="input-data-textarea"
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="inputboxAhmad">
+            <div>
+              <input
+                placeholder="product Image"
+                className="input-data-textarea"
+                onChange={(e) => setProductImage(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="inputboxAhmad">
+            <div>
+              <input
+                placeholder="price"
+                className="input-data-textarea"
+                onChange={(e) => setPrice(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="inputboxAhmad">
+            <div>
+              <input
+                placeholder="Quantity"
+                className="input-data-textarea"
+                onChange={(e) => setQuantity(e.target.value)}
+              />
+            </div>
+
+            <div className="inputboxAhmad">
               <Cloud
                 setProductImage={setProductImage}
                 url={url}
                 setUrl={setUrl}
               />
-              <div className="Select-C">
-                <select
-                  onChange={(e) => {
-                    console.log(e.target.value);
-                    setCategory_id(e.target.value);
-                  }}
-                >
-                  <option disabled selected>
-                    CategoryName
-                  </option>
-                  {category &&
-                    category.map((element, i) => {
-                      return (
-                        <option value={element.id}>
-                          {element.categoryName}
-                        </option>
-                      );
-                    })}
-                </select>
+            </div>
+          </div>
 
-                <select
-                  onChange={(e) => {
-                    console.log(e.target.value);
-                    setBrand_id(e.target.value);
-                  }}
-                >
-                  <option disabled selected>
-                    BrandName
-                  </option>
-                  {Brand &&
-                    Brand.map((elem) => {
-                      return <option value={elem.id}>{elem.brandName}</option>;
-                    })}
-                </select>
-              </div>
+          <div className="Select-C">
+            <select
+              onChange={(e) => {
+                console.log(e.target.value);
+                setCategory_id(e.target.value);
+              }}
+            >
+              <option disabled selected>
+                CategoryName
+              </option>
+              {category &&
+                category.map((element, i) => {
+                  return (
+                    <option value={element.id}>{element.categoryName}</option>
+                  );
+                })}
+            </select>
 
-              <button
-                onClick={() => {
-                  add_product();
-                }}
-              >
-                add_product
-              </button>
-            </center>
-          </>
+            <select
+              onChange={(e) => {
+                console.log(e.target.value);
+                setBrand_id(e.target.value);
+              }}
+            >
+              <option disabled selected>
+                BrandName
+              </option>
+              {Brand &&
+                Brand.map((elem) => {
+                  return <option value={elem.id}>{elem.brandName}</option>;
+                })}
+            </select>
+          </div>
+
+          <button
+            className="add_product"
+            onClick={() => {
+              add_product();
+            }}
+          >
+            Add product
+          </button>
         </div>
-      </div>
+      </>
     </div>
   );
 };
