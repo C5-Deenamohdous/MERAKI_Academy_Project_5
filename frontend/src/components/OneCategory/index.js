@@ -14,6 +14,8 @@ const OneCategory = () => {
   const [message, setMessage] = useState("");
   const [sectionName, setSectionName] = useState("");
   const [isFilterClicked, setIsFilterClicked] = useState(false);
+  const [optionValue, setOptionValue] = useState("");
+  const [saveResult, setSaveResult] = useState("");
 
   const { oneCategory, products } = useSelector((state) => {
     return {
@@ -28,6 +30,7 @@ const OneCategory = () => {
       .then((result) => {
         console.log(result, "******one category by id ");
         dispatch(setOneCategory(result.data.result));
+        setSaveResult(result.data.result);
         setSectionName(result.data.result[0].categoryName);
         setMessage("one category");
       })
@@ -47,8 +50,58 @@ const OneCategory = () => {
       </div>
 
       <div className="FilterBtns">
-        <span>Sort by</span>
-        <span className="F_"
+        <div>
+          <span>Sory by</span>
+          <select
+            onChange={(e) => {
+              if (e.target.value == "1") {
+                dispatch(setOneCategory([...saveResult]));
+              }
+              if (e.target.value == "2") {
+                dispatch(
+                  setOneCategory(
+                    [...saveResult].sort((a, b) => a.price - b.price)
+                  )
+                );
+              }
+              if (e.target.value == "3") {
+                dispatch(
+                  setOneCategory(
+                    [...saveResult].sort((a, b) => b.price - a.price)
+                  )
+                );
+              }
+              if (e.target.value == "4") {
+                dispatch(
+                  setOneCategory(
+                    [...saveResult].sort((a, b) =>
+                      a.title.localeCompare(b.title)
+                    )
+                  )
+                );
+              }
+              if (e.target.value == "5") {
+                dispatch(
+                  setOneCategory(
+                    [...saveResult].sort((a, b) =>
+                      b.title.localeCompare(a.title)
+                    )
+                  )
+                );
+              }
+            }}
+            // users.sort((a, b) => a.firstname.localeCompare(b.firstname))
+          >
+            <option value="1">Best Selling</option>
+            <option value="2">Lowest Price</option>
+            <option value="3">Highest Price</option>
+            <option value="4">A-Z</option>
+            <option value="5">Z-A</option>
+          </select>
+        </div>
+
+        <span
+          className="F_"
           onClick={() => {
             setIsFilterClicked(true);
           }}
