@@ -67,7 +67,7 @@ const CreateCategory = ()=>{
         
         // navigate(`/admin/create_brand/${result.data.result.insertId}`)
         }>
-          <h2>  specify the category of your Brand</h2>
+          <h1>  specify the category of your Brand</h1>
           <br />
           <input
           className="NewCategoryInput"
