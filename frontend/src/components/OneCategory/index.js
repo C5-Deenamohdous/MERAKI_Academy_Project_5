@@ -48,7 +48,7 @@ const OneCategory = () => {
 
       <div className="FilterBtns">
         <span>Sort by</span>
-        <span
+        <span className="F_"
           onClick={() => {
             setIsFilterClicked(true);
           }}

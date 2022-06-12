@@ -1,3 +1,14 @@
+.Close span {
+  font-size: 24px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.Close span:hover {
+  transition: 0.3s;
+  color: var(--btnsColor);
+}
+
 .FILTERPOPUP {
   width: 37%;
   height: 100vh;

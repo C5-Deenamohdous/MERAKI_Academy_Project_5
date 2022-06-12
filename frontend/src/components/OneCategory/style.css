@@ -53,6 +53,11 @@
   margin-top: 10vh;
 }
 
+.FilterBtns .F_:hover {
+  color: var(--btnsColor);
+  transition: 0.3s;
+}
+
 .CONTANER .Card-Container {
   gap: 2%;
   padding: 0 20px;
