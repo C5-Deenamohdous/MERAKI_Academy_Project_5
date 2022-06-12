@@ -1,0 +1,64 @@
+.Close span {
+  font-size: 24px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.Close span:hover {
+  transition: 0.3s;
+  color: var(--btnsColor);
+}
+
+.FILTERPOPUP {
+  width: 37%;
+  height: 100vh;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  background-color: #f4f4ff;
+  border-color: unset;
+  outline: unset;
+  box-shadow: var(--mainColor) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  padding: 20px;
+}
+
+.CONTAINER_FILTERPOPUP {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+  margin-top: 10%;
+}
+.Container_Catg {
+  display: flex;
+}
+
+.HEADER_ h2 {
+  font-weight: 400;
+}
+
+.Container_Catg {
+  display: flex;
+  height: 30%;
+  flex-direction: column;
+  /* border: 1px solid; */
+  flex-wrap: wrap;
+  margin-top: 3%;
+  gap: 2%;
+  color: var(--subColor);
+}
+
+.Container_Catg span {
+  cursor: pointer;
+  width: fit-content;
+}
+.Container_Catg span:hover {
+  transition: 0.3s;
+  color: var(--btnsColor);
+}
+
+.ACTIVE_SPAN {
+  color: var(--btnsColor);
+}

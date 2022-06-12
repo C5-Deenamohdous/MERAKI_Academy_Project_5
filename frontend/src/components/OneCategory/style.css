@@ -53,6 +53,11 @@
   margin-top: 10vh;
 }
 
+.FilterBtns .F_:hover {
+  color: var(--btnsColor);
+  transition: 0.3s;
+}
+
 .CONTANER .Card-Container {
   gap: 2%;
   padding: 0 20px;
@@ -90,4 +95,8 @@
   height: 100%;
   width: 100%;
   object-fit: scale-down;
+}
+
+.FilterBtns span {
+  cursor: pointer;
 }

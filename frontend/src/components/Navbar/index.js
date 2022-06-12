@@ -230,6 +230,7 @@ const NavBar = () => {
                       <span
                         onClick={() => {
                           navigate(`/oneProduct/${element.id}`);
+                          setSearchtext("");
                         }}
                       >
                         {element.title};
@@ -250,75 +251,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
-//  <div class="header-right">
-//         {isLoggedIn ? (
-//           <>
-//             <p
-// onClick={() => {
-// navigate(`/user/${userId}`);
-// }}
-//             >
-//               profile
-//             </p>
-
-//             <p
-//               className="Login/Logout"
-//               onClick={() => {
-//                 dispatch(logout());
-//                 navigate("/Home");
-//               }}
-//             >
-//               Logout
-//             </p>
-//             <p className="cart">
-//               <span>{cart.length}</span>
-//               <BsCartDash
-//                 onClick={() => {
-//                   navigate("/cart");
-//                 }}
-//               />
-//             </p>
-//             <p className="Wishlist">
-//               <TbJewishStar
-//                 onClick={() => {
-//                   navigate("/Wishlist");
-//                 }}
-//               />
-//             </p>
-//             <p
-//               className="admin"
-//               onClick={() => {
-//                 navigate("/admin");
-//               }}
-//             >
-//               Admin panel
-//             </p>
-//           </>
-//         ) : (
-//           <>
-//             <p
-//               className="Home"
-//               onClick={() => {
-//                 navigate("/Product");
-//               }}
-//             >
-//               Home
-//             </p>
-//             <p
-//               className="Login/Logout"
-//               onClick={() => {
-//                 navigate("/Login");
-//               }}
-//             >
-//               login
-//             </p>
-//             <input
-//               className="serch"
-//               type="text"
-//               placeholder="Search.."
-//               name="search"
-//             />
-//           </>
-//         )}
-//       </div>
