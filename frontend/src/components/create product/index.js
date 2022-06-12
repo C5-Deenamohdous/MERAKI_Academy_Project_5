@@ -113,8 +113,9 @@ const CreateProduct = () => {
       <div className="creareP-Container">
         <div className="center">
           <>
+
             <h1>
-            create new product{" "}
+            create new product{""}
             </h1>
             <center>
               <div className="inputbox">
@@ -123,7 +124,7 @@ const CreateProduct = () => {
                   required="required"
                   onChange={(e) => setTitle(e.target.value)}
                 />
-                <span>enter the title here</span>
+                <span className="form__label">enter the title of your product here</span>
               </div>
               <div className="inputbox">
                 <input
@@ -131,7 +132,7 @@ const CreateProduct = () => {
                   required="required"
                   onChange={(e) => setDescription(e.target.value)}
                 />
-                <span>enter the description here</span>
+                <span className="form__label">enter the description of your product here</span>
               </div>
               <div className="inputbox">
                 <input
@@ -139,7 +140,7 @@ const CreateProduct = () => {
                   required="required"
                   onChange={(e) => setProductImage(e.target.value)}
                 />
-                <span>enter the Product Image</span>
+                <span className="form__label">enter the Product of your product Image</span>
               </div>
               <div className="inputbox">
                 <input
@@ -147,7 +148,7 @@ const CreateProduct = () => {
                   required="required"
                   onChange={(e) => setPrice(e.target.value)}
                 />
-                <span>enter the price here</span>
+                <span>enter the price of your product here</span>
               </div>
               <div className="inputbox">
                 <input
@@ -155,7 +156,7 @@ const CreateProduct = () => {
                   required="required"
                   onChange={(e) => setQuantity(e.target.value)}
                 />
-                <span>Quantity</span>
+                <span className="form__label">Quantity of your product</span>
               </div>
               <Cloud
                 setProductImage={setProductImage}

@@ -1,12 +1,3 @@
-/* *,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-  font-size: 62,5%;
-} */
-
 .categoryContainer1 {
   position: absolute;
   display: flex;
