@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { setProduct, deleteProduct } from "../../redux/reducers/admin";
-
+import { MdProductionQuantityLimits } from "react-icons/md";
 const AdminProducts = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -44,22 +44,29 @@ const AdminProducts = () => {
   console.log(Product, "PPP");
 
   return (
-    <div className="Center-Container">
+    <div className="Center-Container-productAdmin">
+      <div className="clientsBar">
+        <p>
+        <MdProductionQuantityLimits /> Products
+        </p>
+      </div>
     <div className="ProductsInControlPanel">
-      <div className="datails-Product row">
-        <p>#</p>
-        <p>ProductName</p>
-        <p>Category</p>
-        <p>Brand</p>
+      <div className="details-Product-row">
+        <p className="table2">#</p>
+        <p className="table2">ProductName</p>
+        <p className="table2">Category</p>
+        <p className="table2">Brand</p>
       </div>
       {Product &&
         Product.map((element, i) => {
           return (
-            <div className="datails-Product">
-              <p>{i + 1}</p>
-              <p>{element.title}</p>
-              <p>{element.categoryName}</p>
-              <p>{element.brandName}</p>
+            <div className="details-Product-row">
+              <div className="details-Oneproduct">
+              <p className="table2">{i + 1}</p>
+              <p className="table2">{element.title}</p>
+              <p className="table2">{element.categoryName}</p>
+              <p className="table2" >{element.brandName}</p>
+              </div>
               <div className="Btns-A">
                 <p
                   onClick={() => {
