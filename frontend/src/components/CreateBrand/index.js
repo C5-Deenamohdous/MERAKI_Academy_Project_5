@@ -5,14 +5,9 @@ import { addBrand } from "../../redux/reducers/admin";
 import axios from "axios";
 import Category from "../Category";
 import Brand from "../Brand";
-//=========================Redux======================================
 
 import { useSelector, useDispatch } from "react-redux";
-//   CreateBrand  222222
-
 const CreateBrand = () => {
-
-  {/* <Brand/> */ }
 
   const dispatch = useDispatch();
   const { token, isLoggedIn } = useSelector((state) => {
@@ -25,8 +20,6 @@ const CreateBrand = () => {
   const [brandName, setbrandName] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
-
-  //===============================================================
 
   const CreateNewBrand = async (catId) => {
     try {
@@ -75,54 +68,58 @@ const CreateBrand = () => {
         console.log(err);
       });
   };
-  //===============================================================
+
 
   useEffect(() => {
     CategoryInsideCreatBrand();
   }, []);
 
-  //===============================================================
-  console.log(category);
+
   return (
-    <div className="categoryContainer1">
-    <div className="categoryReturn">
-      <form className="CreateBrand">
+    <div className="BrandContainer1">
+      <div className="BrandReturn">
+        <form className="CreateBrand">
+          <br />
+          <input className="NewBrandInput"
+            type="text"
+            placeholder="Brand Name here"
+            onChange={(e) => setbrandName(e.target.value)}
+          />
+          <button className="CreateNewBrandBtn" onClick={() => {
+            CreateNewBrand(catId);
+          }}>Create New Brand</button>
+        </form>
         <br />
-        <input
-          type="text"
-          placeholder="Brand Name here"
-          onChange={(e) => setbrandName(e.target.value)}
-        />
-        <button onClick={()=>{
-       CreateNewBrand(catId);
-        }}>Create New Brand</button>
-      </form>
-      <br />
-      {status
-        ? message && <div className="SuccessMessage">{message}</div>
-        : message && <div className="ErrorMessage">{message}</div>}
-      <button onClick={() => {
-        setIsClicked(true);
-      }}> choose category to add Brand</button>
-      {isClicked ?
-        category &&
-        category.map((element, i) => {
-          return (
-            <p onClick={() => {
-              setCatId(element.id)
-              console.log(catId);
-              setIsClicked(false)
-            }}>
-             category name : {element.categoryName}
-            </p>
-          )
-        })
-        : ""}
-         {status
+        <div className="BrandMessage">
+
+        {status
           ? message && <div className="SuccessMessage">{message}</div>
           : message && <div className="ErrorMessage">{message}</div>}
-    </div>
+          </div>
+        <button className="CreateNewBrandBtn" onClick={() => {
+          setIsClicked(true);
+        }}> choose category to add Brand</button>
+        {isClicked ?
+          category &&
+          category.map((element, i) => {
+            return (
+              <p onClick={() => {
+                setCatId(element.id)
+                console.log(catId);
+                setIsClicked(false)
+              }}>
+                category name : {element.categoryName}
+              </p>
+            )
+          })
+          : ""}
+        <div className="BrandMessage">
+          {status
+            ? message && <div className="SuccessMessage">{message}</div>
+            : message && <div className="ErrorMessage">{message}</div>}
+        </div>
       </div>
+    </div>
   );
 };
 
