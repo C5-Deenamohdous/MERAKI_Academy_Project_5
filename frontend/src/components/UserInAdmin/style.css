@@ -13,6 +13,7 @@
     color: white;
     background-color: rgb(105, 81, 81);
     padding: 20px;
+    margin-top: 5%;
   }
 .user_Line{
 display: flex;

@@ -1,17 +1,77 @@
+.Center-Container_Users {
+  position: absolute;
+  width: 85%;
+  top: 0;
+  left: 15%;
+  height:70vh;
+}
+.UsersInControlPanel{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  margin-top:26vh ;
+}
 
-.userAdmin-Container1 {
+/* .userAdmin-Container1 {
   background-color: aliceblue;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   justify-content: center;
   left: 15%;
   width: 85%;
   height: 100%;
-}
+  text-align: start;
+  justify-content: flex-start;
+} */
 
 .All_users_Line {
   display: flex;
-  flex-direction: column;
-  margin-top: 10%;
+    width: 100%;
+  height: 20%;
+  /* align-items: center; */
+  /* margin-top: 10%; */
   margin-left: 3%;
+ 
+  
+}
+.details-users_row{
+  display: flex;
+  margin-bottom: 5vh;
+  width: 100%;
+  margin-left: 3%;
+  font-weight: 700;
+  text-align: start;
+  justify-content: flex-start;
+}
+.clientsBar{
+display: flex;
+position: absolute;
+margin-top: 15vh;
+margin-left: 3%;
+width: 100%;
+font-size: 20px;
+font-weight: 600;
+height: 5vh;
+border-bottom: solid 1px lightsteelblue;
+}
+.details-Users{
+  display: flex;
+  width: 100%;
+  height: 20%;
+  text-align: start;
+  justify-content: flex-start;
+  cursor: pointer;
+  font-weight: 400;
+
+
+}
+.details-Users p{
+  width: 20%;
+}
+.All_users_Line{
+
+}
+.table{
+  width: 16%;
 }
