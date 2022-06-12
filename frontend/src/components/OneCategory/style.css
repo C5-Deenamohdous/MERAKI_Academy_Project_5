@@ -91,3 +91,7 @@
   width: 100%;
   object-fit: scale-down;
 }
+
+.FilterBtns span {
+  cursor: pointer;
+}

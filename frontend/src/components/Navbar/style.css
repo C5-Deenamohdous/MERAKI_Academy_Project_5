@@ -101,18 +101,6 @@
   font-size: 22px;
 }
 
-/* .CART-NAV .Number {
-  background-color: var(--btnsColor);
-  width: 20px;
-  height: 20px;
-  border-radius: 100%;
-  color: white;
-  position: absolute;
-  top: 3%;
-  right: -35%;
-  top: -60%;
-  text-align: center;
-} */
 
 .Login-Logout svg {
   font-size: 22px;
@@ -126,18 +114,7 @@
   font-size: 22px;
 }
 
-/* .WISH-NAV .Number {
-  background-color: var(--btnsColor);
-  width: 20px;
-  height: 20px;
-  border-radius: 100%;
-  color: white;
-  position: absolute;
-  top: 3%;
-  right: -35%;
-  top: -60%;
-  text-align: center;
-} */
+
 .CART-NAV .Number,
 .WISH-NAV .Number {
   background-color: var(--btnsColor);
