@@ -31,27 +31,29 @@ const UsersControlPanel = () => {
     getAllUsers();
   }, []);
   return (
-    <div className="Center-Container">
+    <div className="Center-Container" >
+    
       <div className="UsersInControlPanel">
         {allUsers &&
           allUsers.map((element,i) => {
             return (
-              <div
+              <div className="All_users_Line"
                 onClick={() => {
                   navigate(`/admin/user/${element.id}`);
                 }}
               >
                 <div>
-                <span>{i+1}  </span>
+                <span>{i +1}  </span>
                   User Name : {`${element.firstName} ` + ` ${element.lastName}`}
                 </div>
                 <div> User email :{element.email}</div>
-                <div> ----------------------</div>
+              
               </div>
               
             );
           })}
       </div>
+    
     </div>
   );
 };

@@ -118,7 +118,7 @@ const CreateProduct = () => {
             create new product{""}
             </h1>
             <center>
-              <div className="inputbox">
+              <div className="inputboxAhmad">
                 <input
                   type="text"
                   required="required"
@@ -126,7 +126,7 @@ const CreateProduct = () => {
                 />
                 <span className="form__label">enter the title of your product here</span>
               </div>
-              <div className="inputbox">
+              <div className="inputboxAhmad">
                 <input
                   type="text"
                   required="required"
@@ -134,7 +134,7 @@ const CreateProduct = () => {
                 />
                 <span className="form__label">enter the description of your product here</span>
               </div>
-              <div className="inputbox">
+              <div className="inputboxAhmad">
                 <input
                   type="text"
                   required="required"
@@ -142,7 +142,7 @@ const CreateProduct = () => {
                 />
                 <span className="form__label">enter the Product of your product Image</span>
               </div>
-              <div className="inputbox">
+              <div className="inputboxAhmad">
                 <input
                   type="text"
                   required="required"
@@ -150,7 +150,7 @@ const CreateProduct = () => {
                 />
                 <span>enter the price of your product here</span>
               </div>
-              <div className="inputbox">
+              <div className="inputboxAhmad">
                 <input
                   type="text"
                   required="required"
