@@ -16,14 +16,8 @@ const LeftSideBar = () => {
   const navigate = useNavigate();
   return (
     <>
-      {" "}
-      <div className="Links-Admin">
-        <div className="span">
-          <span>
-            Admin<b> DashBoard </b>
-          </span>
-        </div>
 
+      <div className="Links-Admin">
         <a
           onClick={() => {
             navigate("/admin/products");

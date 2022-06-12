@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin:ital@0;1&display=swap");
+
+.Links-Admin1{
+    background-color: var(--mainColor);
+    height: 10vh;
+    width: 100%;
+  font-family: sans-serif;
+    display: flex;
+  
+  align-items: center;
+  z-index: 1;
+  justify-content: space-between;
+  padding: 15px;
+  position: fixed;
+}
+.Links-Admin1 a {
+    cursor: pointer;
+    margin-left: 12px;
+  }
+  .span {
+
+  }
+  a:hover {
+    transition: .3s;
+   color: var(--btnsColor);
+  }
+  .LOGO1 {
+    display: flex;
+    align-items: center;
+    width: 25%;
+    justify-content: flex-start;
+ 
+    font-family: "Cabin", sans-serif;
+  }
+  .LOGO1 .ICON1 {
+
+    font-size: 40px;
+    margin-top: 10px;
+  }
+  .LOGO1 .LOGOTEST {
+    font-size: 35px;
+    color: var(--BlackColor);
+    font-weight: 600;
+    text-shadow: 3px 4px 2px var(--subColor);
+  }
+  .Links-Admin1 .LOGO1 .ICON1 svg {
+    margin-top: 2px;
+  }

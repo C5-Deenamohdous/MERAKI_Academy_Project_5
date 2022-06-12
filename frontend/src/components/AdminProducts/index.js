@@ -46,7 +46,7 @@ const AdminProducts = () => {
   return (
     <div className="Center-Container">
     <div className="ProductsInControlPanel">
-      <div className="datails-Product">
+      <div className="datails-Product row">
         <p>#</p>
         <p>ProductName</p>
         <p>Category</p>
