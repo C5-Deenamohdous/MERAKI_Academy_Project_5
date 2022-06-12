@@ -6,12 +6,14 @@ import { setOneCategory, setProducts } from "../../redux/reducers/products";
 import { useNavigate, useParams } from "react-router-dom";
 import AddToCartButton from "../AddToCart";
 import AddToWishlistButton from "../addToWishlistButton";
+import FilterCatgAndBrand from "../FilterCatgAndBrand";
 const OneCategory = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
   const [sectionName, setSectionName] = useState("");
+  const [isFilterClicked, setIsFilterClicked] = useState(false);
 
   const { oneCategory, products } = useSelector((state) => {
     return {
@@ -46,7 +48,13 @@ const OneCategory = () => {
 
       <div className="FilterBtns">
         <span>Sort by</span>
-        <span>FILTER</span>
+        <span className="F_"
+          onClick={() => {
+            setIsFilterClicked(true);
+          }}
+        >
+          FILTER
+        </span>
       </div>
       <div className="Card-Container">
         {oneCategory &&
@@ -87,36 +95,11 @@ const OneCategory = () => {
             );
           })}
       </div>
-      {/* <div className="Container">
-        <div className="row-Container">
-          {oneCategory &&
-            oneCategory.map((product, i) => {
-              return (
-                <div
-                  key={i}
-                  className="category-box"
-                  onClick={() => {
-                    navigate(`/OneProduct/${product.id}`);
-                  }}
-                >
-                  <div className="image-Container">
-                    <img
-                      className="ONEProductImage"
-                      src={product.productImage}
-                    />
-                  </div>
-                  <div className="datails-Container">
-                    <p>{product.title}</p>
-                    <p>{product.categoryName}</p>
-                    <p>{product.description}</p>
-                    <p>{product.price}</p>
-                    <p>{product.brandName}</p>
-                  </div>
-                </div>
-              );
-            })}
-        </div>
-      </div> */}
+      {isFilterClicked ? (
+        <FilterCatgAndBrand setIsFilterClicked={setIsFilterClicked} />
+      ) : (
+        ""
+      )}
     </div>
   );
 };
