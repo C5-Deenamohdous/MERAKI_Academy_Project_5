@@ -2,7 +2,7 @@
     background-color: aliceblue;
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 85%;
   }
   .categoryReturn{
 
@@ -14,8 +14,8 @@
     
     /* flex-direction: column; */
     
-    left: 10%;
-    width: 90%;
+    left: 15%;
+    width: 85%;
     height: 100vh;
     background-color: antiquewhite;
   }
