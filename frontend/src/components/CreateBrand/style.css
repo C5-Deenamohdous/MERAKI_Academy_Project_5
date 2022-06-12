@@ -1,20 +1,14 @@
 .BrandContainer1 {
-    background-color: aliceblue;
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 85%;
     position: absolute;
-    left: 10%;
-    width: 90%;
+    left: 15%;
     height: 100vh;
-
-    	
   background: #0f2027; /* fallback for old browsers */
   background: linear-gradient(to right,#2c5364, #203a43, #0f2027);
-  display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   color: #fff;
   }
 
@@ -84,3 +78,4 @@
 .BrandReturn h1 {
   text-align: center;
 }
+

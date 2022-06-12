@@ -2,5 +2,11 @@
   width: 15%;
   height: 100%;
   display: flex;
-}
 
+}
+.AdminPanelContainer1{
+  height:  25%;
+  width:  100%;
+  display: flex;
+
+}
