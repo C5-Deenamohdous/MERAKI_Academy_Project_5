@@ -54,7 +54,7 @@ const FilterCatgAndBrand = ({ setIsFilterClicked }) => {
       }}
     >
       <div className="Close">
-        <span 
+        <span
           onClick={() => {
             setIsOpen(false);
             setIsFilterClicked(false);
