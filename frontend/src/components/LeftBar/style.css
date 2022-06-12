@@ -1,23 +1,22 @@
 .Links-Admin {
   background-color: var(--mainColor);
-  height: 100vh;
+  margin-top: 10vh;
+  height: 87vh;
   width: 100%;
 font-family: sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
+  border-right:solid 5px  #529dbc;
 }
 
 .Links-Admin a {
   cursor: pointer;
   margin-left: 12px;
 }
-.span {
 
-  margin-left: 12px;
-}
-a :hover {
-  transition: 3s;
- color: var(--btnColor);
+a:hover {
+  transition: .3s;
+ color: #529dbc;
 }
