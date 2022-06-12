@@ -44,6 +44,13 @@
   text-align: start;
   justify-content: flex-start;
 }
+.details-users_row .details-Users .table img{
+  width: 50px;
+  height: 40px;
+  border-radius: 100%;
+
+
+}
 .clientsBar{
 display: flex;
 position: absolute;
@@ -58,7 +65,7 @@ border-bottom: solid 1px lightsteelblue;
 .details-Users{
   display: flex;
   width: 100%;  
-  cursor: pointer;
+ 
   font-weight: 400;
 
 
@@ -71,4 +78,11 @@ border-bottom: solid 1px lightsteelblue;
 }
 .table{
   width: 16%;
+
+}
+.eyeIcon{
+  cursor: pointer;
+  font-size: 30px;
+  color: blue;
+  margin-bottom: 5px;
 }
