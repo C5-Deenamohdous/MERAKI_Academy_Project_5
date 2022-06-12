@@ -56,7 +56,7 @@ const UsersControlPanel = () => {
                   navigate(`/admin/user/${element.id}`);
                 }}
               >
-                {/* <div className="details-Users"> */}
+                <div className="details-Users"> 
                   <div className="table" >
                     <p >{i + 1} </p>
                   </div>
@@ -70,7 +70,7 @@ const UsersControlPanel = () => {
                   </div>
                   <div className="table"><span>{element.email}</span> </div>
                 </div>
-              // </div>
+              </div>
             );
           })}
       </div>
