@@ -151,8 +151,17 @@ const CartSection = () => {
       </table>
       <div className="TotalForCart">
         <button className="Continue">CONTINUE SHOPPING</button>
-       <div className="ForBorder"> <h2 className="Header-Total">CART TOTALS</h2> </div>
+        <div className="ForBorder">
+          <h2 className="Header-Total">CART TOTALS</h2>{" "}
+        </div>
       </div>
+      <div className="SubTotal">
+        <div className="PriceAndTotal">
+          <span className="PlaceHolder">TOTAL</span>
+          <span>${subTotal}</span>
+        </div>
+      </div>
+
       {/* <div className="CartOneProduct">
         <div className="ContainerInfoAndImage">
           <p className="CartHeader-P Bottom">Product</p>
