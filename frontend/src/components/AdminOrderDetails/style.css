@@ -43,6 +43,11 @@ gap: 24px;
   margin-top: 5vh;
   height: fit-content;
   padding: 20px;
+  position: absolute;
+  left: 4vh;
+  top: 22vh;
+  align-items: center;
+  justify-content: center;
 }
 
 tr {
