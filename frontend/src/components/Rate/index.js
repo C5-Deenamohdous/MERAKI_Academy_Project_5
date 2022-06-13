@@ -5,15 +5,28 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { addRate, setRate } from "../../redux/reducers/rate";
+import Modal from "react-modal";
 
 import ReactStars from "react-stars";
 
 const Rate = () => {
-  const [isUserRated, setIsUserRated] = useState(false);
+  //
   const [checkArray, setCheckArray] = useState("");
-  const [rateNew, setNewRate] = useState("");
+  //
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
+
+  // const [rateNew, setNewRate] = useState("");
+  const [isRatingDone, setIsRatingDone] = useState(false);
+
   const ratingChanged = (newRating) => {
+    setIsRatingDone(true);
     addRating(newRating.toString());
+  };
+
+  const ratingChangedForUpdate = (newRating) => {
+    setIsRatingDone(true);
+    updateRating(newRating.toString());
   };
 
   const { id } = useParams();
@@ -58,6 +71,31 @@ const Rate = () => {
         // setMessage(err.response.data.message);
       });
   };
+
+  const updateRating = (updatedValue) => {
+    console.log(updatedValue, "===UPDATED VALUE ===");
+    axios
+      .put(
+        `http://localhost:5000/rating/${id}`,
+        {
+          rate: updatedValue,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((result) => {
+        setIsRate(true);
+        console.log(isRate, "EFFECT USED");
+        console.log(result, "UPDATE RATE RESULT[");
+      })
+      .catch((err) => {
+        console.log(err, "err in updating ");
+      });
+  };
+
   const getRate = () => {
     axios
       .get(`http://localhost:5000/rating/${id}`, {
@@ -80,7 +118,6 @@ const Rate = () => {
     getRate();
   }, [isRate]);
 
-  console.log(checkArray, "HERE");
   let sum = 0;
 
   return (
@@ -102,20 +139,81 @@ const Rate = () => {
           );
         })}
       {checkArray.length ? (
-        <span>Change Your Rate</span>
+        <button
+          onClick={() => {
+            setIsOpen2(true);
+          }}
+        >
+          Change Your Rate
+        </button>
       ) : (
-        <span>Rate Product</span>
+        <button
+          onClick={() => {
+            setIsOpen(true);
+          }}
+        >
+          Rate Product
+        </button>
       )}
 
-      <div>
-        <ReactStars
-          count={5}
-          onChange={ratingChanged}
-          size={24}
-          color2={"#ffd700"}
-          half={false}
-        />
-      </div>
+      <Modal
+        ariaHideApp={false}
+        className={"AddRatePopUp"}
+        isOpen={isOpen}
+        onRequestClose={() => setIsOpen(false)}
+      >
+        <div>
+          {isRatingDone ? (
+            <span>
+              {setTimeout(() => {
+                setIsOpen(false);
+                setIsRatingDone(false);
+              }, 2500)}
+              Thanks For Your Rating
+            </span>
+          ) : (
+            <ReactStars
+              count={5}
+              onChange={ratingChanged}
+              size={40}
+              color2={"#ffd700"}
+              half={false}
+            />
+          )}
+        </div>
+      </Modal>
+      {/* Update */}
+      <Modal
+        ariaHideApp={false}
+        className={"AddRatePopUp"}
+        isOpen={isOpen2}
+        onRequestClose={() => setIsOpen2(false)}
+      >
+        <div>
+          {isRatingDone ? (
+            <span>
+              {setTimeout(() => {
+                setIsOpen2(false);
+                setIsRatingDone(false);
+              }, 2500)}
+              Thanks For Your Rating
+            </span>
+          ) : (
+            <div>
+              <span>
+                Your Previous Rating {checkArray && checkArray[0].value}
+              </span>
+              <ReactStars
+                count={5}
+                onChange={ratingChangedForUpdate}
+                size={40}
+                color2={"#ffd700"}
+                half={false}
+              />
+            </div>
+          )}
+        </div>
+      </Modal>
 
       <div>
         <span className="RounderNumber">
@@ -149,6 +247,7 @@ const Rate = () => {
           edit={false}
           value={sum}
         />
+
         <span>
           {rate.length ? `Reviews ${rate.length}` : "There's No Reviews yet"}
         </span>
