@@ -67,9 +67,12 @@ const OrderDetails = () => {
           <tr>
             
             <th className="Num1">#Item</th>
-            <th className="Details1">Order Detail</th>
+            <th>Product</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th className="Details1">Order Details</th>
             <th className="Date1">Order Date</th>
-            <th className="Total1">Total</th>
+            <th className="Total1">Total Price</th>
           </tr>
 
           {oneOrderDetails &&
@@ -82,11 +85,11 @@ const OrderDetails = () => {
                     <img src={element.productImage} />
                   </td>
 
-                  <div className="titleAndDesc">
+                  {/* <div className="titleAndDesc"> */}
                     <td className="p-title">{element.title}</td>
                     <td className="p-price">{element.price}</td>
                     <td className="p-title">{element.description}</td>
-                  </div>
+                  {/* </div> */}
                   <td className="Date">{element.orderDate}</td>
                   <td className="p-total">
                     {element.quantityInCart}x{element.price}
