@@ -1,10 +1,23 @@
 .CartContainer {
-  margin-top: 50px;
+  /* margin-top: 50px; */
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: center;
   height: 100%;
+}
+
+.Header-Container {
+  height: 60vh;
+  background-color: var(--mainColor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.Header-Container h1 {
+  font-weight: 400;
+  font-size: 34px;
 }
 
 .CartOneProduct {
@@ -73,23 +86,145 @@
   justify-content: center;
   border: 1px solid #b4a9ad;
 }
-.CartBtnsContainer span {
-  width: 60%;
-}
-
-.CartBtnsContainer button {
-  width: 20%;
-  border: none;
-  cursor: pointer;
-}
-
-/* .Bottom  { 
-    align-self: flex-end;
-} */
 
 .CartTotal button {
   position: absolute;
   right: 0;
   color: white;
   background-color: rgb(161, 42, 52);
+}
+
+/*  */
+.CartTable {
+  width: 90%;
+  margin-top: 5vh;
+  height: fit-content;
+  padding: 20px;
+}
+
+tr {
+  text-align: center;
+}
+
+td {
+  height: 15vh;
+  padding: 10px;
+}
+
+table,
+th,
+td {
+  border-collapse: collapse;
+  border: 1px solid #c1c1c1;
+}
+
+.T-Photo {
+  width: 20%;
+}
+.T-Photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.T-title {
+  width: 20%;
+}
+
+.T-price {
+  width: 10%;
+}
+
+.T-quantity {
+  width: 20%;
+}
+
+.T-total {
+  width: 15%;
+}
+
+.T-icon {
+  width: 5%;
+}
+
+.PlusBtns {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.PlusBtns button {
+  width: 20%;
+  outline-style: unset;
+  border: none;
+  /* height: 50%; */
+  height: 35%;
+  cursor: pointer;
+  font-size: 17px;
+}
+.PlusBtns span {
+  width: 20%;
+  outline: unset;
+  background-color: var(--mainColor);
+  /* height: 50%; */
+  font-size: 16px;
+  height: 35%;
+}
+
+.TotalForCart {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 5vh;
+}
+.ForBorder {
+  width: fit-content;
+  border-bottom: 1px solid var(--subColor);
+  display: flex;
+  flex-direction: column;
+  height: 40px;
+}
+.TotalForCart h2 {
+  font-size: 30px;
+  font-weight: 400;
+  width: fit-content;
+}
+
+.TotalForCart button {
+  background-color: var(--BlackColor);
+  color: white;
+  width: 15%;
+  /* height: 91%; */
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+.TotalForCart button:hover {
+  background-color: var(--btnsColor);
+  transition: 0.3s;
+}
+
+.SubTotal {
+  display: flex;
+  width: 90%;
+  /* justify-content: flex-end; */
+  /* align-items: center; */
+  /* padding: 0px; */
+  align-items: flex-end;
+  flex-direction: column;
+  margin: 2vh;
+}
+
+.PriceAndTotal {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  font-size: 16px;
+  font-weight: 600;
+}
+.PlaceHolder {
+  font-size: 21px;
 }
