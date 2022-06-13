@@ -35,7 +35,7 @@
  
 }
 .table2{
-width: 16%;
+width: 20%;
 }
 .row{
   border-bottom: solid rgb(173, 169, 169);
@@ -47,6 +47,7 @@ width: 16%;
   display: flex;
   width: 100%;  
   font-weight: 400;
+  align-items: center;
 }
 .details-Product-row .details-Oneproduct .table2 img {
   width: 50px;
@@ -55,11 +56,17 @@ width: 16%;
 }
 .Btns-A {
   display: flex;
-  flex-direction: column;
-  position: absolute;
-  right: 2%;
-  gap: 3px;
+  gap: 15px;
+  margin-top: 10px;
 }
 .Btns-A p {
   cursor: pointer;
+  font-size: 25px;
+  
+}
+.BtnDeleteIcon{
+  color:var(--btnsColor)
+}
+.BtnDUpdateIcon{
+  color: #2563eb;
 }
