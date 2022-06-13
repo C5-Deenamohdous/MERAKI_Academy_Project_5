@@ -13,6 +13,8 @@
   flex-direction: column;
   margin-top:25vh ;
 }
+
+
 .productsBar{
   display: flex;
   position: absolute;

@@ -32,14 +32,15 @@ const AdminAllOrders = () => {
         allOrders.map((element) => {
           return (
             <div
-              className="One-Order"
-              onClick={() => {
-                navigate(`/admin/order_details/${element.id}`);
-              }}
-            >
+              className="One-Order">
+             
+            
               <table className="ordersTable">
                 <tr>
-                  <th className="idOfOrder">{element.id}</th>
+                  <th    onClick={() => {
+                navigate(`/admin/order_details/${element.id}`);
+              }}
+               className="idOfOrder">{element.id}</th>
                   <th className="idOfOrder">{element.orderDate.substring(0,10)}</th>
                   <th className="idOfOrder">
                     {element.orderStatus ? "Completed" : "Un Completed"}
@@ -60,3 +61,5 @@ const AdminAllOrders = () => {
 };
 
 export default AdminAllOrders;
+
+ 

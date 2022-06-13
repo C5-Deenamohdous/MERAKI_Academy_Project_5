@@ -42,7 +42,7 @@ const OrderStatus = ({ order_id, orderStatus }) => {
   return (
     <>
       {orderStatus == 0 ? (
-        <button
+        <button 
           onClick={() => {
             completeOrder(order_id);
           }}

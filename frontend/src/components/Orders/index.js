@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import AdminAllOrders from "../AdminAllOrders";
 import AdminCompletedOrders from "../AdminCompletedOrders";
 import AdminUnCompletedOrders from "../AdminUnCompletedOrders";
+import { VscListOrdered } from "react-icons/vsc";
 const Orders = () => {
   const [isAllOrder, setIsAllOrder] = useState(true);
   const [isCompletedOrder, setIsCompletedOrder] = useState(false);
@@ -11,7 +12,11 @@ const Orders = () => {
 
   return (
     <div className="Center-Container_Orders">
+        <div className="headerOFOrderTables">
+        <VscListOrdered/><span>Orders</span> 
+       </div>
       <div className="One-Order">
+     
         <table className="ordersTable">
           <tr>
             <th className="idOfOrder"># Order</th>

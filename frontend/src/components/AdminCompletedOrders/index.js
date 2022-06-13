@@ -29,22 +29,29 @@ const AdminCompletedOrders = () => {
       {completedOrders &&
         completedOrders.map((element) => {
           return (
-            <div className="One-Order">
-              <div
-                onClick={() => {
-                  navigate(`/admin/order_details/${element.id}`);
-                }}
-              >
-                <p>{element.id}</p>
-                <p>{element.orderDate}</p>
-                <p>{element.orderStatus ? "Completed" : "Un Completed"} </p>
-              </div>
-
-              <OrderStatus
-                order_id={element.id}
-                orderStatus={element.orderStatus}
-              />
-            </div>
+            <div
+            className="One-Order"
+           
+            >
+            <table className="ordersTable">
+              <tr>
+                <th  onClick={() => {
+              navigate(`/admin/order_details/${element.id}`);
+            }}
+             className="idOfOrder">{element.id}</th>
+                <th className="idOfOrder">{element.orderDate.substring(0,10)}</th>
+                <th className="idOfOrder">
+                  {element.orderStatus ? "Completed" : "Un Completed"}
+                </th>
+                <th className="idOfOrder"><OrderStatus
+              order_id={element.id}
+              orderStatus={element.orderStatus}
+            /></th>
+              </tr>
+            </table>
+            
+            
+            </div> 
           );
         })}
     </>

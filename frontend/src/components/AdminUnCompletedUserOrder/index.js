@@ -34,15 +34,21 @@ const AdminUserUnCompletedOrders = () => {
         allUnCompletedForUser.map((element) => {
           return (
             <div
-              className="One-Order"
-              onClick={() => {
-                navigate(`/admin/order_details/${element.id}`);
-              }}
+            className="One-Order"
+           
             >
-              <p>{element.id}</p>
-              <p>{element.orderDate}</p>
-              <p>{element.Status ? "Completed" : "Un Completed"} </p>
-            </div>
+            <table className="ordersTable">
+              <tr>
+                <th  onClick={() => {
+              navigate(`/admin/order_details/${element.id}`);
+            }} className="idOfOrder">{element.id}</th>
+                <th className="idOfOrder">{element.orderDate.substring(0,10)}</th>
+                <th className="idOfOrder">
+                  {element.orderStatus ? "Completed" : "Un Completed"}
+                </th>
+                </tr>
+              </table>
+            </div> 
           );
         })}
     </>
