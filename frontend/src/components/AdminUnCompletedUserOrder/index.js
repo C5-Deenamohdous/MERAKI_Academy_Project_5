@@ -38,7 +38,7 @@ const AdminUserUnCompletedOrders = () => {
            
             >
             <table className="ordersTable">
-              <tr>
+              <tr >
                 <th  onClick={() => {
               navigate(`/admin/order_details/${element.id}`);
             }} className="idOfOrder">{element.id}</th>

@@ -54,3 +54,9 @@ td {
 .ordersTable th{
     height: 10vh;
 }
+.OrderSelector{
+    text-align: center;
+font-weight: 600;
+border: unset;
+font-size: 17px;
+} 

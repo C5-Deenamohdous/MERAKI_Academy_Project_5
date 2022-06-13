@@ -36,7 +36,7 @@ const AdminAllOrders = () => {
              
             
               <table className="ordersTable">
-                <tr>
+                <tr  className={element.orderStatus?"completedOrdersColor" : "unCompletedOrdersColor" }>
                   <th    onClick={() => {
                 navigate(`/admin/order_details/${element.id}`);
               }}

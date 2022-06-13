@@ -45,20 +45,20 @@ const OrderStatus = ({ order_id, orderStatus }) => {
   return (
     <>
       {orderStatus == 0 ? (
-        <span  className="truck"
+        <span  className="clock"
           onClick={() => {
             completeOrder(order_id);
           }}
-        >
-       <MdLocalShipping/>
+        >  <BsClockHistory/>
+       
         </span>
       ) : (
-        <span className="clock"
+        <span className="truck"
           onClick={() => {
             UnCompleteOrder(order_id);
           }}
         >
-      <BsClockHistory/>
+    <MdLocalShipping/>
         </span>
       )}
     </>

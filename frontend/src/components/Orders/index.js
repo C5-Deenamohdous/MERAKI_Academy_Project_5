@@ -23,7 +23,7 @@ const Orders = () => {
             <th className="idOfOrder">Date</th>
             <th className="idOfOrder">Status</th>{" "}
             <th className="idOfOrder">
-              <select
+              <select className="OrderSelector"
                 onChange={(e) => {
                   console.log(e.target.value);
                   if (e.target.value == 1) {
@@ -43,7 +43,7 @@ const Orders = () => {
                   }
                 }}
               >
-                <option value="1">All Orders</option>
+                <option  value="1">All Orders</option>
                 <option value="2">Completed</option>
                 <option value="3">Un Completed</option>
               </select>
