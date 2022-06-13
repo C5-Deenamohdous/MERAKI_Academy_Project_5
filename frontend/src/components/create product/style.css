@@ -1,24 +1,65 @@
-.Center-Container{
-
-
-}
 
 .creareP-Container{
-
-
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  position: absolute;
+  left: 15%;
+  height: 100vh;
+  /* margin-top: 15vh; */
+/* background: #0f2027; fallback for old browsers */
+/* background: linear-gradient(to right,#2c5364, #203a43, #0f2027); */
+/* background-image: url("https://miro.medium.com/max/1400/1*lnKIrI6T-5J4N2neRxfaaQ.jpeg"); */
+justify-content: center;
+align-items: center;
+color: #fff;
 }
 
-.center{
-
-
+.creareP-Container h1{
+  color:wheat;
+  
 }
-
-.inputbox{
-    
-
-}
-
 .Select-C{
 
+  margin-top: 20px;
+
+    padding: 8px 12px;
+  margin: 8px 0 0;
+  font-family: "Montserrat", sans-serif;
+  border: 2px solid #78788c;
+  background: 0;
+  color: #5a5a6e;
+  cursor: pointer;
+  transition: all 0.3s;
+
     
+}
+
+.inputboxAhmad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.inputboxAhd{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.add_product{
+
+  padding: 8px 12px;
+  margin: 8px 0 0;
+  font-family: "Montserrat", sans-serif;
+  border: 2px solid #78788c;
+  background: 0;
+  color: #5a5a6e;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 30%;
+height:20%;
+
 }

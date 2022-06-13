@@ -151,6 +151,50 @@
 .firstName1 {
   border-color: currentcolor currentcolor rgb(80, 87, 90);
   color: rgb(43, 41, 41);
+
+    width: 50%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f4f4ff;
+    border-radius: 10px;
+    border-color: unset;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      
+}
+.firstName1{
+    border-color: currentcolor currentcolor rgb(80, 87, 90);
+    color: rgb(43, 41, 41);
+    font-size: 18px;
+    background-image: initial;
+    background-color: transparent;
+    border-style: none none solid;
+    margin:  0px 0px 20px;
+    width: 400px;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 5px;
+
+}
+.UpdateProfileButton{
+    padding: 8px 12px;
+    margin: 8px 0 0;
+    font-family: "Montserrat", sans-serif;
+    border: 2px solid #64647c;
+    background: 0;
+    color:black;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 30%;
+  height:20%;
   font-size: 18px;
   background-image: initial;
   background-color: transparent;

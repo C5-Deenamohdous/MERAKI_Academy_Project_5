@@ -67,8 +67,10 @@ const CreateCategory = ()=>{
         
         // navigate(`/admin/create_brand/${result.data.result.insertId}`)
         }>
+          <h1>  specify the category of your Brand</h1>
           <br />
           <input
+          className="NewCategoryInput"
             type="text"
             placeholder="category Name here"
             onChange={(e) => setcategoryName(e.target.value)}
@@ -76,12 +78,14 @@ const CreateCategory = ()=>{
           <br />
 
           <br />
-          <button>Create New category</button>
+          <button className="CreateNewCategoryBtn">Create New category</button>
         </form>
         <br />
+        <div className="CreateNewCategoryMessage">
         {status
           ? message && <div className="SuccessMessage">{message}</div>
           : message && <div className="ErrorMessage">{message}</div>}
+          </div>
       </div>
       </div>
     );
