@@ -27,11 +27,11 @@ const OrderDetails = () => {
   });
 
   const getOneOrderDetail = () => {
-    console.log(id,"ooooooooo");
+    console.log(id, "ooooooooo");
     axios
       .get(`http://localhost:5000/order/one_order/${id}`)
       .then((result) => {
-        console.log(result,"|||||||||||||||||||||||");
+        console.log(result, "|||||||||||||||||||||||");
         setUserName(result.data.result[0].userName);
         setLastName(result.data.result[0].lastName);
         setUserId(result.data.result[0].user_id);
@@ -49,58 +49,57 @@ const OrderDetails = () => {
   }, []);
 
   return (
-    <div className="Center-Container">
+    <div className="Center-Container-AdminUserOrders">
       <div className="Col-Container">
-        <div>
+        <div className="headerOfOrderForOneUser">
           <p>
-            Order Status {statusInsideDetail == 1 ? "Completed" : "UnCompleted"}
+            Order Number {orderId} For Client {userName} {lastName} :
           </p>
-          <OrderStatus order_id={orderId} orderStatus={statusInsideDetail} />
-          <p
-            onClick={() => {
-              navigate(`/admin/user/${userId}`);
-            }}
-          >
-            #{orderId} Ordered By {userName} {lastName}
-          </p>
+          <div className="spanIcon">
+            <p>Is {statusInsideDetail == 1 ? "Completed" : "UnCompleted"}</p>
+
+            <OrderStatus order_id={orderId} orderStatus={statusInsideDetail} />
+          </div>
         </div>
 
-        <div className="OneOrderDetail">
-          <div className="Num">#Item</div>
-          <div className="Details">Order Detail</div>
-          <div className="Date">Order Date</div>
-          <div className="Price">Price</div>
-          <div className="Total">Total</div>
-          {/* <div className="Status">Status</div> */}
-        </div>
+       
+        <table className="productInTable">
+          <tr>
+            
+            <th className="Num1">#Item</th>
+            <th className="Details1">Order Detail</th>
+            <th className="Date1">Order Date</th>
+            <th className="Total1">Total</th>
+          </tr>
 
-        {oneOrderDetails &&
-          oneOrderDetails.map((element, i) => {
-            return (
-              <div className="OneOrderDetail">
-                <div className="Num">{i + 1}</div>
-                <div className="Details">
-                  <div className="img-Container">
+          {oneOrderDetails &&
+            oneOrderDetails.map((element, i) => {
+              return (
+                <tr>
+                  <td className="Num1">{i + 1}</td>
+
+                  <td className="p-Photo">
                     <img src={element.productImage} />
-                  </div>
+                  </td>
+
                   <div className="titleAndDesc">
-                    <p>{element.title}</p>
-                    <p>{element.description}</p>
+                    <td className="p-title">{element.title}</td>
+                    <td className="p-price">{element.price}</td>
+                    <td className="p-title">{element.description}</td>
                   </div>
-                </div>
-                <div className="Date">{element.orderDate}</div>
-                <div className="Price">
-                  {element.quantityInCart}x{element.price}
-                </div>
-                <div className="Total">
-                  {element.quantityInCart * element.price}
-                </div>
-                {/* <div className="Status">
+                  <td className="Date">{element.orderDate}</td>
+                  <td className="p-total">
+                    {element.quantityInCart}x{element.price}
+                  </td>
+                 
+
+                  {/* <div className="Status">
                   <p>{element.orderStatus ? "Completed" : "unCompleted"}</p>
                 </div> */}
-              </div>
-            );
-          })}
+                </tr>
+              );
+            })}
+        </table>
       </div>
     </div>
   );

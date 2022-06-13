@@ -1,10 +1,34 @@
+.Center-Container-AdminUserOrders{
+  position: absolute;
+  width: 82%;
+  top: 0;
+  left: 15vw;
+  height:70vh;
+}
 .Col-Container {
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
 }
-
+.headerOfOrderForOneUser{
+  display: flex;
+  gap: 24px;
+  align-items: center;
+margin-top: 15vh;
+margin-left: 3%;
+width: 100%;
+font-size: 20px;
+font-weight: 600;
+height: 5vh;
+border-bottom: solid 1px lightsteelblue;
+}
+.spanIcon{
+  display: flex;
+  font-weight: 800;
+  align-items: center;
+gap: 24px;
+}
 .OneOrderDetail {
   display: flex;
   border-bottom: 1px solid;
@@ -14,44 +38,42 @@
   justify-content: space-around;
   align-items: center;
 }
-
-.OneOrderDetail .Num {
-  width: 10%;
-}
-.OneOrderDetail .Details {
-  width: 26%;
-  display: flex;
+.productInTable{
+  width: 90%;
+  margin-top: 5vh;
+  height: fit-content;
+  padding: 20px;
 }
 
-/* .PhotoAndInfo {
-  display: flex;
-  width: 50%;
-} */
-
-.OneOrderDetail .Details .img-Container {
-  width: 30%;
-  height: 100%;
+tr {
+  text-align: center;
 }
-.img-Container img {
+
+td {
+  height: 15vh;
+  padding: 10px;
+}
+
+table,
+th,
+td {
+  border-collapse: collapse;
+  border: 1px solid #c1c1c1;
+}
+
+.p-Photo {
+  width: 20%;
+}
+.p-Photo img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-.titleAndDesc { 
-    display: flex;
-    flex-direction: column;
+.p-title {
+  width: 20%;
 }
 
-.OneOrderDetail .Date {
-  width: 10%;
-}
-.OneOrderDetail .Price {
-  width: 10%;
-}
-.OneOrderDetail .Total {
-  width: 10%;
-}
-.OneOrderDetail .Status {
+.p-price {
   width: 10%;
 }
