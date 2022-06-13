@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./style.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
   makeOrderCompleted,
   makeOrderUnCompleted,
 } from "../../redux/reducers/orders";
+import { MdLocalShipping } from "react-icons/md";
+import { BsClockHistory } from "react-icons/bs";
 const OrderStatus = ({ order_id, orderStatus }) => {
   const dispatch = useDispatch();
 
   const completeOrder = (order_id) => {
+    console.log(order_id, "8888888888888888");
     axios
       .put(`http://localhost:5000/order/status_complete/${order_id}`, {})
       .then((result) => {
@@ -42,21 +46,24 @@ const OrderStatus = ({ order_id, orderStatus }) => {
   return (
     <>
       {orderStatus == 0 ? (
-        <button
+        <span
+          className="truck"
           onClick={() => {
             completeOrder(order_id);
           }}
         >
-          Complete Order
-        </button>
+          {" "}
+          <BsClockHistory />
+        </span>
       ) : (
-        <button
+        <span
+          className="clock"
           onClick={() => {
             UnCompleteOrder(order_id);
           }}
         >
-          UnCompleteOrder
-        </button>
+          <MdLocalShipping />
+        </span>
       )}
     </>
   );

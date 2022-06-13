@@ -27,10 +27,11 @@ const OrderDetails = () => {
   });
 
   const getOneOrderDetail = () => {
+    console.log(id,"ooooooooo");
     axios
       .get(`http://localhost:5000/order/one_order/${id}`)
       .then((result) => {
-        console.log(result);
+        console.log(result,"|||||||||||||||||||||||");
         setUserName(result.data.result[0].userName);
         setLastName(result.data.result[0].lastName);
         setUserId(result.data.result[0].user_id);
@@ -60,7 +61,7 @@ const OrderDetails = () => {
               navigate(`/admin/user/${userId}`);
             }}
           >
-            #{orderId} Orderd By {userName} {lastName}
+            #{orderId} Ordered By {userName} {lastName}
           </p>
         </div>
 
