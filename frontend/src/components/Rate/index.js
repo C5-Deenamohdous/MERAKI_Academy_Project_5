@@ -10,11 +10,10 @@ import ReactStars from "react-stars";
 
 const Rate = () => {
   const [isUserRated, setIsUserRated] = useState(false);
-  let test = false;
+  const [checkArray, setCheckArray] = useState("");
   const [rateNew, setNewRate] = useState("");
   const ratingChanged = (newRating) => {
-    setNewRate(newRating.toString());
-    addRating();
+    addRating(newRating.toString());
   };
 
   const { id } = useParams();
@@ -35,12 +34,13 @@ const Rate = () => {
       userId: state.auth.userId,
     };
   });
-  const addRating = () => {
+  const addRating = (RecivedRate) => {
+    console.log(RecivedRate, "==========");
     axios
       .post(
         `http://localhost:5000/rating/${id}`,
         {
-          rate: rateNew,
+          rate: RecivedRate,
         },
         {
           headers: {
@@ -50,7 +50,7 @@ const Rate = () => {
       )
       .then((result) => {
         console.log(result, "rate resultttt");
-        dispatch(addRate({ value: rateNew, product_id: id }));
+        dispatch(addRate({ value: RecivedRate, product_id: id }));
         setIsRate(true);
         console.log(isRate, "0000000000");
       })
@@ -68,6 +68,9 @@ const Rate = () => {
       .then((result) => {
         console.log(result, "555555555555");
         dispatch(setRate(result.data.result));
+        setCheckArray(
+          result.data.result.filter((element) => element.user_id == userId)
+        );
       })
       .catch((err) => {
         setMessage(err.response.data.message);
@@ -77,6 +80,7 @@ const Rate = () => {
     getRate();
   }, [isRate]);
 
+  console.log(checkArray, "HERE");
   let sum = 0;
 
   return (
@@ -97,14 +101,21 @@ const Rate = () => {
             </>
           );
         })}
+      {checkArray.length ? (
+        <span>Change Your Rate</span>
+      ) : (
+        <span>Rate Product</span>
+      )}
 
-      <ReactStars
-        count={5}
-        onChange={ratingChanged}
-        size={24}
-        color2={"#ffd700"}
-        half={false}
-      />
+      <div>
+        <ReactStars
+          count={5}
+          onChange={ratingChanged}
+          size={24}
+          color2={"#ffd700"}
+          half={false}
+        />
+      </div>
 
       <div>
         <span className="RounderNumber">
@@ -125,21 +136,22 @@ const Rate = () => {
                     array4.length +
                     array5.length)) *
                   100
-              ) / 100)
+              ) / 100) || 0
           }
           /5
         </span>
 
         <ReactStars
           count={5}
-          onChange={ratingChanged}
           size={24}
           color2={"#ffd700"}
           half={true}
           edit={false}
           value={sum}
         />
-        <span>{rate.length ? `Reviews ${rate.length}` : ""}</span>
+        <span>
+          {rate.length ? `Reviews ${rate.length}` : "There's No Reviews yet"}
+        </span>
       </div>
     </div>
   );
