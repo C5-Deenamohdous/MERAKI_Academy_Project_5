@@ -59,7 +59,7 @@ const OneProduct = () => {
                     <AddToWishOneProduct productId={product.id} />
                   </div>
                   <div className="rate">
-                    <Rate id={product.product_id} />{" "}
+                    <Rate id={product.product_id} />
                   </div>
                 </div>
               </div>

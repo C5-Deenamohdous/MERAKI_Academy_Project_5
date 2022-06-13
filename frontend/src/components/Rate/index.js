@@ -5,12 +5,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { addRate, setRate } from "../../redux/reducers/rate";
+
+import ReactStars from "react-stars";
+
 const Rate = () => {
+  const [isUserRated, setIsUserRated] = useState(false);
+  let test = false;
+  const [rateNew, setNewRate] = useState("");
+  const ratingChanged = (newRating) => {
+    setNewRate(newRating.toString());
+    addRating();
+  };
+
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
-  const [rateNew, setNewRate] = useState("");
   const [isRate, setIsRate] = useState(false);
   const array0 = [];
   const array1 = [];
@@ -18,11 +28,11 @@ const Rate = () => {
   const array3 = [];
   const array4 = [];
   const array5 = [];
-  const { products, rate, token } = useSelector((state) => {
+  const { rate, token, userId } = useSelector((state) => {
     return {
-      products: state.products.products,
       rate: state.rate.rate,
       token: state.auth.token,
+      userId: state.auth.userId,
     };
   });
   const addRating = () => {
@@ -39,11 +49,10 @@ const Rate = () => {
         }
       )
       .then((result) => {
-         
         console.log(result, "rate resultttt");
         dispatch(addRate({ value: rateNew, product_id: id }));
-        setIsRate(true)
-         console.log(isRate,"0000000000");
+        setIsRate(true);
+        console.log(isRate, "0000000000");
       })
       .catch((err) => {
         // setMessage(err.response.data.message);
@@ -72,57 +81,65 @@ const Rate = () => {
 
   return (
     <div className="rateContainer">
-      {console.log(rate, "888888")}
       {rate &&
         rate.map((el, i) => {
           return (
             <>
-            <div className="TestRating">              {el.value === "0" ? array0.push(el.value) : ""}
-              {el.value === "1" ? array1.push(el.value) : ""}
-              {el.value === "2" ? array2.push(el.value) : ""}
-              {el.value === "3" ? array3.push(el.value) : ""}
-              {el.value === "4" ? array4.push(el.value) : ""}
-              {el.value === "5" ? array5.push(el.value) : ""}
+              <div className="TestRating">
+                {" "}
+                {el.value === "0" ? array0.push(el.value) : ""}
+                {el.value === "1" ? array1.push(el.value) : ""}
+                {el.value === "2" ? array2.push(el.value) : ""}
+                {el.value === "3" ? array3.push(el.value) : ""}
+                {el.value === "4" ? array4.push(el.value) : ""}
+                {el.value === "5" ? array5.push(el.value) : ""}
               </div>
-
-
-              {console.log(sum, "7777777777")}
             </>
           );
         })}
-      <p
-        onClick={() => {
-          addRating();
-        }}
-      >
-        Rate
-      </p>
-      <input
-        placeholder="rate it from 0-5"
-        onChange={(e) => {
-          setNewRate(e.target.value);
-        }}
+
+      <ReactStars
+        count={5}
+        onChange={ratingChanged}
+        size={24}
+        color2={"#ffd700"}
+        half={false}
       />
+
       <div>
-        <span>
-          Rating =
-     
+        <span className="RounderNumber">
           {
-        //   Math.round
-          ((
-              array0.length +
-            array1.length * 1 +
-            array2.length * 2 +
-            array3.length * 3 +
-            array4.length * 4 +
-            array5.length * 5) /
-            (array0.length +
-              array1.length +
-              array2.length +
-              array3.length +
-              array4.length +
-              array5.length))}
+            //   Math.round
+            (sum =
+              Math.round(
+                ((array0.length +
+                  array1.length * 1 +
+                  array2.length * 2 +
+                  array3.length * 3 +
+                  array4.length * 4 +
+                  array5.length * 5) /
+                  (array0.length +
+                    array1.length +
+                    array2.length +
+                    array3.length +
+                    array4.length +
+                    array5.length)) *
+                  100
+              ) / 100)
+          }
+          /5
         </span>
+
+        <ReactStars
+          count={5}
+          onChange={ratingChanged}
+          size={24}
+          color2={"#ffd700"}
+          half={true}
+          edit={false}
+          value={sum}
+        />
+        <span>{rate.length ? `Reviews ${rate.length}` : ""}</span>
       </div>
     </div>
   );
