@@ -25,6 +25,10 @@
   overflow: scroll;
 }
 
+.OrderDetailsPopUp .OneOrderDetail {
+  height: unset;
+}
+
 .ProfileOneOrder {
   display: flex;
   border-bottom: 1px solid;
