@@ -257,3 +257,10 @@
   display: flex;
   flex-direction: column;
 }
+
+.LeftContainer-ProfileVisit { 
+  display: flex;
+  height: 88vh;
+  width: 100%;
+  justify-content: center;
+}

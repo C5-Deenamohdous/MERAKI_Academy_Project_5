@@ -9,7 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Cloud from "../Cloud";
 import Modal from "react-modal";
 import "./style.css";
-import {
+import user, {
   setuserProfile,
   deleteuserProfile,
   updateuserProfile,
@@ -20,7 +20,6 @@ const UserProfile = () => {
   // to see user profaile set from local stoge
   const { userProfile, userId } = useSelector((state) => {
     return {
-      // userid:state.auth.userid,
       userProfile: state.user.userProfile,
       userId: state.auth.userId,
     };
@@ -120,8 +119,8 @@ const UserProfile = () => {
         <h2>Profile</h2>
       </div>
       {/* <div className="big_container"> */}
-
-      <div className="LeftContainer-Profile">
+{/* LeftContainer-Profile */}
+      <div className={id == userId ? "LeftContainer-Profile" : "LeftContainer-ProfileVisit"}>
         {userProfile &&
           userProfile.map((user, i) => {
             return (
@@ -151,7 +150,7 @@ const UserProfile = () => {
                         <span>Joined At:</span>
                       </div>
                       <div className="inLine">
-                        <span>{user.joinedDate.substring(0,10)}</span>
+                        <span>{user.joinedDate.substring(0, 10)}</span>
                       </div>
                     </div>
                     <div className="line">
@@ -171,41 +170,45 @@ const UserProfile = () => {
                       </div>{" "}
                     </div>
                   </div>
-                  <div className="ProfileBtns">
-                    <button
-                      className="updateButton"
-                      onClick={() => {
-                        setIsOpen(true);
-                        // setTimeout(() => {
-                        //   setIsOpen(false);
-                        // }, 2000);
-                        setIsClicked(true);
-                        {
-                          setFirstName(user.firstName);
-                        }
-                        {
-                          setLastName(user.lastName);
-                        }
-                        {
-                          setPhoneNumber(user.phoneNumber);
-                        }
-                        {
-                          setProfileImage(user.profileImage);
-                        }
-                      }}
-                    >
-                      Update your info
-                    </button>
-                    <button
-                      className="deleteButton"
-                      onClick={() => {
-                        DeletUserById(id);
-                        setMessage("user has been deleted");
-                      }}
-                    >
-                      Delete your Account
-                    </button>
-                  </div>
+                  {user.id == userId ? (
+                    <div className="ProfileBtns">
+                      <button
+                        className="updateButton"
+                        onClick={() => {
+                          setIsOpen(true);
+                          // setTimeout(() => {
+                          //   setIsOpen(false);
+                          // }, 2000);
+                          setIsClicked(true);
+                          {
+                            setFirstName(user.firstName);
+                          }
+                          {
+                            setLastName(user.lastName);
+                          }
+                          {
+                            setPhoneNumber(user.phoneNumber);
+                          }
+                          {
+                            setProfileImage(user.profileImage);
+                          }
+                        }}
+                      >
+                        Update your info
+                      </button>
+                      <button
+                        className="deleteButton"
+                        onClick={() => {
+                          DeletUserById(id);
+                          setMessage("user has been deleted");
+                        }}
+                      >
+                        Delete your Account
+                      </button>
+                    </div>
+                  ) : (
+                    ""
+                  )}
                 </div>
                 <Modal
                   ariaHideApp={false}
@@ -283,33 +286,36 @@ const UserProfile = () => {
               </>
             );
           })}
-
-        <div className="profileOrder ">
-          <div>
-            <h2>My Orders</h2>
+        {id == userId ? (
+          <div className="profileOrder ">
+            <div>
+              <h2>My Orders</h2>
+            </div>
+            <div className="BtnsProfileOrder">
+              <span
+                onClick={() => {
+                  serIsUnCompleteOrder(false);
+                }}
+              >
+                Completed
+              </span>
+              <span
+                onClick={() => {
+                  serIsUnCompleteOrder(true);
+                }}
+              >
+                UnCompleted
+              </span>
+            </div>
+            {isUnCompleteOrder ? (
+              <ProfileUnCompleteddOrders />
+            ) : (
+              <ProfileCompleteddOrders />
+            )}
           </div>
-          <div className="BtnsProfileOrder">
-            <span
-              onClick={() => {
-                serIsUnCompleteOrder(false);
-              }}
-            >
-              Completed
-            </span>
-            <span
-              onClick={() => {
-                serIsUnCompleteOrder(true);
-              }}
-            >
-              UnCompleted
-            </span>
-          </div>
-          {isUnCompleteOrder ? (
-            <ProfileUnCompleteddOrders />
-          ) : (
-            <ProfileCompleteddOrders />
-          )}
-        </div>
+        ) : (
+          ""
+        )}
       </div>
       {/* </div> */}
     </>
