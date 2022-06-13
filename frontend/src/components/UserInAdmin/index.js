@@ -7,7 +7,7 @@ import { setuserProfile } from "../../redux/reducers/user";
 import axios from "axios";
 import { deleteuser } from "../../redux/reducers/admin";
 import AdminPanelUserOrderContainer from "../AdminPanelUserOrderContainer";
-
+import { RiDeleteBin5Line } from "react-icons/ri";
 const UserProfilePanel = () => {
   const [isUserInfo, setIsUserInfo] = useState(true);
   const [isOrdersSection, setOrdersSection] = useState(false);
@@ -47,29 +47,35 @@ const UserProfilePanel = () => {
                 <div className="user_info">  
                 <div>
                   <img className="userProfile" src={element.profileImage} />
-                </div>
-                <div >
-                  User Name : {`${element.firstName} ` + ` ${element.lastName}`}
-                </div>
-                <div> User phone Number :{element.phoneNumber}</div>
-                <div> User email :{element.email}</div>
-              
-                 </div>
-                <button
-                  onClick={() => {
-                    userDelete(element.id);
-                  }}
-                >
-                  Delete User
-                </button>
+                </div> 
+                <p className="headerUser">Client Info</p> 
+                <div className="infoWritten">
                
-                <button
+                <div >
+                 Name : {`${element.firstName} ` + ` ${element.lastName}`} </div>
+              
+                <div>  Phone Number :{element.phoneNumber}</div>
+                <div>  Email :{element.email}</div>
+                <div>  Address :{element.address}</div>
+                  <div className="buttonsForOneUser">
+      <button className="userOrderButonInAdmin"
                   onClick={() => {
                     navigate(`/admin/user_orders/${element.id}`);
                   }}
                 >
                   User Orders
                 </button>
+                <button className="deleteUserBtnAdmin"
+                  onClick={() => {
+                    userDelete(element.id);
+                  }}
+                >
+                  <RiDeleteBin5Line/>
+                </button>
+               
+               
+                </div>
+                 </div>  </div>
                
               </div>
             );
@@ -90,7 +96,7 @@ const UserProfilePanel = () => {
   };
 
   return (
-    <div className="Center-Container">
+    <div className="Center-Container-OneUserInAdmin">
       <div className="Btns-InUser">
         <span
           onClick={() => {
