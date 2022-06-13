@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { addRate, setRate } from "../../redux/reducers/rate";
+import { addRate, setRate, updateRate } from "../../redux/reducers/rate";
 import Modal from "react-modal";
 
 import ReactStars from "react-stars";
@@ -64,7 +64,7 @@ const Rate = () => {
       .then((result) => {
         console.log(result, "rate resultttt");
         dispatch(addRate({ value: RecivedRate, product_id: id }));
-        setIsRate(true);
+        setIsRate(!isRate);
         console.log(isRate, "0000000000");
       })
       .catch((err) => {
@@ -87,7 +87,8 @@ const Rate = () => {
         }
       )
       .then((result) => {
-        setIsRate(true);
+        dispatch(updateRate({ user_id: userId, value: updatedValue }));
+        setIsRate(!isRate);
         console.log(isRate, "EFFECT USED");
         console.log(result, "UPDATE RATE RESULT[");
       })
@@ -97,6 +98,7 @@ const Rate = () => {
   };
 
   const getRate = () => {
+    console.log("RENDERD");
     axios
       .get(`http://localhost:5000/rating/${id}`, {
         headers: {
@@ -201,7 +203,7 @@ const Rate = () => {
           ) : (
             <div>
               <span>
-                Your Previous Rating {checkArray && checkArray[0].value}
+                Your Previous Rating {checkArray.length && checkArray[0].value}
               </span>
               <ReactStars
                 count={5}
