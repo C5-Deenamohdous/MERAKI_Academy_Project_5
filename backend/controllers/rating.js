@@ -43,4 +43,27 @@ const getProductRating = (req, res) => {
   });
 };
 
-module.exports = { addRatingToProduct, getProductRating };
+const updateRate = (req, res) => {
+  const user_id = req.token.userId;
+  const product_id = req.params.id;
+  const { rate } = req.body;
+  const query = `UPDATE rate SET value=? WHERE user_id=? AND product_id=?`;
+  const data = [rate, user_id, product_id];
+
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        message: `Server Error`,
+        err: err,
+      });
+    }
+    res.status(201).json({
+      success: true,
+      message: `Update Rate To ${rate}Stars`,
+      result: result,
+    });
+  });
+};
+
+module.exports = { addRatingToProduct, getProductRating, updateRate };
