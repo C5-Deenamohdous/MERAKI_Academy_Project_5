@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./style.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
   makeOrderCompleted,
   makeOrderUnCompleted,
 } from "../../redux/reducers/orders";
+import { MdLocalShipping } from "react-icons/md";
+import { BsClockHistory } from "react-icons/bs";
 const OrderStatus = ({ order_id, orderStatus }) => {
   const dispatch = useDispatch();
 
@@ -42,21 +45,21 @@ const OrderStatus = ({ order_id, orderStatus }) => {
   return (
     <>
       {orderStatus == 0 ? (
-        <button 
+        <span  className="truck"
           onClick={() => {
             completeOrder(order_id);
           }}
         >
-          Complete Order
-        </button>
+       <MdLocalShipping/>
+        </span>
       ) : (
-        <button
+        <span className="clock"
           onClick={() => {
             UnCompleteOrder(order_id);
           }}
         >
-          UnCompleteOrder
-        </button>
+      <BsClockHistory/>
+        </span>
       )}
     </>
   );
