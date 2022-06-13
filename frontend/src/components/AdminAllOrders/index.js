@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
+import "./style.css";
+
 import { useNavigate } from "react-router-dom";
 import { setALlOrders } from "../../redux/reducers/orders";
 import OrderStatus from "../ChangeOrderStatus";
@@ -29,21 +31,27 @@ const AdminAllOrders = () => {
       {allOrders &&
         allOrders.map((element) => {
           return (
-            <div className="One-Order">
-              <div
-                onClick={() => {
-                  navigate(`/admin/order_details/${element.id}`);
-                }}
-              >
-                <p>{element.id}</p>
-                <p>{element.orderDate}</p>
-                <p>{element.orderStatus ? "Completed" : "Un Completed"} </p>
-              </div>
-
-              <OrderStatus
+            <div
+              className="One-Order"
+              onClick={() => {
+                navigate(`/admin/order_details/${element.id}`);
+              }}
+            >
+              <table className="ordersTable">
+                <tr>
+                  <th className="idOfOrder">{element.id}</th>
+                  <th className="idOfOrder">{element.orderDate.substring(0,10)}</th>
+                  <th className="idOfOrder">
+                    {element.orderStatus ? "Completed" : "Un Completed"}
+                  </th>
+                  <th className="idOfOrder"><OrderStatus
                 order_id={element.id}
                 orderStatus={element.orderStatus}
-              />
+              /></th>
+                </tr>
+              </table>
+
+              
             </div>
           );
         })}

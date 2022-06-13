@@ -58,13 +58,13 @@ const UserProfilePanel = () => {
                 <div>  Email :{element.email}</div>
                 <div>  Address :{element.address}</div>
                   <div className="buttonsForOneUser">
-      <button className="userOrderButonInAdmin"
+      {/* <button className="userOrderButonInAdmin"
                   onClick={() => {
                     navigate(`/admin/user_orders/${element.id}`);
                   }}
                 >
                   User Orders
-                </button>
+                </button> */}
                 <button className="deleteUserBtnAdmin"
                   onClick={() => {
                     userDelete(element.id);
