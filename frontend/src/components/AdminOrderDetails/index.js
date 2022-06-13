@@ -49,20 +49,19 @@ const OrderDetails = () => {
   }, []);
 
   return (
-    <div className="Center-Container">
+    <div className="Center-Container-AdminUserOrders">
       <div className="Col-Container">
-        <div>
-          <p>
-            Order Status {statusInsideDetail == 1 ? "Completed" : "UnCompleted"}
+        <div className="headerOfOrderForOneUser">
+        <p>
+             Order Number {orderId}  For Client  {userName} {lastName} :
+          </p> 
+          <div className="spanIcon">
+             <p >
+              Is  {statusInsideDetail == 1 ? "Completed" : "UnCompleted"}
           </p>
+         
           <OrderStatus order_id={orderId} orderStatus={statusInsideDetail} />
-          <p
-            onClick={() => {
-              navigate(`/admin/user/${userId}`);
-            }}
-          >
-            #{orderId} Ordered By {userName} {lastName}
-          </p>
+       </div>
         </div>
 
         <div className="OneOrderDetail">
