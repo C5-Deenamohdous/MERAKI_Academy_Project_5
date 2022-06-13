@@ -1,12 +1,23 @@
-.Container-Orders { 
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: flex-start;
-    flex-direction: column;
+.Center-Container_Orders { 
+    position: absolute;
+    width: 82%;
+    top: 0;
+    left: 15vw;
+    height: 70vh;
+    top: 15vh;
 }
-
-.One-Order {
+.headerOFOrderTables{
+ margin-bottom: 20px;
+        display: flex;
+        margin-left: 3%;
+        width: 96.5%;
+        font-size: 20px;
+        font-weight: 600;
+        height: 5vh;
+        border-bottom: solid 1px lightsteelblue;
+       
+}
+/* .One-Order {
     height: 10%;
     display: flex;
     width: 100%;
@@ -15,4 +26,37 @@
     border: 1px solid;
     align-items: center;
     margin-top: 50vh
+} */
+.One-Order{
+    display: flex;
+    /* flex-direction: column; */
+    margin-bottom: 8vh;
+    width: 100%;
+    margin-left: 3%;
+    font-weight: 700;
+    text-align: start;
+    margin: auto;
+
+    /* justify-content: flex-start; */
 }
+.ordersTable{
+    width: 100%;
+    border-top: 1px solid;
+    margin-left: 3%;
+}
+table,
+th,
+td {
+  border-collapse: collapse;
+  border: 1px solid;
+  
+}
+.ordersTable th{
+    height: 10vh;
+}
+.OrderSelector{
+    text-align: center;
+font-weight: 600;
+border: unset;
+font-size: 17px;
+} 

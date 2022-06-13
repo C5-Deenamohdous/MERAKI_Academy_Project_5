@@ -1,0 +1,11 @@
+.truck{
+    font-size: 26px;
+    color: rgb(78, 78, 245);
+    cursor: pointer;
+    margin-top: 5px;
+}
+.clock{
+    font-size: 22px;
+    color: var(--btnsColor);
+    cursor: pointer;
+}
