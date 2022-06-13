@@ -87,7 +87,73 @@ const CartSection = () => {
 
   return (
     <div className="CartContainer">
-      <div className="CartOneProduct">
+      <div className="Header-Container">
+        <h1>Your Shopping Cart</h1>
+      </div>
+
+      <table className="CartTable">
+        <tr>
+          <th></th>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Remove</th>
+        </tr>
+
+        {cart &&
+          cart.map((element) => {
+            return (
+              <tr>
+                <td className="T-Photo">
+                  <img src={element.productImage} />
+                </td>
+                <td className="T-title">{element.title}</td>
+                <td className="T-price">{element.price}</td>
+                <td className="T-quantity">
+                  <div className="PlusBtns">
+                    <button
+                      onClick={() => {
+                        changeQuantityInCart(
+                          element.product_id,
+                          element.quantityInCart - 1
+                        );
+                        if (element.quantityInCart - 1 == 0) {
+                          deleteFromCart(element.product_id);
+                        }
+                      }}
+                    >
+                      -
+                    </button>
+
+                    <span>x{element.quantityInCart}</span>
+                    <button
+                      onClick={() => {
+                        changeQuantityInCart(
+                          element.product_id,
+                          element.quantityInCart + 1
+                        );
+                      }}
+                    >
+                      +
+                    </button>
+                  </div>
+                </td>
+                <td className="T-total">
+                  {element.quantityInCart * element.price}
+                </td>
+                <td className="T-icon">
+                  <AddToCartButton productId={element.product_id} />
+                </td>
+              </tr>
+            );
+          })}
+      </table>
+      <div className="TotalForCart">
+        <button className="Continue">CONTINUE SHOPPING</button>
+       <div className="ForBorder"> <h2 className="Header-Total">CART TOTALS</h2> </div>
+      </div>
+      {/* <div className="CartOneProduct">
         <div className="ContainerInfoAndImage">
           <p className="CartHeader-P Bottom">Product</p>
         </div>
@@ -152,8 +218,8 @@ const CartSection = () => {
             </div>
           );
         })}
-      <div className="SubTotal">Subtotal {subTotal} </div>
-      <CheckOut />
+      // <div className="SubTotal">Subtotal {subTotal} </div>
+      // <CheckOut /> */}
     </div>
   );
 };
