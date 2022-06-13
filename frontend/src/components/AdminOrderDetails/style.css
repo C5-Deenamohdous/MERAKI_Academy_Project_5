@@ -38,44 +38,42 @@ gap: 24px;
   justify-content: space-around;
   align-items: center;
 }
-
-.OneOrderDetail .Num {
-  width: 10%;
-}
-.OneOrderDetail .Details {
-  width: 26%;
-  display: flex;
+.CartTable {
+  width: 90%;
+  margin-top: 5vh;
+  height: fit-content;
+  padding: 20px;
 }
 
-/* .PhotoAndInfo {
-  display: flex;
-  width: 50%;
-} */
-
-.OneOrderDetail .Details .img-Container {
-  width: 30%;
-  height: 100%;
+tr {
+  text-align: center;
 }
-.img-Container img {
+
+td {
+  height: 15vh;
+  padding: 10px;
+}
+
+table,
+th,
+td {
+  border-collapse: collapse;
+  border: 1px solid #c1c1c1;
+}
+
+.T-Photo {
+  width: 20%;
+}
+.T-Photo img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-.titleAndDesc { 
-    display: flex;
-    flex-direction: column;
+.T-title {
+  width: 20%;
 }
 
-.OneOrderDetail .Date {
-  width: 10%;
-}
-.OneOrderDetail .Price {
-  width: 10%;
-}
-.OneOrderDetail .Total {
-  width: 10%;
-}
-.OneOrderDetail .Status {
+.T-price {
   width: 10%;
 }
