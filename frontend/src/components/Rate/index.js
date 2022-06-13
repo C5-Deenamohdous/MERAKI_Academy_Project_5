@@ -240,7 +240,7 @@ const Rate = () => {
           }
           /5
         </span>
-
+{/* =============== */}
         <ReactStars
           count={5}
           size={24}
