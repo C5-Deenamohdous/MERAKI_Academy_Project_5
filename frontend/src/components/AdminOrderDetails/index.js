@@ -62,33 +62,33 @@ const OrderDetails = () => {
           </div>
         </div>
 
-        {/* <div className="OneOrderDetail"> */}
-        <table className="CartTable">
+       
+        <table className="productInTable">
           <tr>
-            <th></th>
-            <th className="Num">#Item</th>
-            <th className="Details">Order Detail</th>
-            <th className="Date">Order Date</th>
-            <th className="Total">Total</th>
+            
+            <th className="Num1">#Item</th>
+            <th className="Details1">Order Detail</th>
+            <th className="Date1">Order Date</th>
+            <th className="Total1">Total</th>
           </tr>
 
           {oneOrderDetails &&
             oneOrderDetails.map((element, i) => {
               return (
                 <tr>
-                  <td className="Num">{i + 1}</td>
+                  <td className="Num1">{i + 1}</td>
 
-                  <td className="T-Photo">
+                  <td className="p-Photo">
                     <img src={element.productImage} />
                   </td>
 
                   <div className="titleAndDesc">
-                    <td className="T-title">{element.title}</td>
-                    <td className="T-price">{element.price}</td>
-                    <td className="T-title">{element.description}</td>
+                    <td className="p-title">{element.title}</td>
+                    <td className="p-price">{element.price}</td>
+                    <td className="p-title">{element.description}</td>
                   </div>
                   <td className="Date">{element.orderDate}</td>
-                  <td className="T-total">
+                  <td className="p-total">
                     {element.quantityInCart}x{element.price}
                   </td>
                  
