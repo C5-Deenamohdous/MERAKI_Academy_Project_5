@@ -1,0 +1,37 @@
+.Profile-Cont {
+  display: flex;
+  flex-direction: column;
+}
+
+.Ord-Profile {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.Ord-Profile .Ord_Num {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Ord-Profile .Ord_Date {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Ord-Profile .Ord_Status {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Ord-Profile .Icon {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

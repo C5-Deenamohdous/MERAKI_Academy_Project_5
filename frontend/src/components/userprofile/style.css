@@ -1,75 +1,90 @@
+/* .big_container {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+} */
 .big_container {
   width: 100%;
   display: flex;
   height: 100%;
   flex-direction: column;
 }
-.sec_container {
+
+/* .sec_container {
   display: flex;
   height: 100%;
   width: 100%;
   align-items: center;
   padding: 10px;
   gap: 50px;
+} */
+.sec_container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  /* padding: 20px; */
+  justify-content: flex-start;
 }
+
 .inner_container {
   display: flex;
-  width: 30%;
-  height: 100%;
+  width: 80%;
+  height: 40%;
   flex-direction: column;
-  padding: 20px;
+  /* padding: 20px; */
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
+
 .updateButton {
   width: 90%;
-  padding: 8px 12px;
-  margin: 8px 0 0;
+
   font-family: "Montserrat", sans-serif;
   border: 2px solid #78788c;
   cursor: pointer;
   transition: all 0.3s;
-  margin-top: 20px;
-  margin-bottom: 5px;
-  height: 20%;
   color: var(--btnsColor);
-  font-size: 16px;
-  font-weight: 600;
+  height: 40%;
+  padding: 5px;
 }
+
 .deleteButton {
   width: 90%;
-  padding: 8px 12px;
-  margin: 8px 0 0;
   font-family: "Montserrat", sans-serif;
   border: 2px solid #78788c;
   cursor: pointer;
   transition: all 0.3s;
-  height: 20%;
   color: var(--btnsColor);
-  font-size: 16px;
-  font-weight: 600;
+  height: 40%;
+  padding: 5px;
 }
 
 .userProfileImg {
-  width: 60%;
-  height: 100%;
+  width: 70%;
+  height: 65%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: flex-start; */
 }
+
 .userProfileImg img {
-  width: 100%;
+  width: 80%;
   height: 100%;
   border-radius: 100%;
+  object-fit: fill;
 }
+
 .datails-Container_profile {
   display: flex;
   flex-direction: column;
-  width: 60%;
-  justify-content: start;
-  align-items: flex-start;
+  width: 100%;
+  align-items: center;
+  height: 45%;
 }
+
 .line {
   display: flex;
   /* flex-direction: column; */
@@ -80,11 +95,10 @@
   background-color: transparent;
   border-style: none none solid;
   margin: 0px 0px 20px;
-  width: 60%;
+  width: 80%;
   height: 100%;
-  padding: 5px;
-  gap: 20px;
 }
+
 .inLine {
   display: flex;
   /* flex-direction: column; */
@@ -108,7 +122,6 @@
   width: 30%;
   justify-content: flex-start;
   align-items: center;
-
 }
 .nameInfo {
   color: black;
@@ -118,6 +131,27 @@
   font-size: 26px;
 }
 .popUp1 {
+  width: 50%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f4f4ff;
+  border-radius: 10px;
+  border-color: unset;
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.firstName1 {
+  border-color: currentcolor currentcolor rgb(80, 87, 90);
+  color: rgb(43, 41, 41);
+
     width: 50%;
     height: 60%;
     display: flex;
@@ -162,24 +196,115 @@
     width: 30%;
   height:20%;
   font-size: 18px;
+  background-image: initial;
+  background-color: transparent;
+  border-style: none none solid;
+  margin: 0px 0px 20px;
+  width: 400px;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 5px;
 }
-.cloud{
-    display: flex;
-width: 100%;
-height: 100%;
+
+.UpdateProfileButton {
+  width: 100%;
+  padding: 8px 12px;
+  margin: 8px 0 0;
+  font-family: "Montserrat", sans-serif;
+  border: 2px solid #78788c;
+  cursor: pointer;
+  transition: all 0.3s;
+  /* margin-top: 20px; */
+  /* margin-bottom: 5px; */
+  height: 20%;
+  color: var(--btnsColor);
+  font-size: 16px;
+  font-weight: 600;
 }
-.cloud button{
-    cursor: pointer;
-    transition: all 0.3s;
-    width: 30%;
-  height:40%;
- 
+
+.updateButton {
+  width: 100%;
 }
-.cloud input{
-    cursor: pointer;
-    transition: all 0.3s;
-    width: 100%;
-  height:40%;
+.deleteButton {
+  width: 100%;
+}
+
+.cloud {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.cloud button {
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 30%;
+  height: 40%;
+}
+.cloud input {
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100%;
+  height: 40%;
   margin-bottom: 10px;
 }
 
+.Header_Profile {
+  display: flex;
+  width: 100%;
+  height: 20vh;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--mainColor);
+}
+
+.profileOrder {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  align-items: center;
+  height: 100%;
+}
+
+.Profile-Cont {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.BtnsProfileOrder {
+  display: flex;
+  gap: 5px;
+}
+
+.LeftContainer-Profile {
+  display: flex;
+  height: 88vh;
+  width: 100%;
+  /* margin-top: 5vh; */
+}
+
+.Container-INFO {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid;
+}
+
+.ProfileBtns {
+  gap: 5px;
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+}
+
+.LeftContainer-ProfileVisit { 
+  display: flex;
+  height: 88vh;
+  width: 100%;
+  justify-content: center;
+}
