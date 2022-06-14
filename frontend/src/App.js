@@ -44,7 +44,7 @@ const App = () => {
     <div className="App">
       {location.pathname.includes("admin") ? <Admin /> : <NavBar />}
 
-//       <Footer/>
+       {/* <Footer/> */}
 
       <Routes>
         <Route path={"/Product"} element={<Product />} />
