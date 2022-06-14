@@ -8,9 +8,7 @@
 }
 .UsersInControlPanelMain {
   /* background-color: aliceblue; */
-  
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   width:100%;
 }
@@ -19,11 +17,13 @@
   justify-content: space-between;
   height: 10%;
   width: 100%;
-  color: white;
-  background-color: rgb(105, 81, 81);
+  color: var(--btnsColor);
+  /* background-color: rgb(105, 81, 81); */
   padding: 20px;
-  margin-top: 5%;
-  
+  font-weight: 600;
+  margin-top:5%;
+  cursor: pointer;
+  border-bottom: #78788c solid;
 }
 .user_Line {
   display: flex;

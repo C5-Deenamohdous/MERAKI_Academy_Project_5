@@ -5,11 +5,11 @@
     position: absolute;
     left: 15%;
     height: 100vh;
-  background: #0f2027; /* fallback for old browsers */
-  background: linear-gradient(to right,#2c5364, #203a43, #0f2027);
+  /* background: #0f2027; fallback for old browsers */
+  /* background: linear-gradient(to right,#2c5364, #203a43, #0f2027); */
   justify-content: center;
   align-items: center;
-  color: #fff;
+  color: rgb(5, 5, 5);
   }
 
 
@@ -79,3 +79,33 @@
   text-align: center;
 }
 
+.listofCat{
+
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  /* font-size: 1.2rem; */
+  margin: 0 auto;
+  /* padding: 1.5rem 2rem; */
+  border-radius: 0.2rem;
+  background-color: wheat;
+  border: none;
+  /* width: 40%; */
+  display: block;
+  border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+
+}
+
+.creatnewBrandBar{
+  display: flex;
+  position: absolute;
+  margin-top: 15vh;
+  margin-left: 3%;
+  top:0px;
+  left: 0px;
+  width: 85%;
+  font-size: 20px;
+  font-weight: 600;
+  height: 5vh;
+  border-bottom: solid 1px lightsteelblue;
+  }

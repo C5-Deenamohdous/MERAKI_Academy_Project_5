@@ -1,97 +1,253 @@
-.WishlisContainer {
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    height: 100%;
-  }
-  
-  
-  .WishlisOneProduct {
-    display: flex;
-    width: 80%;
-    height: fit-content;
-    align-items: center;
-    height: 20%;
-    gap: 10%;
-    padding: 10px;
-    border-bottom: 1px solid;
-  }
-  
-  .WishlisHeader-P {
-    margin-left: 30%;
-  }
-  
-  .ContainerInfoAndImage {
-    width: 50%;
-    height: 100%;
-    display: flex;
-  }
-  
-  .ContainerInfoAndImage .infoInWishlis {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    height: 100%;
-    gap: 10px;
-  }
-  
-  .ContainerInfoAndImage .Image {
-    width: 40%;
-    height: 100%;
-    background-color: tan;
-  }
-  
-  .WishlisOneProduct .Image img {
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-  }
-  .WishlisQuantity {
-    width: 30%;
-    height: 100%;
-  }
-  
-  .WishlisTotal {
-    width: 30%;
-    height: 100%;
-  }
-  
-  .ImageInWishlis img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-  
-  .WishlisPrice {
-    width: 10%;
-    height: 100%;
-  }
-  
-  .WishlisBtnsContainer {
-    display: flex;
-    justify-content: center;
-    border: 1px solid #b4a9ad;
-  }
-  .WishlisBtnsContainer span {
-    width: 60%;
-  }
-  
-  .WishlisBtnsContainer button {
-    width: 20%;
-    border: none;
-    cursor: pointer;
-  }
-  
-  /* .Bottom  { 
-      align-self: flex-end;
-  } */
-  
-  .WishlisTotal button {
-    position: absolute;
-    right: 0;
-    color: white;
-    background-color: rgb(161, 42, 52);
-  }
-  
+.WishlistContainer {
+  /* margin-top: 50px; */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  height: 100%;
+}
+
+.Header-Container {
+  height: 60vh;
+  background-color: var(--mainColor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.Header-Container h1 {
+  font-weight: 400;
+  font-size: 34px;
+}
+
+.WishlistOneProduct {
+  display: flex;
+  width: 80%;
+  height: fit-content;
+  align-items: center;
+  height: 20%;
+  gap: 10%;
+  padding: 10px;
+  border-bottom: 1px solid;
+}
+
+.WishlistHeader-P {
+  margin-left: 30%;
+}
+
+.ContainerInfoAndImage {
+  width: 50%;
+  height: 100%;
+  display: flex;
+}
+
+.ContainerInfoAndImage .infoInWishlist {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  gap: 10px;
+}
+
+.ContainerInfoAndImage .Image {
+  width: 40%;
+  height: 100%;
+  background-color: tan;
+}
+
+.WishlistOneProduct .Image img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.WishlistQuantity {
+  width: 30%;
+  height: 100%;
+}
+
+.WishlistTotal {
+  width: 30%;
+  height: 100%;
+}
+
+.ImageInWishlist img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.WishlistPrice {
+  width: 10%;
+  height: 100%;
+}
+
+.WishlistBtnsContainer {
+  display: flex;
+  justify-content: center;
+  border: 1px solid #b4a9ad;
+}
+
+.WishlistTotal button {
+  position: absolute;
+  right: 0;
+  color: white;
+  background-color: rgb(161, 42, 52);
+}
+
+/*  */
+.WishlistTable {
+  width: 90%;
+  margin-top: 5vh;
+  height: fit-content;
+  padding: 20px;
+}
+
+tr {
+  text-align: center;
+}
+
+td {
+  height: 15vh;
+  padding: 10px;
+}
+
+table,
+th,
+td {
+  border-collapse: collapse;
+  border: 1px solid #c1c1c1;
+}
+
+.T-Photo {
+  width: 20%;
+}
+.T-Photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.T-title {
+  width: 20%;
+}
+
+.T-price {
+  width: 10%;
+}
+
+.T-quantity {
+  width: 20%;
+}
+
+.T-total {
+  width: 15%;
+}
+
+.T-icon {
+  width: 5%;
+}
+
+.PlusBtns {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.PlusBtns button {
+  width: 20%;
+  outline-style: unset;
+  border: none;
+  /* height: 50%; */
+  height: 35%;
+  cursor: pointer;
+  font-size: 17px;
+}
+.PlusBtns span {
+  width: 20%;
+  outline: unset;
+  background-color: var(--mainColor);
+  /* height: 50%; */
+  font-size: 16px;
+  height: 35%;
+}
+
+.TotalForWishlist {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 5vh;
+}
+.ForBorder {
+  width: fit-content;
+  border-bottom: 1px solid var(--subColor);
+  display: flex;
+  flex-direction: column;
+  height: 40px;
+}
+.TotalForWishlist h2 {
+  font-size: 30px;
+  font-weight: 400;
+  width: fit-content;
+}
+
+.TotalForWishlist button {
+  background-color: var(--secondaryBlack);
+  color: var(--NavColor);
+  width: 15%;
+  /* height: 91%; */
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+.TotalForWishlist button:hover {
+  background-color: var(--btnsColor);
+  transition: 0.3s;
+}
+
+.SubTotal {
+  display: flex;
+  width: 90%;
+  /* justify-content: flex-end; */
+  /* align-items: center; */
+  /* padding: 0px; */
+  align-items: flex-end;
+  flex-direction: column;
+  margin: 2vh;
+}
+
+.PriceAndTotal {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  font-size: 16px;
+  font-weight: 600;
+}
+.PlaceHolder {
+  font-size: 21px;
+}
+
+.BtnToCheckOutPage {
+  width: 20%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 3vh;
+}
+.BtnToCheckOutPage button {
+  width: 85%;
+  height: 45px;
+  background-color: var;
+  background-color: var(--secondaryBlack);
+  color: var(--NavColor);
+  border: none;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.BtnToCheckOutPage button:hover {
+  background-color: var(--btnsColor);
+  color: var(--NavColor);
+  cursor: pointer;
+}

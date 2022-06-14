@@ -3,13 +3,10 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 import {addCategory} from "../../redux/reducers/admin"
 import Category from "../Category";
+import { BiCategory } from "react-icons/bi";
 
 import axios from "axios";
-
-//=========================Redux======================================
-
 import { useSelector, useDispatch } from "react-redux";
-//   CreateCategory  1111111
 const CreateCategory = ()=>{
     const dispatch = useDispatch();
     const { token, isLoggedIn } = useSelector((state) => {
@@ -21,9 +18,7 @@ const CreateCategory = ()=>{
     const [categoryName, setcategoryName] = useState("");
     const [message, setMessage] = useState("");
     const [status, setStatus] = useState(false);
-  
-    //===============================================================
-  
+
     const NewCategory = async (e) => {
       e.preventDefault();
       try {
@@ -53,19 +48,20 @@ const CreateCategory = ()=>{
         }
       }
     };
-  
-    //===============================================================
-  
+    
     useEffect(() => {},[]);
   
-    //===============================================================
     return (
       <div className="categoryContainer1">
+              <div className="creatnewBrandBar">
+        <p >
+         <BiCategory/>       Create New category
+        </p>
+      </div>
+
       <div className="categoryReturn">
-      {/* <Category/> */}
         <form className="NewCategory" onSubmit={NewCategory
         
-        // navigate(`/admin/create_brand/${result.data.result.insertId}`)
         }>
           <h1>  specify the category of your Brand</h1>
           <br />

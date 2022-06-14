@@ -5,6 +5,7 @@ import { addBrand } from "../../redux/reducers/admin";
 import axios from "axios";
 import Category from "../Category";
 import Brand from "../Brand";
+import { SiBrandfolder } from "react-icons/si";
 
 import { useSelector, useDispatch } from "react-redux";
 const CreateBrand = () => {
@@ -16,6 +17,8 @@ const CreateBrand = () => {
 
   const navigate = useNavigate();
   const [catId, setCatId] = useState("");
+  const [categoryName, setcategoryName] = useState("");
+
 
   const [brandName, setbrandName] = useState("");
   const [message, setMessage] = useState("");
@@ -76,8 +79,39 @@ const CreateBrand = () => {
 
 
   return (
-    <div className="BrandContainer1">
+
+    
+    <div className="BrandContainer1"> 
+      <div className="creatnewBrandBar">
+        <p >
+        <SiBrandfolder/>   Create New Brand
+        </p>
+      </div>
+
       <div className="BrandReturn">
+   
+
+
+      <button className="CreateNewBrandBtn" onClick={() => {
+          setIsClicked(true);
+        }}> choose category to add Brand</button>
+        {isClicked ?
+          category &&
+          category.map((element, i) => {
+            return (
+              <button className="listofCat" onClick={() => {
+                setCatId(element.id);
+                setcategoryName(element.categoryName)
+                console.log(catId);
+                setIsClicked(false)
+              }}>
+              {element.categoryName}
+              </button>
+            )
+          })
+          : ""}
+
+
         <form className="CreateBrand">
           <br />
           <input className="NewBrandInput"
@@ -87,7 +121,7 @@ const CreateBrand = () => {
           />
           <button className="CreateNewBrandBtn" onClick={() => {
             CreateNewBrand(catId);
-          }}>Create New Brand</button>
+          }}>Create New Brand for {categoryName}</button>
         </form>
         <br />
         <div className="BrandMessage">
@@ -96,23 +130,6 @@ const CreateBrand = () => {
           ? message && <div className="SuccessMessage">{message}</div>
           : message && <div className="ErrorMessage">{message}</div>}
           </div>
-        <button className="CreateNewBrandBtn" onClick={() => {
-          setIsClicked(true);
-        }}> choose category to add Brand</button>
-        {isClicked ?
-          category &&
-          category.map((element, i) => {
-            return (
-              <p onClick={() => {
-                setCatId(element.id)
-                console.log(catId);
-                setIsClicked(false)
-              }}>
-                category name : {element.categoryName}
-              </p>
-            )
-          })
-          : ""}
         <div className="BrandMessage">
           {status
             ? message && <div className="SuccessMessage">{message}</div>
