@@ -4,10 +4,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setCart } from "../../redux/reducers/cart";
-
+import Payment from "../payment/payment";
+import Modal from "react-modal";
 import CheckOut from "../CheckOut";
 
 const CheckOutPage = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { cart, token, userId, subTotal } = useSelector((state) => {
     return {
@@ -18,6 +20,10 @@ const CheckOutPage = () => {
     };
   });
 
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+  const [isOpen, setIsOpen] = useState(true);
   const [method1, setMethod1] = useState(false);
   const [method2, setMethod2] = useState(false);
 
@@ -31,6 +37,8 @@ const CheckOutPage = () => {
       .then((result) => {
         console.log(result, `CARTFORUSER`);
         dispatch(setCart(result.data.result));
+        setFirstName(result.data.result[0].firstName);
+        setLastName(result.data.result[0].lastName);
         // subTotalCalculate(result.data.result);
       })
       .catch((err) => {
@@ -97,12 +105,49 @@ const CheckOutPage = () => {
                     <option value="2">Online Payment</option>
                   </select>
                 </div>
+                {method2 ? (
+                  <div>
+                    <Payment />
+                  </div>
+                ) : (
+                  ""
+                )}
               </div>
               {/*  */}
               <div className="OrdersInfo-R"></div>
             </div>
           );
         })}
+      {cart.length == 0 && method2 ? (
+        <Modal
+          ariaHideApp={false}
+          className={"MessageAfterPayment"}
+          isOpen={isOpen}
+          onRequestClose={() => setIsOpen(false)}
+        >
+          {/* {setTimeout(() => {
+            setIsOpen(false);
+            navigate("/");
+          }, 3000)} */}
+          <div className="messageContainer">
+            <span>
+              {firstName} {lastName} ,,
+            </span>
+            <span>thank you for choosing us</span>
+            <span>You Can Check Your Order Status From Your Profile</span>
+            <button
+              onClick={() => {
+                setIsOpen(false);
+                navigate("/");
+              }}
+            >
+              Back To Shopping
+            </button>
+          </div>
+        </Modal>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

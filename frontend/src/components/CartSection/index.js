@@ -232,7 +232,7 @@ const CartSection = () => {
         })}
       // <div className="SubTotal">Subtotal {subTotal} </div>
       <CheckOut /> */}
-      <CheckOut />
+      {/* <CheckOut /> */}
     </div>
   );
 };
