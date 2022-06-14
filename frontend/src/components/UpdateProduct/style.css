@@ -1,7 +1,15 @@
+.Center-ContainerUpdateProduct{
+    position: absolute;
+    width: 82%;
+    top: 0;
+    left: 15vw;
+    height: 70vh;
+    top: 15vh;
+}
 .UpdateProductContainer { 
     display: flex;
     width: 80%;
-    height: 50%;
+    /* height: 50%; */
 }
 
 .photoContainer-Up { 
@@ -34,4 +42,8 @@
 
 .Test { 
     margin-top: 30px;
+}
+.cloudSpace{
+width: 20%;
+height: 50%;
 }

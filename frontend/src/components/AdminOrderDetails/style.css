@@ -17,7 +17,7 @@
   align-items: center;
 margin-top: 15vh;
 margin-left: 3%;
-width: 100%;
+width: 96%;
 font-size: 20px;
 font-weight: 600;
 height: 5vh;
@@ -39,7 +39,7 @@ gap: 24px;
   align-items: center;
 }
 .productInTable{
-  width: 90%;
+  width: 97.5%;
   margin-top: 5vh;
   height: fit-content;
   padding: 20px;

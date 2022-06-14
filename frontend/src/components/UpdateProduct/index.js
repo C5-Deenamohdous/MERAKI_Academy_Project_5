@@ -91,7 +91,7 @@ const UpdateProduct = () => {
   };
 
   return (
-    <div className="Center-Container">
+    <div className="Center-ContainerUpdateProduct">
       {oneProduct &&
         oneProduct.map((element, i) => {
           return (
@@ -103,7 +103,7 @@ const UpdateProduct = () => {
 
                 <div className="INFO">
                   <div className="flexDiv">
-                    <p>Product Name </p>
+                    <p>Product Title: </p>
                     <input
                       defaultValue={element.title}
                       onChange={(e) => {
@@ -112,7 +112,7 @@ const UpdateProduct = () => {
                     />
                   </div>
                   <div className="flexDiv">
-                    <p>Product Description </p>
+                    <p>Product Description:</p>
                     <input
                       defaultValue={element.description}
                       onChange={(e) => {
@@ -121,7 +121,7 @@ const UpdateProduct = () => {
                     />
                   </div>
                   <div className="flexDiv">
-                    <p>Price</p>
+                    <p>Price:</p>
                     <input
                       type="number"
                       defaultValue={element.price}
@@ -131,7 +131,7 @@ const UpdateProduct = () => {
                     />
                   </div>
                   <div className="flexDiv">
-                    <p>In Stock</p>
+                    <p>In Stock:</p>
                     <input
                       type="number"
                       defaultValue={element.quantity}
@@ -141,7 +141,7 @@ const UpdateProduct = () => {
                     />
                   </div>
                   <div className="catgDiv">
-                    <p>Category</p>
+                    <p>Category:</p>
                     {isChanged ? (
                       categName
                     ) : (
@@ -195,7 +195,7 @@ const UpdateProduct = () => {
                   Back
                 </span>
               </div>
-              <Cloud
+              <Cloud className="cloudSpace"
                 setProductImage={setProductImage}
                 url={url}
                 setUrl={setUrl}
