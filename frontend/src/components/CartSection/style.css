@@ -250,4 +250,5 @@ td {
   background-color: var(--btnsColor);
   color: var(--NavColor);
   cursor: pointer;
+  transition: 0.3s;
 }

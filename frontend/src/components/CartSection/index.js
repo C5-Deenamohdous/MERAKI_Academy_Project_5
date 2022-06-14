@@ -1,7 +1,7 @@
 import "./style.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setCart,
@@ -9,8 +9,9 @@ import {
   removeFromCart,
 } from "../../redux/reducers/cart";
 import AddToCartButton from "../AddToCart";
-import CheckOut from "../CheckOut";
+// import CheckOut from "../CheckOut";
 const CartSection = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { cart, token, userId, subTotal } = useSelector((state) => {
     return {
@@ -161,7 +162,13 @@ const CartSection = () => {
           <span>${subTotal}</span>
         </div>
         <div className="BtnToCheckOutPage">
-          <button>Proced to Checkot</button>
+          <button
+            onClick={() => {
+              navigate("/checkout");
+            }}
+          >
+            Proced to Checkot
+          </button>
         </div>
       </div>
 
