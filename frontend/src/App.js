@@ -31,7 +31,6 @@ import Adam from "./components/AAs/adam";
 
 import CheckOutPage from "./components/CheckoutPage";
 
-
 import Footer from "./components/footer";
 
 const App = () => {
@@ -43,6 +42,7 @@ const App = () => {
   return (
     <div className="App">
       {location.pathname.includes("admin") ? <Admin /> : <NavBar />}
+
 
        {/* <Footer/> */}
 
