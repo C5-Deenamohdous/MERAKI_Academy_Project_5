@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { setAllUnCompletedForUser } from "../../redux/reducers/orders";
+import OrderStatus from "../ChangeOrderStatus";
 
 const AdminUserUnCompletedOrders = () => {
   const { id } = useParams();
@@ -29,19 +30,38 @@ const AdminUserUnCompletedOrders = () => {
   //   console.log("ALLL ORDERDS", allOrders);
   return (
     <>
-      <h2>UnCompleted Orders ,, </h2>
       {allUnCompletedForUser &&
         allUnCompletedForUser.map((element) => {
           return (
-            <div
-              className="One-Order"
-              onClick={() => {
-                navigate(`/admin/order_details/${element.id}`);
-              }}
-            >
-              <p>{element.id}</p>
-              <p>{element.orderDate}</p>
-              <p>{element.Status ? "Completed" : "Un Completed"} </p>
+            <div className="One-OrderForOneUser">
+              <table className="ordersTableForOneUser">
+                <tr
+                  className={
+                    element.orderStatus
+                      ? "completedOrdersColorOneUser"
+                      : "unCompletedOrdersColorOneUser"
+                  }
+                >
+                  <th
+                    className="idOfOrder"
+                    onClick={() => {
+                      navigate(`/admin/order_details/${element.id}`);
+                    }}
+                  >
+                    {element.id}
+                  </th>
+                  <th className="idOfOrder">
+                    {element.orderDate.substring(0, 10)}
+                  </th>
+             
+                  <th className="idOfOrder">
+                    <OrderStatus
+                      order_id={element.id}
+                      orderStatus={element.orderStatus}
+                    />
+                  </th>
+                </tr>
+              </table>
             </div>
           );
         })}
