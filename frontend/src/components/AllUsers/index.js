@@ -32,61 +32,69 @@ const UsersControlPanel = () => {
     getAllUsers();
   }, []);
   return (
+    <>
     <div className="Center-Container_Users ">
       <div className="clientsBar">
         <p>
           <ImUsers /> Clients
         </p>
       </div>
-      <div className="UsersInControlPanel">
-        <div className="details-users_row">
-          <p className="table">#</p>
-          <p className="table">profile Image</p>
-          <p className="table">User Name </p>
-          <p className="table">User email </p>
-          <p className="table">Address</p>
-          <p className="table">viewProfile</p>
-        </div>
+      {/* <div className="UsersInControlPanel"> */}
+        {/* <div className="details-users_row"> */}
+          <table  className="USERSTables">
+        <tr>
+      {/* <div className="details-Product-row"> */}
+        <th className="table">#</th>
+        <th className="table">profile Image</th>
+        <th className="table">User Name</th>
+        <th className="table">User email</th>
+        <th className="table">Address</th>
+        <th className="table">viewProfile</th>
+
+        </tr>
+        {/* </div> */}
         {allUsers &&
           allUsers.map((element, i) => {
             return (
-              <div className="details-users_row">
-                <div className="details-Users">
-                  <div className="table">
-                    <p>{i + 1} </p>
-                  </div>
-                  <div className="table">
+              <>
+              {/* <div className="details-users_row"> */}
+                {/* <div className="details-Users"> */}
+                <tr>
+                <td className="table">{i + 1}</td>
+                  <td className="table" >
                     <img src={element.profileImage} />
-                  </div>
-                  <div className="table">
-                    <span>
-                      {" "}
+                  </td>
+                 
+                    <td  className="table">
+                      
                       {`${element.firstName} ` + ` ${element.lastName}`}
-                    </span>
-                  </div>
-                  <div className="table">
-                    <span>{element.email}</span>{" "}
-                  </div>
-                  <div className="table">
-                    <span>{element.address}</span>{" "}
-                  </div>
-                  <div className="eyeIcon">
-                    {" "}
-                    <span
+                    </td >
+                  
+               
+                    <td  className="table">{element.email}</td>
+                  
+                    <td  className="table">{element.address}</td>
+                 
+                 
+                  
+                    <td  className="table"
                       onClick={() => {
                         navigate(`/admin/user/${element.id}`);
                       }}
-                    >
-                      <FaRegEye />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            );
+                    >  <div className="eyeIcon">
+                      <FaRegEye />  </div>
+                    </td>
+                
+                {/* </div> */}
+              {/* </div> */}
+              </tr>
+              </>  
+              );
           })}
-      </div>
+             </table>
+      {/* </div> */}
     </div>
-  );
+    </> );
 };
 
 export default UsersControlPanel;

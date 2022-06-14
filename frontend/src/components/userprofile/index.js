@@ -258,12 +258,12 @@ const UserProfile = () => {
                         onChange={(e) => setProfileImage(e.target.value)}
                       />
                       <span>profileImage</span> */}
-                            <Cloud
-                              className="cloud"
+                          <div   className="cloud">  <Cloud
+                            
                               setProfileImage={setProfileImage}
                               url={url}
                               setUrl={setUrl}
-                            />
+                            /></div>
                           </div>
                           <button
                             className="UpdateProfileButton"

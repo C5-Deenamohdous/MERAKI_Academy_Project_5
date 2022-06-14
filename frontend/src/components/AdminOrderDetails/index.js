@@ -31,8 +31,8 @@ const OrderDetails = () => {
     axios
       .get(`http://localhost:5000/order/one_order/${id}`)
       .then((result) => {
-        console.log(result, "|||||||||||||||||||||||");
-        setUserName(result.data.result[0].userName);
+  
+        setUserName(result.data.result[0].firstName);
         setLastName(result.data.result[0].lastName);
         setUserId(result.data.result[0].user_id);
         setOrderId(result.data.result[0].id);
@@ -66,31 +66,31 @@ const OrderDetails = () => {
         <table className="productInTable">
           <tr>
             
-            <th className="Num1">#Item</th>
-            <th>Product</th>
-            <th>Title</th>
-            <th>Price</th>
-            <th className="Details1">Order Details</th>
-            <th className="Date1">Order Date</th>
-            <th className="Total1">Total Price</th>
+            <th className="p-Num1">#Item</th>
+            <th  className="p-Photo">Product</th >
+            <th className="p-title">Title</th>
+            <th  className="p-price">Price</th>
+            <th className="p-description">Order Details</th>
+            <th className="p-Date">Order Date</th>
+            <th className="p-total">Total Price</th>
           </tr>
 
           {oneOrderDetails &&
             oneOrderDetails.map((element, i) => {
               return (
                 <tr>
-                  <td className="Num1">{i + 1}</td>
+                  <td className="p-Num1">{i + 1}</td>
 
                   <td className="p-Photo">
                     <img src={element.productImage} />
                   </td>
 
-                  {/* <div className="titleAndDesc"> */}
+                  
                     <td className="p-title">{element.title}</td>
                     <td className="p-price">{element.price}</td>
-                    <td className="p-title">{element.description}</td>
+                    <td className="p-description">{element.description}</td>
                   {/* </div> */}
-                  <td className="Date">{element.orderDate}</td>
+                  <td className="p-Date">{element.orderDate}</td>
                   <td className="p-total">
                     {element.quantityInCart}x{element.price}
                   </td>
