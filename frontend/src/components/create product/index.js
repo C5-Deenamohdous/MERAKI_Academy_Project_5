@@ -5,6 +5,7 @@ import axios from "axios";
 import { setProduct } from "../../redux/reducers/admin";
 import { useNavigate, useParams } from "react-router-dom";
 import Cloud from "../Cloud";
+import { MdCreateNewFolder } from "react-icons/md";
 
 //creteProduct
 const CreateProduct = () => {
@@ -110,6 +111,12 @@ const CreateProduct = () => {
 
   return (
     <div className="creareP-Container">
+          <div className="creatnewprandBar">
+        <p >
+         <MdCreateNewFolder/> 
+           Create New product
+        </p>
+      </div>
       <>
         <div className="Select-C">
           <h2>Please choose your Category Name then your Brand Name</h2>
