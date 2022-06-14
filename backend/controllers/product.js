@@ -53,7 +53,7 @@ const SearshGetAllProduct = (req, res) => {
 
 
 const getAllProduct = (req, res) => {
-  const limit = 15;
+  const limit = 12;
   const page = req.query.page;
   const offset = (page - 1) * limit;
   const query =

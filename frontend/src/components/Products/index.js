@@ -12,7 +12,7 @@ const Product = () => {
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(3);
+  const [limit, setLimit] = useState(12);
   const [clickNext, setClickNext] = useState(false);
 
   const { products, token } = useSelector((state) => {
@@ -26,7 +26,7 @@ const Product = () => {
 
   const getAllProducts = async () => {
     axios
-      .get(`http://localhost:5000/product/?page=1&limit=15`)
+      .get(`http://localhost:5000/product/?page=1&limit=12`)
 
       .then((result) => {
         console.log(result, "}/!!!!}}");
@@ -40,7 +40,7 @@ const Product = () => {
   };
   const nextPage = (page) => {
     axios
-      .get(`http://localhost:5000/product/?page=${page}&limit=15`)
+      .get(`http://localhost:5000/product/?page=${page}&limit=12`)
       .then((result) => {
         dispatch(setProducts(result.data.result));
       })
@@ -99,7 +99,7 @@ const Product = () => {
           className="backButton"
           onClick={() => {
             setPage(page - 1);
-            setLimit(15);
+            setLimit(12);
             nextPage(page - 1);
           }}
         >
@@ -112,7 +112,7 @@ const Product = () => {
         className="nextButton"
         onClick={() => {
           setPage(page + 1);
-          setLimit(15);
+          setLimit(12);
           nextPage(page + 1);
         }}
       >
