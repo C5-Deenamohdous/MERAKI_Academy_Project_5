@@ -28,7 +28,11 @@ import AdminUserCompletedOrders from "./components/AdminCompletedUserOrder";
 import AdminUserUnCompletedOrders from "./components/AdminUnCompletedUserOrder";
 import Home from "./components/Home";
 import Adam from "./components/AAs/adam";
+
 import CheckOutPage from "./components/CheckoutPage";
+
+
+import Footer from "./components/footer";
 
 const App = () => {
   const location = useLocation();
@@ -39,6 +43,8 @@ const App = () => {
   return (
     <div className="App">
       {location.pathname.includes("admin") ? <Admin /> : <NavBar />}
+
+//       <Footer/>
 
       <Routes>
         <Route path={"/Product"} element={<Product />} />

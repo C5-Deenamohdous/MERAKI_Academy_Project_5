@@ -1,0 +1,12 @@
+.completedOrdersColor{
+    background-color: #7ccc94;
+    }
+    .unCompletedOrdersColor{
+    background-color: rgb(214, 209, 209);
+    
+    }
+    
+    .idOfOrder{
+        width: 20%;
+    }
+    
