@@ -193,11 +193,11 @@ td {
 }
 
 .TotalForCart button {
-  background-color: var(--BlackColor);
-  color: white;
+  background-color: var(--secondaryBlack);
+  color: var(--NavColor);
   width: 15%;
   /* height: 91%; */
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   border: none;
@@ -227,4 +227,27 @@ td {
 }
 .PlaceHolder {
   font-size: 21px;
+}
+
+.BtnToCheckOutPage {
+  width: 20%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 3vh;
+}
+.BtnToCheckOutPage button {
+  width: 85%;
+  height: 45px;
+  background-color: var;
+  background-color: var(--secondaryBlack);
+  color: var(--NavColor);
+  border: none;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.BtnToCheckOutPage button:hover {
+  background-color: var(--btnsColor);
+  color: var(--NavColor);
+  cursor: pointer;
 }

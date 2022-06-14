@@ -160,6 +160,9 @@ const CartSection = () => {
           <span className="PlaceHolder">TOTAL</span>
           <span>${subTotal}</span>
         </div>
+        <div className="BtnToCheckOutPage">
+          <button>Proced to Checkot</button>
+        </div>
       </div>
 
       {/* <div className="CartOneProduct">
@@ -228,7 +231,8 @@ const CartSection = () => {
           );
         })}
       // <div className="SubTotal">Subtotal {subTotal} </div>
-      // <CheckOut /> */}
+      <CheckOut /> */}
+      <CheckOut />
     </div>
   );
 };
