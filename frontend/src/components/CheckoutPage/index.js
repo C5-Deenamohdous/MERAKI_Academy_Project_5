@@ -72,41 +72,43 @@ const CheckOutPage = () => {
                   </div>
                 </div>
                 <div className="FirstAndLastName">
-                  <div className="Input-Label">
+                  <div className="Input-Label F">
                     <label>FirstName</label>
                     <input defaultValue={element.firstName} />
                   </div>
-                  <div className="Input-Label">
+                  <div className="Input-Label F">
                     <label>Last Name</label>
                     <input defaultValue={element.lastName} />
                   </div>
                 </div>
-                <div className="Input-Label">
+                <div className="Input-Label Ph">
                   <label>Phone Number</label>
                   <input defaultValue={element.phoneNumber} />
                 </div>
                 <div className="PaymentMethod">
-                  <select
-                    onChange={(e) => {
-                      if (e.target.value == 1) {
-                        setMethod1(true);
-                        setMethod2(false);
-                      }
-                      if (e.target.value == 2) {
-                        setMethod2(true);
-                        setMethod1(false);
-                      }
-                    }}
-                  >
-                    <option disabled selected>
-                      Payment Method
-                    </option>
-                    <option value="1">Cash On Delivery</option>
-                    <option value="2">Online Payment</option>
-                  </select>
+                  <div className="selectContainer">
+                    <select
+                      onChange={(e) => {
+                        if (e.target.value == 1) {
+                          setMethod1(true);
+                          setMethod2(false);
+                        }
+                        if (e.target.value == 2) {
+                          setMethod2(true);
+                          setMethod1(false);
+                        }
+                      }}
+                    >
+                      <option disabled selected>
+                        Payment Method
+                      </option>
+                      <option value="1">Cash On Delivery</option>
+                      <option value="2">Online Payment</option>
+                    </select>
+                  </div>
                 </div>
                 {method2 ? (
-                  <div>
+                  <div className="PaypalInCheckoutPage">
                     <Payment />
                   </div>
                 ) : (
@@ -136,11 +138,9 @@ const CheckOutPage = () => {
               </span>
             </div>
             <div className="ceneteInsidePopUp">
-              
               <span>thank you for choosing us</span>
             </div>
             <div className="ceneteInsidePopUp">
-              
               <span>You Can Check Your Order Status From Your Profile</span>
             </div>
 

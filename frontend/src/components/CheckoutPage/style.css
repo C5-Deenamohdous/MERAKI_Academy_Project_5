@@ -14,6 +14,9 @@
   flex-direction: column;
   width: 50%;
   height: 100%;
+  justify-content: space-evenly;
+  /* padding: 15px; */
+  align-items: center;
 }
 
 .OrdersInfo-R {
@@ -28,9 +31,18 @@
   flex-direction: column;
 }
 
-.shippingAdress {
+.ContactInfo span,
+.shippingAdress span {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.shippingAdress,
+.ContactInfo {
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
+  width: 65%;
 }
 
 .UserShippingInfo-L input {
@@ -42,6 +54,11 @@
 }
 .FirstAndLastName {
   display: flex;
+  margin: 0 auto;
+  width: 65%;
+  gap: 5px;
+  align-items: center;
+  justify-content: space-around;
 }
 .MessageAfterPayment {
   width: 40%;
@@ -83,4 +100,40 @@
   padding: 5px;
   border: unset;
   align-self: flex-end;
+}
+
+.Input-Label {
+  /* border: 1px solid;
+  padding: 10px; */
+  border: 1px solid;
+  padding: 5px;
+  height: 9vh;
+  font-size: 14px;
+}
+
+.Input-Label input {
+  border: none;
+  outline-style: unset;
+  width: 100%;
+}
+
+.Input-Label label {
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+.F {
+  width: 50%;
+}
+
+.Ph {
+  width: 65%;
+}
+
+.PaymentDiv {
+  width: 100%;
+}
+
+.PaypalInCheckoutPage {
+  width: 65%;
 }
