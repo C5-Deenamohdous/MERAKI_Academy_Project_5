@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { setCart } from "../../redux/reducers/cart";
-import Payment from "../payment/payment"
+import Payment from "../payment/payment";
 
 const CheckOut = () => {
   const dispatch = useDispatch();
@@ -33,15 +33,14 @@ const CheckOut = () => {
 
   return (
     <div>
-    <button
-      onClick={() => {
-        addToOrders();
-      }}
-    >
-      
-      CheckOut
-    </button>
-    <Payment/>
+      <button
+        onClick={() => {
+          addToOrders();
+        }}
+      >
+        CheckOut
+      </button>
+      <Payment />
     </div>
   );
 };

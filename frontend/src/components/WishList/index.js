@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addToWishlist,setWishlist, removeFromWishlist } from "../../redux/reducers/WishList";
-
+ import AddToCartButton from "../AddToCart";
 import AddToWishlistButton from "../../components/addToWishlistButton";
 
 
@@ -56,41 +56,45 @@ const WishlistSection = () => {
     }, []);
   
     return (
+
+
       <div className="WishlistContainer">
-        <div className="WishlistOneProduct">
-          <div className="ContainerInfoAndImage">
-            <p className="WishlistHeader-P Bottom">Product</p>
-          </div>
-          <div className="WishlistPrice Bottom">
-            <p className="WishlistHeader-P Bottom">Price</p>
-          </div>
-        </div>
+      <div className="Header-Container">
+        <h1>Your Shopping Wishlist</h1>
+      </div>
+
+      <table className="WishlistTable">
+        <tr>
+          <th></th>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Remove/AddToCart</th>
+        </tr>
+
         {Wishlist &&
           Wishlist.map((element) => {
             return (
-              <div className="WishlistOneProduct">
-                <div className="ContainerInfoAndImage">
-                  <div className="Image">
-                    <img src={element.productImage} />
-                  </div>
-                  <div className="infoInWishlist">
-                    <p>{element.title}</p>
-                    <p>{element.description}</p>
-                  </div>
-                </div>
-  
-                <div className="WishlistPrice">
-                  <p>{element.price}</p>
-                </div>
-  
-                <div className="WishlistTotal">
+              <tr>
+                <td className="T-Photo">
+                  <img src={element.productImage} />
+                </td>
+                <td className="T-title">{element.title}</td>
+                <td className="T-price">{element.price}</td>
+          
+                <td className="T-icon">
                   <AddToWishlistButton productId={element.product_id} />
-                  <p>{element.quantityInWishlist * element.price}</p>
-                </div>
-              </div>
+                  <AddToCartButton productId={element.product_id} />
+                </td>
+              </tr>
             );
           })}
+      </table>
+      <div className="TotalForWishlist">
+        <button className="Continue">CONTINUE SHOPPING</button>
       </div>
+  
+    </div>
+    
     );
   };
   

@@ -111,9 +111,42 @@ const CreateProduct = () => {
   return (
     <div className="creareP-Container">
       <>
-        <div className="nameofthepage">
-          <h1>create new product{""}</h1>
-        </div>
+        <div className="Select-C">
+          <h2>Please choose your Category Name then your Brand Name</h2>
+            <select
+              onChange={(e) => {
+                console.log(e.target.value);
+                setCategory_id(e.target.value);
+              }}
+            >
+              <option disabled selected>
+                CategoryName
+              </option>
+              {category &&
+                category.map((element, i) => {
+                  return (
+                    <option value={element.id}>{element.categoryName}</option>
+                  );
+                })}
+            </select>
+
+            <select
+              onChange={(e) => {
+                console.log(e.target.value);
+                setBrand_id(e.target.value);
+              }}
+            >
+              <option disabled selected>
+                BrandName
+              </option>
+              {Brand &&
+                Brand.map((elem) => {
+                  return <option value={elem.id}>{elem.brandName}</option>;
+                })}
+            </select>
+          </div>
+
+
 
         <div className="inputboxAhd">
           <div className="inputboxAhmad">
@@ -161,58 +194,26 @@ const CreateProduct = () => {
               />
             </div>
 
-            <div className="inputboxAhmad">
+
+          </div> 
+          <br/>
+                     <div className="imgcloudP">
               <Cloud
                 setProductImage={setProductImage}
                 url={url}
                 setUrl={setUrl}
               />
             </div>
-          </div>
-
-          <div className="Select-C">
-            <select
-              onChange={(e) => {
-                console.log(e.target.value);
-                setCategory_id(e.target.value);
-              }}
-            >
-              <option disabled selected>
-                CategoryName
-              </option>
-              {category &&
-                category.map((element, i) => {
-                  return (
-                    <option value={element.id}>{element.categoryName}</option>
-                  );
-                })}
-            </select>
-
-            <select
-              onChange={(e) => {
-                console.log(e.target.value);
-                setBrand_id(e.target.value);
-              }}
-            >
-              <option disabled selected>
-                BrandName
-              </option>
-              {Brand &&
-                Brand.map((elem) => {
-                  return <option value={elem.id}>{elem.brandName}</option>;
-                })}
-            </select>
-          </div>
-
-          <button
-            className="add_product"
+ 
+        </div>     
+            <button 
+            className="add_productone"
             onClick={() => {
               add_product();
             }}
           >
             Add product
           </button>
-        </div>
       </>
     </div>
   );
