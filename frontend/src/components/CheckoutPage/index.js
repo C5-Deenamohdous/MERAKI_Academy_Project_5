@@ -130,11 +130,20 @@ const CheckOutPage = () => {
             navigate("/");
           }, 3000)} */}
           <div className="messageContainer">
-            <span>
-              {firstName} {lastName} ,,
-            </span>
-            <span>thank you for choosing us</span>
-            <span>You Can Check Your Order Status From Your Profile</span>
+            <div className="ceneteInsidePopUp">
+              <span>
+                {firstName} {lastName} ,,
+              </span>
+            </div>
+            <div className="ceneteInsidePopUp">
+              
+              <span>thank you for choosing us</span>
+            </div>
+            <div className="ceneteInsidePopUp">
+              
+              <span>You Can Check Your Order Status From Your Profile</span>
+            </div>
+
             <button
               onClick={() => {
                 setIsOpen(false);

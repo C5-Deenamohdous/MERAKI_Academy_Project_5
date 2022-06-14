@@ -44,8 +44,8 @@
   display: flex;
 }
 .MessageAfterPayment {
-  width: 50%;
-  height: 50%;
+  width: 40%;
+  height: 40%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -63,8 +63,24 @@
 .messageContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
+}
+
+.ceneteInsidePopUp {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80%;
+  margin-bottom: 5px;
+}
+.btnPaymentPopUp button {
+  height: 40px;
+  background-color: var(--secondaryBlack);
+  color: var(--NavColor);
+  padding: 5px;
+  border: unset;
+  align-self: flex-end;
 }
