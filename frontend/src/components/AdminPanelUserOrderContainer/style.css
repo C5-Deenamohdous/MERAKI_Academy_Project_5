@@ -42,7 +42,7 @@ th,
 td {
   border-collapse: collapse;
   border: 1px solid;
-  width: 20%;
+  width: 30%;
 }
 .ordersTableForOneUser th{
     height: 10vh;
