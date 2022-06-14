@@ -22,10 +22,16 @@ const CheckOutPage = () => {
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
 
   const [isOpen, setIsOpen] = useState(true);
+  const [isOpen1, setIsOpen1] = useState(false);
+
   const [method1, setMethod1] = useState(false);
   const [method2, setMethod2] = useState(false);
+
+  const [isConfirm, setIsConfirm] = useState(false);
 
   const getProductInCart = () => {
     axios
@@ -39,10 +45,35 @@ const CheckOutPage = () => {
         dispatch(setCart(result.data.result));
         setFirstName(result.data.result[0].firstName);
         setLastName(result.data.result[0].lastName);
+        setPhoneNumber(result.data.result[0].phoneNumber);
+        setEmail(result.data.result[0].email);
         // subTotalCalculate(result.data.result);
       })
       .catch((err) => {
         console.log(err, `ERROR IN USER CART`);
+      });
+  };
+
+  const addToOrders = () => {
+    axios
+      .post(
+        `http://localhost:5000/order`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((result) => {
+        console.log(result, `ORDER CHECKOUT`);
+        dispatch(setCart([]));
+        setIsOpen1(false);
+        setIsOpen(true);
+        setIsConfirm(true);
+      })
+      .catch((err) => {
+        console.log(err, "ERR IN ORDER CHECKOUT");
       });
   };
 
@@ -72,42 +103,68 @@ const CheckOutPage = () => {
                   </div>
                 </div>
                 <div className="FirstAndLastName">
-                  <div className="Input-Label">
+                  <div className="Input-Label F">
                     <label>FirstName</label>
-                    <input defaultValue={element.firstName} />
+                    <input defaultValue={firstName} />
                   </div>
-                  <div className="Input-Label">
+                  <div className="Input-Label F">
                     <label>Last Name</label>
-                    <input defaultValue={element.lastName} />
+                    <input defaultValue={lastName} />
                   </div>
                 </div>
-                <div className="Input-Label">
+                <div className="Input-Label Ph">
                   <label>Phone Number</label>
-                  <input defaultValue={element.phoneNumber} />
+                  <input defaultValue={phoneNumber} />
+                </div>
+                <div className="B-Contaier">
+                  <div>
+                    <p
+                      onClick={() => {
+                        navigate("/cart");
+                      }}
+                    >
+                      Back To Cart
+                    </p>
+                  </div>
                 </div>
                 <div className="PaymentMethod">
-                  <select
-                    onChange={(e) => {
-                      if (e.target.value == 1) {
-                        setMethod1(true);
-                        setMethod2(false);
-                      }
-                      if (e.target.value == 2) {
-                        setMethod2(true);
-                        setMethod1(false);
-                      }
-                    }}
-                  >
-                    <option disabled selected>
-                      Payment Method
-                    </option>
-                    <option value="1">Cash On Delivery</option>
-                    <option value="2">Online Payment</option>
-                  </select>
+                  <div className="selectContainer">
+                    <select
+                      onChange={(e) => {
+                        if (e.target.value == 1) {
+                          setMethod1(true);
+                          setMethod2(false);
+                        }
+                        if (e.target.value == 2) {
+                          setMethod2(true);
+                          setMethod1(false);
+                        }
+                      }}
+                    >
+                      <option disabled selected>
+                        Payment Method
+                      </option>
+                      <option value="1">Cash On Delivery</option>
+                      <option value="2">Online Payment</option>
+                    </select>
+                  </div>
                 </div>
                 {method2 ? (
-                  <div>
+                  <div className="PaypalInCheckoutPage">
                     <Payment />
+                  </div>
+                ) : (
+                  ""
+                )}
+                {method1 ? (
+                  <div className="CashPayment">
+                    <button
+                      onClick={() => {
+                        setIsOpen1(true);
+                      }}
+                    >
+                      Checkout
+                    </button>
                   </div>
                 ) : (
                   ""
@@ -125,10 +182,6 @@ const CheckOutPage = () => {
           isOpen={isOpen}
           onRequestClose={() => setIsOpen(false)}
         >
-          {/* {setTimeout(() => {
-            setIsOpen(false);
-            navigate("/");
-          }, 3000)} */}
           <div className="messageContainer">
             <div className="ceneteInsidePopUp">
               <span>
@@ -136,15 +189,79 @@ const CheckOutPage = () => {
               </span>
             </div>
             <div className="ceneteInsidePopUp">
-              
               <span>thank you for choosing us</span>
             </div>
             <div className="ceneteInsidePopUp">
-              
               <span>You Can Check Your Order Status From Your Profile</span>
             </div>
 
             <button
+              className="BackTo"
+              onClick={() => {
+                setIsOpen(false);
+                navigate("/");
+              }}
+            >
+              Back To Shopping
+            </button>
+          </div>
+        </Modal>
+      ) : (
+        ""
+      )}
+
+      <Modal
+        ariaHideApp={false}
+        className={"ConfirmationMessagePopUp"}
+        isOpen={isOpen1}
+        onRequestClose={() => setIsOpen1(false)}
+      >
+        <div className="Cont-Confi">
+          <div>
+            <p>Are you sure From Your informations ? </p>
+            <div className="BtnsConfirmation">
+              <button
+                className="CancelBtn"
+                onClick={() => {
+                  setIsOpen1(false);
+                }}
+              >
+                Cancel
+              </button>
+              <button
+                className="Confirm"
+                onClick={() => {
+                  addToOrders();
+                }}
+              >
+                Confirm Order
+              </button>
+            </div>
+          </div>
+        </div>
+      </Modal>
+      {isConfirm && method1 ? (
+        <Modal
+          ariaHideApp={false}
+          className={"MessageAfterPayment"}
+          isOpen={isOpen}
+          onRequestClose={() => setIsOpen(false)}
+        >
+          <div className="messageContainer">
+            <div className="ceneteInsidePopUp">
+              <span>
+                {firstName} {lastName} ,,
+              </span>
+            </div>
+            <div className="ceneteInsidePopUp">
+              <span>thank you for choosing us</span>
+            </div>
+            <div className="ceneteInsidePopUp">
+              <span>You Can Check Your Order Status From Your Profile</span>
+            </div>
+
+            <button
+              className="BackTo"
               onClick={() => {
                 setIsOpen(false);
                 navigate("/");

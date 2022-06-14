@@ -108,7 +108,7 @@ const ButtonWrapper = ({ currency, showSpinner }) => {
 
 export default function Payment() {
   return (
-    <div style={{ maxWidth: "750px", minHeight: "200px" }}>
+    <div className="PaymentDiv">
       <PayPalScriptProvider
         // options={{
         //     "client-id": "AW3d7emklURf4rIFvBmQ14R_oT523r5PjxbsraFbK5vhDVvWE6imlOkzkIY9WrfTNF9EBVrwGuWTxsQM",
