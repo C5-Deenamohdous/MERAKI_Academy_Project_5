@@ -5,6 +5,7 @@ import { addBrand } from "../../redux/reducers/admin";
 import axios from "axios";
 import Category from "../Category";
 import Brand from "../Brand";
+import { SiBrandfolder } from "react-icons/si";
 
 import { useSelector, useDispatch } from "react-redux";
 const CreateBrand = () => {
@@ -78,8 +79,17 @@ const CreateBrand = () => {
 
 
   return (
-    <div className="BrandContainer1">
+
+    
+    <div className="BrandContainer1"> 
+      <div className="creatnewBrandBar">
+        <p >
+        <SiBrandfolder/>   Create New Brand
+        </p>
+      </div>
+
       <div className="BrandReturn">
+   
 
 
       <button className="CreateNewBrandBtn" onClick={() => {
