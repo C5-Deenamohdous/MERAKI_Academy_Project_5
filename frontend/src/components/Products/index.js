@@ -38,6 +38,7 @@ const Product = () => {
         setMessage(err.response.data.message);
       });
   };
+  // 
   const nextPage = (page) => {
     axios
       .get(`http://localhost:5000/product/?page=${page}&limit=12`)
