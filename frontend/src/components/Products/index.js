@@ -108,6 +108,7 @@ const Product = () => {
       ) : (
         ""
       )}
+      {/* dina */}
       <button
         className="nextButton"
         onClick={() => {
