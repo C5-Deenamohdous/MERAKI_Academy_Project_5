@@ -31,7 +31,7 @@ const OrderDetails = () => {
     axios
       .get(`http://localhost:5000/order/one_order/${id}`)
       .then((result) => {
-        console.log(result, "|||||||||||||||||||||||");
+  
         setUserName(result.data.result[0].firstName);
         setLastName(result.data.result[0].lastName);
         setUserId(result.data.result[0].user_id);
@@ -85,7 +85,7 @@ const OrderDetails = () => {
                     <img src={element.productImage} />
                   </td>
 
-                  {/* <div className="titleAndDesc"> */}
+                  
                     <td className="p-title">{element.title}</td>
                     <td className="p-price">{element.price}</td>
                     <td className="p-description">{element.description}</td>
