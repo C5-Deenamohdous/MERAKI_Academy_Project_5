@@ -3,11 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  setCart,
-  changeQuantity,
-  removeFromCart,
-} from "../../redux/reducers/cart";
+import { setCart } from "../../redux/reducers/cart";
 
 import CheckOut from "../CheckOut";
 
@@ -21,6 +17,9 @@ const CheckOutPage = () => {
       subTotal: state.cart.subTotal,
     };
   });
+
+  const [method1, setMethod1] = useState(false);
+  const [method2, setMethod2] = useState(false);
 
   const getProductInCart = () => {
     axios
@@ -79,12 +78,23 @@ const CheckOutPage = () => {
                   <input defaultValue={element.phoneNumber} />
                 </div>
                 <div className="PaymentMethod">
-                  <select>
+                  <select
+                    onChange={(e) => {
+                      if (e.target.value == 1) {
+                        setMethod1(true);
+                        setMethod2(false);
+                      }
+                      if (e.target.value == 2) {
+                        setMethod2(true);
+                        setMethod1(false);
+                      }
+                    }}
+                  >
                     <option disabled selected>
                       Payment Method
                     </option>
-                    <option>Cash On Delivery</option>
-                    <option>Online Payment</option>
+                    <option value="1">Cash On Delivery</option>
+                    <option value="2">Online Payment</option>
                   </select>
                 </div>
               </div>
