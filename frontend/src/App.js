@@ -28,6 +28,8 @@ import AdminUserCompletedOrders from "./components/AdminCompletedUserOrder";
 import AdminUserUnCompletedOrders from "./components/AdminUnCompletedUserOrder";
 import Home from "./components/Home";
 import Adam from "./components/AAs/adam";
+import CheckOutPage from "./components/CheckoutPage";
+
 const App = () => {
   const location = useLocation();
   useEffect(() => {
@@ -40,7 +42,7 @@ const App = () => {
 
       <Routes>
         <Route path={"/Product"} element={<Product />} />
-        <Route path="/adam" element={<Adam/>}/>
+        <Route path="/adam" element={<Adam />} />
         {/* <Route path="/admin" element={<Admin />} /> */}
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
@@ -73,6 +75,7 @@ const App = () => {
           path="/admin/user_orders_uncompleted/:id"
           element={<AdminUserUnCompletedOrders />}
         />
+        <Route path="/checkout" element={<CheckOutPage />} />
       </Routes>
     </div>
   );
