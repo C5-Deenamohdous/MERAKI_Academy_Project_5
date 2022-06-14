@@ -7,6 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Modal from "react-modal";
 import Cloud from "../Cloud";
 import {  BsCheckCircleFill ,BsFillTelephoneFill } from "react-icons/bs";
+import { RiArrowGoBackFill } from "react-icons/ri";
 
 const UpdateProduct = () => {
   const [category, setCategory] = useState("");
@@ -210,14 +211,14 @@ const UpdateProduct = () => {
               )} */}
               <div className="Test">
                
-                <span
+                <span className="deleteBTNAdmin"
                   onClick={() => {
                     navigate(-1);
                   }}
                 >
-                  Back
+                  <RiArrowGoBackFill/>Back
                 </span> 
-                <p
+                <button  className="updateBTNAdmin"
                   onClick={() => {
                     updateProduct(oneProduct[0].id);
                     setIsOpen(true);
@@ -227,7 +228,7 @@ const UpdateProduct = () => {
                   }}
                 >
                   UPDATE
-                </p>
+                </button>
 
               </div>
             
