@@ -4,7 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { setOneProduct, updateOneProduct } from "../../redux/reducers/admin";
 import { useNavigate, useParams } from "react-router-dom";
+import Modal from "react-modal";
 import Cloud from "../Cloud";
+import {  BsCheckCircleFill ,BsFillTelephoneFill } from "react-icons/bs";
+
 const UpdateProduct = () => {
   const [category, setCategory] = useState("");
   const [isChanged, setIsChanged] = useState(false);
@@ -23,6 +26,10 @@ const UpdateProduct = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+
+
+
   const { oneProduct } = useSelector((state) => {
     return {
       oneProduct: state.admin.oneProduct,
@@ -213,6 +220,10 @@ const UpdateProduct = () => {
                 <p
                   onClick={() => {
                     updateProduct(oneProduct[0].id);
+                    setIsOpen(true);
+              setTimeout(() => {
+                setIsOpen(false);
+              }, 3000);
                   }}
                 >
                   UPDATE
@@ -223,8 +234,22 @@ const UpdateProduct = () => {
             </>
           );
         })}
+         <Modal
+  ariaHideApp={false}
+  className={"popUpUpdate"}
+  isOpen={isOpen}
+  onRequestClose={() => setIsOpen(false)}
+>
+  <div className="popUpContainerUpdate">
+    <div className="paragrapghUpdated">
+<p ><b>Product has been Updated</b> </p>
+
+</div>
+<span className="imgGreen"> <BsCheckCircleFill/> </span>
+</div>
+</Modal>
       {/* <h1>{message}</h1> */}
-      
+
     </div>
   );
 };
