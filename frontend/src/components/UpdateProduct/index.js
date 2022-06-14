@@ -92,6 +92,7 @@ const UpdateProduct = () => {
 
   return (
     <div className="Center-ContainerUpdateProduct">
+      <div className="updateHeader">Update product </div>
       {oneProduct &&
         oneProduct.map((element, i) => {
           return (
@@ -99,6 +100,14 @@ const UpdateProduct = () => {
               <div className="UpdateProductContainer">
                 <div className="photoContainer-Up">
                   <img className="IMAGE" src={element.productImage} />
+                  <div className="cloudSpace">
+                {" "}<p>*Upload Image </p>
+                <Cloud
+                  setProductImage={setProductImage}
+                  url={url}
+                  setUrl={setUrl}
+                />
+              </div>
                 </div>
 
                 <div className="INFO">
@@ -112,8 +121,8 @@ const UpdateProduct = () => {
                     />
                   </div>
                   <div className="flexDiv">
-                    <p>Product Description:</p>
-                    <input
+                    <p >Product Description:</p>
+                    <textarea className="decsInputUpdat"
                       defaultValue={element.description}
                       onChange={(e) => {
                         setDescription(e.target.value);
@@ -140,24 +149,38 @@ const UpdateProduct = () => {
                       }}
                     />
                   </div>
-                  <div className="catgDiv">
+                 
+                  {/* <div className="catgDiv">
                     <p>Category:</p>
                     {isChanged ? (
                       categName
                     ) : (
-                      <span>{element.categoryName}</span>
-                    )}
-                    <button
-                      onClick={() => {
-                        setIsClicked(true);
+                      <span>{element.categoryName}</span> 
+                    )}*/}
+                    {/* <select
+                      onChange={(e) => {
+                        console.log(e.target.className,"value");
+                        console.log(e.target.innerText,"innr");
+
+                        setCategory_id(e.target.value);
+                        setCatgName(e.target.innerText);
+
                       }}
                     >
-                      Change Category
-                    </button>
-                  </div>
+                      <option disabled selected>
+                        Change Category
+                      </option>
+                      {category &&
+                        category.map((el) => {
+                          return <option value={el.id} className={`${el.categoryName} `
+                        }
+                          > {el.categoryName}</option>;
+                        })}
+                    </select> */}
+                  {/* </div> */}
                 </div>
               </div>
-              {isClicked ? (
+              {/* {isClicked ? (
                 <span className="Categ">
                   {category &&
                     category.map((el) => {
@@ -177,8 +200,16 @@ const UpdateProduct = () => {
                 </span>
               ) : (
                 ""
-              )}
+              )} */}
               <div className="Test">
+               
+                <span
+                  onClick={() => {
+                    navigate(-1);
+                  }}
+                >
+                  Back
+                </span> 
                 <p
                   onClick={() => {
                     updateProduct(oneProduct[0].id);
@@ -187,24 +218,13 @@ const UpdateProduct = () => {
                   UPDATE
                 </p>
 
-                <span
-                  onClick={() => {
-                    navigate(-1);
-                  }}
-                >
-                  Back
-                </span>
               </div>
-<div className="cloudSpace">  <Cloud 
-                setProductImage={setProductImage}
-                url={url}
-                setUrl={setUrl}
-              /></div>
             
             </>
           );
         })}
-      <h1>{message}</h1>
+      {/* <h1>{message}</h1> */}
+      
     </div>
   );
 };

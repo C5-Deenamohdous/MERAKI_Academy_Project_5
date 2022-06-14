@@ -5,20 +5,34 @@
     left: 15vw;
     height: 70vh;
     top: 15vh;
+    /* margin-top: 5vh; */
 }
 .UpdateProductContainer { 
     display: flex;
-    width: 80%;
-    /* height: 50%; */
+    width: 100%;
+    height: 70%;
+    margin-top: 12vh;
 }
 
 .photoContainer-Up { 
     width: 40%;
     height: 100%;
 }
+.updateHeader{
+    display: flex;
+position: absolute;
+margin-top: 1vh;
+margin-left: 3%;
+width: 96.50%;
+font-size: 20px;
+font-weight: 600;
+height: 5vh;
+border-bottom: solid 1px lightsteelblue;
+}
 .photoContainer-Up img {
-    width: 100%;
-    height: 100%;
+    width: 70%;
+    height: 60%;
+    margin-left: 20px;
 }
 
 .INFO { 
@@ -33,24 +47,54 @@
 
 .INFO .flexDiv { 
     display: flex;
+    flex-direction: column;
+    border-color: currentcolor currentcolor rgb(80, 87, 90);
+    font-size: 22px;
+    color: black;
+    background-image: initial;
+    background-color: transparent;
+    border-style: none none solid;
+    margin: 0px 0px 20px;
+    width: 100%;
+    height: 100%;
 }
 
 .catgDiv { 
     margin-top: 15px;
     display: flex;
 }
+.decsInputUpdat{
 
+}
 .Test { 
     margin-top: 30px;
+    display: flex;
+gap: 10%;
+justify-content: flex-end;
+cursor: pointer;
+/* justify-content: space-between; */
+}
+.Test button{
+    border: solid black 1px;
 }
 .cloudSpace{
-    padding: 8px 12px;
-    margin: 8px 0 0;
-    font-family: "Montserrat", sans-serif;
-    border: 4px solid #78788c;
-    background: 0;
+    display: flex;
+    flex-direction: column;
+    /* padding: 8px 12px; */
+    /* margin: 8px 0 0; */
+    /* font-family: "Montserrat", sans-serif; */
+    /* border: 4px solid #78788c; */
+    /* background: 0;
     color: #5a5a6e;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s;*/
+    height: 30%; 
+    margin-top: 20%;
+    margin-left: 20px;
+    padding: 5px;
   
+}
+
+.cloudSpace p{
+    font-size: 16px;
 }

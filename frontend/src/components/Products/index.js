@@ -116,6 +116,7 @@ const Product = () => {
           setPage(page + 1);
           setLimit(12);
           nextPage(page + 1);
+         
         }}
       >
         next
