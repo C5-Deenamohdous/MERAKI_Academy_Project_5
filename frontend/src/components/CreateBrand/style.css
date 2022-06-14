@@ -95,3 +95,17 @@
   transition: all 0.3s;
 
 }
+
+.creatnewBrandBar{
+  display: flex;
+  position: absolute;
+  margin-top: 15vh;
+  margin-left: 3%;
+  top:0px;
+  left: 0px;
+  width: 85%;
+  font-size: 20px;
+  font-weight: 600;
+  height: 5vh;
+  border-bottom: solid 1px lightsteelblue;
+  }
