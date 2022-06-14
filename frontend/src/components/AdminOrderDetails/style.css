@@ -59,13 +59,16 @@ td {
   padding: 10px;
 }
 
-table,
-th,
-td {
+.productInTable,
+.productInTable th,
+.productInTable td {
   border-collapse: collapse;
   border: 1px solid #c1c1c1;
+  
 }
-
+.p-Num1{
+  width: 10%;
+}
 .p-Photo {
   width: 20%;
 }
@@ -76,9 +79,17 @@ td {
 }
 
 .p-title {
+  width: 15%;
+}
+.p-description{
   width: 20%;
 }
-
 .p-price {
   width: 10%;
+}
+.p-Date{
+  width: 14%;
+}
+.p-total{
+  width: 15%;
 }
