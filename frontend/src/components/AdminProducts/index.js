@@ -47,28 +47,35 @@ const AdminProducts = () => {
 
   return (
     <div className="Center-Container-productAdmin">
-      <div className="clientsBar">
+      <div className="productsBarHeader">
         <p>
         <MdProductionQuantityLimits /> Products
         </p>
       </div>
-    <div className="ProductsInControlPanel">
-      <div className="details-Product-row">
-        <p className="table2">#</p>
-        <p className="table2">ProductName</p>
-        <p className="table2">Category</p>
-        <p className="table2">Brand</p>
-      </div>
+    {/* <div className="ProductsInControlPanel"> */}
+      <table  className="productTables">
+        <tr>
+      {/* <div className="details-Product-row"> */}
+        <th className="table2">#</th>
+        <th className="table2">ProductName</th>
+        <th className="table2">Category</th>
+        <th className="table2">Brand</th>
+        <th></th>
+        </tr>
+      {/* </div> */}
       {Product &&
         Product.map((element, i) => {
           return (
-            <div className="details-Product-row">
-              <div className="details-Oneproduct">
-              <p className="table2">{i + 1}</p>
-              <p className="table2">{element.title}</p>
-              <p className="table2">{element.categoryName}</p>
-              <p className="table2" >{element.brandName}</p>
-              <div className="Btns-A">
+            <>
+            {/* <div className="details-Product-row"> */}
+              {/* <div className="details-Oneproduct"> */}
+              <tr>
+              <td className="table2">{i + 1}</td>
+              <td className="table2">{element.title}</td>
+              <td className="table2">{element.categoryName}</td>
+              <td className="table2" >{element.brandName}</td>
+              <td >
+                <div className="Btns-A">
                 <p className="BtnDeleteIcon"
                   onClick={() => {
                     productDelete(element.id);
@@ -83,13 +90,17 @@ const AdminProducts = () => {
                 >
                  <BiEdit />
                 </p>
-              </div>
-              </div>
-              
-            </div>
-          );
+                </div>
+              </td>
+              {/* </div> */}
+               </tr> 
+            {/* </div> */}
+            </>
+        );
         })}
-    </div>
+      
+        </table>
+    {/* </div> */}
     </div>
   );
 };

@@ -1,19 +1,42 @@
-.Center-Container-productAdmin {
+.Center-Container-productAdmin{
   position: absolute;
   width: 82%;
   top: 0px;
   left: 15vw;
   height:70vh;
 }
-.ProductsInControlPanel {
+.productsBarHeader{
+  display: flex;
+  gap: 24px;
+  align-items: center;
+margin-top: 15vh;
+margin-left: 3%;
+width: 96%;
+font-size: 20px;
+font-weight: 600;
+height: 5vh;
+border-bottom: solid 1px lightsteelblue;
+}
+/* .ProductsInControlPanel {
   background-color:white;
   width: 100%;
   display: flex;
   height: 100%;
   flex-direction: column;
   margin-top:25vh ;
+} */
+.productTables{
+  width: 97.5%;
+  margin-top: 5vh;
+  height: fit-content;
+  padding: 20px;
+  position: absolute;
+  left: 4vh;
+  top: 22vh;
+  align-items: center;
+  justify-content: center;
 }
-.productsBar{
+.productsBarHeader{
   display: flex;
   position: absolute;
   margin-top: 15vh;
@@ -24,7 +47,7 @@
   height: 5vh;
   border-bottom: solid 1px lightsteelblue;
 }
-.details-Product-row {
+/* .details-Product-row {
   display: flex;
   margin-bottom: 8vh;
   width: 100%;
@@ -33,31 +56,41 @@
   text-align: start;
   justify-content: flex-start;
  
-}
+} */
 .table2{
 width: 20%;
 }
-.row{
+/* .row{
   border-bottom: solid rgb(173, 169, 169);
-}
-.details-Product-row p {
+} */
+/* .details-Product-row p {
   width: 20%;
-}
+} */
 .details-Oneproduct{
   display: flex;
   width: 100%;  
   font-weight: 400;
   align-items: center;
 }
-.details-Product-row .details-Oneproduct .table2 img {
+/* .details-Product-row .details-Oneproduct .table2 img {
   width: 50px;
   height: 40px;
   border-radius: 100%;
+} */
+tr {
+  text-align: center;
+}
+
+td {
+  height: 15vh;
+  padding: 10px;
 }
 .Btns-A {
   display: flex;
   gap: 15px;
   margin-top: 10px;
+  align-items: center;
+  justify-content: center;
 }
 .Btns-A p {
   cursor: pointer;

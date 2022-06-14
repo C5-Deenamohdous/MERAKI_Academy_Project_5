@@ -195,11 +195,12 @@ const UpdateProduct = () => {
                   Back
                 </span>
               </div>
-              <Cloud className="cloudSpace"
+<div className="cloudSpace">  <Cloud 
                 setProductImage={setProductImage}
                 url={url}
                 setUrl={setUrl}
-              />
+              /></div>
+            
             </>
           );
         })}
