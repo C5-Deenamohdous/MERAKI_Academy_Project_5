@@ -212,7 +212,15 @@ const NavBar = () => {
             >
               View Cart
             </button>
-            <button className="Ch">Checkout</button>
+            <button
+              className="Ch"
+              onClick={() => {
+                navigate("/checkout");
+                setIsOpen(false);
+              }}
+            >
+              Checkout
+            </button>
           </div>
         </div>
       </Modal>
