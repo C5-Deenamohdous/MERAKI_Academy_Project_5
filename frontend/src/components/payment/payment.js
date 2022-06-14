@@ -1,15 +1,16 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   PayPalScriptProvider,
   PayPalButtons,
   usePayPalScriptReducer,
 } from "@paypal/react-paypal-js";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import Modal from "react-modal";
+import axios from "axios";
+import { setCart } from "../../redux/reducers/cart";
 
 // const dispatch = useDispatch();
 
-// This values are the props in the UI
-// const amount = "2";
 const currency = "USD";
 const style = {
   layout: "horizontal",
@@ -18,15 +19,38 @@ const style = {
 
 // Custom component to wrap the PayPalButtons and handle currency changes
 const ButtonWrapper = ({ currency, showSpinner }) => {
-  const { subTotal } = useSelector((state) => {
+  const dispatch1 = useDispatch();
+  const [isOpen, setIsOpen] = useState(true);
+  const { subTotal, token, cart } = useSelector((state) => {
     return {
       subTotal: state.cart.subTotal,
+      token: state.auth.token,
     };
   });
 
   // usePayPalScriptReducer can be use only inside children of PayPalScriptProviders
   // This is the main reason to wrap the PayPalButtons in a new component
   const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
+
+  const addToOrders = () => {
+    axios
+      .post(
+        `http://localhost:5000/order`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((result) => {
+        console.log(result, `ORDER CHECKOUT`);
+        dispatch1(setCart([]));
+      })
+      .catch((err) => {
+        console.log(err, "ERR IN ORDER CHECKOUT");
+      });
+  };
 
   useEffect(() => {
     dispatch({
@@ -63,14 +87,18 @@ const ButtonWrapper = ({ currency, showSpinner }) => {
             })
             .then((orderId) => {
               // Your code here after create the order
-              console.log(data);
-
+              console.log("ORDER CREATED ");
+              //   console.log(data);
               return orderId;
             });
         }}
         onApprove={function (data, actions) {
           return actions.order.capture().then(function () {
             // Your code here after capture the order
+            console.log("ORDER AFTER SUBMIT");
+
+            // setIsDone(true);
+            addToOrders();
           });
         }}
       />
