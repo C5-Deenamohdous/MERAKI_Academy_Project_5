@@ -115,7 +115,7 @@
 .back {
   height: 100%;
   width: 100%;
-  background-color: var(--mainColor);
+  background-color: white;
   text-align: center;
   border-radius: 5px;
   backface-visibility: hidden;
@@ -124,7 +124,6 @@
 .back {
   position: absolute;
   top: 0;
-  background: var(--mainColor);
   color: white;
   transform: rotateY(180deg);
 }
@@ -155,12 +154,12 @@
 
 .Flip .Cart-Btns {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 34%;
+  right: 36%;
   margin-left: 0px;
   display: flex;
   gap: 5px;
-  font-size: 22px;
+  font-size: 30px;
   color: var(--btnsColor);
 }
 

@@ -47,7 +47,7 @@
   justify-content: flex-start;
   align-items: flex-start;
 }
-.comments-Container  {
+.comments-Container {
   display: flex;
   width: 100%;
   height: fit-content;
@@ -65,7 +65,7 @@
 
 .oneComment {
   display: flex;
-  width:  65%;
+  width: 65%;
   height: 100%;
   padding: 5px;
   margin-top: 17px;
@@ -81,7 +81,6 @@
   width: 48px;
   height: 48px;
   border-radius: 100%;
-  
 }
 
 .commentBody {
@@ -91,13 +90,110 @@
 }
 .deleteIcon {
   font-size: 25px;
-  color:var(--btnsColor);
+  color: var(--btnsColor);
   cursor: pointer;
 }
 .updateIcon {
   font-size: 26px;
   cursor: pointer;
 }
-.displayName{
-font-weight: 600;
+.displayName {
+  font-weight: 600;
+}
+
+.CommentUpdatePopUp {
+  width: 50%;
+  height: 30%;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f4f4ff;
+  border-radius: 10px;
+  border-color: unset;
+  /* box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px; */
+  box-shadow: var(--subColor) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  outline-style: unset;
+}
+
+.CONTAINER-Comment {
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.CommentUpdatePopUp {
+  width: 35%;
+  height: 30%;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f4f4ff;
+  border-radius: 10px;
+  border-color: unset;
+  /* box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px; */
+  box-shadow: var(--subColor) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  outline-style: unset;
+}
+
+.CONTAINER-Comment {
+  align-items: center;
+  /* justify-content: flex-start; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+  flex-direction: column;
+  display: flex;
+}
+
+.CONTAINER-Comment input {
+  width: 250px;
+  height: 60px;
+  outline: unset;
+  border: none;
+  padding: 5px;
+  border: .5px solid;
+
+}
+.BTN {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+.BTN span {
+  width: 80px;
+  height: 35px;
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+.BTN span:hover { 
+  cursor: pointer;
+  background-color: var(--secondaryBlack);
+  color: white;
+  transition: 0.3s;
+}
+
+.BTN .Upd {
+  background-color: rgb(82, 133, 190);
+}
+
+.BTN .Cancel {
+  background-color: var(--btnsColor);
+}
+.ReactModal__Overlay {
+  z-index: 1;
 }

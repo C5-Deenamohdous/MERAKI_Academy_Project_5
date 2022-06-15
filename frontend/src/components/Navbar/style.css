@@ -1,5 +1,7 @@
 /* Style the header with a grey background and some padding */
-@import url("https://fonts.googleapis.com/css2?family=Cabin:ital@0;1&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Cabin:ital@0;1&display=swap"); */
+
+@import url("https://fonts.googleapis.com/css2?family=Cabin&display=swap");
 
 .NavBar {
   height: 12vh;
@@ -12,6 +14,18 @@
   font-size: 16px;
   /* font-weight: 600; */
   color: var(--subColor);
+}
+
+.Infin {
+  font-size: 25px;
+  color: var(--BlackColor);
+}
+.Zone {
+  font-size: 14px;
+  color: var(--btnsColor);
+  position: absolute;
+  top: 50px;
+  left: 100px;
 }
 
 .SEARCH-Container input {
@@ -106,21 +120,52 @@
   width: 25%;
   justify-content: flex-start;
   padding-top: 10px;
-  font-family: "Cabin", sans-serif;
+}
+
+.Cont-Log {
+  display: flex;
 }
 
 .LOGO .LOGOTEST {
-  font-size: 45px;
-  color: var(--BlackColor);
+  font-size: 35px;
+  color: var(--btnsColor);
   font-weight: 600;
-  text-shadow: 3px 4px 2px var(--subColor);
+  /* text-shadow: 3px 4px 2px var(--subColor); */
+  font-family: "Cabin", sans-serif;
+  margin-top: 10px;
 }
 
 .LOGO .ICON {
   margin-top: 5px;
 }
+
+.Cont-Log {
+  display: flex;
+  /* align-items: center; */
+}
+
+.Infin {
+  position: relative;
+  margin-left: 0px;
+}
+
+.LOGO {
+  display: flex;
+  align-items: center;
+  width: 25%;
+  /* justify-content: flex-start; */
+  padding-top: 10px;
+ 
+  top: 53px;
+}
+
 .LOGO .ICON svg {
   font-size: 50px;
+}
+
+.Infin {
+  position: relative;
+  margin-left: 0px;
 }
 
 .CENTER-NAV {

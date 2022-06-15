@@ -140,23 +140,6 @@ const Rate = () => {
             </>
           );
         })}
-      {checkArray.length ? (
-        <button
-          onClick={() => {
-            setIsOpen2(true);
-          }}
-        >
-          Change Your Rate
-        </button>
-      ) : (
-        <button
-          onClick={() => {
-            setIsOpen(true);
-          }}
-        >
-          Rate Product
-        </button>
-      )}
 
       <Modal
         ariaHideApp={false}
@@ -217,42 +200,61 @@ const Rate = () => {
         </div>
       </Modal>
 
-      <div>
-        <span className="RounderNumber">
-          {
-            //   Math.round
-            (sum =
-              Math.round(
-                ((array0.length +
-                  array1.length * 1 +
-                  array2.length * 2 +
-                  array3.length * 3 +
-                  array4.length * 4 +
-                  array5.length * 5) /
-                  (array0.length +
-                    array1.length +
-                    array2.length +
-                    array3.length +
-                    array4.length +
-                    array5.length)) *
-                  100
-              ) / 100) || 0
-          }
-          /5
-        </span>
-{/* =============== */}
-        <ReactStars
-          count={5}
-          size={24}
-          color2={"#ffd700"}
-          half={true}
-          edit={false}
-          value={sum}
-        />
-
-        <span>
-          {rate.length ? `Reviews ${rate.length}` : "There's No Reviews yet"}
-        </span>
+      <div className="RateContainer-1">
+        {checkArray.length ? (
+          <button
+            onClick={() => {
+              setIsOpen2(true);
+            }}
+          >
+            Change Your Rate
+          </button>
+        ) : (
+          <button
+            onClick={() => {
+              setIsOpen(true);
+            }}
+          >
+            Rate Product
+          </button>
+        )}
+        <div className="row-rate">
+          <span className="RounderNumber">
+            {
+              //   Math.round
+              (sum =
+                Math.round(
+                  ((array0.length +
+                    array1.length * 1 +
+                    array2.length * 2 +
+                    array3.length * 3 +
+                    array4.length * 4 +
+                    array5.length * 5) /
+                    (array0.length +
+                      array1.length +
+                      array2.length +
+                      array3.length +
+                      array4.length +
+                      array5.length)) *
+                    100
+                ) / 100) || 0
+            }
+            /5
+          </span>
+        </div>
+        <div className="Flex-Rate">
+          <ReactStars
+            count={5}
+            size={24}
+            color2={"#ffd700"}
+            half={true}
+            edit={false}
+            value={sum}
+          />
+          <span>
+            {rate.length ? `Reviews ${rate.length}` : "There's No Reviews yet"}
+          </span>
+        </div>
       </div>
     </div>
   );

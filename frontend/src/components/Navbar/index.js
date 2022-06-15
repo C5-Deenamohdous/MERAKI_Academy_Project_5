@@ -2,6 +2,7 @@ import "./style.css";
 import React, { useState, useEffect } from "react";
 import CategAndBrand from "../NavCategory";
 import axios from "axios";
+import { CgInfinity } from "react-icons/cg";
 
 import { AiOutlinePoweroff, AiOutlineSearch } from "react-icons/ai";
 import { FiLogIn } from "react-icons/fi";
@@ -61,10 +62,15 @@ const NavBar = () => {
           navigate("/");
         }}
       >
-        <span className="LOGOTEST">ADA</span>
-        <span className="ICON">
-          <GiUbisoftSun />
-        </span>
+        <div className="LOGOTEST">
+          <span className="ICON">
+            <CgInfinity />
+          </span>
+          </div>
+          <div className="Cont-Log">
+          <span className="Infin">Infnity</span>
+          <span className="Zone">Zone</span>
+          </div>
       </div>
 
       <div className="CENTER-NAV">

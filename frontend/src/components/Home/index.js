@@ -163,6 +163,9 @@ const Home = () => {
                   </div>
                   <div className="back">
                     <div className="Flip">
+                    <div className="FlippedImg">
+                        <img src={element.productImage} />
+                      </div>
                       <div className="Cart-Btns">
                         <AddToWishlistButton productId={element.id} />
                         <AddToCartButton
@@ -206,6 +209,9 @@ const Home = () => {
                   </div>
                   <div className="back">
                     <div className="Flip">
+                    <div className="FlippedImg">
+                        <img src={element.productImage} />
+                      </div>
                       <div className="Cart-Btns">
                         <AddToWishlistButton productId={element.id} />
                         <AddToCartButton
@@ -249,6 +255,9 @@ const Home = () => {
                   </div>
                   <div className="back">
                     <div className="Flip">
+                    <div className="FlippedImg">
+                        <img src={element.productImage} />
+                      </div>
                       <div className="Cart-Btns">
                         <AddToWishlistButton productId={element.id} />
                         <AddToCartButton
@@ -293,6 +302,9 @@ const Home = () => {
                   </div>
                   <div className="back">
                     <div className="Flip">
+                    <div className="FlippedImg">
+                        <img src={element.productImage} />
+                      </div>
                       <div className="Cart-Btns">
                         <AddToWishlistButton productId={element.id} />
                         <AddToCartButton
