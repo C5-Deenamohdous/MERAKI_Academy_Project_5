@@ -23,7 +23,7 @@
     padding: 1.5rem 2rem;
     border-radius: 0.2rem;
     background-color: rgb(255, 255, 255);
-    border: none;
+    border: 2px solid;
     width: 90%;
     display: block;
     border-bottom: 0.3rem solid transparent;
@@ -32,22 +32,7 @@
 
 
 
-.CreateNewBrandBtn{
 
-  font-family: 'Roboto', sans-serif;
-  color: #333;
-  font-size: 1.2rem;
-  margin: 0 auto;
-  padding: 1.5rem 2rem;
-  border-radius: 0.2rem;
-  background-color: rgb(255, 255, 255);
-  border: none;
-  width: 90%;
-  display: block;
-  border-bottom: 0.3rem solid transparent;
-  transition: all 0.3s;
-
-}
 
 
 .CreateNewBrandMessage{
@@ -69,10 +54,13 @@
 .BrandReturn{
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 50%;
   height: 50%;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
   align-items: center;
+
 }
 
 .BrandReturn h1 {
@@ -83,11 +71,13 @@
 
   font-family: 'Roboto', sans-serif;
   color: #333;
+  width: 20pc;
+  height: 2pc;
   /* font-size: 1.2rem; */
   margin: 0 auto;
   /* padding: 1.5rem 2rem; */
   border-radius: 0.2rem;
-  background-color: wheat;
+  background-color: darkgray;
   border: none;
   /* width: 40%; */
   display: block;
@@ -109,3 +99,15 @@
   height: 5vh;
   border-bottom: solid 1px lightsteelblue;
   }
+
+  .CreateNewBrandBTN{
+    padding: 8px 12px;
+    margin: 8px 0 0;
+    font-family: "Montserrat", sans-serif;
+    border: 4px solid #78788c;
+    background: 0;
+    color: #5a5a6e;
+    cursor: pointer;
+    transition: all 0.3s;
+    
+    }

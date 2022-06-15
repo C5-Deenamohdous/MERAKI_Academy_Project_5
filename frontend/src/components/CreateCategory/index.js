@@ -55,7 +55,7 @@ const CreateCategory = ()=>{
       <div className="categoryContainer1">
               <div className="creatnewBrandBar">
         <p >
-         <BiCategory/>       Create New category
+         <BiCategory/>Create New category
         </p>
       </div>
 
@@ -65,16 +65,18 @@ const CreateCategory = ()=>{
         }>
           <h1>  specify the category of your Brand</h1>
           <br />
-          <input
-          className="NewCategoryInput"
-            type="text"
-            placeholder="category Name here"
-            onChange={(e) => setcategoryName(e.target.value)}
-          />
+
+          <div>
+              <input
+                placeholder="category Name here"
+                className="input-data-textarea"
+                onChange={(e) => setcategoryName(e.target.value)}
+              />
+            </div>
           <br />
 
           <br />
-          <button className="CreateNewCategoryBtn">Create New category</button>
+          <button className="add_categ">Create New category</button>
         </form>
         <br />
         <div className="CreateNewCategoryMessage">

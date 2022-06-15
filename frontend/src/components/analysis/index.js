@@ -10,9 +10,9 @@ import {
 } from 'react-vis';
 
 
-export default function Adam() {
+export default function Analysis() {
     
-    const data = [
+    const Users = [
 
         { x: 0, y: 2 },
         { x: 1, y: 4 },
@@ -25,7 +25,7 @@ export default function Adam() {
 
         
     ];
-    const data2 = [
+    const Products = [
 
         { x: 0, y: 50 },
         { x: 1, y: 40 },
@@ -38,14 +38,24 @@ export default function Adam() {
 
         
     ];
-    const myData = [
-        { x: 0, y: 0, label: 'woah!', style: { fontSize: 10 } },
-        { x: 1, y: 0, label: 'dope city', yOffset: 5 },
-        { x: 0, y: 1, label: 'cool Dog friend', xOffset: 5, rotation: 34 }
-    ]
+
+    const Orders = [
+
+        { x: 0, y: 50 },
+        { x: 1, y: 40 },
+        { x: 2, y: 60 },
+        { x: 3, y: 80 },
+        { x: 4, y: 30 },
+        { x: 5, y: 20 },
+        { x: 6, y: 40 },
+        { x: 7, y: 60 },
+
+        
+    ];
+
     return (
-        <div>
-        <div>
+        <div className="Analysis">
+        <div className="AnalysisForUsers">
             <XYPlot width={300} height={300}>
                 <VerticalGridLines />
                 <HorizontalGridLines />
@@ -54,11 +64,14 @@ export default function Adam() {
                 <AreaSeries
                     className="area-series-example"
                     curve="curveNatural"
-                    data={data}
+                    data={Users}
                 />
             </XYPlot>
+            <p>Analysis For Users</p>
         </div>
-<div>
+
+<div className="AnalysisForProducts">
+
             <XYPlot width={300} height={300}>
                 <VerticalGridLines />
                 <HorizontalGridLines />
@@ -67,11 +80,13 @@ export default function Adam() {
                 <AreaSeries
                     className="area-series-example"
                     curve="curveNatural"
-                    data={myData}
+                    data={Products}
                 />
             </XYPlot>
+            <p>Analysis For Products</p>
+
 </div>
-<div>
+<div className="AnalysisForOrders">
             <XYPlot width={300} height={300}>
                 <VerticalGridLines />
                 <HorizontalGridLines />
@@ -80,9 +95,11 @@ export default function Adam() {
                 <AreaSeries
                     className="area-series-example"
                     curve="curveNatural"
-                    data={data2}
+                    data={Orders}
                 />
             </XYPlot>
+            <p>Analysis For Orders</p>
+
 </div>
 </div>
     );
