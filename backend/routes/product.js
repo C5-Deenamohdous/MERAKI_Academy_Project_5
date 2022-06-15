@@ -11,8 +11,10 @@ const {
   getAllBrands,
   SearshGetAllProduct,
   getBrandByCategory,
+  filterGetAllCategories,
 } = require("../controllers/product");
 
+productRouter.get("/0000/filter_All_Categ",filterGetAllCategories);
 productRouter.get("/search", SearshGetAllProduct);
 productRouter.get("/categoryName", getAllCategory);
 productRouter.get("/brandName", getAllBrands);
