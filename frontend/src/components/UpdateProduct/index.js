@@ -121,7 +121,7 @@ const UpdateProduct = () => {
                 <div className="INFO">
                   <div className="flexDiv">
                     <p>Product Title: </p>
-                    <input
+                    <input className="inputOfUpdateProduct"
                       defaultValue={element.title}
                       onChange={(e) => {
                         setTitle(e.target.value);
@@ -130,7 +130,7 @@ const UpdateProduct = () => {
                   </div>
                   <div className="flexDiv">
                     <p >Product Description:</p>
-                    <textarea className="decsInputUpdat"
+                    <input  className="inputOfUpdateProduct"
                       defaultValue={element.description}
                       onChange={(e) => {
                         setDescription(e.target.value);
@@ -139,7 +139,7 @@ const UpdateProduct = () => {
                   </div>
                   <div className="flexDiv">
                     <p>Price:</p>
-                    <input
+                    <input className="inputOfUpdateProduct"
                       type="number"
                       defaultValue={element.price}
                       onChange={(e) => {
@@ -149,7 +149,7 @@ const UpdateProduct = () => {
                   </div>
                   <div className="flexDiv">
                     <p>In Stock:</p>
-                    <input
+                    <input  className="inputOfUpdateProduct"
                       type="number"
                       defaultValue={element.quantity}
                       onChange={(e) => {
@@ -211,13 +211,13 @@ const UpdateProduct = () => {
               )} */}
               <div className="Test">
                
-                <span className="deleteBTNAdmin"
+                {/* <span className="deleteBTNAdmin"
                   onClick={() => {
                     navigate(-1);
                   }}
                 >
                   <RiArrowGoBackFill/>Back
-                </span> 
+                </span>  */}
                 <button  className="updateBTNAdmin"
                   onClick={() => {
                     updateProduct(oneProduct[0].id);

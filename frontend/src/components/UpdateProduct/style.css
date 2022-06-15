@@ -63,8 +63,9 @@ border-bottom: solid 1px lightsteelblue;
     margin-top: 15px;
     display: flex;
 }
-.decsInputUpdat{
-
+.inputOfUpdateProduct{
+    height: 40px;
+    padding: 10px;
 }
 .Test { 
     margin-top: 30px;
@@ -72,11 +73,11 @@ border-bottom: solid 1px lightsteelblue;
 gap: 10%;
 justify-content: flex-end;
 cursor: pointer;
-justify-content: space-between;
+/* justify-content: space-between; */
 }
 .Test button{
     border: solid black 1px;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 .cloudSpace{
     display: flex;
