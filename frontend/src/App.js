@@ -27,7 +27,7 @@ import AdminUserOrder from "./components/AdminUserOrder";
 import AdminUserCompletedOrders from "./components/AdminCompletedUserOrder";
 import AdminUserUnCompletedOrders from "./components/AdminUnCompletedUserOrder";
 import Home from "./components/Home";
-import Adam from "./components/AAs/adam";
+import Analysis from "./components/analysis";
 
 import CheckOutPage from "./components/CheckoutPage";
 
@@ -48,7 +48,7 @@ const App = () => {
 
       <Routes>
         <Route path={"/Product"} element={<Product />} />
-        <Route path="/adam" element={<Adam />} />
+        <Route path="/Analysis" element={<Analysis />} />
         {/* <Route path="/admin" element={<Admin />} /> */}
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />

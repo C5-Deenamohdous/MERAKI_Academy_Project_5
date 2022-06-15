@@ -20,7 +20,9 @@ function ChatRoom() {
     <div className="App">
       {!showChat ? (
         <div className="joinChatContainer">
-          <h3>Join A Chat</h3>
+          <h4>Join A Chat room now with a professional that will help you with the difficult decision
+             of choosing the best product for your need
+          </h4>
           <input
             type="text"
             placeholder="John..."

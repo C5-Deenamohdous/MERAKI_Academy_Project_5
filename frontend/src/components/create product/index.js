@@ -152,9 +152,6 @@ const CreateProduct = () => {
                 })}
             </select>
           </div>
-
-
-
         <div className="inputboxAhd">
           <div className="inputboxAhmad">
             <div>
@@ -204,7 +201,7 @@ const CreateProduct = () => {
 
           </div> 
           <br/>
-                     <div className="imgcloudP">
+                    <div className="imgcloudP">
               <Cloud
                 setProductImage={setProductImage}
                 url={url}

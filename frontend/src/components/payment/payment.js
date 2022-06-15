@@ -9,15 +9,12 @@ import Modal from "react-modal";
 import axios from "axios";
 import { setCart } from "../../redux/reducers/cart";
 
-// const dispatch = useDispatch();
-
 const currency = "USD";
 const style = {
   layout: "horizontal",
   tagline: "false",
 };
 
-// Custom component to wrap the PayPalButtons and handle currency changes
 const ButtonWrapper = ({ currency, showSpinner }) => {
   const dispatch1 = useDispatch();
   const [isOpen, setIsOpen] = useState(true);
@@ -28,8 +25,6 @@ const ButtonWrapper = ({ currency, showSpinner }) => {
     };
   });
 
-  // usePayPalScriptReducer can be use only inside children of PayPalScriptProviders
-  // This is the main reason to wrap the PayPalButtons in a new component
   const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
 
   const addToOrders = () => {
@@ -86,18 +81,13 @@ const ButtonWrapper = ({ currency, showSpinner }) => {
               },
             })
             .then((orderId) => {
-              // Your code here after create the order
               console.log("ORDER CREATED ");
-              //   console.log(data);
               return orderId;
             });
         }}
         onApprove={function (data, actions) {
           return actions.order.capture().then(function () {
-            // Your code here after capture the order
             console.log("ORDER AFTER SUBMIT");
-
-            // setIsDone(true);
             addToOrders();
           });
         }}

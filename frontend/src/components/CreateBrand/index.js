@@ -80,60 +80,47 @@ const CreateBrand = () => {
 
   return (
 
-    
-    <div className="BrandContainer1"> 
+
+    <div className="BrandContainer1">
       <div className="creatnewBrandBar">
         <p >
-        <SiBrandfolder/>   Create New Brand
+          <SiBrandfolder />   Create New Brand
         </p>
       </div>
 
       <div className="BrandReturn">
-   
+
+        <h1 >
+          In order to create new brand you have to choose the category for your product
+        </h1>
+        <select className="listofCat" onChange={(e) => {
+          setCatId(e.target.value);
+        }}>
+          {category &&
+            category.map((element, i) => {
+              return (
+                <option value={element.id} >
+
+                  {element.categoryName}
+                </option>
+              )
+            })}
+        </select>
+        <div className="CreateBrand">
 
 
-      <button className="CreateNewBrandBtn" onClick={() => {
-          setIsClicked(true);
-        }}> choose category to add Brand</button>
-        {isClicked ?
-          category &&
-          category.map((element, i) => {
-            return (
-              <button className="listofCat" onClick={() => {
-                setCatId(element.id);
-                setcategoryName(element.categoryName)
-                console.log(catId);
-                setIsClicked(false)
-              }}>
-              {element.categoryName}
-              </button>
-            )
-          })
-          : ""}
 
-
-        <form className="CreateBrand">
-          <br />
-          <input className="NewBrandInput"
-            type="text"
-            placeholder="Brand Name here"
-            onChange={(e) => setbrandName(e.target.value)}
-          />
-          <button className="CreateNewBrandBtn" onClick={() => {
-            CreateNewBrand(catId);
-          }}>Create New Brand for {categoryName}</button>
-        </form>
-        <br />
-        <div className="BrandMessage">
-
-        {status
-          ? message && <div className="SuccessMessage">{message}</div>
-          : message && <div className="ErrorMessage">{message}</div>}
+          <div>
+            <input
+              placeholder="Brand Name here"
+              className="input-data-textarea"
+              onChange={(e) => setbrandName(e.target.value)}
+            />
           </div>
-        <div className="BrandMessage">
-          {status
-            ? message && <div className="SuccessMessage">{message}</div>
-            : message && <div className="ErrorMessage">{message}</div>}
+
+          <button className="CreateNewBrandBTN" onClick={() => {
+            CreateNewBrand(catId);
+          }}>Create New Brand {categoryName}</button>
         </div>
       </div>
     </div>

@@ -1,0 +1,28 @@
+
+.Analysis{
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
+}
+.AnalysisForUsers{
+border: 2pc solid;
+margin: 50px;
+
+}
+
+
+.AnalysisForProducts{
+
+    border: 2pc solid;
+    opacity: 6;
+    stroke: rgb(154 94 18);
+    fill: rgb(138 18 154);
+    margin: 50px;
+}
+
+.AnalysisForOrders{
+    border: 2pc solid;
+    margin: 50px;
+
+
+}

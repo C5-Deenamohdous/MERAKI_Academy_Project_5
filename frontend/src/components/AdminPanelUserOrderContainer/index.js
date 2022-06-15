@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AdminUserOrder from "../AdminUserOrder";
 import AdminUserCompletedOrders from "../AdminCompletedUserOrder";
 import AdminUserUnCompletedOrders from "../AdminUnCompletedUserOrder";
-import "./style.css";
+import "./style.css"
 import { VscListOrdered } from "react-icons/vsc";
 
 const AdminPanelUserOrderContainer = () => {
