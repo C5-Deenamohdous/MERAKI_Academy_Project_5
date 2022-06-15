@@ -28,6 +28,12 @@ const AdminNavBar = () => {
           <GiUbisoftSun />
         </span>
       </div>
+      <div className="span">
+        <span>
+          Admin<b> DashBoard </b>
+        </span>
+      </div>
+
       <div className="homeCenter">
         <span
           className="HomeAdmin"
@@ -37,25 +43,16 @@ const AdminNavBar = () => {
         >
           Home
         </span>
- </div>
+ 
         <span
           className="analysis"
           onClick={() => {
-            navigate("/adam");
+            navigate("/admin/Analysis");
           }}
         >
           Analysis
         </span>
-        {/* <span
-          onClick={() => {
-            navigate(`/user/${userId}`);
-          }}
-        >
-          Profile
-        </span> */}
-     
-      {/* <div className="RIGT-NAVAdmin">
-        <div className="Login-LogoutAdmin">
+       <div className="Login-LogoutAdmin">
           {isLoggedIn ? (
             <span
               onClick={() => {
@@ -75,12 +72,11 @@ const AdminNavBar = () => {
             </span>
           )}
         </div>
-      </div> */}
-      <div className="span">
-        <span>
-          Admin<b> DashBoard </b>
-        </span>
-      </div>
+     </div>
+    
+       
+
+     
     </div>
   );
 };

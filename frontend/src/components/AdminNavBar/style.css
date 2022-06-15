@@ -18,7 +18,8 @@
     margin-left: 12px;
   }
   .span {
-
+    margin-right:13%;
+   
   }
   a:hover {
     transition: .3s;
@@ -27,7 +28,7 @@
   .LOGO1 {
     display: flex;
     align-items: center;
-    width: 25%;
+    width: 12%;
     justify-content: flex-start;
  
     font-family: "Cabin", sans-serif;
@@ -50,10 +51,19 @@
     display: flex;
     align-items: center;
     width: 55%;
-    justify-content: space-evenly;
-    padding-top: 10px;
+    justify-content: end;
+    /* padding-top: 10px; */
+    gap: 20px;
     position: relative;
     cursor: pointer;
+  }
+  /* :hover{
+    background-color: rgb(236, 92, 92);
+    transition: 0.4s;
+  } */
+  .Login-LogoutAdmin{
+    display: flex;
+    gap: 10px;
   }
 .RIGT-NAVAdmin{
   /* display: flex;
@@ -63,6 +73,8 @@
   gap: 10%;
   padding-top: 10px; */
 }
+
 .Login-LogoutAdmin svg {
-  font-size: 22px;
+  font-size: 24px;
+ padding-top: 5px;
 }
