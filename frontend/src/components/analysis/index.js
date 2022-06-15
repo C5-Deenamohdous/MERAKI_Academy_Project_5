@@ -1,5 +1,7 @@
 import React from 'react'
 import 'react-vis/dist/style.css';
+import "./style.css";
+import { FcComboChart } from "react-icons/fc";
 import {
     XYPlot, LineSeries, VerticalBarSeries, MarkSeries, LabelSeries,
     XAxis,
@@ -55,6 +57,11 @@ export default function Analysis() {
 
     return (
         <div className="Analysis">
+             <div className="analysisBar">
+        <p>
+          <FcComboChart /> Analysis
+        </p>
+      </div>
         <div className="AnalysisForUsers">
             <XYPlot width={300} height={300}>
                 <VerticalGridLines />

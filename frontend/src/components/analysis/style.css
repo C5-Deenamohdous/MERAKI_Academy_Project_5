@@ -1,19 +1,37 @@
 
 .Analysis{
-    display: flex;
-    flex-direction: row;
-    margin: 50px;
+    display: grid;
+    /* flex-direction: column; */
+    grid-template-columns: repeat(2,1fr);
+  /*   margin: 50px; */
+    position: absolute;
+  width: 82%;
+  top: 15vh;
+  left: 15vw;
+  height:70vh;
 }
 .AnalysisForUsers{
-border: 2pc solid;
+/* border: 2pc solid; */
+stroke: rgb(154 94 18);
+fill: rgb(138 18 154);
 margin: 50px;
 
 }
 
-
+.analysisBar{
+  display: flex;
+position: absolute;
+margin-top: 1px;
+margin-left: 3%;
+width: 96.50%;
+font-size: 20px;
+font-weight: 600;
+height: 5vh;
+border-bottom: solid 1px lightsteelblue;
+}
 .AnalysisForProducts{
 
-    border: 2pc solid;
+    /* border: 2pc solid; */
     opacity: 6;
     stroke: rgb(154 94 18);
     fill: rgb(138 18 154);
@@ -21,8 +39,9 @@ margin: 50px;
 }
 
 .AnalysisForOrders{
-    border: 2pc solid;
+    /* border: 2pc solid; */
     margin: 50px;
-
+    stroke: rgb(154 94 18);
+    fill: rgb(138 18 154);
 
 }
