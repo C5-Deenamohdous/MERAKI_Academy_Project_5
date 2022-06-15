@@ -51,7 +51,7 @@ const OneProduct = () => {
                     <p className="title1">{product.title}</p>
                     <p className="category1">{product.categoryName}</p>
                     <p className="description1">{product.description}</p>
-                    <p className="price">{product.price}</p>
+                    <p className="price">${product.price}</p>
                     <p className="brandName1">{product.brandName}</p>{" "}
                   </div>
                   <div className="Cart-Btns1">
