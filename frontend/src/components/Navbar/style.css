@@ -14,6 +14,9 @@
   font-size: 16px;
   /* font-weight: 600; */
   color: var(--subColor);
+  position: fixed;
+  z-index: 1;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 .Infin {
@@ -155,7 +158,7 @@
   width: 25%;
   /* justify-content: flex-start; */
   padding-top: 10px;
- 
+
   top: 53px;
 }
 
