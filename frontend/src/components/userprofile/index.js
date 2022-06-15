@@ -49,6 +49,7 @@ const UserProfile = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [address, setAddress] = useState("")
   const [profileImage, setProfileImage] = useState("");
   // const [newImg, setNewImg] = useState("");
   const updateUserById = () => {
@@ -216,11 +217,11 @@ const UserProfile = () => {
                   isOpen={isOpen}
                   onRequestClose={() => setIsOpen(false)}
                 >
-                  <div className="popUpContainer">
+                  <div className="popUpUserprofiler">
                     <div>
                       {isClicked ? (
-                        <div>
-                          <div className="inputbox">
+                        <div >
+                          <div  className="inputbox">
                             <input
                               className="firstName1"
                               placeholder="firstName"
@@ -251,6 +252,16 @@ const UserProfile = () => {
                             />
                           </div>
                           <div className="inputbox">
+                            <input
+                              className="firstName1"
+                              placeholder="Address"
+                              defaultValue={address}
+                              type="text"
+                              required="required"
+                              onChange={(e) => setAddress(e.target.value)}
+                            />
+                          </div>
+                          <div className="inputbox">
                             {/* <input
                         defaultValue={profileImage}
                         type="text"
@@ -258,6 +269,7 @@ const UserProfile = () => {
                         onChange={(e) => setProfileImage(e.target.value)}
                       />
                       <span>profileImage</span> */}
+
                           <div   className="cloud">  <Cloud
                             
                               setProfileImage={setProfileImage}
@@ -276,7 +288,7 @@ const UserProfile = () => {
                             {" "}
                             update
                           </button>
-                        </div>
+                         </div>
                       ) : (
                         ""
                       )}

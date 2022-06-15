@@ -78,7 +78,7 @@ const Register = () => {
         </>
        : ""  }
        
-                            <div className="inputbox">
+                            <div className="INPUTlABEL">
                                 <input  className="firstNameInput"
                                 placeholder=" First Name"
                                     type="text"
@@ -87,7 +87,7 @@ const Register = () => {
                                 />
                                
                             </div>
-                            <div className="inputbox">
+                            <div className="inputLabel">
                                 <input className="lastNameInput"
                                 placeholder="Last Name"
                                     type="text"
@@ -98,7 +98,7 @@ const Register = () => {
                             </div>
 
 
-                            <div className="inputbox">
+                            <div className="inputLabel">
                                 <input
                                 className="phoneNumInput"
                                 placeholder=" phone Number"
@@ -109,7 +109,7 @@ const Register = () => {
                                 />
                               
                             </div>
-                            <div className="inputbox">
+                            <div className="inputLabel">
                                 <input className="firstNameInput"
                                 placeholder=" profile Image"
                                     type="text"
@@ -118,7 +118,7 @@ const Register = () => {
                                 />
                              
                             </div>
-                            <div className="inputbox">
+                            <div className="inputLabel">
                                 <input className="emailInput"
                                 placeholder="Email"
                                     type="text"
@@ -127,7 +127,7 @@ const Register = () => {
                                 />
                               
                             </div>
-                            <div className="inputbox">
+                            <div className="inputLabel">
                                 <input className="passwordInput"
                                 placeholder="Password"
                                     type="password"

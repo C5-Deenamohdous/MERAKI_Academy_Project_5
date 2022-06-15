@@ -19,6 +19,7 @@ CREATE TABLE users(
     phoneNumber VARCHAR(255) NOT NULL , 
     profileImage VARCHAR(255) NOT NULL , 
     role_id INT,
+    Address  VARCHAR(255)  ,
     joinedDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (role_id) REFERENCES roles(id),
     is_deleted TINYINT DEFAULT 0,

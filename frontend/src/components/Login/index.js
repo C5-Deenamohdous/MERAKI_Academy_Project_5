@@ -69,7 +69,7 @@ const Login = () => {
        
           <br />
 
-          <div className="inputbox">
+          <div className="inputLabel">
              
             <input className="emailInput"
             placeholder="Email"
@@ -81,7 +81,7 @@ const Login = () => {
           </div>
 
           <br />
-          <div className="inputbox">
+          <div className="inputLabel">
          
             <input className="passwordInput"
               type="password"
