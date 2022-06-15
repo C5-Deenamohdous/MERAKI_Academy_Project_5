@@ -51,6 +51,7 @@ const SearshGetAllProduct = (req, res) => {
   });
 };
 
+
 const getAllProduct = (req, res) => {
   const limit = 12;
   const page = req.query.page;
@@ -151,8 +152,8 @@ const getAllCategory = (req, res) => {
 };
 
 const filterGetAllCategories = (req, res) => {
-  const query = `SELECT DISTINCT categoryName FROM categories INNER JOIN brands ON brands.category_id = categories.id
- WHERE categories.is_deleted=0  ;`;
+  const query = `SELECT * FROM categories INNER JOIN brands ON brands.category_id = categories.id
+ WHERE categories.is_deleted=0 ;`;
   connection.query(query, (err, result) => {
     if (err) {
       return res.status(500).json({
@@ -207,6 +208,10 @@ const getBrandByCategory = (req, res) => {
   });
 };
 
+
+
+
+
 const categoriesJoinedWithBrand = (req, res) => {
   const query = `SELECT *,categories.id FROM categories INNER JOIN brands ON categories.id = brands.category_id
  WHERE categories.is_deleted=0;`;
@@ -235,5 +240,5 @@ module.exports = {
   getAllBrands,
   getBrandByCategory,
   SearshGetAllProduct,
-  filterGetAllCategories,
+  filterGetAllCategories
 };

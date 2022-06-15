@@ -54,6 +54,8 @@ const OneBrand = () => {
     axios
       .get(`http://localhost:5000/product/0000/filter_All_Categ`)
       .then((result) => {
+        let tempArray = [];
+        let test = result.data.result;
         setAllCategory(result.data.result);
       })
       .catch((err) => {
@@ -228,12 +230,12 @@ const OneBrand = () => {
             <option disabled selected>
               All Categories
             </option>
-            {console.log(sectionName, " ============")}
-            {console.log(allCategory, " =====!!!!!!=======")}
+            {/* {console.log(sectionName, " ============")}
+            {console.log(allCategory, " =====!!!!!!=======")} */}
 
             {allCategory &&
               allCategory
-                .filter((element) => (element.brandName = sectionName))
+                .filter((element) => element.brandName == sectionName)
                 .map((element) => {
                   return (
                     <option value={element.categoryName}>
