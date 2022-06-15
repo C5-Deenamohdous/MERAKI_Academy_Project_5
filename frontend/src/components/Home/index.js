@@ -27,10 +27,20 @@ const Home = () => {
       url: "https://www.pngall.com/wp-content/uploads/1/Electronic-Download-PNG.png",
     },
   ];
+  //
   const [catg1, setCatg1] = useState("");
+  const [catg1Name, setCatg1Name] = useState("");
+  //
   const [catg2, setCatg2] = useState("");
+  const [catg2Name, setCatg2Name] = useState("");
+  //
   const [catg3, setCatg3] = useState("");
+  const [catg3Name, setCatg3Name] = useState("");
+  //
   const [catg4, setCatg4] = useState("");
+  const [catg4Name, setCatg4Name] = useState("");
+
+  //
 
   const [isCatg1, setIsCatg1] = useState(true);
   const [isCatg2, setIsCatg2] = useState(false);
@@ -46,6 +56,7 @@ const Home = () => {
         console.log(result, "Catg1");
         // [...result.data.articles].sort((a, b) => 0.5 - Math.random()
         setCatg1([...result.data.result].sort((a, b) => 0.5 - Math.random()));
+        setCatg1Name(result.data.result[0].categoryName);
       })
       .catch((err) => {
         console.log(err);
@@ -58,6 +69,7 @@ const Home = () => {
       .then((result) => {
         console.log(result, "Catg2");
         setCatg2([...result.data.result].sort((a, b) => 0.5 - Math.random()));
+        setCatg2Name(result.data.result[0].categoryName);
       })
       .catch((err) => {
         console.log(err);
@@ -70,6 +82,7 @@ const Home = () => {
       .then((result) => {
         console.log(result, "Catg3");
         setCatg3([...result.data.result].sort((a, b) => 0.5 - Math.random()));
+        setCatg3Name(result.data.result[0].categoryName);
       })
       .catch((err) => {
         console.log(err);
@@ -82,6 +95,7 @@ const Home = () => {
       .then((result) => {
         console.log(result, "Catg4");
         setCatg4([...result.data.result].sort((a, b) => 0.5 - Math.random()));
+        setCatg4Name(result.data.result[0].categoryName);
       })
       .catch((err) => {
         console.log(err);
@@ -156,7 +170,14 @@ const Home = () => {
                           price={element.price}
                         />
                       </div>
-                      <button className="Show-More">Show More</button>
+                      <button
+                        className="Show-More"
+                        onClick={() => {
+                          navigate(`/oneProduct/${element.id}`);
+                        }}
+                      >
+                        Show More
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -179,11 +200,29 @@ const Home = () => {
                       <img src={element.productImage} />
                     </div>
                     <div className="Price-Title">
-                      <p className="Title">{element.title}</p>
-                      <p className="Price">{element.price}$</p>
+                      <p>{element.title}</p>
+                      <p>{element.price}</p>
                     </div>
                   </div>
-                  <div className="back">Back!</div>
+                  <div className="back">
+                    <div className="Flip">
+                      <div className="Cart-Btns">
+                        <AddToWishlistButton productId={element.id} />
+                        <AddToCartButton
+                          productId={element.id}
+                          price={element.price}
+                        />
+                      </div>
+                      <button
+                        className="Show-More"
+                        onClick={() => {
+                          navigate(`/oneProduct/${element.id}`);
+                        }}
+                      >
+                        Show More
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             );
@@ -204,11 +243,29 @@ const Home = () => {
                       <img src={element.productImage} />
                     </div>
                     <div className="Price-Title">
-                      <p className="Title">{element.title}</p>
-                      <p className="Price">{element.price}$</p>
+                      <p>{element.title}</p>
+                      <p>{element.price}</p>
                     </div>
                   </div>
-                  <div className="back">Back!</div>
+                  <div className="back">
+                    <div className="Flip">
+                      <div className="Cart-Btns">
+                        <AddToWishlistButton productId={element.id} />
+                        <AddToCartButton
+                          productId={element.id}
+                          price={element.price}
+                        />
+                      </div>
+                      <button
+                        className="Show-More"
+                        onClick={() => {
+                          navigate(`/oneProduct/${element.id}`);
+                        }}
+                      >
+                        Show More
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             );
@@ -230,11 +287,29 @@ const Home = () => {
                       <img src={element.productImage} />
                     </div>
                     <div className="Price-Title">
-                      <p className="Title">{element.title}</p>
-                      <p className="Price">{element.price}$</p>
+                      <p>{element.title}</p>
+                      <p>{element.price}</p>
                     </div>
                   </div>
-                  <div className="back">Back!</div>
+                  <div className="back">
+                    <div className="Flip">
+                      <div className="Cart-Btns">
+                        <AddToWishlistButton productId={element.id} />
+                        <AddToCartButton
+                          productId={element.id}
+                          price={element.price}
+                        />
+                      </div>
+                      <button
+                        className="Show-More"
+                        onClick={() => {
+                          navigate(`/oneProduct/${element.id}`);
+                        }}
+                      >
+                        Show More
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             );
@@ -260,11 +335,7 @@ const Home = () => {
           autoPlay={true}
         />
       </div>
-      {/* <div className="Header-Photo">
-        <div className="Image-H">
-          <img src="https://www.pngall.com/wp-content/uploads/2016/05/Laptop-Free-Download-PNG.png" />
-        </div>
-      </div> */}
+
       <span
         className="shopNowButton"
         onClick={() => {
@@ -283,7 +354,7 @@ const Home = () => {
             setIsCatg4(false);
           }}
         >
-          Catg1
+          {catg1Name}
         </span>
         <span
           className={isCatg2 ? "Active_HomeP" : ""}
@@ -294,7 +365,7 @@ const Home = () => {
             setIsCatg4(false);
           }}
         >
-          Categ2
+          {catg2Name}
         </span>
 
         <span
@@ -306,7 +377,7 @@ const Home = () => {
             setIsCatg4(false);
           }}
         >
-          Catg3
+          {catg3Name}
         </span>
         <span
           className={isCatg4 ? "Active_HomeP" : ""}
@@ -317,7 +388,7 @@ const Home = () => {
             setIsCatg4(true);
           }}
         >
-          Catg4
+          {catg4Name}
         </span>
       </div>
       {isCatg1 ? (
