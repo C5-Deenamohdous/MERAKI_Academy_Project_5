@@ -48,6 +48,20 @@ export const orders = createSlice({
         return element.id !== action.payload.id;
       });
       state.statusInsideDetail = 1;
+      // user
+      state.allUSerOrders = state.allUSerOrders.map((element) => {
+        if (element.id === action.payload.id) {
+          return { ...element, orderStatus: action.payload.status };
+        }
+        return element;
+      });
+
+      state.allUnCompletedForUser = state.allUnCompletedForUser.filter(
+        (element) => {
+          return element.id !== action.payload.id;
+        }
+      );
+      state.statusInsideDetail = 1;
     },
     makeOrderUnCompleted: (state, action) => {
       state.allOrders = state.allOrders.map((element) => {
@@ -59,6 +73,19 @@ export const orders = createSlice({
       state.completedOrders = state.completedOrders.filter((element) => {
         return element.id !== action.payload.id;
       });
+      state.statusInsideDetail = 0;
+      // user
+      state.allUSerOrders = state.allUSerOrders.map((element) => {
+        if (element.id === action.payload.id) {
+          return { ...element, orderStatus: action.payload.status };
+        }
+        return element;
+      });
+      state.allCompletedForUser = state.allCompletedForUser.filter(
+        (element) => {
+          return element.id !== action.payload.id;
+        }
+      );
       state.statusInsideDetail = 0;
     },
   },

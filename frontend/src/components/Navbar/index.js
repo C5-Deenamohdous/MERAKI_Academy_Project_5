@@ -15,8 +15,6 @@ import { logout } from "../../redux/reducers/auth";
 import { useNavigate } from "react-router-dom";
 // import Wishlist from "../../redux/reducers/WishList";
 const NavBar = () => {
-  const [isOpen, setIsOpen] = useState("");
-  const [isHover, setIsHover] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isLoggedIn, cart, userId, Wishlist, subTotal } = useSelector(
@@ -34,8 +32,10 @@ const NavBar = () => {
   const [result, setResult] = useState("");
   const [search, setSearch] = useState(false);
   const [searchtext, setSearchtext] = useState("");
+  const [isOpen, setIsOpen] = useState("");
+  const [isHover, setIsHover] = useState(false);
 
-  const SearshGetAllProduct = async () => {
+  const SearshGetAllProduct = () => {
     axios
       .get(`http://localhost:5000/product/search`)
 
@@ -109,6 +109,40 @@ const NavBar = () => {
           <p className="SEARCH-ICON">
             <AiOutlineSearch />
           </p>
+          {search && searchtext !== "" ? (
+            <div className="resultInSearch">
+              {result.length &&
+                result.map((element) => {
+                  return (
+                    <>
+                      {element.title !== null &&
+                      element.title
+                        .toLowerCase()
+                        .includes(searchtext.toLowerCase()) ? (
+                        <div
+                          className="title_photo_search"
+                          onClick={() => {
+                            navigate(`/oneProduct/${element.id}`);
+                            setSearchtext("");
+                          }}
+                        >
+                          <div className="image-search">
+                            <img src={element.productImage} />
+                          </div>
+                          <div className="Title-search">
+                            <p>{element.title}</p>
+                          </div>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                    </>
+                  );
+                })}
+            </div>
+          ) : (
+            ""
+          )}
         </div>
         <div
           className="DropDev"
@@ -224,36 +258,6 @@ const NavBar = () => {
           </div>
         </div>
       </Modal>
-      {search && searchtext !== "" ? (
-        <div>
-          {" "}
-          {result &&
-            result.map((element, index) => {
-              return (
-                <>
-                  {element.title
-                    .toLowerCase()
-                    .includes(searchtext.toLowerCase()) ? (
-                    <div className="searchoutbout">
-                      <span
-                        onClick={() => {
-                          navigate(`/oneProduct/${element.id}`);
-                          setSearchtext("");
-                        }}
-                      >
-                        {element.title};
-                      </span>
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                </>
-              );
-            })}
-        </div>
-      ) : (
-        ""
-      )}
     </div>
   );
 };

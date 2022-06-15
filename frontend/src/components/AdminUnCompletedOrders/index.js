@@ -30,30 +30,38 @@ const AdminUnCompletedOrders = () => {
       {allUnCompleted &&
         allUnCompleted.map((element) => {
           return (
-            <div
-            className="One-Order"
-            
-          >
-            <table className="ordersTable">
-            <tr  className={element.orderStatus?"completedOrdersColor" : "unCompletedOrdersColor" }>
-                <th onClick={() => {
-              navigate(`/admin/order_details/${element.id}`);
-            }} 
-            className="idOfOrder">{element.id}</th>
-                <th className="idOfOrder">{element.orderDate.substring(0,10)}</th>
-                {/* <th className="idOfOrder">
+            <div className="One-Order">
+              <table className="ordersTable">
+                <tr
+                  className={
+                    element.orderStatus
+                      ? "completedOrdersColor"
+                      : "unCompletedOrdersColor"
+                  }
+                >
+                  <th
+                    onClick={() => {
+                      navigate(`/admin/order_details/${element.id}`);
+                    }}
+                    className="idOfOrder"
+                  >
+                    {element.id}
+                  </th>
+                  <th className="idOfOrder">
+                    {element.orderDate.substring(0, 10)}
+                  </th>
+                  {/* <th className="idOfOrder">
                   {element.orderStatus ? "Completed" : "Un Completed"}
                 </th> */}
-                <th className="idOfOrder"><OrderStatus
-              order_id={element.id}
-              orderStatus={element.orderStatus}
-            /></th>
-              </tr>
-            </table>
-
-            
-          </div>
-              
+                  <th className="idOfOrder">
+                    <OrderStatus
+                      order_id={element.id}
+                      orderStatus={element.orderStatus}
+                    />
+                  </th>
+                </tr>
+              </table>
+            </div>
           );
         })}
     </>
