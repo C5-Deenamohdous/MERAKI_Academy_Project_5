@@ -2,6 +2,13 @@
   display: none;
 }
 
+.Flex-Rate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .AddRatePopUp {
   width: 30%;
   height: 30%;
@@ -16,8 +23,19 @@
   border-radius: 10px;
   border-color: unset;
   /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
-  box-shadow: var(--subColor) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    outline-style: unset;
+  box-shadow: var(--subColor) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  outline-style: unset;
+}
+
+.CONTAINER-Comment {
+  align-items: flex;
+  align-items: center;
+  width: 100%;
+  display: flex;
+}
+
+.RounderNumber {
+  display: none;
 }

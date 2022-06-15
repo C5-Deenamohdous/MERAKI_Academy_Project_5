@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./style.css";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
+import Modal from "react-modal";
 import {
   setComment,
   deleteComments,
@@ -15,18 +16,19 @@ import { BiEdit } from "react-icons/bi";
 const Comment = ({ id }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { comment, token ,userId } = useSelector((state) => {
+  const { comment, token, userId } = useSelector((state) => {
     return {
       comment: state.comment.comment,
       token: state.auth.token,
-      userId:state.auth.userId
+      userId: state.auth.userId,
     };
   });
   const [message, setMessage] = useState("");
   const [newComment, setNewComment] = useState("");
   const [addComment, setAddComment] = useState("");
-  const [profileImg1, setProfileImg1] = useState("")
-  const [click, setClick] = useState(false);
+  const [profileImg1, setProfileImg1] = useState("");
+  // const [click, setClick] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const getCommentById = () => {
     axios
       .get(`http://localhost:5000/comment/${id}`)
@@ -64,7 +66,6 @@ const Comment = ({ id }) => {
         `http://localhost:5000/comment/${commentId}`,
         {
           comment: newComment,
-          
         },
         {
           headers: {
@@ -74,9 +75,15 @@ const Comment = ({ id }) => {
       )
       .then((result) => {
         console.log(result, "ooooooooo");
-        dispatch(updateComments({ commentId: commentId, comment: newComment , user_id: userId
-         }));
-        setMessage(" Comment is updated");
+        dispatch(
+          updateComments({
+            commentId: commentId,
+            comment: newComment,
+            user_id: userId,
+          })
+        );
+        // setMessage(" Comment is updated");
+        setIsOpen(false);
       })
       .catch((err) => {
         console.log(err);
@@ -84,7 +91,6 @@ const Comment = ({ id }) => {
       });
   };
   const createComment = () => {
-   
     axios
       .post(
         `http://localhost:5000/comment/${id}`,
@@ -98,7 +104,6 @@ const Comment = ({ id }) => {
         }
       )
       .then((result) => {
-
         console.log(result, "oooooooooo");
         dispatch(
           addComments({
@@ -107,7 +112,7 @@ const Comment = ({ id }) => {
             firstName: result.data.result[0].firstName,
             lastName: result.data.result[0].lastName,
             profileImage: result.data.result[0].profileImage,
-            user_id: userId
+            user_id: userId,
           })
         );
       })
@@ -117,14 +122,12 @@ const Comment = ({ id }) => {
   };
   useEffect(() => {
     getCommentById();
-  }, []);
+  }, [id]);
   console.log(comment, "{{{{{{{");
 
   return (
-
     <div className="comments-Container">
       <div className="row-Container1">
-
         <input
           className="inputComment"
           type={"textArea"}
@@ -146,53 +149,76 @@ const Comment = ({ id }) => {
         comment.map((comment, i) => {
           return (
             <div key={i} className="oneComment">
-              <img className="publisherImg" src={comment.profileImage}/>
+              <img className="publisherImg" src={comment.profileImage} />
 
               <div className="Container">
                 <div className="displayName">
                   <p>
-                    {comment.firstName} {comment.lastName} : </p>
-
-                       
-                 
+                    {comment.firstName} {comment.lastName} :{" "}
+                  </p>
                 </div>
                 <div className="commentBody">
                   <p>{comment.comment}</p>
                 </div>
               </div>
 
-              {userId ==comment.user_id ? 
-              <div className="deleteUpdateButton">
-                <p
-                  className="deleteIcon"
-                  onClick={() => {
-                    deleteComment(comment.id);
-                  }}
-                >
-                  <RiDeleteBin6Line />
-                </p>
+              {userId == comment.user_id ? (
+                <div className="deleteUpdateButton">
+                  <p
+                    className="deleteIcon"
+                    onClick={() => {
+                      deleteComment(comment.id);
+                    }}
+                  >
+                    <RiDeleteBin6Line />
+                  </p>
 
-              
                   <p
                     className="updateIcon"
                     onClick={() => {
-                      updateComment(comment.id);
-                      setClick(true);
+                      setIsOpen(true);
                     }}
                   >
                     <BiEdit />
                   </p>
-              
-{click ? <input
-                  defaultValue={comment.comment}
-                  onChange={(e) => {
-                    setNewComment(e.target.value);
-                    
-                  }} 
-                />: ""}
-                
-              </div>:""}
-              
+
+                  <Modal
+                    ariaHideApp={false}
+                    className={"CommentUpdatePopUp"}
+                    isOpen={isOpen}
+                    onRequestClose={() => setIsOpen(false)}
+                  >
+                    <div className="CONTAINER-Comment">
+                      <input
+                        defaultValue={comment.comment}
+                        onChange={(e) => {
+                          setNewComment(e.target.value);
+                        }}
+                      />
+                      <div className="BTN">
+                        <span
+                          className="Upd"
+                          onClick={() => {
+                            updateComment(comment.id);
+                          }}
+                        >
+                          Update
+                        </span>
+                        <span
+                          className="Cancel"
+                          onClick={() => {
+                            setIsOpen(false);
+                          }}
+                        >
+                          Cancel
+                        </span>
+                      </div>
+                    </div>
+                  </Modal>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           );
         })}
