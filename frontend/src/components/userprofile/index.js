@@ -217,10 +217,10 @@ const UserProfile = () => {
                   onRequestClose={() => setIsOpen(false)}
                 >
                   <div className="popUpContainer">
-                    <div>
+                   
                       {isClicked ? (
-                        <div>
-                          <div className="inputbox">
+                        <div >
+                          <div  >
                             <input
                               className="firstName1"
                               placeholder="firstName"
@@ -230,7 +230,7 @@ const UserProfile = () => {
                               onChange={(e) => setFirstName(e.target.value)}
                             />
                           </div>
-                          <div className="inputbox">
+                          <div >
                             <input
                               className="firstName1"
                               placeholder="lastName"
@@ -240,7 +240,7 @@ const UserProfile = () => {
                               onChange={(e) => setLastName(e.target.value)}
                             />
                           </div>
-                          <div className="inputbox">
+                          <div >
                             <input
                               className="firstName1"
                               placeholder="phoneNumber"
@@ -250,7 +250,7 @@ const UserProfile = () => {
                               onChange={(e) => setPhoneNumber(e.target.value)}
                             />
                           </div>
-                          <div className="inputbox">
+                          <div>
                             {/* <input
                         defaultValue={profileImage}
                         type="text"
@@ -280,7 +280,7 @@ const UserProfile = () => {
                       ) : (
                         ""
                       )}
-                    </div>
+              
                   </div>
                 </Modal>
               </>
