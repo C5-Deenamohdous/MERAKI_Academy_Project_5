@@ -18,7 +18,9 @@
     margin-left: 12px;
   }
   .span {
-    margin-right:13%;
+    margin-left:4%;
+    width: 100%;
+    display: flex;
    
   }
   a:hover {
@@ -28,25 +30,56 @@
   .LOGO1 {
     display: flex;
     align-items: center;
-    width: 12%;
-    justify-content: flex-start;
- 
-    font-family: "Cabin", sans-serif;
+    width: 25%;
+    /* justify-content: flex-start; */
+    padding-top: 10px;
+   margin-top: -20px;
+    top: 53px;
   }
-  .LOGO1 .ICON1 {
+  
+.Cont-Log {
+  display: flex;
+}
+.Infin1 {
+  font-size: 25px;
+  color: var(--BlackColor);
+}
+.Zone1 {
+  font-size: 14px;
+  color: var(--btnsColor);
+  position: absolute;
+  top: 35px;
+  left: 100px;
+}
+.LOGO1 .LOGOTEST1 {
+  font-size: 35px;
+  color: var(--btnsColor);
+  font-weight: 600;
+  /* text-shadow: 3px 4px 2px var(--subColor); */
+  font-family: "Cabin", sans-serif;
+  margin-top: 10px;
+}
 
-    font-size: 40px;
-    margin-top: 10px;
-  }
-  .LOGO1 .LOGOTEST {
-    font-size: 35px;
-    color: var(--BlackColor);
-    font-weight: 600;
-    text-shadow: 3px 4px 2px var(--subColor);
-  }
-  .Links-Admin1 .LOGO1 .ICON1 svg {
+.LOGO1 .ICON1 {
+  margin-top: 5px;
+}
+
+.Cont-Log1 {
+  display: flex;
+  /* align-items: center; */
+}
+
+.Infin1 {
+  position: relative;
+  margin-left: 0px;
+}
+  /* .Links-Admin1 .LOGO1 .ICON1 svg {
     margin-top: 2px;
+  } */
+  .LOGO1 .ICON1 svg {
+    font-size: 50px;
   }
+
   .homeCenter{
     display: flex;
     align-items: center;
@@ -65,14 +98,7 @@
     display: flex;
     gap: 10px;
   }
-.RIGT-NAVAdmin{
-  /* display: flex;
-  width: 20%;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 10%;
-  padding-top: 10px; */
-}
+
 
 .Login-LogoutAdmin svg {
   font-size: 24px;

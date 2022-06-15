@@ -7,6 +7,7 @@ import { FiLogIn } from "react-icons/fi";
 import { BsCart, BsStars, BsArrowDownShort } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlinePoweroff, AiOutlineSearch } from "react-icons/ai";
+import { CgInfinity } from "react-icons/cg";
 
 import { logout } from "../../redux/reducers/auth";
 
@@ -22,11 +23,16 @@ const AdminNavBar = () => {
 
   return (
     <div className="Links-Admin1">
-      <div className="LOGO1">
-        <span className="LOGOTEST">ADA</span>
-        <span className="ICON1">
-          <GiUbisoftSun />
-        </span>
+        <div className="LOGO1">
+        <div className="LOGOTEST1">
+          <span className="ICON1">
+            <CgInfinity />
+          </span>
+          </div>
+          <div className="Cont-Log1">
+          <span className="Infin1">Infnity</span>
+          <span className="Zone1">Zone</span>
+          </div>
       </div>
       <div className="span">
         <span>
