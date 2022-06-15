@@ -5,20 +5,34 @@
     left: 15vw;
     height: 70vh;
     top: 15vh;
+    /* margin-top: 5vh; */
 }
 .UpdateProductContainer { 
     display: flex;
-    width: 80%;
-    /* height: 50%; */
+    width: 100%;
+    height: 70%;
+    margin-top: 12vh;
 }
 
 .photoContainer-Up { 
     width: 40%;
     height: 100%;
 }
+.updateHeader{
+    display: flex;
+position: absolute;
+margin-top: 1vh;
+margin-left: 3%;
+width: 96.50%;
+font-size: 20px;
+font-weight: 600;
+height: 5vh;
+border-bottom: solid 1px lightsteelblue;
+}
 .photoContainer-Up img {
-    width: 100%;
-    height: 100%;
+    width: 70%;
+    height: 60%;
+    margin-left: 20px;
 }
 
 .INFO { 
@@ -33,24 +47,113 @@
 
 .INFO .flexDiv { 
     display: flex;
+    flex-direction: column;
+    border-color: currentcolor currentcolor rgb(80, 87, 90);
+    font-size: 22px;
+    color: black;
+    background-image: initial;
+    background-color: transparent;
+    border-style: none none solid;
+    margin: 0px 0px 20px;
+    width: 100%;
+    height: 100%;
 }
 
 .catgDiv { 
     margin-top: 15px;
     display: flex;
 }
-
+.inputOfUpdateProduct{
+    height: 40px;
+    padding: 10px;
+}
 .Test { 
     margin-top: 30px;
+    display: flex;
+gap: 10%;
+justify-content: flex-end;
+cursor: pointer;
+/* justify-content: space-between; */
+}
+.Test button{
+    border: solid black 1px;
+    margin-top: 50px;
 }
 .cloudSpace{
-    padding: 8px 12px;
-    margin: 8px 0 0;
-    font-family: "Montserrat", sans-serif;
-    border: 4px solid #78788c;
-    background: 0;
-    color: #5a5a6e;
-    cursor: pointer;
-    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+ 
+    height: 30%; 
+    margin-top: 20%;
+    margin-left: 20px;
+    padding: 5px;
   
 }
+
+.cloudSpace p{
+    font-size: 16px;
+}
+.popUpUpdate{
+    width: 30%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f4f4ff;
+    border-radius: 10px;
+    border-color: unset;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;  
+}
+.imgGreen{
+    width: 30%;
+    height: 48%;
+    align-items: center;
+justify-content: center;
+}
+.imgGreen svg{
+    color: rgb(35, 119, 35);
+font-size: 50px;
+}
+.popUpContainerUpdate{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.paragrapghUpdated{
+  width: fit-content;
+
+}
+.updateBTNAdmin{
+    border-color: rgb(60, 65, 67);
+    color: rgb(185, 179, 169);
+    border: 1px solid #d5d5d5;
+    display: inline-block;
+    font-size: 20px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 150px;
+    cursor: pointer;
+
+}
+.updateBTNAdmin:hover{
+    background-color: rgb(236, 92, 92);
+    transition: 0.4s;
+  } 
+  .deleteBTNAdmin{
+    width: 50px;
+
+    margin-top: 3%;
+    margin-left: 20px;
+    height: 40px;
+    font-size: 26px;
+    /* border: solid ; */
+  }

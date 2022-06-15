@@ -310,7 +310,7 @@ const Product = () => {
       ) : (
         ""
       )}
-      {/* Pagination */}
+
       {clickNext ? (
         <button
           className="backButton"
@@ -325,14 +325,18 @@ const Product = () => {
       ) : (
         ""
       )}
-      {/* dina */}
+     
       <button
         className="nextButton"
         onClick={() => {
           setPage(page + 1);
           setLimit(12);
           nextPage(page + 1);
-          setClickNext(true);
+ setClickNext(true);
+         
+
+         
+
         }}
       >
         next

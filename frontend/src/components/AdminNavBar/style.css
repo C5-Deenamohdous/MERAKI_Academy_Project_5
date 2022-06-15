@@ -46,3 +46,23 @@
   .Links-Admin1 .LOGO1 .ICON1 svg {
     margin-top: 2px;
   }
+  .homeCenter{
+    display: flex;
+    align-items: center;
+    width: 55%;
+    justify-content: space-evenly;
+    padding-top: 10px;
+    position: relative;
+    cursor: pointer;
+  }
+.RIGT-NAVAdmin{
+  /* display: flex;
+  width: 20%;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10%;
+  padding-top: 10px; */
+}
+.Login-LogoutAdmin svg {
+  font-size: 22px;
+}

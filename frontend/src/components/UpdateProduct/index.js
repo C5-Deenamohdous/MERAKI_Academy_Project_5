@@ -4,7 +4,11 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { setOneProduct, updateOneProduct } from "../../redux/reducers/admin";
 import { useNavigate, useParams } from "react-router-dom";
+import Modal from "react-modal";
 import Cloud from "../Cloud";
+import {  BsCheckCircleFill ,BsFillTelephoneFill } from "react-icons/bs";
+import { RiArrowGoBackFill } from "react-icons/ri";
+
 const UpdateProduct = () => {
   const [category, setCategory] = useState("");
   const [isChanged, setIsChanged] = useState(false);
@@ -23,6 +27,10 @@ const UpdateProduct = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+
+
+
   const { oneProduct } = useSelector((state) => {
     return {
       oneProduct: state.admin.oneProduct,
@@ -92,6 +100,7 @@ const UpdateProduct = () => {
 
   return (
     <div className="Center-ContainerUpdateProduct">
+      <div className="updateHeader">Update product </div>
       {oneProduct &&
         oneProduct.map((element, i) => {
           return (
@@ -99,12 +108,20 @@ const UpdateProduct = () => {
               <div className="UpdateProductContainer">
                 <div className="photoContainer-Up">
                   <img className="IMAGE" src={element.productImage} />
+                  <div className="cloudSpace">
+                {" "}<p>*Upload Image </p>
+                <Cloud
+                  setProductImage={setProductImage}
+                  url={url}
+                  setUrl={setUrl}
+                />
+              </div>
                 </div>
 
                 <div className="INFO">
                   <div className="flexDiv">
                     <p>Product Title: </p>
-                    <input
+                    <input className="inputOfUpdateProduct"
                       defaultValue={element.title}
                       onChange={(e) => {
                         setTitle(e.target.value);
@@ -112,8 +129,8 @@ const UpdateProduct = () => {
                     />
                   </div>
                   <div className="flexDiv">
-                    <p>Product Description:</p>
-                    <input
+                    <p >Product Description:</p>
+                    <input  className="inputOfUpdateProduct"
                       defaultValue={element.description}
                       onChange={(e) => {
                         setDescription(e.target.value);
@@ -122,7 +139,7 @@ const UpdateProduct = () => {
                   </div>
                   <div className="flexDiv">
                     <p>Price:</p>
-                    <input
+                    <input className="inputOfUpdateProduct"
                       type="number"
                       defaultValue={element.price}
                       onChange={(e) => {
@@ -132,7 +149,7 @@ const UpdateProduct = () => {
                   </div>
                   <div className="flexDiv">
                     <p>In Stock:</p>
-                    <input
+                    <input  className="inputOfUpdateProduct"
                       type="number"
                       defaultValue={element.quantity}
                       onChange={(e) => {
@@ -140,24 +157,38 @@ const UpdateProduct = () => {
                       }}
                     />
                   </div>
-                  <div className="catgDiv">
+                 
+                  {/* <div className="catgDiv">
                     <p>Category:</p>
                     {isChanged ? (
                       categName
                     ) : (
-                      <span>{element.categoryName}</span>
-                    )}
-                    <button
-                      onClick={() => {
-                        setIsClicked(true);
+                      <span>{element.categoryName}</span> 
+                    )}*/}
+                    {/* <select
+                      onChange={(e) => {
+                        console.log(e.target.className,"value");
+                        console.log(e.target.innerText,"innr");
+
+                        setCategory_id(e.target.value);
+                        setCatgName(e.target.innerText);
+
                       }}
                     >
-                      Change Category
-                    </button>
-                  </div>
+                      <option disabled selected>
+                        Change Category
+                      </option>
+                      {category &&
+                        category.map((el) => {
+                          return <option value={el.id} className={`${el.categoryName} `
+                        }
+                          > {el.categoryName}</option>;
+                        })}
+                    </select> */}
+                  {/* </div> */}
                 </div>
               </div>
-              {isClicked ? (
+              {/* {isClicked ? (
                 <span className="Categ">
                   {category &&
                     category.map((el) => {
@@ -177,34 +208,49 @@ const UpdateProduct = () => {
                 </span>
               ) : (
                 ""
-              )}
+              )} */}
               <div className="Test">
-                <p
-                  onClick={() => {
-                    updateProduct(oneProduct[0].id);
-                  }}
-                >
-                  UPDATE
-                </p>
-
-                <span
+               
+                {/* <span className="deleteBTNAdmin"
                   onClick={() => {
                     navigate(-1);
                   }}
                 >
-                  Back
-                </span>
+                  <RiArrowGoBackFill/>Back
+                </span>  */}
+                <button  className="updateBTNAdmin"
+                  onClick={() => {
+                    updateProduct(oneProduct[0].id);
+                    setIsOpen(true);
+              setTimeout(() => {
+                setIsOpen(false);
+              }, 3000);
+                  }}
+                >
+                  UPDATE
+                </button>
+
               </div>
-<div className="cloudSpace">  <Cloud 
-                setProductImage={setProductImage}
-                url={url}
-                setUrl={setUrl}
-              /></div>
             
             </>
           );
         })}
-      <h1>{message}</h1>
+         <Modal
+  ariaHideApp={false}
+  className={"popUpUpdate"}
+  isOpen={isOpen}
+  onRequestClose={() => setIsOpen(false)}
+>
+  <div className="popUpContainerUpdate">
+    <div className="paragrapghUpdated">
+<p ><b>Product has been Updated</b> </p>
+
+</div>
+<span className="imgGreen"> <BsCheckCircleFill/> </span>
+</div>
+</Modal>
+      {/* <h1>{message}</h1> */}
+
     </div>
   );
 };
