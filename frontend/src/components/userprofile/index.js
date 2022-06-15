@@ -138,23 +138,7 @@ const UserProfile = () => {
                   </div>
                   {/* </div> */}
                   <div className="datails-Container_profile">
-                    <div className="line">
-                      <div className="Di">
-                        <span>Adress:</span>
-                      </div>
-                      <div className="inLine">
-                        <span>Adress Test</span>
-                      </div>
-                    </div>
-                    <div className="line">
-                      <div className="Di">
-                        <span>Joined At:</span>
-                      </div>
-                      <div className="inLine">
-                        <span>{user.joinedDate.substring(0, 10)}</span>
-                      </div>
-                    </div>
-                    <div className="line">
+                  <div className="line">
                       <div className="Di">
                         <span>Email:</span>
                       </div>
@@ -170,6 +154,24 @@ const UserProfile = () => {
                         <span>{user.phoneNumber}</span>
                       </div>{" "}
                     </div>
+                    <div className="line">
+                      <div className="Di">
+                        <span>Adress:</span>
+                      </div>
+                      <div className="inLine">
+                        <span>{user.address}</span>
+                      </div>
+                    </div>
+                    <div className="line">
+                      <div className="Di">
+                        <span>Joined At:</span>
+                      </div>
+                      <div className="inLine">
+                        <span>{user.joinedDate.substring(0, 10)}</span>
+                      </div>
+                    </div>
+                   
+                  
                   </div>
                   {user.id == userId ? (
                     <div className="ProfileBtns">

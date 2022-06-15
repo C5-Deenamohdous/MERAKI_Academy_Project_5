@@ -36,11 +36,12 @@
   /* padding: 20px; */
   align-items: center;
   justify-content: flex-start;
+  margin-bottom: 10px;
 }
 
 .updateButton {
-  width: 90%;
-
+  width: 50%;
+background-color: lightblue;
   font-family: "Montserrat", sans-serif;
   border: 2px solid #78788c;
   cursor: pointer;
@@ -48,10 +49,11 @@
   color: var(--btnsColor);
   height: 40%;
   padding: 5px;
+ font-weight: 600;
 }
 
 .deleteButton {
-  width: 90%;
+  width: 50%;
   font-family: "Montserrat", sans-serif;
   border: 2px solid #78788c;
   cursor: pointer;
@@ -59,6 +61,7 @@
   color: var(--btnsColor);
   height: 40%;
   padding: 5px;
+  font-weight: 600;
 }
 
 .userProfileImg {
@@ -89,13 +92,13 @@
   display: flex;
   /* flex-direction: column; */
   border-color: currentcolor currentcolor rgb(80, 87, 90);
-  font-size: 22px;
+  font-size: 18px;
   color: black;
   background-image: initial;
   background-color: transparent;
   border-style: none none solid;
   margin: 0px 0px 20px;
-  width: 80%;
+  width: 100%;
   height: 100%;
 }
 
@@ -128,7 +131,9 @@
   background-image: initial;
   background-color: transparent;
   font-weight: 600;
-  font-size: 26px;
+  font-size: 20px;
+  display: flex;
+  margin-top: 5px;
 }
 .popUp1 {
   width: 50%;
@@ -224,7 +229,7 @@
   /* margin-bottom: 5px; */
   height: 20%;
   color: var(--btnsColor);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -257,7 +262,7 @@
 .Header_Profile {
   display: flex;
   width: 100%;
-  height: 20vh;
+  height: 12vh;
   justify-content: center;
   align-items: center;
   background-color: var(--mainColor);
@@ -277,6 +282,7 @@
   height: 100%;
   width: 100%;
   padding: 0 20px;
+  margin-left: 15vw;
 }
 
 .BtnsProfileOrder {
@@ -288,13 +294,14 @@
   display: flex;
   height: 88vh;
   width: 100%;
-  /* margin-top: 5vh; */
+  align-items: flex-start;
 }
 
 .Container-INFO {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 28%;
+margin-left: 20vh;
   justify-content: flex-start;
   align-items: center;
   padding: 20px;
@@ -305,7 +312,9 @@
   gap: 5px;
   height: 15%;
   display: flex;
-  flex-direction: column;
+  width: 100%;
+  
+  /* flex-direction: column; */
 }
 
 .LeftContainer-ProfileVisit { 
