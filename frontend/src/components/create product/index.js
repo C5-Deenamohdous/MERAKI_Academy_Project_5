@@ -71,7 +71,6 @@ const CreateProduct = () => {
             brand_id: brand_id,
           })
         );
-        // navigate("/admin");
       })
       .catch((err) => {
         console.log(err);
@@ -110,14 +109,86 @@ const CreateProduct = () => {
   }, []);
 
   return (
-    <div className="creareP-Container">
-          <div className="creatnewprandBar">
-        <p >
-         <MdCreateNewFolder/> 
-           Create New product
-        </p>
+    <div className="creatP-Container-A">
+      <div className="newProductBar">
+        <span>
+          <MdCreateNewFolder />
+        </span>
+        <span>Create New Product</span>
       </div>
-      <>
+      <div className="Container-CreatePruduct-A">
+        <div className="Label-Input-A">
+          <label>Product Name</label>
+          <input onChange={(e) => setTitle(e.target.value)} />
+        </div>
+
+        <div className="Label-Input-A">
+          <label>Product Description</label>
+          <input onChange={(e) => setDescription(e.target.value)} />
+        </div>
+
+        <div className="Price-And-Quantity-A">
+          <div className="Label-Input-A">
+            <label>Product Quantity</label>
+            <input
+              type="number"
+              onChange={(e) => setQuantity(e.target.value)}
+            />
+          </div>
+          <div className="Label-Input-A">
+            <label>Product Price</label>
+            <input type="number" onChange={(e) => setPrice(e.target.value)} />
+          </div>
+        </div>
+
+        <div className="Select-Section-A">
+          <select
+            onChange={(e) => {
+              console.log(e.target.value);
+              setCategory_id(e.target.value);
+            }}
+          >
+            <option disabled selected>
+              CategoryName
+            </option>
+            {category &&
+              category.map((element, i) => {
+                return (
+                  <option value={element.id}>{element.categoryName}</option>
+                );
+              })}
+          </select>
+          <select
+            onChange={(e) => {
+              console.log(e.target.value);
+              setBrand_id(e.target.value);
+            }}
+          >
+            <option disabled selected>
+              BrandName
+            </option>
+            {Brand &&
+              Brand.map((elem) => {
+                return <option value={elem.id}>{elem.brandName}</option>;
+              })}
+          </select>
+        </div>
+        <div className="Label-Image-A">
+          <label>Product Image</label>
+          <Cloud setProductImage={setProductImage} url={url} setUrl={setUrl} />
+        </div>
+        <div className="BtnToCreate-A">
+          <button
+            onClick={() => {
+              add_product();
+            }}
+          >
+            Create
+          </button>
+        </div>
+      </div>
+
+      {/* <>
         <div className="Select-C">
           <h2>Please choose your Category Name then your Brand Name</h2>
             <select
@@ -136,7 +207,7 @@ const CreateProduct = () => {
                   );
                 })}
             </select>
-
+// ==
             <select
               onChange={(e) => {
                 console.log(e.target.value);
@@ -218,7 +289,7 @@ const CreateProduct = () => {
           >
             Add product
           </button>
-      </>
+      </> */}
     </div>
   );
 };

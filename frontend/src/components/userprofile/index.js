@@ -1,7 +1,3 @@
-//userprofile
-// i need to git the user info from the databace using the userid from
-//the token
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
@@ -14,10 +10,9 @@ import user, {
   deleteuserProfile,
   updateuserProfile,
 } from "../../redux/reducers/user";
-import ProfileUnCompleteddOrders from "../PofileUnCompletedOrdedrs";
-import ProfileCompleteddOrders from "../ProfileCompletedOrders";
+import ProfileUnCompleteddOrders from "../PofileUnCompletedOrdedrs"; //chenage To Show All Orders ,
+// import ProfileCompleteddOrders from "../ProfileCompletedOrders";
 const UserProfile = () => {
-  // to see user profaile set from local stoge
   const { userProfile, userId } = useSelector((state) => {
     return {
       userProfile: state.user.userProfile,
@@ -31,7 +26,7 @@ const UserProfile = () => {
   const [message, setMessage] = useState("");
   const [url, setUrl] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-  const [isUnCompleteOrder, serIsUnCompleteOrder] = useState(true);
+  const [isOrderShow, setIsOrderShow] = useState(false);
   const getUserById = () => {
     axios
       .get(`http://localhost:5000/user/${id}`)
@@ -49,7 +44,7 @@ const UserProfile = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [address, setAddress] = useState("")
+  const [address, setAddress] = useState("");
   const [profileImage, setProfileImage] = useState("");
   // const [newImg, setNewImg] = useState("");
   const updateUserById = () => {
@@ -120,8 +115,12 @@ const UserProfile = () => {
         <h2>Profile</h2>
       </div>
       {/* <div className="big_container"> */}
-{/* LeftContainer-Profile */}
-      <div className={id == userId ? "LeftContainer-Profile" : "LeftContainer-ProfileVisit"}>
+      {/* LeftContainer-Profile */}
+      <div
+        className={
+          id == userId ? "LeftContainer-Profile" : "LeftContainer-ProfileVisit"
+        }
+      >
         {userProfile &&
           userProfile.map((user, i) => {
             return (
@@ -138,7 +137,7 @@ const UserProfile = () => {
                   </div>
                   {/* </div> */}
                   <div className="datails-Container_profile">
-                  <div className="line">
+                    <div className="line">
                       <div className="Di">
                         <span>Email:</span>
                       </div>
@@ -170,8 +169,6 @@ const UserProfile = () => {
                         <span>{user.joinedDate.substring(0, 10)}</span>
                       </div>
                     </div>
-                   
-                  
                   </div>
                   {user.id == userId ? (
                     <div className="ProfileBtns">
@@ -222,8 +219,8 @@ const UserProfile = () => {
                   <div className="popUpUserprofiler">
                     <div>
                       {isClicked ? (
-                        <div >
-                          <div  className="inputbox">
+                        <div>
+                          <div className="inputbox">
                             <input
                               className="firstName1"
                               placeholder="firstName"
@@ -272,12 +269,14 @@ const UserProfile = () => {
                       />
                       <span>profileImage</span> */}
 
-                          <div   className="cloud">  <Cloud
-                            
-                              setProfileImage={setProfileImage}
-                              url={url}
-                              setUrl={setUrl}
-                            /></div>
+                            <div className="cloud">
+                              {" "}
+                              <Cloud
+                                setProfileImage={setProfileImage}
+                                url={url}
+                                setUrl={setUrl}
+                              />
+                            </div>
                           </div>
                           <button
                             className="UpdateProfileButton"
@@ -290,7 +289,7 @@ const UserProfile = () => {
                             {" "}
                             update
                           </button>
-                         </div>
+                        </div>
                       ) : (
                         ""
                       )}
@@ -302,38 +301,30 @@ const UserProfile = () => {
           })}
         {id == userId ? (
           <div className="profileOrder ">
-            <div>
-              <h2>My Orders</h2>
-            </div>
-            <div className="BtnsProfileOrder">
-              <span
+            <div className="ClickableHeader">
+              <h2
                 onClick={() => {
-                  serIsUnCompleteOrder(false);
+                  setIsOrderShow(!isOrderShow);
                 }}
               >
-                Completed
-              </span>
-              <span
-                onClick={() => {
-                  serIsUnCompleteOrder(true);
-                }}
-              >
-                UnCompleted
-              </span>
+                My Orders
+              </h2>
             </div>
-            {isUnCompleteOrder ? (
-              <ProfileUnCompleteddOrders />
-            ) : (
-              <ProfileCompleteddOrders />
-            )}
+            {isOrderShow ? <ProfileUnCompleteddOrders /> : ""}
           </div>
         ) : (
           ""
         )}
       </div>
-      {/* </div> */}
     </>
   );
 };
 
 export default UserProfile;
+
+// </div>
+//                  {isUnCompleteOrder ? (
+//               <ProfileUnCompleteddOrders />
+//             ) : (
+//               <ProfileCompleteddOrders />
+//             )}
