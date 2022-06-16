@@ -18,11 +18,13 @@ const AdminProducts = () => {
 
   const getAllProducts = async () => {
     axios
-      .get(`https://infintyzone.herokuapp.com/product/?page=1&limit=15`)
+
+      .get(`https://infintyzone.herokuapp.com/product/?page=1&limit=12`)
 
       .then((result) => {
         console.log(`INSIDE REQUEST`);
-        dispatch(setProduct(result.data.result));
+        let temp = result.data.result;
+        dispatch(setProduct(temp.reverse()));
       })
       .catch((err) => {
         console.log(err);
@@ -49,58 +51,59 @@ const AdminProducts = () => {
     <div className="Center-Container-productAdmin">
       <div className="productsBarHeader">
         <p>
-        <MdProductionQuantityLimits /> Products
+          <MdProductionQuantityLimits /> Products
         </p>
       </div>
-    {/* <div className="ProductsInControlPanel"> */}
-      <table  className="productTables">
+      {/* <div className="ProductsInControlPanel"> */}
+      <table className="productTables">
         <tr>
-      {/* <div className="details-Product-row"> */}
-        <th className="table2">#</th>
-        <th className="table2">ProductName</th>
-        <th className="table2">Category</th>
-        <th className="table2">Brand</th>
-        <th></th>
+          {/* <div className="details-Product-row"> */}
+          <th className="table2">#</th>
+          <th className="table2">ProductName</th>
+          <th className="table2">Category</th>
+          <th className="table2">Brand</th>
+          <th></th>
         </tr>
+        {/* </div> */}
+        {Product &&
+          Product.map((element, i) => {
+            return (
+              <>
+                {/* <div className="details-Product-row"> */}
+                {/* <div className="details-Oneproduct"> */}
+                <tr>
+                  <td className="table2">{i + 1}</td>
+                  <td className="table2">{element.title}</td>
+                  <td className="table2">{element.categoryName}</td>
+                  <td className="table2">{element.brandName}</td>
+                  <td>
+                    <div className="Btns-A">
+                      <p
+                        className="BtnDeleteIcon"
+                        onClick={() => {
+                          productDelete(element.id);
+                        }}
+                      >
+                        <RiDeleteBin6Line />
+                      </p>
+                      <p
+                        className="BtnDUpdateIcon"
+                        onClick={() => {
+                          navigate(`/admin/product/${element.id}`);
+                        }}
+                      >
+                        <BiEdit />
+                      </p>
+                    </div>
+                  </td>
+                  {/* </div> */}
+                </tr>
+                {/* </div> */}
+              </>
+            );
+          })}
+      </table>
       {/* </div> */}
-      {Product &&
-        Product.map((element, i) => {
-          return (
-            <>
-            {/* <div className="details-Product-row"> */}
-              {/* <div className="details-Oneproduct"> */}
-              <tr>
-              <td className="table2">{i + 1}</td>
-              <td className="table2">{element.title}</td>
-              <td className="table2">{element.categoryName}</td>
-              <td className="table2" >{element.brandName}</td>
-              <td >
-                <div className="Btns-A">
-                <p className="BtnDeleteIcon"
-                  onClick={() => {
-                    productDelete(element.id);
-                  }}
-                >
-                 <RiDeleteBin6Line />
-                </p>
-                <p  className="BtnDUpdateIcon"
-                  onClick={() => {
-                    navigate(`/admin/product/${element.id}`);
-                  }}
-                >
-                 <BiEdit />
-                </p>
-                </div>
-              </td>
-              {/* </div> */}
-               </tr> 
-            {/* </div> */}
-            </>
-        );
-        })}
-      
-        </table>
-    {/* </div> */}
     </div>
   );
 };
