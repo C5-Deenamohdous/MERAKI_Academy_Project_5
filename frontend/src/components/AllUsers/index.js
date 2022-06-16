@@ -73,7 +73,7 @@ const UsersControlPanel = () => {
                
                     <td  className="table">{element.email}</td>
                   
-                    <td  className="table">{element.address}</td>
+                    <td  className="table">{element.Address}</td>
                  
                  
                   
