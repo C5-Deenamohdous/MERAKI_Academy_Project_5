@@ -68,7 +68,7 @@ const NavBar = () => {
           </span>
           </div>
           <div className="Cont-Log">
-          <span className="Infin">Infnity</span>
+          <span className="Infin">Infinity</span>
           <span className="Zone">Zone</span>
           </div>
       </div>

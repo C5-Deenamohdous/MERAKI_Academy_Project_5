@@ -30,7 +30,7 @@ const AdminNavBar = () => {
           </span>
           </div>
           <div className="Cont-Log1">
-          <span className="Infin1">Infnity</span>
+          <span className="Infin1">Infinity</span>
           <span className="Zone1">Zone</span>
           </div>
       </div>
