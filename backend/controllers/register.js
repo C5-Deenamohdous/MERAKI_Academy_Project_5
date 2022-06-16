@@ -33,7 +33,7 @@ const register = async (req, res) => {
     role_id || 2,
     Address,
   ];
-
+//dina
   connection.query(query, data, (err, result) => {
     if (err) {
       if (err.code === "ER_DUP_ENTRY") {
