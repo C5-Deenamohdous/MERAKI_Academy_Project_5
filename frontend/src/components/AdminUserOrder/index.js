@@ -15,7 +15,7 @@ const AdminUserOrder = () => {
     };
   });
   const getAllUserOrders = () => {
-    axios.get(`http://localhost:5000/order/user/${id}`).then((result) => {
+    axios.get(`https://infintyzone.herokuapp.com/order/user/${id}`).then((result) => {
       console.log(result);
       dispatch(setAllUserOrders(result.data.result));
     });

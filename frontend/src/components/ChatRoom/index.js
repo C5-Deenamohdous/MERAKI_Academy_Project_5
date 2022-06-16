@@ -3,7 +3,7 @@ import "../ChatRoom/style.css"
 import { useState } from "react";
 import Chat from "../Chat"
 
-const socket = io.connect("http://localhost:5000");
+const socket = io.connect("https://infintyzone.herokuapp.com");
 
 function ChatRoom() {
   const [username, setUsername] = useState("");

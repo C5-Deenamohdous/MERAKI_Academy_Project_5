@@ -13,7 +13,7 @@ const AdminCompletedOrders = () => {
     };
   });
   const getCompletedOrders = () => {
-    axios.get(`http://localhost:5000/order/all_completed`).then((result) => {
+    axios.get(`https://infintyzone.herokuapp.com/order/all_completed`).then((result) => {
       console.log(result);
       dispatch(setCompletedOrders(result.data.result));
     });

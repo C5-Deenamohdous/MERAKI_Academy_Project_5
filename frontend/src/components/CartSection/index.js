@@ -25,7 +25,7 @@ const CartSection = () => {
 
   const getProductInCart = () => {
     axios
-      .get(`http://localhost:5000/cart`, {
+      .get(`https://infintyzone.herokuapp.com/cart`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -43,7 +43,7 @@ const CartSection = () => {
   const changeQuantityInCart = (product_id, updatedQuantity) => {
     axios
       .put(
-        `http://localhost:5000/cart/change_quantity/${product_id}`,
+        `https://infintyzone.herokuapp.com/cart/change_quantity/${product_id}`,
         {
           quantityInCart: updatedQuantity,
         },
@@ -69,7 +69,7 @@ const CartSection = () => {
 
   const deleteFromCart = (id) => {
     axios
-      .delete(`http://localhost:5000/cart/${id}`, {
+      .delete(`https://infintyzone.herokuapp.com/cart/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -171,75 +171,6 @@ const CartSection = () => {
           </button>
         </div>
       </div>
-
-      {/* <div className="CartOneProduct">
-        <div className="ContainerInfoAndImage">
-          <p className="CartHeader-P Bottom">Product</p>
-        </div>
-        <div className="CartPrice Bottom">
-          <p className="CartHeader-P Bottom">Price</p>
-        </div>
-
-        <p className="CartQuantity Bottom">Quantity</p>
-        <p className="CartTotal Bottom">Total</p>
-      </div>
-      {cart &&
-        cart.map((element) => {
-          return (
-            <div className="CartOneProduct">
-              <div className="ContainerInfoAndImage">
-                <div className="Image">
-                  <img src={element.productImage} />
-                </div>
-                <div className="infoInCart">
-                  <p>{element.title}</p>
-                  <p>{element.description}</p>
-                </div>
-              </div>
-
-              <div className="CartPrice">
-                <p>{element.price}</p>
-              </div>
-
-              <div className="CartQuantity">
-                <div className="CartBtnsContainer">
-                  <button
-                    onClick={() => {
-                      changeQuantityInCart(
-                        element.product_id,
-                        element.quantityInCart + 1
-                      );
-                    }}
-                  >
-                    +
-                  </button>
-                  <span>x{element.quantityInCart}</span>
-                  <button
-                    onClick={() => {
-                      changeQuantityInCart(
-                        element.product_id,
-                        element.quantityInCart - 1
-                      );
-                      if (element.quantityInCart - 1 == 0) {
-                        deleteFromCart(element.product_id);
-                      }
-                    }}
-                  >
-                    -
-                  </button>
-                </div>
-              </div>
-
-              <div className="CartTotal">
-                <AddToCartButton productId={element.product_id} />
-                <p>{element.quantityInCart * element.price}</p>
-              </div>
-            </div>
-          );
-        })}
-      // <div className="SubTotal">Subtotal {subTotal} </div>
-      <CheckOut /> */}
-      {/* <CheckOut /> */}
     </div>
   );
 };

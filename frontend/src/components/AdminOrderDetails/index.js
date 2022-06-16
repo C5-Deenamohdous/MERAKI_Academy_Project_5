@@ -29,7 +29,7 @@ const OrderDetails = () => {
   const getOneOrderDetail = () => {
     console.log(id, "ooooooooo");
     axios
-      .get(`http://localhost:5000/order/one_order/${id}`)
+      .get(`https://infintyzone.herokuapp.com/order/one_order/${id}`)
       .then((result) => {
   
         setUserName(result.data.result[0].firstName);

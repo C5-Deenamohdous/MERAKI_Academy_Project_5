@@ -16,7 +16,7 @@ const AdminUserCompletedOrders = () => {
   });
   const getAllUserCompletedOrders = () => {
     axios
-      .get(`http://localhost:5000/order/user_completed/${id}`)
+      .get(`https://infintyzone.herokuapp.com/order/user_completed/${id}`)
       .then((result) => {
         console.log(result);
         dispatch(setAllCompletedForUser(result.data.result));

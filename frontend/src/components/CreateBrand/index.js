@@ -28,7 +28,7 @@ const CreateBrand = () => {
     try {
 
       const result = await axios.post(
-        `http://localhost:5000/admin/create_brand/${catId}`,
+        `https://infintyzone.herokuapp.com/admin/create_brand/${catId}`,
 
         {
           brandName: brandName,
@@ -63,7 +63,7 @@ const CreateBrand = () => {
 
   const CategoryInsideCreatBrand = () => {
     axios
-      .get(`http://localhost:5000/product/categoryName`)
+      .get(`https://infintyzone.herokuapp.com/product/categoryName`)
       .then((result) => {
         setCategory(result.data.result);
       })

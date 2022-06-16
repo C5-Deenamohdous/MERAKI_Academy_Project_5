@@ -20,7 +20,7 @@ const CategAndBrand = () => {
 
   const getRandomCatWithBrand = () => {
     axios
-      .get(`http://localhost:5000/product/categoryName`)
+      .get(`https://infintyzone.herokuapp.com/product/categoryName`)
       .then((result) => {
         let random = Math.random();
         setCategory(
@@ -29,7 +29,7 @@ const CategAndBrand = () => {
         test = [...result.data.result].sort((a, b) => 0.5 - random).slice(0, 3);
         test.forEach((element, i) => {
           axios
-            .get(`http://localhost:5000/product/brand_for_catg/${element.id}`)
+            .get(`https://infintyzone.herokuapp.com/product/brand_for_catg/${element.id}`)
             .then((result) => {
               if (i == 0) {
                 setBrand1(result.data.result.slice(0, 4));

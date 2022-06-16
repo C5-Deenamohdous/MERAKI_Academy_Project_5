@@ -12,9 +12,8 @@ const OrderStatus = ({ order_id, orderStatus }) => {
   const dispatch = useDispatch();
 
   const completeOrder = (order_id) => {
-    console.log(order_id, "8888888888888888");
     axios
-      .put(`http://localhost:5000/order/status_complete/${order_id}`, {})
+      .put(`https://infintyzone.herokuapp.com/order/status_complete/${order_id}`, {})
       .then((result) => {
         console.log(result, "Make Order Completed");
         dispatch(makeOrderCompleted({ id: order_id, status: 1 }));
@@ -29,7 +28,7 @@ const OrderStatus = ({ order_id, orderStatus }) => {
 
   const UnCompleteOrder = (order_id) => {
     axios
-      .put(`http://localhost:5000/order/status_uncomplete/${order_id}`, {})
+      .put(`https://infintyzone.herokuapp.com/order/status_uncomplete/${order_id}`, {})
       .then((result) => {
         console.log(result, "Make Order UnCompleted");
         dispatch(makeOrderUnCompleted({ id: order_id, status: 0 }));

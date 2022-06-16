@@ -29,7 +29,7 @@ const UserProfile = () => {
   const [isOrderShow, setIsOrderShow] = useState(false);
   const getUserById = () => {
     axios
-      .get(`http://localhost:5000/user/${id}`)
+      .get(`https://infintyzone.herokuapp.com/user/${id}`)
       .then((result) => {
         console.log(result, "user profile");
         dispatch(setuserProfile(result.data.result));
@@ -51,7 +51,7 @@ const UserProfile = () => {
     // let newImg =url || profileImage;
     axios
       .put(
-        `http://localhost:5000/user/${id}`,
+        `https://infintyzone.herokuapp.com/user/${id}`,
 
         {
           id: id,
@@ -86,7 +86,7 @@ const UserProfile = () => {
 
   const DeletUserById = () => {
     axios
-      .delete(`http://localhost:5000/user/${id}`, {
+      .delete(`https://infintyzone.herokuapp.com/user/${id}`, {
         id: id,
       })
       .then((result) => {
@@ -114,8 +114,6 @@ const UserProfile = () => {
       <div className="Header_Profile">
         <h2>Profile</h2>
       </div>
-      {/* <div className="big_container"> */}
-      {/* LeftContainer-Profile */}
       <div
         className={
           id == userId ? "LeftContainer-Profile" : "LeftContainer-ProfileVisit"

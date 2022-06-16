@@ -40,7 +40,7 @@ const CreateProduct = () => {
 
     axios
       .post(
-        `http://localhost:5000/admin/add_product`,
+        `https://infintyzone.herokuapp.com/admin/add_product`,
 
         {
           title,
@@ -81,7 +81,7 @@ const CreateProduct = () => {
 
   const CategoryInsideCreatProduct = () => {
     axios
-      .get(`http://localhost:5000/product/categoryName`)
+      .get(`https://infintyzone.herokuapp.com/product/categoryName`)
       .then((result) => {
         setCategory(result.data.result);
       })
@@ -94,7 +94,7 @@ const CreateProduct = () => {
 
   const BrandsInsideCreatProduct = () => {
     axios
-      .get(`http://localhost:5000/product/brandName`)
+      .get(`https://infintyzone.herokuapp.com/product/brandName`)
       .then((result) => {
         setBrand(result.data.result);
       })
@@ -187,109 +187,6 @@ const CreateProduct = () => {
           </button>
         </div>
       </div>
-
-      {/* <>
-        <div className="Select-C">
-          <h2>Please choose your Category Name then your Brand Name</h2>
-            <select
-              onChange={(e) => {
-                console.log(e.target.value);
-                setCategory_id(e.target.value);
-              }}
-            >
-              <option disabled selected>
-                CategoryName
-              </option>
-              {category &&
-                category.map((element, i) => {
-                  return (
-                    <option value={element.id}>{element.categoryName}</option>
-                  );
-                })}
-            </select>
-// ==
-            <select
-              onChange={(e) => {
-                console.log(e.target.value);
-                setBrand_id(e.target.value);
-              }}
-            >
-              <option disabled selected>
-                BrandName
-              </option>
-              {Brand &&
-                Brand.map((elem) => {
-                  return <option value={elem.id}>{elem.brandName}</option>;
-                })}
-            </select>
-          </div>
-        <div className="inputboxAhd">
-          <div className="inputboxAhmad">
-            <div>
-              <input
-                placeholder="enter the title of your product here"
-                className="input-data-textarea"
-                onChange={(e) => setTitle(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="inputboxAhmad">
-            <div>
-              <input
-                placeholder="Description of your product here"
-                className="input-data-textarea"
-                onChange={(e) => setDescription(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="inputboxAhmad">
-            <div>
-              <input
-                placeholder="product Image"
-                className="input-data-textarea"
-                onChange={(e) => setProductImage(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="inputboxAhmad">
-            <div>
-              <input
-                placeholder="price"
-                className="input-data-textarea"
-                onChange={(e) => setPrice(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="inputboxAhmad">
-            <div>
-              <input
-                placeholder="Quantity"
-                className="input-data-textarea"
-                onChange={(e) => setQuantity(e.target.value)}
-              />
-            </div>
-
-
-          </div> 
-          <br/>
-                    <div className="imgcloudP">
-              <Cloud
-                setProductImage={setProductImage}
-                url={url}
-                setUrl={setUrl}
-              />
-            </div>
- 
-        </div>     
-            <button 
-            className="add_productone"
-            onClick={() => {
-              add_product();
-            }}
-          >
-            Add product
-          </button>
-      </> */}
     </div>
   );
 };

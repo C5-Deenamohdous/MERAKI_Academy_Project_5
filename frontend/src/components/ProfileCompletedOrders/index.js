@@ -10,7 +10,7 @@ const ProfileCompleteddOrders = () => {
 
   const CompletedOrderProfile = () => {
     axios
-      .get(`http://localhost:5000/order/user_completed/${id}`)
+      .get(`https://infintyzone.herokuapp.com/order/user_completed/${id}`)
       .then((result) => {
         setCompleteOrderes(result.data.result);
         console.log(result);

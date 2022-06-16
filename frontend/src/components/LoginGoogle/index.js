@@ -20,7 +20,7 @@ const LoginGoogle = () => {
 
   const Google = (email) => {
     axios
-      .post("http://localhost:5000/LoginGoogle", {
+      .post("https://infintyzone.herokuapp.com/LoginGoogle", {
         email: email,
       })
       .then((result) => {

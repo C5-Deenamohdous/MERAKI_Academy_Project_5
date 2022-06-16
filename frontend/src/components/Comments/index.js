@@ -31,7 +31,7 @@ const Comment = ({ id }) => {
   const [isOpen, setIsOpen] = useState(false);
   const getCommentById = () => {
     axios
-      .get(`http://localhost:5000/comment/${id}`)
+      .get(`https://infintyzone.herokuapp.com/comment/${id}`)
       .then((result) => {
         console.log(result, "**!!!!!!!**all comments ");
         dispatch(setComment(result.data.result));
@@ -46,7 +46,7 @@ const Comment = ({ id }) => {
   const deleteComment = (commentId) => {
     console.log(commentId, "PPPPPPPPPpP");
     axios
-      .delete(`http://localhost:5000/comment/${commentId}`, {
+      .delete(`https://infintyzone.herokuapp.com/comment/${commentId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -63,7 +63,7 @@ const Comment = ({ id }) => {
   const updateComment = (commentId) => {
     axios
       .put(
-        `http://localhost:5000/comment/${commentId}`,
+        `https://infintyzone.herokuapp.com/comment/${commentId}`,
         {
           comment: newComment,
         },
@@ -93,7 +93,7 @@ const Comment = ({ id }) => {
   const createComment = () => {
     axios
       .post(
-        `http://localhost:5000/comment/${id}`,
+        `https://infintyzone.herokuapp.com/comment/${id}`,
         {
           comment: addComment,
         },

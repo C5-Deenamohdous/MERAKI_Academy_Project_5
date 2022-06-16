@@ -39,7 +39,7 @@ const UpdateProduct = () => {
 
   const CategoryInsideUpdate = () => {
     axios
-      .get(`http://localhost:5000/product/categoryName`)
+      .get(`https://infintyzone.herokuapp.com/product/categoryName`)
       .then((result) => {
         setCategory(result.data.result);
       })
@@ -50,7 +50,7 @@ const UpdateProduct = () => {
 
   const getOneProduct = () => {
     axios
-      .get(`http://localhost:5000/product/${id}`)
+      .get(`https://infintyzone.herokuapp.com/product/${id}`)
       .then((result) => {
         console.log(result, "******one product");
         dispatch(setOneProduct(result.data.result));
@@ -67,7 +67,7 @@ const UpdateProduct = () => {
   const updateProduct = (productId) => {
     let newImg = url || productImage;
     axios
-      .put(`http://localhost:5000/admin/update_product/${productId}`, {
+      .put(`https://infintyzone.herokuapp.com/admin/update_product/${productId}`, {
         title,
         description,
         productImage: newImg,
@@ -157,67 +157,11 @@ const UpdateProduct = () => {
                       }}
                     />
                   </div>
-                 
-                  {/* <div className="catgDiv">
-                    <p>Category:</p>
-                    {isChanged ? (
-                      categName
-                    ) : (
-                      <span>{element.categoryName}</span> 
-                    )}*/}
-                    {/* <select
-                      onChange={(e) => {
-                        console.log(e.target.className,"value");
-                        console.log(e.target.innerText,"innr");
-
-                        setCategory_id(e.target.value);
-                        setCatgName(e.target.innerText);
-
-                      }}
-                    >
-                      <option disabled selected>
-                        Change Category
-                      </option>
-                      {category &&
-                        category.map((el) => {
-                          return <option value={el.id} className={`${el.categoryName} `
-                        }
-                          > {el.categoryName}</option>;
-                        })}
-                    </select> */}
-                  {/* </div> */}
                 </div>
               </div>
-              {/* {isClicked ? (
-                <span className="Categ">
-                  {category &&
-                    category.map((el) => {
-                      return (
-                        <p
-                          onClick={(e) => {
-                            setIsClicked(false);
-                            setCategory_id(el.id);
-                            setIsChanged(true);
-                            setCatgName(e.target.innerText);
-                          }}
-                        >
-                          {el.categoryName}
-                        </p>
-                      );
-                    })}
-                </span>
-              ) : (
-                ""
-              )} */}
+           
+    
               <div className="Test">
-               
-                {/* <span className="deleteBTNAdmin"
-                  onClick={() => {
-                    navigate(-1);
-                  }}
-                >
-                  <RiArrowGoBackFill/>Back
-                </span>  */}
                 <button  className="updateBTNAdmin"
                   onClick={() => {
                     updateProduct(oneProduct[0].id);
@@ -249,8 +193,6 @@ const UpdateProduct = () => {
 <span className="imgGreen"> <BsCheckCircleFill/> </span>
 </div>
 </Modal>
-      {/* <h1>{message}</h1> */}
-
     </div>
   );
 };

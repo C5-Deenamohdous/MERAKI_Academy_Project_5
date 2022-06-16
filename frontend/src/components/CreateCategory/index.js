@@ -25,7 +25,7 @@ const CreateCategory = () => {
         categoryName,
       };
       const result = await axios.post(
-        `http://localhost:5000/admin/create_category`,
+        `https://infintyzone.herokuapp.com/admin/create_category`,
         category,
         {
           headers: {
@@ -85,36 +85,3 @@ const CreateCategory = () => {
 };
 
 export default CreateCategory;
-
-//   <div className="creatnewBrandBar">
-//   <p >
-//    <BiCategory/>Create New category
-//   </p>
-// </div>
-
-// <div className="categoryReturn">
-//   <form className="NewCategory" onSubmit={NewCategory
-
-//   }>
-//     <h1>  specify the category of your Brand</h1>
-//     <br />
-
-//     <div>
-//         <input
-//           placeholder="category Name here"
-//           className="input-data-textarea"
-//           onChange={(e) => setcategoryName(e.target.value)}
-//         />
-//       </div>
-//     <br />
-
-//     <br />
-//     <button className="add_categ">Create New category</button>
-//   </form>
-//   <br />
-//   <div className="CreateNewCategoryMessage">
-//   {status
-//     ? message && <div className="SuccessMessage">{message}</div>
-//     : message && <div className="ErrorMessage">{message}</div>}
-//     </div>
-// </div>

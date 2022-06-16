@@ -25,7 +25,7 @@ const UserProfilePanel = () => {
 
   const userDelete = () => {
     axios
-      .delete(`http://localhost:5000/admin/delete_user/${id}`)
+      .delete(`https://infintyzone.herokuapp.com/admin/delete_user/${id}`)
       .then((result) => {
         dispatch(deleteuser());
       })
@@ -58,13 +58,6 @@ const UserProfilePanel = () => {
                 <div>  Email :{element.email}</div>
                 <div>  Address :{element.address}</div>
                   <div className="buttonsForOneUser">
-      {/* <button className="userOrderButonInAdmin"
-                  onClick={() => {
-                    navigate(`/admin/user_orders/${element.id}`);
-                  }}
-                >
-                  User Orders
-                </button> */}
                 <button className="deleteUserBtnAdmin"
                   onClick={() => {
                     userDelete(element.id);
@@ -86,7 +79,7 @@ const UserProfilePanel = () => {
 
   const getAllUsers = () => {
     axios
-      .get(`http://localhost:5000/user/${id}`)
+      .get(`https://infintyzone.herokuapp.com/user/${id}`)
       .then((result) => {
         dispatch(setuserProfile(result.data.result));
       })
@@ -116,19 +109,10 @@ const UserProfilePanel = () => {
         >
           Orders
         </span>
-        {/* <span
-          onClick={() => {
-            setIsUserInfo(false);
-            setOrdersSection(false);
-            setIsCommentsSection(true);
-          }}
-        >
-          Comments
-        </span> */}
+
       </div>
       {isUserInfo ? <UserInfoComponent /> : ""}
       {isOrdersSection ? <AdminPanelUserOrderContainer /> : ""}
-      {/* {isCommentsSection ? "Commeeeent" : ""} */}
     </div>
   );
 };

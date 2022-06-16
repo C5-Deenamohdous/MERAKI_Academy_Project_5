@@ -16,7 +16,7 @@ const AdminUserUnCompletedOrders = () => {
   });
   const getAllUnCompletedForUser = () => {
     axios
-      .get(`http://localhost:5000/order/user_uncompleted/${id}`)
+      .get(`https://infintyzone.herokuapp.com/order/user_uncompleted/${id}`)
       .then((result) => {
         console.log(result);
         dispatch(setAllUnCompletedForUser(result.data.result));

@@ -45,7 +45,7 @@ const Product = () => {
 
   const getAllProducts = async () => {
     axios
-      .get(`http://localhost:5000/product/?page=1&limit=12`)
+      .get(`https://infintyzone.herokuapp.com/product/?page=1&limit=12`)
 
       .then((result) => {
         console.log(result, "}/!!!!}}");
@@ -60,7 +60,7 @@ const Product = () => {
   //
   const nextPage = (page) => {
     axios
-      .get(`http://localhost:5000/product/?page=${page}&limit=12`)
+      .get(`https://infintyzone.herokuapp.com/product/?page=${page}&limit=12`)
       .then((result) => {
         dispatch(setProducts(result.data.result));
       })
@@ -71,7 +71,7 @@ const Product = () => {
 
   const getAllCategories = () => {
     axios
-      .get(`http://localhost:5000/product/categoryName`)
+      .get(`https://infintyzone.herokuapp.com/product/categoryName`)
       .then((result) => {
         setAllCategory(result.data.result);
       })
