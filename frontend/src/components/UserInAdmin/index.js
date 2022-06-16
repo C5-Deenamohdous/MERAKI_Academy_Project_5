@@ -116,7 +116,7 @@ const UserProfilePanel = () => {
         >
           Orders
         </span>
-        <span
+        {/* <span
           onClick={() => {
             setIsUserInfo(false);
             setOrdersSection(false);
@@ -124,11 +124,11 @@ const UserProfilePanel = () => {
           }}
         >
           Comments
-        </span>
+        </span> */}
       </div>
       {isUserInfo ? <UserInfoComponent /> : ""}
       {isOrdersSection ? <AdminPanelUserOrderContainer /> : ""}
-      {isCommentsSection ? "Commeeeent" : ""}
+      {/* {isCommentsSection ? "Commeeeent" : ""} */}
     </div>
   );
 };
