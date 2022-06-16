@@ -10,25 +10,57 @@ const ProfileUnCompleteddOrders = () => {
 
   const [completeOrders, setCompleteOrderes] = useState("");
 
-  const unCompleteOrderProfile = () => {
+  const getAllUserOrders = () => {
     axios
-      .get(`http://localhost:5000/order/user_uncompleted/${id}`)
+      .get(`http://localhost:5000/order/user/${id}`)
       .then((result) => {
+        console.log(result, "All Orders For User");
         setCompleteOrderes(result.data.result);
-        console.log(result);
       })
       .catch((err) => {
-        console.log(err, "ERR");
+        console.log(err, "ERR IN USER ORDER");
       });
   };
 
   useEffect(() => {
-    unCompleteOrderProfile();
+    getAllUserOrders();
   }, []);
 
   return (
     <div className="Profile-Cont">
-      <div className="Ord-Profile">
+      <table className="InsidePefile-T">
+        <tr>
+          <th>#</th>
+          <th>Date</th>
+          <th></th>
+        </tr>
+        {completeOrders &&
+          completeOrders.reverse().map((element) => {
+            return (
+              <tr
+                className={
+                  element.orderStatus
+                    ? "completedOrdersColorOneUser"
+                    : "unCompletedOrdersColorOneUser"
+                }
+              >
+                <td>{element.id}</td>
+                <td>{element.orderDate.substring(0, 10)}</td>
+                <td>
+                  <ProfileOrders order_id={element.id} />
+                </td>
+              </tr>
+            );
+          })}
+      </table>
+    </div>
+  );
+};
+
+export default ProfileUnCompleteddOrders;
+
+{
+  /* <div className="Ord-Profile">
         <div className="Ord_Num">#</div>
         <div className="Ord_Date">Date</div>
         <div className="Ord_Status">Status</div>
@@ -54,24 +86,5 @@ const ProfileUnCompleteddOrders = () => {
               </div>
             </div>
           );
-        })}
-    </div>
-  );
-};
-
-/*
-
- <div
-              className="One-Order"
-              onClick={() => {
-                navigate(`/admin/order_details/${element.id}`);
-              }}
-            >
-              <p>{element.id}</p>
-              <p>{element.orderDate}</p>
-              <p>{element.orderStatus ? "Completed" : "Un Completed"} </p>
-            </div>
-
-*/
-
-export default ProfileUnCompleteddOrders;
+        })} */
+}

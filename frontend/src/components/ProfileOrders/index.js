@@ -25,7 +25,7 @@ const ProfileOrders = ({ order_id }) => {
 
   return (
     <>
-      <span
+      <span className="INFO_ORDERS_PROFILE"
         onClick={() => {
           setIsOpen(true);
         }}
@@ -74,7 +74,6 @@ const ProfileOrders = ({ order_id }) => {
               );
             })}
         </div>
-        {/* </div> */}
       </Modal>
     </>
   );
