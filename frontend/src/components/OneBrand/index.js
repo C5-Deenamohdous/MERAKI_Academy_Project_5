@@ -38,7 +38,7 @@ const OneBrand = () => {
   });
   const getOneBrand = () => {
     axios
-      .get(`http://localhost:5000/product/brand/${id}`)
+      .get(`https://infintyzone.herokuapp.com/product/brand/${id}`)
       .then((result) => {
         console.log(result, "******one brand by id ");
         dispatch(setOneBrand(result.data.result));
@@ -52,7 +52,7 @@ const OneBrand = () => {
 
   const getAllCategories = () => {
     axios
-      .get(`http://localhost:5000/product/0000/filter_All_Categ`)
+      .get(`https://infintyzone.herokuapp.com/product/0000/filter_All_Categ`)
       .then((result) => {
         let tempArray = [];
         let test = result.data.result;

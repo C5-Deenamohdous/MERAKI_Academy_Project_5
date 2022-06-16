@@ -18,7 +18,8 @@ const AdminProducts = () => {
 
   const getAllProducts = async () => {
     axios
-      .get(`http://localhost:5000/product/?page=1&limit=12`)
+
+      .get(`https://infintyzone.herokuapp.com/product/?page=1&limit=12`)
 
       .then((result) => {
         console.log(`INSIDE REQUEST`);
@@ -32,7 +33,7 @@ const AdminProducts = () => {
 
   const productDelete = (productId) => {
     axios
-      .delete(`http://localhost:5000/admin/delete_product/${productId}`)
+      .delete(`https://infintyzone.herokuapp.com/admin/delete_product/${productId}`)
       .then((result) => {
         dispatch(deleteProduct(productId));
       })

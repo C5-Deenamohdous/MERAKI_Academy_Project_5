@@ -21,7 +21,7 @@ const OneProduct = () => {
   });
   const getOneProduct = () => {
     axios
-      .get(`http://localhost:5000/product/${id}`)
+      .get(`https://infintyzone.herokuapp.com/product/${id}`)
       .then((result) => {
         console.log(result, "******one product");
         dispatch(setOneProduct(result.data.result));

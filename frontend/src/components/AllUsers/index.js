@@ -19,7 +19,7 @@ const UsersControlPanel = () => {
   });
   const getAllUsers = () => {
     axios
-      .get("http://localhost:5000/admin/users")
+      .get("https://infintyzone.herokuapp.com/admin/users")
       .then((result) => {
         dispatch(setAllUsers(result.data.result));
         console.log(result);

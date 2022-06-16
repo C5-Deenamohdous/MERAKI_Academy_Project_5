@@ -16,7 +16,7 @@ const AddToCartOneProduct= ({ productId, price }) => {
   const AddToCart = (id) => {
     axios
       .post(
-        `http://localhost:5000/cart/${id}`,
+        `https://infintyzone.herokuapp.com/cart/${id}`,
         {
           product_id: id,
         },
@@ -36,7 +36,7 @@ const AddToCartOneProduct= ({ productId, price }) => {
 
   const deleteFromCart = (id) => {
     axios
-      .delete(`http://localhost:5000/cart/${id}`, {
+      .delete(`https://infintyzone.herokuapp.com/cart/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

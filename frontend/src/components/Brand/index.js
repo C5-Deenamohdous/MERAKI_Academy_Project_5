@@ -17,7 +17,7 @@ const Brand = () => {
 
   const getAllBrand = () => {
     axios
-      .get(`http://localhost:5000/product/brandName`)
+      .get(`https://infintyzone.herokuapp.com/product/brandName`)
       .then((result) => {
         console.log(result, "!!!!!!! all  brands");
         dispatch(setBrand(result.data.result));

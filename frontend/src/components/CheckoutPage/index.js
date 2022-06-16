@@ -35,7 +35,7 @@ const CheckOutPage = () => {
 
   const getProductInCart = () => {
     axios
-      .get(`http://localhost:5000/cart`, {
+      .get(`https://infintyzone.herokuapp.com/cart`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -57,7 +57,7 @@ const CheckOutPage = () => {
   const addToOrders = () => {
     axios
       .post(
-        `http://localhost:5000/order`,
+        `https://infintyzone.herokuapp.com/order`,
         {},
         {
           headers: {

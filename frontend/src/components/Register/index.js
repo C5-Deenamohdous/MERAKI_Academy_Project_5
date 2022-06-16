@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-// =================================================================
 const Register = () => {
 
     const isLoggedIn = useSelector((state) => {
@@ -26,11 +25,10 @@ const Register = () => {
     const [message, setMessage] = useState("");
     const [status, setStatus] = useState(false);
     const[isClick,setIsClick]=useState(false)
-    // =================================================================
 
     const addNewUser = async () => {
         try {
-            const result = await axios.post("http://localhost:5000/register", {
+            const result = await axios.post("https://infintyzone.herokuapp.com/register", {
 
                 firstName,
                 lastName,
@@ -54,9 +52,6 @@ const Register = () => {
             setMessage("Error happened while register, please try again");
         }
     };
-
-    // =================================================================
-
     return (
         <>
             <div className="center">

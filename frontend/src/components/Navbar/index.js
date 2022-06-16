@@ -38,7 +38,7 @@ const NavBar = () => {
 
   const SearshGetAllProduct = () => {
     axios
-      .get(`http://localhost:5000/product/search`)
+      .get(`https://infintyzone.herokuapp.com/product/search`)
 
       .then((result) => {
         console.log(result, "search all product");
