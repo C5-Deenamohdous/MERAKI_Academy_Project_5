@@ -20,8 +20,9 @@ const Register = () => {
     const [phoneNumber, setPhoneNumber] = useState("");
     const [profileImage, setProfileImage] = useState("");
     const [email, setEmail] = useState("");
+    const [Address, setAddress] = useState("")
     const [password, setPassword] = useState("");
-    const role_id = "1";
+   
     const [message, setMessage] = useState("");
     const [status, setStatus] = useState(false);
     const[isClick,setIsClick]=useState(false)
@@ -36,7 +37,8 @@ const Register = () => {
                 profileImage,
                 email,
                 password,
-                role_id,
+              Address,
+               
 
             });
             if (result.data.success) {
@@ -103,6 +105,15 @@ const Register = () => {
                                     onChange={(e) => setPhoneNumber(e.target.value)}
                                 />
                               
+                            </div>
+                            <div className="inputLabel">
+                                <input className="lastNameInput"
+                                placeholder="Address"
+                                    type="text"
+                                    required="required"
+                                    onChange={(e) => setAddress(e.target.value)}
+                                />
+                               
                             </div>
                             <div className="inputLabel">
                                 <input className="firstNameInput"

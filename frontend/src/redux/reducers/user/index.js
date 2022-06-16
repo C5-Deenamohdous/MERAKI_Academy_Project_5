@@ -24,6 +24,7 @@ export const user = createSlice({
             lastName: action.payload.lastName,
             phoneNumber: action.payload.phoneNumber,
             profileImage: action.payload.profileImage,
+            Address:action.payload.Address
           };
         }
         return element;

@@ -44,7 +44,7 @@ const UserProfile = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [address, setAddress] = useState("");
+  const [Address, setAddress] = useState("");
   const [profileImage, setProfileImage] = useState("");
   // const [newImg, setNewImg] = useState("");
   const updateUserById = () => {
@@ -58,6 +58,7 @@ const UserProfile = () => {
           firstName,
           lastName,
           phoneNumber,
+         Address,
           profileImage: url || profileImage,
         }
       )
@@ -71,6 +72,7 @@ const UserProfile = () => {
             firstName,
             lastName,
             phoneNumber,
+            Address,
             profileImage: url || profileImage,
           })
         );
@@ -190,6 +192,7 @@ const UserProfile = () => {
                           {
                             setProfileImage(user.profileImage);
                           }
+                         { setAddress(user.Address)}
                         }}
                       >
                         Update your info
@@ -252,7 +255,7 @@ const UserProfile = () => {
                             <input
                               className="firstName1"
                               placeholder="Address"
-                              defaultValue={address}
+                              defaultValue={Address}
                               type="text"
                               required="required"
                               onChange={(e) => setAddress(e.target.value)}
