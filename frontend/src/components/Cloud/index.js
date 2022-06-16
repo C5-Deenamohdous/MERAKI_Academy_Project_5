@@ -1,6 +1,7 @@
 import "./style.css";
 import React, { useState } from "react";
 import axios from "axios";
+import { BsFillCameraFill } from "react-icons/bs";
 const UploadImg = ({ setProfileImage, setUrl, url }) => {
   const [image, setImage] = useState("");
   const [isImgSet, setIsImg] = useState(false);
@@ -23,7 +24,11 @@ const UploadImg = ({ setProfileImage, setUrl, url }) => {
   };
   return (
     <div className="cloud">
+      <label htmlFor="photoID" className="Test-A">
+       <span> <BsFillCameraFill /> </span>
+      </label>
       <input
+        id="photoID"
         type={"file"}
         onChange={(e) => {
           setImage(e.target.files[0]);
@@ -32,7 +37,6 @@ const UploadImg = ({ setProfileImage, setUrl, url }) => {
       />
       {isImgSet ? uploadImage() : ""}
       <br />
-    
     </div>
   );
 };
