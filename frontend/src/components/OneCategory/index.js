@@ -40,7 +40,7 @@ const OneCategory = () => {
   const getOneCategory = () => {
     console.log();
     axios
-      .get(`http://localhost:5000/product/category/${id}`)
+      .get(`https://infintyzone.herokuapp.com/product/category/${id}`)
       .then((result) => {
         console.log(result, "******one category by id ");
         dispatch(setOneCategory(result.data.result));
@@ -57,7 +57,7 @@ const OneCategory = () => {
   const getAllBrandsForCateg = () => {
     console.log();
     axios
-      .get(`http://localhost:5000/product/brand_for_catg/${id}`)
+      .get(`https://infintyzone.herokuapp.com/product/brand_for_catg/${id}`)
       .then((result) => {
         console.log(result, "ALL BRAANDS");
         setBrandsForCateg(result.data.result);

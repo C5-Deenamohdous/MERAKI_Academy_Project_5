@@ -16,7 +16,7 @@ const Category = () => {
   });
   const getAllCategory = () => {
     axios
-      .get(`http://localhost:5000/product/categoryName`)
+      .get(`https://infintyzone.herokuapp.com/product/categoryName`)
       .then((result) => {
         console.log(result, "****** category");
         dispatch(setCategory(result.data.result));

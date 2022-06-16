@@ -20,7 +20,7 @@ const WishlistSection = () => {
     });
     const getProductInWishlist = () => {
       axios
-        .get(`http://localhost:5000/Wishlist`, {
+        .get(`https://infintyzone.herokuapp.com/Wishlist`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -38,7 +38,7 @@ const WishlistSection = () => {
   
     const deleteFromWishlist = (id) => {
       axios
-        .delete(`http://localhost:5000/Wishlist/${id}`, {
+        .delete(`https://infintyzone.herokuapp.com/Wishlist/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

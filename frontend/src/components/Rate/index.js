@@ -51,7 +51,7 @@ const Rate = () => {
     console.log(RecivedRate, "==========");
     axios
       .post(
-        `http://localhost:5000/rating/${id}`,
+        `https://infintyzone.herokuapp.com/rating/${id}`,
         {
           rate: RecivedRate,
         },
@@ -76,7 +76,7 @@ const Rate = () => {
     console.log(updatedValue, "===UPDATED VALUE ===");
     axios
       .put(
-        `http://localhost:5000/rating/${id}`,
+        `https://infintyzone.herokuapp.com/rating/${id}`,
         {
           rate: updatedValue,
         },
@@ -100,7 +100,7 @@ const Rate = () => {
   const getRate = () => {
     console.log("RENDERD");
     axios
-      .get(`http://localhost:5000/rating/${id}`, {
+      .get(`https://infintyzone.herokuapp.com/rating/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

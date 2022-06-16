@@ -30,7 +30,7 @@ const ButtonWrapper = ({ currency, showSpinner }) => {
   const addToOrders = () => {
     axios
       .post(
-        `http://localhost:5000/order`,
+        `https://infintyzone.herokuapp.com/order`,
         {},
         {
           headers: {

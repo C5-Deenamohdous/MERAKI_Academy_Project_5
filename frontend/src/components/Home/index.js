@@ -51,7 +51,7 @@ const Home = () => {
 
   const getCatg1 = () => {
     axios
-      .get(`http://localhost:5000/product/category/1`)
+      .get(`https://infintyzone.herokuapp.com/product/category/1`)
       .then((result) => {
         console.log(result, "Catg1");
         // [...result.data.articles].sort((a, b) => 0.5 - Math.random()
@@ -65,7 +65,7 @@ const Home = () => {
 
   const getCatg2 = () => {
     axios
-      .get(`http://localhost:5000/product/category/2`)
+      .get(`https://infintyzone.herokuapp.com/product/category/2`)
       .then((result) => {
         console.log(result, "Catg2");
         setCatg2([...result.data.result].sort((a, b) => 0.5 - Math.random()));
@@ -78,7 +78,7 @@ const Home = () => {
 
   const getCatg3 = () => {
     axios
-      .get(`http://localhost:5000/product/category/3`)
+      .get(`https://infintyzone.herokuapp.com/product/category/3`)
       .then((result) => {
         console.log(result, "Catg3");
         setCatg3([...result.data.result].sort((a, b) => 0.5 - Math.random()));
@@ -91,7 +91,7 @@ const Home = () => {
 
   const getCatg4 = () => {
     axios
-      .get(`http://localhost:5000/product/category/4`)
+      .get(`https://infintyzone.herokuapp.com/product/category/4`)
       .then((result) => {
         console.log(result, "Catg4");
         setCatg4([...result.data.result].sort((a, b) => 0.5 - Math.random()));
@@ -104,7 +104,7 @@ const Home = () => {
 
   const getProductInWishlist = () => {
     axios
-      .get(`http://localhost:5000/Wishlist`, {
+      .get(`https://infintyzone.herokuapp.com/Wishlist`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -121,7 +121,7 @@ const Home = () => {
 
   const getProductInCart = () => {
     axios
-      .get(`http://localhost:5000/cart`, {
+      .get(`https://infintyzone.herokuapp.com/cart`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

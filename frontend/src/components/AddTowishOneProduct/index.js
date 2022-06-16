@@ -18,7 +18,7 @@ const AddToWishOneProduct = ({ productId }) => {
     console.log(id,"pppppppppid ");
     axios
       .post(
-        `http://localhost:5000/Wishlist/${id}`,
+        `https://infintyzone.herokuapp.com/Wishlist/${id}`,
         {
           product_id: id,
         },
@@ -38,7 +38,7 @@ const AddToWishOneProduct = ({ productId }) => {
 
   const deleteFromWishlist = (id) => {
     axios
-      .delete(`http://localhost:5000/Wishlist/${id}`, {
+      .delete(`https://infintyzone.herokuapp.com/Wishlist/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

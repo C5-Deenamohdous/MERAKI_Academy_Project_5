@@ -12,7 +12,7 @@ const ProfileUnCompleteddOrders = () => {
 
   const getAllUserOrders = () => {
     axios
-      .get(`http://localhost:5000/order/user/${id}`)
+      .get(`https://infintyzone.herokuapp.com/order/user/${id}`)
       .then((result) => {
         console.log(result, "All Orders For User");
         setCompleteOrderes(result.data.result);
@@ -59,32 +59,3 @@ const ProfileUnCompleteddOrders = () => {
 
 export default ProfileUnCompleteddOrders;
 
-{
-  /* <div className="Ord-Profile">
-        <div className="Ord_Num">#</div>
-        <div className="Ord_Date">Date</div>
-        <div className="Ord_Status">Status</div>
-        <div className="Icon"></div>
-      </div>
-      {completeOrders &&
-        completeOrders.map((element) => {
-          return (
-            <div className="Ord-Profile">
-              <div className="Ord_Num">
-                <span>{element.id}</span>
-              </div>
-              <div className="Ord_Date">
-                <span>{element.orderDate.substring(0, 10)}</span>
-              </div>
-              <div className="Ord_Status">
-                <span>
-                  {element.orderStatus ? "Completed" : "Un Completed"}
-                </span>
-              </div>
-              <div className="Icon">
-                <ProfileOrders order_id={element.id} />
-              </div>
-            </div>
-          );
-        })} */
-}

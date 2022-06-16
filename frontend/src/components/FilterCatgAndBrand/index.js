@@ -15,7 +15,7 @@ const FilterCatgAndBrand = ({ setIsFilterClicked }) => {
 
   const getAllCategories = () => {
     axios
-      .get(`http://localhost:5000/product/categoryName`)
+      .get(`https://infintyzone.herokuapp.com/product/categoryName`)
       .then((result) => {
         setCategory(result.data.result);
       })
@@ -29,7 +29,7 @@ const FilterCatgAndBrand = ({ setIsFilterClicked }) => {
 
   const getAllBrand = () => {
     axios
-      .get(`http://localhost:5000/product/brandName`)
+      .get(`https://infintyzone.herokuapp.com/product/brandName`)
       .then((result) => {
         setBrand(result.data.result);
       })

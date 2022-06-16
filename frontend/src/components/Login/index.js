@@ -27,7 +27,7 @@ const Login = () => {
     e.preventDefault();
     console.log("Login:");
     try {
-      const res = await axios.post("http://localhost:5000/login", {
+      const res = await axios.post("https://infintyzone.herokuapp.com/login", {
         email,
         password,
       });
