@@ -45,6 +45,7 @@
   padding: 20px;
 }
 .details-Container {
+  width: 100%;
   justify-content: flex-start;
   align-items: flex-start;
   margin-top: 6em;
