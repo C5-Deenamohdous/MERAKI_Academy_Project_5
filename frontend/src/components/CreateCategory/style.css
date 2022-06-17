@@ -12,8 +12,9 @@
   display: flex;
   color: black;
   margin-top: 15px;
-  justify-content: center;
-  width: 100%;
+  justify-content: flex-start;
+  width: 93.50%;
+  margin-left: 3%;
   font-size: 20px;
   font-weight: 600;
   height: 5vh;
