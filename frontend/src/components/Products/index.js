@@ -6,6 +6,9 @@ import AddToCartButton from "../AddToCart";
 import AddToWishlistButton from "../addToWishlistButton";
 import { setProducts } from "../../redux/reducers/products";
 import { useNavigate } from "react-router-dom";
+import { FcNext } from "react-icons/fc";
+import { FcPrevious } from "react-icons/fc";
+
 //====
 import FilterCatgAndBrand from "../FilterCatgAndBrand";
 //====
@@ -315,9 +318,9 @@ const Product = () => {
       ) : (
         ""
       )}
-
+<div className="nextback">
       {clickNext ? (
-        <button
+        <span
           className="backButton"
           onClick={() => {
             setPage(page - 1);
@@ -325,13 +328,13 @@ const Product = () => {
             nextPage(page - 1);
           }}
         >
-          back
-        </button>
+          <FcPrevious/>
+        </span>
       ) : (
         ""
       )}
 
-      <button
+      <span
         className="nextButton"
         onClick={() => {
           setPage(page + 1);
@@ -340,8 +343,9 @@ const Product = () => {
           setClickNext(true);
         }}
       >
-        next
-      </button>
+       <FcNext/>
+      </span>
+    </div>
     </div>
   );
 };
