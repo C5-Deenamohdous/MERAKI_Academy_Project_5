@@ -67,27 +67,39 @@ Now App Is Ready
 ## 🎈 Usage <a name="usage"></a>
 
  
+1-starting with HomePage that  provides NavBar for first time visit with ShopNow button that navigates you to All Products page and list of all categories renders in bottom.
+![HomePage](pic/Home.jpg)
+2- product page that has filter and sort by price and alphabet  
 
-![HomePage]()
+ ![PRODUCT](pic/PAGE.jpg)
+3- filtered by category and brand name
+ ![PRODUCT](pic/FILTER.png)
+ 4-User profile details
+![userProfile](pic/profile.png)
+5-Search according to the title of product 
+ ![search](pic/search.png)
+ 6-showing one product with all details and rate it according to yor experience and the user can write comment in the same page 
+ ![oneProduct](pic/one.jpg)
 
+7- Adding items to the cart or wish list
+ ![cart](pic/cart.png)
 
-
-
- ![Login]()
-
-
-![dashBoard]()
-
-
-
-
-  ![done]()
-
-
-
+ ![wish](pic/wish.png)
+ 8- user confirm their order and press checkout to complete all terms and choose payment method 
  
+![checkout](pic/out.png)
+9-Admin panel nav bar is different so he can login and use his own permissions and see all products and could delete and update each one also he could create category,product and brand 
+  ![admin](pic/admin.png)
+// Update product 
+  ![admin](pic/image.png)
+10-Admin can also see the all order and change statues from complete to incomplete  
+   ![admin](pic/oreder.png)
+11-once the add=min click o user will appears table of users name and he can see each user account with user's order
 
-![addCase]()
+**table of all users accounts
+![admin](pic/usesss.png)
+** One User Account
+![admin](pic/user1.png)
 
 
 ## ⛏️ Built Using <a name = "built_using"></a>
