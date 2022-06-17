@@ -19,8 +19,7 @@ function Chat({ socket, username, room }) {
       };
 
       await socket.emit("send_message", messageData);
-      setMessageList([...messageList, messageData]); //  ineed to cheak the length of the array 
-      // and push to the array 
+      setMessageList([...messageList, messageData]);
       setCurrentMessage("");
     }
   };
