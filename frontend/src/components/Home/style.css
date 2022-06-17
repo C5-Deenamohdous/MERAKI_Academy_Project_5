@@ -148,16 +148,24 @@
 }
 
 .back .Flip .Show-More {
+  align-self: center;
   cursor: pointer;
   width: 100px;
   height: 40px;
   border-radius: 10px;
+  border: none;
+  background: var(--secondaryBlack);
+  color: white;
+}
+.back .Flip .Show-More:hover {
+  background-color: var(--btnsColor);
+  transform: 0.3s;
 }
 
 .Flip .Cart-Btns {
   position: absolute;
-  top: 34%;
-  right: 36%;
+  top: 35%;
+  /* right: 36%; */
   margin-left: 0px;
   display: flex;
   gap: 5px;
@@ -170,6 +178,8 @@
   height: 100%;
   width: 100%;
   flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
 }
 
 .Flip .Cart-Btns span {

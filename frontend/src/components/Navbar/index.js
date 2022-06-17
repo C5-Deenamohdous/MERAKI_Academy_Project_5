@@ -7,7 +7,8 @@ import { CgInfinity } from "react-icons/cg";
 import { AiOutlinePoweroff, AiOutlineSearch } from "react-icons/ai";
 import { FiLogIn } from "react-icons/fi";
 import { BsCart, BsStars, BsArrowDownShort } from "react-icons/bs";
-import { GiUbisoftSun, GiHeraldicSun } from "react-icons/gi";
+// import { GrUserAdmin } from "react-icons/gr";
+import { RiAdminLine } from "react-icons/ri";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -66,11 +67,11 @@ const NavBar = () => {
           <span className="ICON">
             <CgInfinity />
           </span>
-          </div>
-          <div className="Cont-Log">
+        </div>
+        <div className="Cont-Log">
           <span className="Infin">Infinity</span>
           <span className="Zone">Zone</span>
-          </div>
+        </div>
       </div>
 
       <div className="CENTER-NAV">
@@ -101,6 +102,22 @@ const NavBar = () => {
         >
           Profile
         </span>
+
+        <span
+          onClick={() => {
+            navigate(`/user/${userId}`);
+          }}
+        >
+          My Orders
+        </span>
+        <span
+          onClick={() => {
+            navigate(`/user/${userId}`);
+          }}
+        >
+          Contact
+        </span>
+
         <div className="SEARCH-Container">
           <input
             className="serch"
@@ -164,6 +181,17 @@ const NavBar = () => {
       </div>
 
       <div className="RIGT-NAV">
+        {/*  */}
+        <div className="AdminIcon">
+          <span
+            onClick={() => {
+              navigate("/Login");
+            }}
+          >
+            <RiAdminLine />
+          </span>
+        </div>
+        {/*  */}
         <div className="Login-Logout">
           {isLoggedIn ? (
             <span
@@ -184,6 +212,7 @@ const NavBar = () => {
             </span>
           )}
         </div>
+
         <div className="WISH-NAV">
           <span className="Number">{isLoggedIn ? Wishlist.length : 0}</span>
           <span

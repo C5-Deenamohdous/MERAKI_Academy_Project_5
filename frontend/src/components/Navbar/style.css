@@ -77,7 +77,6 @@
 }
 
 .title_photo_search:hover {
-  background-color: rgb(224, 222, 222);
   transition: 0.3s;
   cursor: pointer;
 }
@@ -209,6 +208,9 @@
   font-size: 22px;
 }
 
+.AdminIcon svg { 
+  font-size: 22px;
+}
 .Login-Logout svg {
   font-size: 22px;
 }
