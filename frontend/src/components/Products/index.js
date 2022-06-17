@@ -210,7 +210,7 @@ const Product = () => {
             <option value="5">Z-A</option>
           </select>
           {/* ============================= */}
-          <select
+          {/* <select
             onChange={(e) => {
               setIsFilter2(true);
               if (isFilter1) {
@@ -254,7 +254,7 @@ const Product = () => {
                   </option>
                 );
               })}
-          </select>
+          </select> */}
         </div>
 
         <span

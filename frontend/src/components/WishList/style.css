@@ -201,6 +201,7 @@ td {
   font-weight: 600;
   cursor: pointer;
   border: none;
+  height: 55px;
 }
 .TotalForWishlist button:hover {
   background-color: var(--btnsColor);

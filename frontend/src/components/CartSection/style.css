@@ -145,11 +145,13 @@ td {
 
 .T-icon {
   width: 5%;
+  color: var(--btnsColor);
+  cursor: pointer;
 }
-.T-icon .CartBtns svg{ 
-color: var(--btnsColor);
-cursor: pointer;
-} 
+.T-icon .CartBtns svg {
+  color: var(--btnsColor);
+  cursor: pointer;
+}
 
 .PlusBtns {
   width: 100%;
@@ -233,7 +235,7 @@ cursor: pointer;
   font-size: 21px;
 }
 
-.Co- { 
+.Co- {
   color: var(--btnsColor);
 }
 .BtnToCheckOutPage {

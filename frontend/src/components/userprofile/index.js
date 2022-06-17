@@ -146,7 +146,7 @@ const UserProfile = () => {
                     </div>
                     <div className="line">
                         <label className="B">Adress:</label>
-                        <p>{user.address}</p>
+                        <p>{user.Address}</p>
                     </div>
                     
                     <div className="line">

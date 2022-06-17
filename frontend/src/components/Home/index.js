@@ -91,7 +91,7 @@ const Home = () => {
 
   const getCatg4 = () => {
     axios
-      .get(`https://infintyzone.herokuapp.com/product/category/4`)
+      .get(`https://infintyzone.herokuapp.com/product/category/54`)
       .then((result) => {
         console.log(result, "Catg4");
         setCatg4([...result.data.result].sort((a, b) => 0.5 - Math.random()));
