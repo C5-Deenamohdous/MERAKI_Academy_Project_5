@@ -1,0 +1,21 @@
+.nextback{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.nextButton{
+display: flex;
+/* margin: 0% auto; */
+cursor: pointer;
+font-size: 50px;
+right: 0px;
+
+}
+.backButton{
+    display: flex;
+    /* margin: 0% auto; */
+    cursor: pointer;
+    font-size: 50px;
+
+
+}

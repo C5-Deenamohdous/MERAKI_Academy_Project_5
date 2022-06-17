@@ -20,10 +20,10 @@ export default function Analysis() {
         { x: 1, y: 4 },
         { x: 2, y: 6 },
         { x: 3, y: 8 },
-        { x: 4, y: 10 },
+        { x: 4, y: 8 },
         { x: 5, y: 12 },
         { x: 6, y: 14 },
-        { x: 7, y: 16 },
+        { x: 7, y: 14 },
 
         
     ];
@@ -33,7 +33,7 @@ export default function Analysis() {
         { x: 1, y: 40 },
         { x: 2, y: 60 },
         { x: 3, y: 80 },
-        { x: 4, y: 30 },
+        { x: 4, y: 50 },
         { x: 5, y: 20 },
         { x: 6, y: 40 },
         { x: 7, y: 60 },
@@ -74,7 +74,8 @@ export default function Analysis() {
                     data={Users}
                 />
             </XYPlot>
-            <p>Analysis For Users</p>
+            <h2>Analysis For Users </h2>
+            <p>The chart above represents the number of users that have sained into the website in the past seven days.</p>
         </div>
 
 <div className="AnalysisForProducts">
@@ -90,24 +91,10 @@ export default function Analysis() {
                     data={Products}
                 />
             </XYPlot>
-            <p>Analysis For Products</p>
-
+            <h2>Analysis For Products</h2>
+            <p>The chart above represents the number of products that have been purchased In the past seven days.</p>
 </div>
-<div className="AnalysisForOrders">
-            <XYPlot width={300} height={300}>
-                <VerticalGridLines />
-                <HorizontalGridLines />
-                <XAxis />
-                <YAxis />
-                <AreaSeries
-                    className="area-series-example"
-                    curve="curveNatural"
-                    data={Orders}
-                />
-            </XYPlot>
-            <p>Analysis For Orders</p>
 
-</div>
 </div>
     );
 
