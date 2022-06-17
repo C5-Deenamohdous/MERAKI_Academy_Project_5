@@ -107,7 +107,7 @@ const NavBar = () => {
 
             <span
               onClick={() => {
-                navigate(`/user/${userId}`);
+                navigate(`/MyOrders`);
               }}
             >
               My Orders

@@ -58,7 +58,7 @@ const UserProfile = () => {
           firstName,
           lastName,
           phoneNumber,
-         Address,
+          Address,
           profileImage: url || profileImage,
         }
       )
@@ -113,9 +113,9 @@ const UserProfile = () => {
   }, []);
   return (
     <>
-      <div className="Header_Profile">
+      {/* <div className="Header_Profile">
         <h2>Profile</h2>
-      </div>
+      </div> */}
       <div
         className={
           id == userId ? "LeftContainer-Profile" : "LeftContainer-ProfileVisit"
@@ -126,7 +126,6 @@ const UserProfile = () => {
             return (
               <>
                 <div className="Container-INFO">
-                  {/* <div className="sec_container"> */}
                   <div className="inner_container">
                     <div className="userProfileImg">
                       <img src={user.profileImage} />
@@ -135,39 +134,24 @@ const UserProfile = () => {
                       </p>
                     </div>
                   </div>
-                  {/* </div> */}
+                  {/* </div> asdasd*/}
                   <div className="datails-Container_profile">
                     <div className="line">
-                      <div className="Di">
-                        <span>Email:</span>
-                      </div>
-                      <div className="inLine">
-                        <span>{user.email}</span>
-                      </div>{" "}
+                      <label className="B">Email:</label>
+                      <p>{user.email}</p>
                     </div>
                     <div className="line">
-                      <div className="Di">
-                        <span>PhoneNumber:</span>
-                      </div>{" "}
-                      <div className="inLine">
-                        <span>{user.phoneNumber}</span>
-                      </div>{" "}
+                      <label className="B">PhoneNumber:</label>
+                      <p>{user.phoneNumber}</p>
                     </div>
                     <div className="line">
-                      <div className="Di">
-                        <span>Adress:</span>
-                      </div>
-                      <div className="inLine">
-                        <span>{user.address}</span>
-                      </div>
+                        <label className="B">Adress:</label>
+                        <p>{user.address}</p>
                     </div>
+                    
                     <div className="line">
-                      <div className="Di">
-                        <span>Joined At:</span>
-                      </div>
-                      <div className="inLine">
-                        <span>{user.joinedDate.substring(0, 10)}</span>
-                      </div>
+                        <label className="B">Joined At:</label>
+                        <p>{user.joinedDate.substring(0, 10)}</p>
                     </div>
                   </div>
                   {user.id == userId ? (
@@ -192,7 +176,9 @@ const UserProfile = () => {
                           {
                             setProfileImage(user.profileImage);
                           }
-                         { setAddress(user.Address)}
+                          {
+                            setAddress(user.Address);
+                          }
                         }}
                       >
                         Update your info
@@ -300,32 +286,9 @@ const UserProfile = () => {
               </>
             );
           })}
-        {id == userId ? (
-          <div className="profileOrder ">
-            <div className="ClickableHeader">
-              <h2
-                onClick={() => {
-                  setIsOrderShow(!isOrderShow);
-                }}
-              >
-                My Orders
-              </h2>
-            </div>
-            {isOrderShow ? <ProfileUnCompleteddOrders /> : ""}
-          </div>
-        ) : (
-          ""
-        )}
       </div>
     </>
   );
 };
 
 export default UserProfile;
-
-// </div>
-//                  {isUnCompleteOrder ? (
-//               <ProfileUnCompleteddOrders />
-//             ) : (
-//               <ProfileCompleteddOrders />
-//             )}

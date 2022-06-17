@@ -1,46 +1,27 @@
-.Profile-Cont {
+.MyOrders-Cont {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 12vh; */
+  width: 60%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  margin: 10px auto 0;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  gap: 3%;
+  margin-top: 25vh;
 }
 
-/* .Ord-Profile {
-  display: flex;
-  align-items: center;
+.InsidePefile-T {
   width: 100%;
 }
 
-.Ord-Profile .Ord_Num {
-  width: 10%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.Ord-Profile .Ord_Date {
-  width: 40%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.Ord-Profile .Ord_Status {
-  width: 30%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.Ord-Profile .Icon {
-  width: 20%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
-.InsidePefile-T { 
-  width: 100%;
-}
-
-.INFO_ORDERS_PROFILE svg { 
-font-size: 22px;
+.TableIcon-M svg {
+  font-size: 25px;
+  cursor: pointer;
 }

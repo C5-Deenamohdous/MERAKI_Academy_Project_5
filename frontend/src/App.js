@@ -33,6 +33,7 @@ import CheckOutPage from "./components/CheckoutPage";
 
 import Footer from "./components/footer";
 import NotFound from "./components/NotFoundPage";
+import ProfileUnCompleteddOrders from "./components/PofileUnCompletedOrdedrs";
 
 const App = () => {
   const location = useLocation();
@@ -44,8 +45,7 @@ const App = () => {
     <div className="App">
       {location.pathname.includes("admin") ? <Admin /> : <NavBar />}
 
-       {/* <Footer/> */}
-
+      {/* <Footer/> */}
 
       <Routes>
         <Route path={"/Product"} element={<Product />} />
@@ -83,7 +83,9 @@ const App = () => {
           element={<AdminUserUnCompletedOrders />}
         />
         <Route path="/checkout" element={<CheckOutPage />} />
-        <Route path="*" element={<NotFound/>} />
+        <Route path="/MyOrders" element={<ProfileUnCompleteddOrders />} />
+        <Route path="/admin" element={""}/>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
