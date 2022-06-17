@@ -7,7 +7,8 @@ import { CgInfinity } from "react-icons/cg";
 import { AiOutlinePoweroff, AiOutlineSearch } from "react-icons/ai";
 import { FiLogIn } from "react-icons/fi";
 import { BsCart, BsStars, BsArrowDownShort } from "react-icons/bs";
-import { GiUbisoftSun, GiHeraldicSun } from "react-icons/gi";
+// import { GrUserAdmin } from "react-icons/gr";
+import { RiAdminLine } from "react-icons/ri";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -18,7 +19,7 @@ import { useNavigate } from "react-router-dom";
 const NavBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isLoggedIn, cart, userId, Wishlist, subTotal } = useSelector(
+  const { isLoggedIn, cart, userId, Wishlist, subTotal, role_id } = useSelector(
     (state) => {
       return {
         isLoggedIn: state.auth.isLoggedIn,
@@ -26,6 +27,7 @@ const NavBar = () => {
         userId: state.auth.userId,
         Wishlist: state.Wishlist.Wishlist,
         subTotal: state.cart.subTotal,
+        role_id: state.auth.role_id,
       };
     }
   );
@@ -66,11 +68,11 @@ const NavBar = () => {
           <span className="ICON">
             <CgInfinity />
           </span>
-          </div>
-          <div className="Cont-Log">
+        </div>
+        <div className="Cont-Log">
           <span className="Infin">Infinity</span>
           <span className="Zone">Zone</span>
-          </div>
+        </div>
       </div>
 
       <div className="CENTER-NAV">
@@ -93,14 +95,35 @@ const NavBar = () => {
             </span>
           </div>
         </div>
+        {isLoggedIn ? (
+          <>
+            <span
+              onClick={() => {
+                navigate(`/user/${userId}`);
+              }}
+            >
+              Profile
+            </span>
 
+            <span
+              onClick={() => {
+                navigate(`/user/${userId}`);
+              }}
+            >
+              My Orders
+            </span>
+          </>
+        ) : (
+          ""
+        )}
         <span
           onClick={() => {
-            navigate(`/user/${userId}`);
+            navigate(`/contactUs`);
           }}
         >
-          Profile
+          Contact
         </span>
+
         <div className="SEARCH-Container">
           <input
             className="serch"
@@ -164,6 +187,22 @@ const NavBar = () => {
       </div>
 
       <div className="RIGT-NAV">
+        {/*  */}
+        {isLoggedIn && role_id == 4 ? (
+          <div className="AdminIcon">
+            <span
+              onClick={() => {
+                navigate("/admin");
+              }}
+            >
+              <RiAdminLine />
+            </span>
+          </div>
+        ) : (
+          ""
+        )}
+
+        {/*  */}
         <div className="Login-Logout">
           {isLoggedIn ? (
             <span
@@ -184,6 +223,7 @@ const NavBar = () => {
             </span>
           )}
         </div>
+
         <div className="WISH-NAV">
           <span className="Number">{isLoggedIn ? Wishlist.length : 0}</span>
           <span

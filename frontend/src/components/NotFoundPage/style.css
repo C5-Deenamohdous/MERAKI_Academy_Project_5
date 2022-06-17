@@ -1,0 +1,14 @@
+.NotFound {
+  display: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+.NotFound img {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 1;
+  object-fit: contain;
+  background-color: #f2f2f2;
+}

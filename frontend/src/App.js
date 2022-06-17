@@ -32,6 +32,7 @@ import Analysis from "./components/analysis";
 import CheckOutPage from "./components/CheckoutPage";
 
 import Footer from "./components/footer";
+import NotFound from "./components/NotFoundPage";
 
 const App = () => {
   const location = useLocation();
@@ -82,7 +83,7 @@ const App = () => {
           element={<AdminUserUnCompletedOrders />}
         />
         <Route path="/checkout" element={<CheckOutPage />} />
-        
+        <Route path="*" element={<NotFound/>} />
       </Routes>
     </div>
   );
