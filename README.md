@@ -11,6 +11,7 @@
 
 <p align="center"> 
     <br> 
+    
 </p>
 
 ## 📝 Table of Contents
@@ -23,8 +24,9 @@
 
 
 ## 🧐 About <a name = "about"></a>
-
-
+A website that allows you to buy products online, it serves two classes, admin and client, eCommerce was done partially through emails after the clients take a look over all products on the main page which provides a filter for all categories and brands once they like the product they add it to the cart either in the wish list , if he wants to continue the process and confirm the order so he has to fill up the registered form with all details like address, and here they are allowed to write a comment for the item or give it a rate, If they are not happy with the quality or something so they can send feedback to the company email.
+<br>
+On the admin side, there are more permissions he could do, so the admin dashboard contains an analysis charts as an indicator to all website movements, Admin Abilities: adding category /brand or updating product, seeing all counts of user and their orders, and control all orders, and setting them complete and ready for shipping or still in progress.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 

@@ -47,6 +47,7 @@ const LoginGoogle = () => {
       <GoogleLogin className="googleLogin"
         clientId={clientId}
         buttonText="Login"
+      
         onSuccess={onSuccess}
         onFailure={onFailure}
         cookiePolicy={"single_host_origin"}

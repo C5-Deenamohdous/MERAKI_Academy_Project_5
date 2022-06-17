@@ -1,20 +1,35 @@
-.googleLogin{
-margin-top:2%;
-    border-color: rgb(60, 65, 67);
+ .googleLogin{
+/* margin-top:2%; */
+  /* line-height: 50px;   */
+ 
+  /* display: inline-block; */
+  /* border: 1px solid #d5d5d5; */
+  /* color:  rgb(0 0 0 / 92%);; */
+  width: 100px;
+/* justify-content: center; */
+cursor: pointer;
 
-  line-height: 50px;  
-  border-color: rgb(60, 65, 67);
-  width: 150px;
-  font-size: 20px;
+}
+.googleLogin span{
+  color:  rgb(0 0 0 / 92%);
+ width: 100%;
+  font-size: 15px;
   text-transform: uppercase;
   text-align: center;
-  display: inline-block;
-  border: 1px solid #d5d5d5;
-  color: rgb(185, 179, 169);
-background-color: gray;
+height: 50px;
+
+}
+.main{
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .main button  {
   background-color: red;
   color: black;
 }
+
+
+
