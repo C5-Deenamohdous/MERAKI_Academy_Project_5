@@ -13,3 +13,8 @@ margin-top:2%;
   color: rgb(185, 179, 169);
 background-color: gray;
 }
+
+.main button  {
+  background-color: red;
+  color: black;
+}

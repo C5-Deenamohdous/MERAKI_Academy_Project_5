@@ -64,17 +64,7 @@
 
 }
 
-.deleteButton {
-  width: 50%;
-  font-family: "Montserrat", sans-serif;
-  /* border: 2px solid #78788c; */
-  cursor: pointer;
-  transition: all 0.3s;
-  color: var(--btnsColor);
-  height: 40%;
-  padding: 5px;
-  font-weight: 600;
-}
+
 
 
 
@@ -250,19 +240,20 @@
   /* border: 2px solid #78788c; */
   cursor: pointer;
   transition: all 0.3s;
-  color: var(--btnsColor);
+  color: black;
   height: 50px;
   padding: 5px;
   font-weight: 600;
 }
+
 .deleteButton {
   width: 80%;
-  background-color: lightblue;
+  background-color: #d0c5c5;
   font-family: "Montserrat", sans-serif;
   border: unset;
   cursor: pointer;
   transition: all 0.3s;
-  color: var(--btnsColor);
+  color: black;
   height: 50px;
   padding: 5px;
   font-weight: 600;
