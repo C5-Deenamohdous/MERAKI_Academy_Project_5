@@ -159,7 +159,7 @@ const CartSection = () => {
       <div className="SubTotal">
         <div className="PriceAndTotal">
           <span className="PlaceHolder">TOTAL</span>
-          <span>${subTotal}</span>
+          <span className="Co-">${subTotal}</span>
         </div>
         <div className="BtnToCheckOutPage">
           <button

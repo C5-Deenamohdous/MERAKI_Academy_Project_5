@@ -13,6 +13,22 @@
   padding: 10px;
   gap: 50px;
 } */
+
+
+.popUpUserprofiler .cloud input {
+  display: none;
+}
+.popUpUserprofiler .cloud {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popUpUserprofiler .cloud .Test-A { 
+  font-size:24px ;
+  cursor: pointer;
+}
+
 .sec_container {
   display: flex;
   height: 100%;

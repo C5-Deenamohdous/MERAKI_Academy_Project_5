@@ -17,7 +17,7 @@
 }
 .Header-Container h1 {
   font-weight: 400;
-  font-size: 34px;
+  font-size: 25px;
 }
 
 .CartOneProduct {
@@ -146,6 +146,10 @@ td {
 .T-icon {
   width: 5%;
 }
+.T-icon .CartBtns svg{ 
+color: var(--btnsColor);
+cursor: pointer;
+} 
 
 .PlusBtns {
   width: 100%;
@@ -229,6 +233,9 @@ td {
   font-size: 21px;
 }
 
+.Co- { 
+  color: var(--btnsColor);
+}
 .BtnToCheckOutPage {
   width: 20%;
   display: flex;

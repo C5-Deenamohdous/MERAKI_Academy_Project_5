@@ -13,6 +13,8 @@
   width: 100%;
 }
 .inputComment {
+  font-weight: 600;
+  outline: unset;
   margin-left: 1%;
   width: 45%;
   border: none;
@@ -40,6 +42,8 @@
   border-radius: 5px;
   height: 100%;
   width: 20%;
+  background-color: var(--secondaryBlack);
+  font-weight: 600;
 }
 .Container {
   display: flex;
