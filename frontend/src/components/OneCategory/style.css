@@ -36,10 +36,16 @@
 
 .CONTANER .Section-Header {
   height: 90vh;
-  background-color: var(--mainColor);
+  /* background-color: var(--mainColor); */
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: url("https://i.pinimg.com/564x/60/cb/a0/60cba0d64745d00e05629b63116879a2.jpg");
+  background-size: cover;
+}
+
+.Section-Header h2 { 
+  font-size: 35px;
 }
 
 .CONTANER .FilterBtns {
@@ -104,14 +110,14 @@
 .FilterBtns span {
   cursor: pointer;
 }
-.FlippedImg { 
+.FlippedImg {
   width: 100%;
   height: 80%;
 }
 
-.FlippedImg img { 
+.FlippedImg img {
   width: 100%;
   height: 100%;
-  opacity: .4;
+  opacity: 0.4;
   object-fit: scale-down;
 }
