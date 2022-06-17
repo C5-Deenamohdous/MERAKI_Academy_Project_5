@@ -177,7 +177,7 @@ const CheckOutPage = () => {
                       <img src={element.productImage} />
                     </div>
                     <div className="Title_PriceInCheckOut">
-                      <span>{element.title}</span>
+                      <span className="T-B">{element.title}</span>
                       <span className="QuanInCheckOut">
                         {element.quantityInCart} x {element.price}
                       </span>
