@@ -1,3 +1,28 @@
+.Cart-BtnsAndTitle {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.BtnsInOneProduct {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.BtnsInOneProduct span svg {
+  font-size: 25px;
+  color: var(--btnsColor);
+  cursor: pointer;
+}
+
+.BtnsInOneProduct {
+  display: flex;
+}
+
 .ONEproductImage {
   width: 40%;
   height: 100%;

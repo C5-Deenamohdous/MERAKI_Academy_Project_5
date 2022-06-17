@@ -270,7 +270,7 @@ const Product = () => {
         {products &&
           products.map((element) => {
             return (
-              <div className="card">
+                 <div className="card">
                 <div className="content">
                   <div className="front">
                     <div className="imgContainer">
@@ -278,11 +278,14 @@ const Product = () => {
                     </div>
                     <div className="Price-Title">
                       <p>{element.title}</p>
-                      <p>{element.price}</p>
+                      <p className="card_Price">${element.price}</p>
                     </div>
                   </div>
                   <div className="back">
                     <div className="Flip">
+                      <div className="FlippedImg">
+                        <img src={element.productImage} />
+                      </div>
                       <div className="Cart-Btns">
                         <AddToWishlistButton productId={element.id} />
                         <AddToCartButton

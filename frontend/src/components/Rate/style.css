@@ -15,6 +15,20 @@
   margin-top: 12vh;
 }
 
+.RateContainer-1 button {
+  height: 35px;
+  background-color: var(--NavColor);
+  padding: 5px;
+  border: none;
+  background-color: var(--secondaryBlack);
+  color: white;
+  cursor: pointer;
+}
+.RateContainer-1 button:hover {
+  background-color: var(--btnsColor);
+  transition: 0.3s;
+}
+
 .details_Rate {
   gap: 10px;
 }

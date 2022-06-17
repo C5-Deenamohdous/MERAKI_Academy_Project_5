@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "../../redux/reducers/cart";
+import { BsFillCartPlusFill, BsFillCartDashFill } from "react-icons/bs";
 
-
-const AddToCartOneProduct= ({ productId, price }) => {
+const AddToCartOneProduct = ({ productId, price }) => {
   const dispatch = useDispatch();
   const { productInCart, token } = useSelector((state) => {
     return {
@@ -27,7 +27,9 @@ const AddToCartOneProduct= ({ productId, price }) => {
         }
       )
       .then((result) => {
-        dispatch(addToCart({ product_id: id, price: price ,quantityInCart:1 }));
+        dispatch(
+          addToCart({ product_id: id, price: price, quantityInCart: 1 })
+        );
       })
       .catch((err) => {
         console.log(err, "ERR IN ADDTOCART");
@@ -53,23 +55,23 @@ const AddToCartOneProduct= ({ productId, price }) => {
   return (
     <>
       {productInCart.includes(productId) ? (
-        <button
+        <span
           className="CartBtns"
           onClick={() => {
             deleteFromCart(productId);
           }}
         >
-        Delete
-        </button>
+          <BsFillCartDashFill />
+        </span>
       ) : (
-        <button
+        <span
           className="CartBtns"
           onClick={() => {
             AddToCart(productId);
           }}
         >
-        Add to cart 
-        </button>
+          <BsFillCartPlusFill />
+        </span>
       )}
     </>
   );

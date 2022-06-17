@@ -36,6 +36,7 @@ const register = async (req, res) => {
 //dina
   connection.query(query, data, (err, result) => {
     if (err) {
+      console.log(err);
       if (err.code === "ER_DUP_ENTRY") {
         return res.status(409).json({
           success: false,
@@ -43,6 +44,7 @@ const register = async (req, res) => {
           err: err.message,
         });
       }
+      console.log(err);
       return res.status(500).json({
         success: false,
         message: "Server Error",

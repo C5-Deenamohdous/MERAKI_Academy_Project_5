@@ -65,7 +65,7 @@ const Home = () => {
 
   const getCatg2 = () => {
     axios
-      .get(`https://infintyzone.herokuapp.com/product/category/2`)
+      .get(`https://infintyzone.herokuapp.com/product/category/34`)
       .then((result) => {
         console.log(result, "Catg2");
         setCatg2([...result.data.result].sort((a, b) => 0.5 - Math.random()));
@@ -78,7 +78,7 @@ const Home = () => {
 
   const getCatg3 = () => {
     axios
-      .get(`https://infintyzone.herokuapp.com/product/category/3`)
+      .get(`https://infintyzone.herokuapp.com/product/category/44`)
       .then((result) => {
         console.log(result, "Catg3");
         setCatg3([...result.data.result].sort((a, b) => 0.5 - Math.random()));
@@ -146,187 +146,196 @@ const Home = () => {
 
   const Catg1 = () => {
     return (
-      <>
-        {catg1 &&
-          catg1.slice(0, 8).map((element) => {
-            return (
-              <div className="card">
-                <div className="content">
-                  <div className="front">
-                    <div className="imgContainer">
-                      <img src={element.productImage} />
-                    </div>
-                    <div className="Price-Title">
-                      <p>{element.title}</p>
-                      <p>{element.price}</p>
-                    </div>
-                  </div>
-                  <div className="back">
-                    <div className="Flip">
-                    <div className="FlippedImg">
+      <div className="CONTANER">
+        <div className="Card-Container">
+          {catg1 &&
+            catg1.slice(0, 8).map((element) => {
+              return (
+                <div className="card">
+                  <div className="content">
+                    <div className="front">
+                      <div className="imgContainer">
                         <img src={element.productImage} />
                       </div>
-                      <div className="Cart-Btns">
-                        <AddToWishlistButton productId={element.id} />
-                        <AddToCartButton
-                          productId={element.id}
-                          price={element.price}
-                        />
+                      <div className="Price-Title">
+                        <p>{element.title}</p>
+                        <p className="card_Price">${element.price}</p>
                       </div>
-                      <button
-                        className="Show-More"
-                        onClick={() => {
-                          navigate(`/oneProduct/${element.id}`);
-                        }}
-                      >
-                        Show More
-                      </button>
+                    </div>
+                    <div className="back">
+                      <div className="Flip">
+                        <div className="FlippedImg">
+                          <img src={element.productImage} />
+                        </div>
+                        <div className="Cart-Btns">
+                          <AddToWishlistButton productId={element.id} />
+                          <AddToCartButton
+                            productId={element.id}
+                            price={element.price}
+                          />
+                        </div>
+                        <button
+                          className="Show-More"
+                          onClick={() => {
+                            navigate(`/oneProduct/${element.id}`);
+                          }}
+                        >
+                          Show More
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-      </>
+              );
+            })}
+        </div>
+      </div>
     );
   };
+
   const Catg2 = () => {
     return (
-      <>
-        {catg2 &&
-          catg2.slice(0, 8).map((element) => {
-            return (
-              <div className="card">
-                <div className="content">
-                  <div className="front">
-                    <div className="imgContainer">
-                      <img src={element.productImage} />
-                    </div>
-                    <div className="Price-Title">
-                      <p>{element.title}</p>
-                      <p>{element.price}</p>
-                    </div>
-                  </div>
-                  <div className="back">
-                    <div className="Flip">
-                    <div className="FlippedImg">
+      <div className="CONTANER">
+        <div className="Card-Container">
+          {catg2 &&
+            catg2.slice(0, 8).map((element) => {
+              return (
+                <div className="card">
+                  <div className="content">
+                    <div className="front">
+                      <div className="imgContainer">
                         <img src={element.productImage} />
                       </div>
-                      <div className="Cart-Btns">
-                        <AddToWishlistButton productId={element.id} />
-                        <AddToCartButton
-                          productId={element.id}
-                          price={element.price}
-                        />
+                      <div className="Price-Title">
+                        <p>{element.title}</p>
+                        <p className="card_Price">${element.price}</p>
                       </div>
-                      <button
-                        className="Show-More"
-                        onClick={() => {
-                          navigate(`/oneProduct/${element.id}`);
-                        }}
-                      >
-                        Show More
-                      </button>
+                    </div>
+                    <div className="back">
+                      <div className="Flip">
+                        <div className="FlippedImg">
+                          <img src={element.productImage} />
+                        </div>
+                        <div className="Cart-Btns">
+                          <AddToWishlistButton productId={element.id} />
+                          <AddToCartButton
+                            productId={element.id}
+                            price={element.price}
+                          />
+                        </div>
+                        <button
+                          className="Show-More"
+                          onClick={() => {
+                            navigate(`/oneProduct/${element.id}`);
+                          }}
+                        >
+                          Show More
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-      </>
+              );
+            })}
+        </div>
+      </div>
     );
   };
   const Catg3 = () => {
     return (
-      <>
-        {catg3 &&
-          catg3.slice(0, 8).map((element) => {
-            return (
-              <div className="card">
-                <div className="content">
-                  <div className="front">
-                    <div className="imgContainer">
-                      <img src={element.productImage} />
-                    </div>
-                    <div className="Price-Title">
-                      <p>{element.title}</p>
-                      <p>{element.price}</p>
-                    </div>
-                  </div>
-                  <div className="back">
-                    <div className="Flip">
-                    <div className="FlippedImg">
+      <div className="CONTANER">
+        <div className="Card-Container">
+          {catg3 &&
+            catg3.slice(0, 8).map((element) => {
+              return (
+                <div className="card">
+                  <div className="content">
+                    <div className="front">
+                      <div className="imgContainer">
                         <img src={element.productImage} />
                       </div>
-                      <div className="Cart-Btns">
-                        <AddToWishlistButton productId={element.id} />
-                        <AddToCartButton
-                          productId={element.id}
-                          price={element.price}
-                        />
+                      <div className="Price-Title">
+                        <p>{element.title}</p>
+                        <p className="card_Price">${element.price}</p>
                       </div>
-                      <button
-                        className="Show-More"
-                        onClick={() => {
-                          navigate(`/oneProduct/${element.id}`);
-                        }}
-                      >
-                        Show More
-                      </button>
+                    </div>
+                    <div className="back">
+                      <div className="Flip">
+                        <div className="FlippedImg">
+                          <img src={element.productImage} />
+                        </div>
+                        <div className="Cart-Btns">
+                          <AddToWishlistButton productId={element.id} />
+                          <AddToCartButton
+                            productId={element.id}
+                            price={element.price}
+                          />
+                        </div>
+                        <button
+                          className="Show-More"
+                          onClick={() => {
+                            navigate(`/oneProduct/${element.id}`);
+                          }}
+                        >
+                          Show More
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-      </>
+              );
+            })}
+        </div>
+      </div>
     );
   };
 
   const Catg4 = () => {
     return (
-      <>
-        {catg4 &&
-          catg4.slice(0, 8).map((element) => {
-            return (
-              <div className="card">
-                <div className="content">
-                  <div className="front">
-                    <div className="imgContainer">
-                      <img src={element.productImage} />
-                    </div>
-                    <div className="Price-Title">
-                      <p>{element.title}</p>
-                      <p>{element.price}</p>
-                    </div>
-                  </div>
-                  <div className="back">
-                    <div className="Flip">
-                    <div className="FlippedImg">
+      <div className="CONTANER">
+        <div className="Card-Container">
+          {catg4 &&
+            catg4.slice(0, 8).map((element) => {
+              return (
+                <div className="card">
+                  <div className="content">
+                    <div className="front">
+                      <div className="imgContainer">
                         <img src={element.productImage} />
                       </div>
-                      <div className="Cart-Btns">
-                        <AddToWishlistButton productId={element.id} />
-                        <AddToCartButton
-                          productId={element.id}
-                          price={element.price}
-                        />
+                      <div className="Price-Title">
+                        <p>{element.title}</p>
+                        <p className="card_Price">${element.price}</p>
                       </div>
-                      <button
-                        className="Show-More"
-                        onClick={() => {
-                          navigate(`/oneProduct/${element.id}`);
-                        }}
-                      >
-                        Show More
-                      </button>
+                    </div>
+                    <div className="back">
+                      <div className="Flip">
+                        <div className="FlippedImg">
+                          <img src={element.productImage} />
+                        </div>
+                        <div className="Cart-Btns">
+                          <AddToWishlistButton productId={element.id} />
+                          <AddToCartButton
+                            productId={element.id}
+                            price={element.price}
+                          />
+                        </div>
+                        <button
+                          className="Show-More"
+                          onClick={() => {
+                            navigate(`/oneProduct/${element.id}`);
+                          }}
+                        >
+                          Show More
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-      </>
+              );
+            })}
+        </div>
+      </div>
     );
   };
 
