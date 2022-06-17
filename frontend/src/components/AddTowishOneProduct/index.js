@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { addToWishlist,removeFromWishlist } from "../../redux/reducers/WishList";
+import {
+  addToWishlist,
+  removeFromWishlist,
+} from "../../redux/reducers/WishList";
 
-
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 const AddToWishOneProduct = ({ productId }) => {
   const dispatch = useDispatch();
@@ -15,7 +18,7 @@ const AddToWishOneProduct = ({ productId }) => {
     };
   });
   const AddToWishlist = (id) => {
-    console.log(id,"pppppppppid ");
+    console.log(id, "pppppppppid ");
     axios
       .post(
         `https://infintyzone.herokuapp.com/Wishlist/${id}`,
@@ -44,7 +47,7 @@ const AddToWishOneProduct = ({ productId }) => {
         },
       })
       .then((result) => {
-        dispatch(removeFromWishlist({product_id:id}));
+        dispatch(removeFromWishlist({ product_id: id }));
       })
       .catch((err) => {
         console.log(err, "ERR DELETE FROM Wishlist");
@@ -53,21 +56,21 @@ const AddToWishOneProduct = ({ productId }) => {
   return (
     <>
       {productInWishlist.includes(productId) ? (
-        <button
+        <span
           onClick={() => {
             deleteFromWishlist(productId);
           }}
         >
-       Delete
-        </button>
+          <AiFillStar />
+        </span>
       ) : (
-        <button
+        <span
           onClick={() => {
             AddToWishlist(productId);
           }}
         >
-         Add to WishList
-        </button>
+          <AiOutlineStar />
+        </span>
       )}
     </>
   );

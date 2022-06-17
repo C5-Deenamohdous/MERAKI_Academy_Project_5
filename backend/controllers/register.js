@@ -11,7 +11,6 @@ const register = async (req, res) => {
     profileImage,
     role_id,
   } = req.body;
-  
 
   const hashedPassword = await bcrypt.hash(password, 10);
   const query = `INSERT INTO users(
@@ -35,6 +34,7 @@ const register = async (req, res) => {
 
   connection.query(query, data, (err, result) => {
     if (err) {
+      console.log(err);
       if (err.code === "ER_DUP_ENTRY") {
         return res.status(409).json({
           success: false,
@@ -42,6 +42,7 @@ const register = async (req, res) => {
           err: err.message,
         });
       }
+      console.log(err);
       return res.status(500).json({
         success: false,
         message: "Server Error",
