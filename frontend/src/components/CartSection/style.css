@@ -145,7 +145,7 @@ td {
 
 .T-icon {
   width: 5%;
-  color: var(--btnsColor);
+  /* color: var(--btnsColor); */
   cursor: pointer;
 }
 .T-icon .CartBtns svg {

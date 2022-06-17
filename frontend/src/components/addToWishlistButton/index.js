@@ -52,7 +52,7 @@ const AddToWishlistButton = ({ productId }) => {
   return (
     <>
       {productInWishlist.includes(productId) ? (
-        <span
+        <span className="CartBtns"
           onClick={() => {
             deleteFromWishlist(productId);
           }}
@@ -60,7 +60,7 @@ const AddToWishlistButton = ({ productId }) => {
           <AiFillStar />
         </span>
       ) : (
-        <span
+        <span className="CartBtns"
           onClick={() => {
             AddToWishlist(productId);
           }}

@@ -21,10 +21,16 @@ const Home = () => {
 
   const images = [
     {
-      url: "https://www.pngall.com/wp-content/uploads/1/Electronic-High-Quality-PNG.png",
+      url: "https://i0.wp.com/www.smartprix.com/bytes/wp-content/uploads/2021/11/download-4.jpg?fit=1440%2C960&ssl=1",
     },
     {
       url: "https://www.pngall.com/wp-content/uploads/1/Electronic-Download-PNG.png",
+    },
+    {
+      url: "https://9to5mac.com/wp-content/uploads/sites/6/2022/05/iphonerender3.png",
+    },
+    {
+      url: "https://www.apple-wd.com/wp-content/uploads/2022/01/iPhone-14-Pro-1.jpg",
     },
   ];
   //
