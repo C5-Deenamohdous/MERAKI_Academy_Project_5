@@ -2,12 +2,22 @@
   width: 15%;
   height: 100%;
   display: flex;
-  position:fixed;
-
+  position: fixed;
 }
-.AdminPanelContainer1{
-  height:  25%;
-  width:  100%;
+.AdminPanelContainer1 {
+  height: 25%;
+  width: 100%;
   display: flex;
+}
 
+.AUTHIMAGE {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+.AUTHIMAGE img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #70c4af;
 }
