@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "../../redux/reducers/cart";
 import { BsFillCartPlusFill, BsFillCartDashFill } from "react-icons/bs";
 
-const AddToCartButton = ({ productId, price }) => {
+const AddToCartButton = ({ productId, price, productImage, title }) => {
   const dispatch = useDispatch();
   const { productInCart, token } = useSelector((state) => {
     return {
@@ -27,7 +27,15 @@ const AddToCartButton = ({ productId, price }) => {
         }
       )
       .then((result) => {
-        dispatch(addToCart({ product_id: id, price: price ,quantityInCart:1 }));
+        dispatch(
+          addToCart({
+            product_id: id,
+            price: price,
+            quantityInCart: 1,
+            productImage: productImage,
+            title: title,
+          })
+        );
       })
       .catch((err) => {
         console.log(err, "ERR IN ADDTOCART");

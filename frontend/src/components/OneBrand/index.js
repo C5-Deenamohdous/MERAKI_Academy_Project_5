@@ -277,6 +277,8 @@ const OneBrand = () => {
                         <AddToCartButton
                           productId={element.id}
                           price={element.price}
+                          productImage={element.productImage}
+                          title={element.title}
                         />
                       </div>
                       <button

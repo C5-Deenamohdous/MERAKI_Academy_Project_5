@@ -270,7 +270,7 @@ const Product = () => {
         {products &&
           products.map((element) => {
             return (
-                 <div className="card">
+              <div className="card">
                 <div className="content">
                   <div className="front">
                     <div className="imgContainer">
@@ -291,6 +291,8 @@ const Product = () => {
                         <AddToCartButton
                           productId={element.id}
                           price={element.price}
+                          productImage={element.productImage}
+                          title={element.title}
                         />
                       </div>
                       <button
@@ -328,18 +330,14 @@ const Product = () => {
       ) : (
         ""
       )}
-     
+
       <button
         className="nextButton"
         onClick={() => {
           setPage(page + 1);
           setLimit(12);
           nextPage(page + 1);
- setClickNext(true);
-         
-
-         
-
+          setClickNext(true);
         }}
       >
         next
