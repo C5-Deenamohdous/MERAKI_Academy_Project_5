@@ -66,6 +66,10 @@ const Rate = () => {
         dispatch(addRate({ value: RecivedRate, product_id: id }));
         setIsRate(!isRate);
         console.log(isRate, "0000000000");
+        setTimeout(() => {
+          setIsOpen(false);
+          setIsRatingDone(false);
+        }, 2500);
       })
       .catch((err) => {
         // setMessage(err.response.data.message);
@@ -149,13 +153,9 @@ const Rate = () => {
       >
         <div>
           {isRatingDone ? (
-            <span>
-              {setTimeout(() => {
-                setIsOpen(false);
-                setIsRatingDone(false);
-              }, 2500)}
-              Thanks For Your Rating
-            </span>
+            <>
+              <span>Thanks For Your Rating</span>
+            </>
           ) : (
             <ReactStars
               count={5}
@@ -176,13 +176,15 @@ const Rate = () => {
       >
         <div>
           {isRatingDone ? (
-            <span>
-              {setTimeout(() => {
-                setIsOpen2(false);
-                setIsRatingDone(false);
-              }, 2500)}
-              Thanks For Your Rating
-            </span>
+            <>
+              <span>Thanks For Your Rating</span>
+              <p className="A-Hide">
+                {setTimeout(() => {
+                  setIsOpen2(false);
+                  setIsRatingDone(false);
+                }, 2500)}
+              </p>
+            </>
           ) : (
             <div>
               <span>

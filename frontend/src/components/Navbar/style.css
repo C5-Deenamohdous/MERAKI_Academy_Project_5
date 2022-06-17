@@ -310,6 +310,7 @@
   height: 30%;
   flex-direction: row;
   border-bottom: 0.5px solid rgb(211, 198, 198);
+  gap: 5px;
 }
 
 .sideCart .sideCartImg {

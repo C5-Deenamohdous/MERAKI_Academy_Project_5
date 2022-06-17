@@ -9,8 +9,8 @@ const register = async (req, res) => {
     lastName,
     phoneNumber,
     profileImage,
-    Address,
     role_id,
+    Address,
   } = req.body;
 
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -21,7 +21,8 @@ const register = async (req, res) => {
     lastName,
     phoneNumber,
     profileImage,
-    role_id, Address) VALUES(?,?,?,?,?,?,?,?)`;
+    role_id,
+    Address) VALUES(?,?,?,?,?,?,?,?)`;
 
   const data = [
     email.toLowerCase(),
@@ -33,7 +34,7 @@ const register = async (req, res) => {
     role_id || 2,
     Address,
   ];
-//dina
+  //dina
   connection.query(query, data, (err, result) => {
     if (err) {
       console.log(err);

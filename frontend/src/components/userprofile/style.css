@@ -1,9 +1,3 @@
-/* .big_container {
-  width: 100%;
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-} */
 .big_container {
   width: 100%;
   display: flex;
@@ -19,6 +13,22 @@
   padding: 10px;
   gap: 50px;
 } */
+
+
+.popUpUserprofiler .cloud input {
+  display: none;
+}
+.popUpUserprofiler .cloud {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popUpUserprofiler .cloud .Test-A { 
+  font-size:24px ;
+  cursor: pointer;
+}
+
 .sec_container {
   display: flex;
   height: 100%;
@@ -30,8 +40,8 @@
 
 .inner_container {
   display: flex;
-  width: 80%;
-  height: 40%;
+  width: 50%;
+  height: 50%;
   flex-direction: column;
   /* padding: 20px; */
   align-items: center;
@@ -41,21 +51,23 @@
 
 .updateButton {
   width: 50%;
-  background-color: lightblue;
+  background-color: rgb(51, 100, 156);
   font-family: "Montserrat", sans-serif;
-  border: 2px solid #78788c;
+  /* border: 2px solid #78788c; */
   cursor: pointer;
   transition: all 0.3s;
   color: var(--btnsColor);
   height: 40%;
   padding: 5px;
   font-weight: 600;
+  border: none;
+
 }
 
 .deleteButton {
   width: 50%;
   font-family: "Montserrat", sans-serif;
-  border: 2px solid #78788c;
+  /* border: 2px solid #78788c; */
   cursor: pointer;
   transition: all 0.3s;
   color: var(--btnsColor);
@@ -64,9 +76,11 @@
   font-weight: 600;
 }
 
+
+
 .userProfileImg {
   width: 70%;
-  height: 65%;
+  height: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,21 +97,22 @@
 .datails-Container_profile {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 65%;
   align-items: center;
   height: 45%;
 }
 
 .line {
   display: flex;
+  flex-direction: column;
   /* flex-direction: column; */
-  border-color: currentcolor currentcolor rgb(80, 87, 90);
+  /* border-color: currentcolor currentcolor rgb(80, 87, 90); */
   font-size: 18px;
   color: black;
   background-image: initial;
   background-color: transparent;
   border-style: none none solid;
-  margin: 0px 0px 20px;
+  margin: 0px 0px 15px;
   width: 100%;
   height: 100%;
 }
@@ -164,7 +179,6 @@
 .popUpUserprofiler {
   border-color: currentcolor currentcolor rgb(80, 87, 90);
   color: rgb(43, 41, 41);
-
   width: 80%;
   height: 80%;
   display: flex;
@@ -191,7 +205,7 @@
   margin-bottom: 20px;
   padding: 5px;
 }
-.UpdateProfileButton {
+/* .UpdateProfileButton {
   padding: 8px 12px;
   margin: 8px 0 0;
   font-family: "Montserrat", sans-serif;
@@ -211,14 +225,14 @@
   height: 40px;
   margin-bottom: 20px;
   padding: 5px;
-}
+} */
 
 .UpdateProfileButton {
   width: 100%;
   padding: 8px 12px;
   margin: 8px 0 0;
   font-family: "Montserrat", sans-serif;
-  border: 2px solid #78788c;
+  /* border: 2px solid #78788c; */
   cursor: pointer;
   transition: all 0.3s;
   /* margin-top: 20px; */
@@ -230,10 +244,29 @@
 }
 
 .updateButton {
-  width: 100%;
+  width: 80%;
+  background-color: lightblue;
+  font-family: "Montserrat", sans-serif;
+  /* border: 2px solid #78788c; */
+  cursor: pointer;
+  transition: all 0.3s;
+  color: var(--btnsColor);
+  height: 50px;
+  padding: 5px;
+  font-weight: 600;
 }
 .deleteButton {
-  width: 100%;
+  width: 80%;
+  background-color: lightblue;
+  font-family: "Montserrat", sans-serif;
+  border: unset;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: var(--btnsColor);
+  height: 50px;
+  padding: 5px;
+  font-weight: 600;
+  outline-style: unset;
 }
 
 .cloud {
@@ -287,32 +320,51 @@
   gap: 5px;
 }
 
-.LeftContainer-Profile {
+/* .LeftContainer-Profile {
   display: flex;
   height: 88vh;
   width: 100%;
   align-items: flex-start;
   padding: 20px;
+} */
+.LeftContainer-Profile {
+  display: flex;
+  margin-top: 12vh;
+  /* height: 88vh; */
+  width: 70%;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  height: 85vh;
+  margin-top: 14vh;
+  box-shadow: rgb(50 50 93 / 25%) 0px 50px 100px -20px,
+    rgb(0 0 0 / 30%) 0px 30px 60px -30px,
+    rgb(10 37 64 / 35%) 0px -2px 6px 0px inset;
 }
 
 .Container-INFO {
   display: flex;
   flex-direction: column;
-  width: 35%;
-  margin-left: 20vh;
+  width: 80%;
+  /* margin-left: 20vh; */
   justify-content: flex-start;
   align-items: center;
   padding: 20px;
-  border: 1px solid;
+  /* border: 1px solid; */
+  height: 100%;
 }
 
 .ProfileBtns {
-  gap: 5px;
-  height: 15%;
+  gap: 15px;
+  position: absolute;
+  /* height: 15%; */
   display: flex;
-  width: 100%;
-
-  /* flex-direction: column; */
+  right: 18%;
+  bottom: 58%;
+  width: 15%;
+  flex-direction: column;
+  /* align-self: auto; */
 }
 
 .LeftContainer-ProfileVisit {
@@ -320,4 +372,7 @@
   height: 88vh;
   width: 100%;
   justify-content: center;
+}
+.B {
+  font-weight: 600;
 }
