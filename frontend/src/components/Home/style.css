@@ -1,10 +1,31 @@
-.shopNowButton {
+/* .shopNowButton {
   display: flex;
   padding: 15px;
   font-size: 24px;
   justify-content: center;
   cursor: pointer;
   color: red;
+} */
+
+.shopNowButton {
+  display: flex;
+  padding: 15px;
+  font-size: 24px;
+  justify-content: center;
+  cursor: pointer;
+  color: bal;
+  border: 1px solid;
+  position: absolute;
+  top: 30vh;
+  font-weight: 800;
+  /* z-index: 2; */
+  color: black;
+  left: 50px;
+  letter-spacing: 19px;
+  border: 1px solid;
+  background-color: white;
+  /* padding-left: 0px; */
+  /* width: 306px; */
 }
 
 /* .Header-Photo {
@@ -133,6 +154,7 @@
   height: 90vh;
   margin-top: 12vh;
   background-color: var(--mainColor);
+  margin-bottom: 10vh;
 }
 .Slider div {
   width: 100% !important;

@@ -192,7 +192,7 @@ const NavBar = () => {
           <div className="AdminIcon">
             <span
               onClick={() => {
-                navigate("/admin");
+                navigate("/admin/products");
               }}
             >
               <RiAdminLine />

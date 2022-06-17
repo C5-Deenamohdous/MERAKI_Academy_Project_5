@@ -102,6 +102,10 @@
   padding: 20px;
 }
 
+.T-icon .CartBtns { 
+  color: var(--btnsColor);
+}
+
 tr {
   text-align: center;
 }
