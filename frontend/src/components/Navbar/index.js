@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom";
 const NavBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isLoggedIn, cart, userId, Wishlist, subTotal } = useSelector(
+  const { isLoggedIn, cart, userId, Wishlist, subTotal, role_id } = useSelector(
     (state) => {
       return {
         isLoggedIn: state.auth.isLoggedIn,
@@ -27,6 +27,7 @@ const NavBar = () => {
         userId: state.auth.userId,
         Wishlist: state.Wishlist.Wishlist,
         subTotal: state.cart.subTotal,
+        role_id: state.auth.role_id,
       };
     }
   );
@@ -94,25 +95,30 @@ const NavBar = () => {
             </span>
           </div>
         </div>
+        {isLoggedIn ? (
+          <>
+            <span
+              onClick={() => {
+                navigate(`/user/${userId}`);
+              }}
+            >
+              Profile
+            </span>
 
+            <span
+              onClick={() => {
+                navigate(`/user/${userId}`);
+              }}
+            >
+              My Orders
+            </span>
+          </>
+        ) : (
+          ""
+        )}
         <span
           onClick={() => {
-            navigate(`/user/${userId}`);
-          }}
-        >
-          Profile
-        </span>
-
-        <span
-          onClick={() => {
-            navigate(`/user/${userId}`);
-          }}
-        >
-          My Orders
-        </span>
-        <span
-          onClick={() => {
-            navigate(`/user/${userId}`);
+            navigate(`/contactUs`);
           }}
         >
           Contact
@@ -182,15 +188,20 @@ const NavBar = () => {
 
       <div className="RIGT-NAV">
         {/*  */}
-        <div className="AdminIcon">
-          <span
-            onClick={() => {
-              navigate("/Login");
-            }}
-          >
-            <RiAdminLine />
-          </span>
-        </div>
+        {isLoggedIn && role_id == 4 ? (
+          <div className="AdminIcon">
+            <span
+              onClick={() => {
+                navigate("/admin");
+              }}
+            >
+              <RiAdminLine />
+            </span>
+          </div>
+        ) : (
+          ""
+        )}
+
         {/*  */}
         <div className="Login-Logout">
           {isLoggedIn ? (

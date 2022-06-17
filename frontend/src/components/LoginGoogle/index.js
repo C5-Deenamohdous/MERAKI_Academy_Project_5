@@ -27,6 +27,7 @@ const LoginGoogle = () => {
         dispatch(setlogin(result.data));
         localStorage.setItem("token", result.data.token);
         localStorage.setItem("userId", result.data.userId);
+        localStorage.setItem("role_id", result.data.role_id);
         navigate("/Product");
       })
       .catch((err) => {
